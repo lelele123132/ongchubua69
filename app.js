@@ -6,6 +6,7 @@ let currentLesson = 1, currentTab = 'flash', cardIndex = 0, quizState = null;
 let kanjiStudyMode = 'flash', kanjiQuizState = null;
 let practiceFlashItems = [], practiceFlashIndex = 0;
 let practiceKanjiItems = [], practiceKanjiIndex = 0, practiceActiveMode = '';
+let n4QuizState = null;
 
 const MINNA_SOURCE = {
   label: 'Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2',
@@ -249,6 +250,15 @@ function goHome(){
       <div class="hero-actions"><button class="primary-btn" onclick="openLesson(1)">Bắt đầu bài 1</button><button class="secondary-btn" onclick="openPractice()">Luyện nhiều bài</button></div>
     </div>
     <div class="stats"><div class="stat"><b>25</b><span>Bài học</span></div><div class="stat"><b>6</b><span>Chế độ / bài</span></div><div class="stat"><b>N5</b><span>Trình độ</span></div><div class="stat"><b>✓</b><span>Lưu tiến độ</span></div></div>
+  </section>
+  <section class="n4-home-card">
+    <div class="n4-home-icon">N4</div>
+    <div class="n4-home-copy">
+      <span class="n4-eyebrow">TÀI LIỆU N4 BẠN ĐÃ GỬI</span>
+      <h2>Trắc nghiệm Kanji N4</h2>
+      <p>151 câu Gokaku: đọc Kanji + chọn cách viết, kèm bộ ôn sinh từ bảng tổng hợp Dũng Mori N4.</p>
+    </div>
+    <button class="primary-btn n4-home-btn" onclick="openN4Quiz()">Vào N4 Quiz →</button>
   </section>
   <div class="section-title"><div><h2>Chọn bài để học</h2><p>Bấm vào bất kỳ bài nào để bắt đầu.</p></div></div>
   <section class="lesson-grid">${LESSONS.map(l=>{
@@ -611,3 +621,160 @@ document.addEventListener('keydown',e=>{
   }
 });
 goHome();
+
+
+/* ============================
+   V7 — N4 quiz từ 2 PDF người dùng cung cấp
+   ============================ */
+const N4_GOKAKU_SOURCE = 'TRẮC NGHIỆM KANJI N4 GOKAKU (2 MONDAI)';
+const N4_DUNGMORI_SOURCE = 'DUNGMORI – Tổng hợp N4';
+
+function n4WordLookup(q){
+  const correct=q.options[q.answer];
+  if(q.kind==='reading'){
+    return DUNGMORI_N4_WORDS.find(w=>w.kanji===q.target || (w.kanji.replace(/する$/,'')===q.target));
+  }
+  return DUNGMORI_N4_WORDS.find(w=>w.kanji===correct || w.reading===q.target || w.reading.replace(/する$/,'')===q.target);
+}
+function openN4Quiz(){
+  setNav('n4');
+  n4QuizState=null;
+  app.innerHTML=`<div class="breadcrumb"><button onclick="goHome()">Trang chủ</button> › N4 Quiz</div>
+  <section class="n4-hero">
+    <div>
+      <span class="n4-eyebrow">KANJI N4 • 2 TÀI LIỆU</span>
+      <h1>Trắc nghiệm N4 từ tài liệu của bạn</h1>
+      <p>Gokaku dùng câu hỏi gốc trong PDF. Dũng Mori được dùng làm bảng đối chiếu Kanji – cách đọc – nghĩa và tạo thêm câu luyện tập.</p>
+    </div>
+    <div class="n4-source-stats">
+      <div><b>${GOKAKU_N4_QUESTIONS.length}</b><span>câu Gokaku</span></div>
+      <div><b>${DUNGMORI_N4_WORDS.length}</b><span>mục Dũng Mori</span></div>
+    </div>
+  </section>
+  <section class="panel n4-setup">
+    <div class="n4-source-grid">
+      <button class="n4-source-card active" id="n4-source-gokaku" onclick="chooseN4Source('gokaku')">
+        <span class="n4-source-tag">PDF 1</span><h3>Gokaku – câu hỏi gốc</h3>
+        <p>問題1: 漢字の読み方 • 問題2: 文字の書き方</p>
+        <b>${GOKAKU_N4_QUESTIONS.length} câu</b>
+      </button>
+      <button class="n4-source-card" id="n4-source-dungmori" onclick="chooseN4Source('dungmori')">
+        <span class="n4-source-tag green">PDF 2</span><h3>Dũng Mori – ôn tổng hợp</h3>
+        <p>Tạo câu hỏi đọc, nghĩa và Kanji từ bảng tổng hợp N4.</p>
+        <b>${DUNGMORI_N4_WORDS.length} mục</b>
+      </button>
+    </div>
+    <div id="n4-options"></div>
+    <div id="n4-quiz-area"></div>
+  </section>`;
+  chooseN4Source('gokaku');
+}
+function chooseN4Source(source){
+  document.querySelectorAll('.n4-source-card').forEach(x=>x.classList.remove('active'));
+  const card=document.getElementById(`n4-source-${source}`); if(card)card.classList.add('active');
+  const opt=document.getElementById('n4-options'), area=document.getElementById('n4-quiz-area');
+  area.innerHTML='';
+  if(source==='gokaku'){
+    opt.innerHTML=`<div class="n4-option-row">
+      <label><b>Phần</b><select id="n4-mondai"><option value="all">Cả 2 Mondai</option><option value="1">問題1 – Đọc Kanji (86 câu)</option><option value="2">問題2 – Viết Kanji (65 câu)</option></select></label>
+      <label><b>Số câu</b><select id="n4-count"><option value="10">10 câu</option><option value="20" selected>20 câu</option><option value="50">50 câu</option><option value="all">Tất cả</option></select></label>
+      <button class="primary-btn n4-start-btn" onclick="startGokakuQuiz()">Bắt đầu Gokaku →</button>
+    </div>
+    <div class="n4-source-note"><b>Nguồn câu:</b> ${N4_GOKAKU_SOURCE}. Khi có mục tương ứng, phần giải thích sẽ đối chiếu thêm với ${N4_DUNGMORI_SOURCE}.</div>`;
+  }else{
+    opt.innerHTML=`<div class="n4-option-row">
+      <label><b>Dạng</b><select id="n4-dung-kind"><option value="mixed">Trộn 3 dạng</option><option value="reading">Kanji → cách đọc</option><option value="meaning">Kanji → nghĩa Việt</option><option value="writing">Kana → Kanji</option></select></label>
+      <label><b>Số câu</b><select id="n4-dung-count"><option value="10">10 câu</option><option value="20" selected>20 câu</option><option value="40">40 câu</option></select></label>
+      <button class="primary-btn n4-start-btn" onclick="startDungMoriQuiz()">Bắt đầu Dũng Mori →</button>
+    </div>
+    <div class="n4-source-note"><b>Nguồn dữ liệu:</b> ${N4_DUNGMORI_SOURCE}. Câu hỏi được website tạo từ bảng Kanji/cách đọc/nghĩa, không phải câu hỏi nguyên văn của tài liệu.</div>`;
+  }
+}
+function startGokakuQuiz(){
+  const mondai=document.getElementById('n4-mondai').value;
+  const countValue=document.getElementById('n4-count').value;
+  let qs=GOKAKU_N4_QUESTIONS.filter(q=>mondai==='all'||String(q.mondai)===mondai);
+  qs=shuffle(qs);
+  const count=countValue==='all'?qs.length:+countValue;
+  qs=qs.slice(0,count);
+  n4QuizState={source:'gokaku',questions:qs,index:0,score:0,answered:false,wrong:[]};
+  renderN4Question();
+}
+function n4HardDistractors(field,correct,word,count=3){
+  const vals=[...new Set(DUNGMORI_N4_WORDS.map(w=>w[field]).filter(x=>x&&x!==correct))];
+  if(field==='reading') vals.sort((a,b)=>readingSimilarity(correct,a)-readingSimilarity(correct,b)).reverse();
+  else if(field==='meaning') vals.sort((a,b)=>meaningSimilarity(correct,a)-meaningSimilarity(correct,b)).reverse();
+  else vals.sort((a,b)=>visualWordScore(correct,a)-visualWordScore(correct,b)).reverse();
+  return vals.slice(0,count);
+}
+function buildDungMoriQuestions(kind,count){
+  let out=[];
+  shuffle(DUNGMORI_N4_WORDS).forEach(w=>{
+    const kinds=kind==='mixed'?shuffle(['reading','meaning','writing']):[kind];
+    kinds.forEach(k=>{
+      if(k==='reading'){
+        const opts=shuffle([w.reading,...n4HardDistractors('reading',w.reading,w)]);
+        out.push({source:'dungmori',kind:k,prompt:`「${w.kanji}」の読み方は？`,target:w.kanji,options:opts,answer:opts.indexOf(w.reading),word:w});
+      }else if(k==='meaning'){
+        const opts=shuffle([w.meaning,...n4HardDistractors('meaning',w.meaning,w)]);
+        out.push({source:'dungmori',kind:k,prompt:`「${w.kanji}」の意味は？`,target:w.kanji,options:opts,answer:opts.indexOf(w.meaning),word:w});
+      }else{
+        const opts=shuffle([w.kanji,...n4HardDistractors('kanji',w.kanji,w)]);
+        out.push({source:'dungmori',kind:k,prompt:`「${w.reading}」の正しい漢字は？`,target:w.reading,options:opts,answer:opts.indexOf(w.kanji),word:w});
+      }
+    });
+  });
+  return shuffle(out).slice(0,count);
+}
+function startDungMoriQuiz(){
+  const kind=document.getElementById('n4-dung-kind').value;
+  const count=+document.getElementById('n4-dung-count').value;
+  n4QuizState={source:'dungmori',questions:buildDungMoriQuestions(kind,count),index:0,score:0,answered:false,wrong:[]};
+  renderN4Question();
+}
+function renderN4Question(){
+  const area=document.getElementById('n4-quiz-area'), s=n4QuizState;
+  if(!area||!s)return;
+  if(s.index>=s.questions.length){renderN4Result(area);return;}
+  const q=s.questions[s.index];
+  const sourceLabel=s.source==='gokaku'
+    ? `GOKAKU • 問題${q.mondai} • câu ${q.number} • PDF trang ${q.page}`
+    : `DŨNG MORI • ${q.kind==='reading'?'Cách đọc':q.kind==='writing'?'Viết Kanji':'Nghĩa'}`;
+  const pct=Math.round((s.index/s.questions.length)*100);
+  area.innerHTML=`<div class="n4-quiz-card">
+    <div class="n4-quiz-top"><span>${sourceLabel}</span><b>${s.index+1}/${s.questions.length}</b></div>
+    <div class="progressbar n4-progress"><span style="width:${pct}%"></span></div>
+    <div class="n4-question">${escapeHtml(q.prompt)}</div>
+    ${q.sentence?`<div class="n4-original-sentence">${escapeHtml(q.sentence)}</div>`:''}
+    <div class="n4-answer-grid">${q.options.map((a,i)=>`<button class="n4-answer" data-index="${i}" onclick="answerN4Question(this,${i})"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(a)}</b></button>`).join('')}</div>
+    <div id="n4-feedback"></div>
+  </div>`;
+}
+function answerN4Question(btn,i){
+  const s=n4QuizState,q=s.questions[s.index]; if(s.answered)return;
+  s.answered=true;
+  const correct=q.answer;
+  document.querySelectorAll('.n4-answer').forEach((b,idx)=>{if(idx===correct)b.classList.add('correct')});
+  if(i===correct)s.score++;else{btn.classList.add('wrong');s.wrong.push(q)}
+  const correctText=q.options[correct];
+  const word=q.word||n4WordLookup(q);
+  let explain=`<b>${i===correct?'✓ Chính xác':'✗ Đáp án đúng: '+escapeHtml(correctText)}</b>`;
+  if(word) explain+=`<div class="n4-word-explain"><strong>${escapeHtml(word.kanji)}</strong><span>${escapeHtml(word.reading)}</span><em>${escapeHtml(word.meaning)}</em></div>`;
+  else explain+=`<small>${q.kind==='reading'?escapeHtml(q.target)+' → '+escapeHtml(correctText):escapeHtml(q.target)+' → '+escapeHtml(correctText)}</small>`;
+  document.getElementById('n4-feedback').innerHTML=`<div class="feedback n4-feedback">${explain}</div><div class="n4-next"><button class="primary-btn" onclick="nextN4Question()">Câu tiếp theo →</button></div>`;
+}
+function nextN4Question(){n4QuizState.index++;n4QuizState.answered=false;renderN4Question();}
+function renderN4Result(area){
+  const s=n4QuizState,pct=s.questions.length?Math.round(s.score/s.questions.length*100):0;
+  area.innerHTML=`<div class="n4-result">
+    <span class="n4-eyebrow">HOÀN THÀNH</span><h2>Kết quả N4</h2>
+    <div class="n4-result-score">${s.score}<small>/${s.questions.length}</small></div>
+    <p>${pct>=90?'Rất chắc Kanji.':pct>=75?'Khá tốt, xem lại các câu sai để tránh bẫy nét.':pct>=55?'Đã có nền, nhưng nên làm lại các câu sai.':'Nên ôn bảng Dũng Mori rồi thử lại.'}</p>
+    <div class="n4-result-actions"><button class="primary-btn" onclick="${s.source==='gokaku'?'startGokakuQuiz()':'startDungMoriQuiz()'}">Làm bộ mới ↻</button>${s.wrong.length?`<button class="secondary-btn" onclick="reviewN4Wrong()">Luyện lại ${s.wrong.length} câu sai</button>`:''}</div>
+  </div>`;
+}
+function reviewN4Wrong(){
+  const wrong=[...n4QuizState.wrong];
+  n4QuizState={source:n4QuizState.source,questions:shuffle(wrong),index:0,score:0,answered:false,wrong:[]};
+  renderN4Question();
+}

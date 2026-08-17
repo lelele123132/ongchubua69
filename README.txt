@@ -63,3 +63,22 @@ V6 - LUYỆN KANJI KHÓ
 - Ở Luyện tập tổng hợp có thêm nút "Luyện Kanji khó" cho các bài đã chọn.
 - Lưu ý: ở câu bẫy mặt chữ, một số phương án sai được tạo để luyện phân biệt nét
   và có thể không phải là một từ vựng thật trong bài.
+
+
+V7 - THÊM TRẮC NGHIỆM N4 TỪ 2 PDF
+-----------------------------------
+1) Gokaku N4:
+- 151 câu.
+- 問題1: 86 câu chọn cách đọc Kanji.
+- 問題2: 65 câu chọn cách viết Kanji.
+- Có thể chọn 10 / 20 / 50 / tất cả.
+- Làm sai có thể luyện lại riêng các câu sai.
+
+2) Dũng Mori N4:
+- 142 mục Kanji/từ vựng được đưa vào bộ ôn.
+- Website tạo 3 dạng: Kanji -> cách đọc, Kanji -> nghĩa Việt, Kana -> Kanji.
+- Dùng làm phần đối chiếu khi trả lời các câu Gokaku có mục tương ứng.
+
+Lưu ý:
+- Gokaku là câu hỏi từ PDF người dùng cung cấp.
+- Bộ Dũng Mori là câu hỏi do website sinh từ bảng tổng hợp, không phải câu hỏi nguyên văn.

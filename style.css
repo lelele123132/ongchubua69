@@ -131,3 +131,54 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:12px}
   .kanji-hard-answers{grid-template-columns:1fr}
   .kanji-hard-answer{min-height:62px}
 }
+
+
+/* ===== V7 — N4 Quiz từ Gokaku + Dũng Mori ===== */
+.n4-nav{font-weight:850}
+.n4-home-card{margin:0 0 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:22px;border:1px solid #d9e6c5;border-radius:22px;background:linear-gradient(135deg,#fbfff5,#f1f9df);box-shadow:0 7px 24px rgba(70,95,30,.05)}
+.n4-home-icon{width:66px;height:66px;border-radius:19px;display:grid;place-items:center;background:#42572f;color:#d6f07e;font-weight:950;font-size:26px;letter-spacing:-.04em}
+.n4-home-copy h2{margin:3px 0 5px}.n4-home-copy p{margin:0;color:var(--muted);line-height:1.55;font-size:13px}
+.n4-eyebrow{font-size:10px;font-weight:950;letter-spacing:.12em;color:#6b8735}
+.n4-home-btn{white-space:nowrap}
+.n4-hero{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;margin-bottom:18px;padding:28px;border-radius:24px;background:#354828;color:#fff}
+.n4-hero h1{margin:6px 0 8px;font-size:clamp(28px,4vw,42px)}.n4-hero p{margin:0;color:rgba(255,255,255,.78);max-width:720px;line-height:1.65}
+.n4-hero .n4-eyebrow{color:#cfe779}
+.n4-source-stats{display:flex;gap:10px}.n4-source-stats div{min-width:105px;padding:16px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);text-align:center}
+.n4-source-stats b{display:block;font-size:25px}.n4-source-stats span{font-size:10px;color:rgba(255,255,255,.7)}
+.n4-source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.n4-source-card{position:relative;text-align:left;border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px;cursor:pointer;color:var(--text);transition:.15s}
+.n4-source-card:hover{transform:translateY(-2px);border-color:#c4d39b}
+.n4-source-card.active{border-color:#8eaa45;box-shadow:0 0 0 3px rgba(142,170,69,.11);background:#fbfff5}
+.n4-source-card h3{margin:6px 0 5px}.n4-source-card p{margin:0 0 10px;color:var(--muted);font-size:12px}.n4-source-card>b{color:#526d29}
+.n4-source-tag{display:inline-flex;padding:4px 7px;border-radius:999px;background:#fff0f1;color:#a83440;font-size:9px;font-weight:900}.n4-source-tag.green{background:#eff7dc;color:#5d762e}
+.n4-option-row{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:20px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.n4-option-row label{display:grid;gap:6px;min-width:210px;color:#5f6575;font-size:12px}.n4-option-row select{border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px 12px;font:inherit;color:var(--text)}
+.n4-start-btn{min-height:43px}.n4-source-note{font-size:11px;line-height:1.55;color:#7d8394;background:#f7f8fb;border-radius:11px;padding:10px 12px}
+#n4-quiz-area{margin-top:20px}
+.n4-quiz-card{max-width:850px;margin:0 auto;border:1px solid var(--line);border-radius:22px;padding:23px;background:#fff}
+.n4-quiz-top{display:flex;justify-content:space-between;gap:10px;color:#858a9c;font-size:11px;font-weight:750}.n4-progress{margin:10px 0 22px;max-width:none}
+.n4-question{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;font-size:clamp(25px,4vw,36px);font-weight:900;line-height:1.45;margin:8px 0 22px}
+.n4-answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.n4-answer{display:flex;align-items:center;gap:12px;text-align:left;min-height:72px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:13px 15px;cursor:pointer;font:inherit;color:var(--text)}
+.n4-answer:hover{border-color:#a9bf70;background:#fbfff6}.n4-answer>span{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:#f0f2f5;color:#73798a;font-size:11px;font-weight:900}
+.n4-answer>b{font-size:clamp(18px,3vw,25px);font-family:"Yu Gothic","Noto Sans JP",system-ui,sans-serif}
+.n4-answer.correct{border-color:#72bc8e;background:#eaf8f0}.n4-answer.wrong{border-color:#e78b94;background:#fff0f1}
+.n4-answer.correct>span{background:#cdebd9;color:#176b42}.n4-answer.wrong>span{background:#ffd9dd;color:#a02331}
+.n4-feedback{display:grid;gap:8px;margin-top:14px}.n4-feedback>b{font-size:14px}.n4-feedback small{color:#747a8d}
+.n4-word-explain{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.n4-word-explain strong{font-size:23px}.n4-word-explain span{font-size:16px;color:#5f6577}.n4-word-explain em{font-style:normal;color:#5f762f;font-weight:750}
+.n4-next{text-align:right;margin-top:12px}.n4-result{text-align:center;max-width:650px;margin:0 auto;padding:34px 20px;border:1px solid var(--line);border-radius:22px;background:#fbfff6}
+.n4-result h2{margin:6px 0}.n4-result-score{font-size:64px;line-height:1.1;font-weight:950;color:#607d31;margin:14px 0}.n4-result-score small{font-size:23px;color:#969caa}
+.n4-result p{color:var(--muted)}.n4-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media(max-width:760px){
+  .n4-home-card{grid-template-columns:auto 1fr}.n4-home-btn{grid-column:1/-1;width:100%}
+  .n4-hero{grid-template-columns:1fr}.n4-source-stats{justify-content:flex-start}
+  .n4-source-grid{grid-template-columns:1fr}.n4-answer-grid{grid-template-columns:1fr}
+  .n4-option-row label{width:100%}.n4-start-btn{width:100%}
+}
+@media(max-width:470px){
+  .n4-home-card{grid-template-columns:1fr}.n4-home-icon{width:54px;height:54px}
+  .n4-source-stats{display:grid;grid-template-columns:1fr 1fr}.n4-source-stats div{min-width:0}
+  .n4-quiz-card{padding:16px}.n4-answer{min-height:60px}.n4-question{font-size:25px}
+}
+
+.n4-original-sentence{margin:-8px 0 20px;padding:14px 16px;border-radius:13px;background:#f8f9f3;border:1px solid #e4e9d8;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;font-size:clamp(18px,2.7vw,24px);line-height:1.7;color:#343a2d}
