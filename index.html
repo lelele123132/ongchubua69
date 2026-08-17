@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Web học tiếng Nhật N5 - 25 bài, flashcard, từ vựng, kanji, ngữ pháp, trắc nghiệm và đọc hiểu." />
+  <title>Nihongo N5 - 25 bài học</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" onclick="goHome()" aria-label="Về trang chủ">
+      <span class="brand-mark">日</span>
+      <span><strong>Nihongo N5</strong><small>25 bài • Minna no Nihongo</small></span>
+    </button>
+    <nav>
+      <button class="nav-btn active" data-nav="home" onclick="goHome()">Trang chủ</button>
+      <button class="nav-btn" data-nav="practice" onclick="openPractice()">Luyện tập</button>
+      <button class="nav-btn" data-nav="progress" onclick="openProgress()">Tiến độ</button>
+    </nav>
+  </header>
+
+  <main id="app"></main>
+
+  <footer>
+    <span>Nihongo N5 • Flashcard • Kanji • Ngữ pháp • Đọc hiểu • Trắc nghiệm</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
