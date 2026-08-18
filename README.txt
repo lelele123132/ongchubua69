@@ -108,3 +108,35 @@ V9 - RECALL MEMORY ENGINE / PHÂN TÍCH NGƯỜI HỌC
   + Kế hoạch ôn theo spaced recall: khoảng 10 phút -> 1 ngày -> 3 ngày -> 7 ngày -> 14 -> 30 -> 60 -> 120 ngày; lịch co lại khi sai và giãn ra khi recall chắc.
 - Phiên ôn trong Recall Lab dùng ACTIVE RECALL: không hiện đáp án A/B/C trước. Người học tự gọi đáp án ra trước, sau đó mới lật đáp án và chấm mức nhớ.
 - Dữ liệu phân tích lưu bằng localStorage trên chính trình duyệt/thiết bị; có nút xuất JSON để sao lưu.
+
+
+V10 - TRẮC NGHIỆM TỪ VỰNG TOÀN BÀI
+-----------------------------------
+- Trong mục "Từ vựng" của mỗi Bài 1–25 có 2 chế độ:
+  1) Danh sách từ.
+  2) Trắc nghiệm toàn bài.
+- Một lượt "Trắc nghiệm toàn bài" bắt buộc kiểm tra 100% mục từ của bài:
+  số câu cơ bản = đúng số mục từ của bài.
+- Chế độ "Trộn thông minh" luân phiên:
+  Nhật -> nghĩa Việt;
+  nghĩa Việt -> từ Nhật;
+  Kanji/từ Nhật -> cách đọc.
+- Với từ chỉ viết Kana, hệ thống tự đổi câu đọc sang dạng nghĩa để tránh câu hỏi lộ đáp án.
+- Đáp án sai chỉ lấy từ CHÍNH BÀI đang học.
+- Khi bật "Bẫy khó", đáp án sai được ưu tiên theo:
+  nghĩa gần;
+  cùng nhóm nghĩa;
+  mặt chữ gần;
+  cách đọc gần;
+  và lịch sử người học từng chọn sai.
+- Kết thúc lượt học hiển thị:
+  số từ đã kiểm tra / tổng số từ;
+  số từ sai;
+  độ chính xác;
+  nút luyện lại riêng các từ sai.
+- Mỗi câu được ghi vào Recall Memory Engine với:
+  hướng recall;
+  đáp án sai -> đáp án đúng;
+  thời gian phản hồi;
+  số lần sai/lapse.
+  Vì vậy cặp từ từng nhầm sẽ được ưu tiên làm bẫy trong những lần sau.

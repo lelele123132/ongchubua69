@@ -35,6 +35,7 @@ function recallKey(parts){return parts.map(x=>String(x??'').replace(/\|/g,'/')).
 function recallSkillLabel(skill){return ({
   'vocab-meaning':'Từ vựng: Nhật → nghĩa',
   'vocab-reading':'Từ vựng: cách đọc',
+  'vocab-word':'Từ vựng: nghĩa → từ Nhật',
   'grammar':'Ngữ pháp',
   'reading-comp':'Đọc hiểu',
   'kanji-shape':'Kanji: phân biệt mặt chữ',

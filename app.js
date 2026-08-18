@@ -3,6 +3,7 @@ const PROGRESS_KEY = 'nihongoN5ProgressV3';
 const FLASH_STATE_KEY = 'nihongoN5FlashKnownV3';
 const KANJI_STATE_KEY = 'nihongoN5KanjiKnownV4';
 let currentLesson = 1, currentTab = 'flash', cardIndex = 0, quizState = null;
+let vocabStudyMode = 'list', vocabQuizState = null;
 let kanjiStudyMode = 'flash', kanjiQuizState = null;
 let practiceFlashItems = [], practiceFlashIndex = 0;
 let practiceKanjiItems = [], practiceKanjiIndex = 0, practiceActiveMode = '';
@@ -290,7 +291,7 @@ function openLesson(id,tab='flash'){
   renderLessonContent();
 }
 function tabButton(key,label){ return `<button class="study-tab ${currentTab===key?'active':''}" onclick="changeTab('${key}')">${label}</button>`; }
-function changeTab(tab){ currentTab=tab; cardIndex=0; if(tab==='kanji')kanjiStudyMode='flash'; openLesson(currentLesson,tab); }
+function changeTab(tab){ currentTab=tab; cardIndex=0; if(tab==='vocab')vocabStudyMode='list'; if(tab==='kanji')kanjiStudyMode='flash'; openLesson(currentLesson,tab); }
 function completeButton(type){ return `<button class="secondary-btn" onclick="markDone(${currentLesson},'${type}');this.textContent='✓ Đã hoàn thành';this.disabled=true">Đánh dấu đã học</button>`; }
 function renderLessonContent(){ const box=document.getElementById('lesson-content'),l=LESSONS[currentLesson-1]; ({flash:renderFlash,vocab:renderVocab,kanji:renderKanji,grammar:renderGrammar,quiz:startLessonQuiz,reading:renderReading})[currentTab](box,l); }
 
@@ -351,10 +352,225 @@ function filterVocab(input){
   input.closest('.vocab-wrap').querySelectorAll('.vocab-row').forEach(row=>row.hidden=q&&!row.dataset.search.includes(q));
 }
 function renderVocab(box,l){
-  box.innerHTML=`<div class="section-title"><div><h2>Từ vựng ${l.title}</h2><p>${l.vocab.length} mục từ/biểu đạt được đưa vào bộ học.</p></div>${completeButton('vocab')}</div>
+  box.innerHTML=`<div class="vocab-mode-head">
+    <div>
+      <span class="flash-kicker">BÀI ${l.id} • ${l.vocab.length} TỪ / BIỂU ĐẠT</span>
+      <h2>Từ vựng ${l.title}</h2>
+      <p>Trắc nghiệm toàn bài bắt buộc đi qua 100% từ vựng của bài, không bỏ sót từ.</p>
+    </div>
+    <div class="vocab-mode-switch">
+      <button class="${vocabStudyMode==='list'?'active':''}" onclick="setVocabStudyMode('list')">📘 Danh sách</button>
+      <button class="${vocabStudyMode==='quiz'?'active hard':''}" onclick="setVocabStudyMode('quiz')">🎯 Trắc nghiệm toàn bài</button>
+    </div>
+  </div>
+  <div class="vocab-smart-note"><b>Recall Quiz:</b> đáp án sai chỉ lấy trong <b>chính Bài ${l.id}</b> và được xếp hạng theo mức dễ nhầm. Nếu bạn từng chọn sai một đáp án trước đây, hệ thống sẽ ưu tiên đưa chính đáp án đó trở lại làm bẫy.</div>
+  <div id="vocab-study-content"></div>`;
+  const content=document.getElementById('vocab-study-content');
+  if(vocabStudyMode==='quiz') renderVocabQuizSetup(content,l);
+  else renderVocabList(content,l);
+}
+function setVocabStudyMode(mode){
+  vocabStudyMode=mode;
+  vocabQuizState=null;
+  renderLessonContent();
+}
+function renderVocabList(box,l){
+  box.innerHTML=`<div class="section-title"><div><h3>Danh sách từ vựng</h3><p>${l.vocab.length} mục từ/biểu đạt được đưa vào bộ học.</p></div>${completeButton('vocab')}</div>
   ${vocabSourceNote(l)}
   <div class="vocab-wrap"><div class="vocab-toolbar"><input class="vocab-search" type="search" placeholder="Tìm Kanji, Kana, romaji hoặc nghĩa Việt…" oninput="filterVocab(this)" aria-label="Tìm từ vựng"></div>
   <div class="vocab-table"><div class="vocab-head"><b>Kanji / từ Nhật</b><b>Kana</b><b>Romaji</b><b>Nghĩa Việt</b></div>${l.vocab.map(v=>vocabRow(v)).join('')}</div></div>`;
+}
+function renderVocabQuizSetup(box,l){
+  box.innerHTML=`<div class="vocab-quiz-intro">
+    <div class="vocab-coverage-ring"><b>100%</b><span>từ trong bài</span></div>
+    <div>
+      <h3>Trắc nghiệm từ vựng toàn Bài ${l.id}</h3>
+      <p>Mỗi từ xuất hiện <b>ít nhất 1 lần</b> trong lượt kiểm tra. Câu hỏi được trộn giữa Nhật → Việt, Việt → Nhật và Kanji → cách đọc để tránh chỉ nhớ theo một chiều.</p>
+      <div class="vocab-quiz-facts">
+        <span><b>${l.vocab.length}</b> câu cơ bản</span>
+        <span>Đáp án nhiễu: cùng bài</span>
+        <span>Ưu tiên cặp từng nhầm</span>
+      </div>
+    </div>
+  </div>
+  <div class="vocab-quiz-settings">
+    <label><b>Kiểu kiểm tra</b>
+      <select id="vocab-quiz-kind">
+        <option value="smart">Trộn thông minh 3 dạng</option>
+        <option value="meaning">Nhật → nghĩa Việt</option>
+        <option value="word">Nghĩa Việt → từ Nhật</option>
+        <option value="reading">Kanji/từ Nhật → cách đọc</option>
+      </select>
+    </label>
+    <label class="vocab-check-label"><input id="vocab-hard-toggle" type="checkbox" checked> <span><b>Bẫy khó</b><small>chọn đáp án gần nhất thay vì ngẫu nhiên</small></span></label>
+    <button class="primary-btn" onclick="startFullLessonVocabQuiz(${l.id})">Bắt đầu đủ ${l.vocab.length} từ →</button>
+  </div>`;
+}
+function vocabHistoricalConfusionBonus(itemKey,candidate){
+  try{
+    const model=getRecallModel();
+    const state=model[itemKey];
+    return state?.confusions?.[String(candidate)]||0;
+  }catch{return 0}
+}
+function vocabPeerScore(l,v,candidate,kind,itemKey){
+  const sameMeaning=meaningCategory(v.vi)>=0&&meaningCategory(v.vi)===meaningCategory(candidate.vi)?8:0;
+  const history=vocabHistoricalConfusionBonus(itemKey,kind==='meaning'?candidate.vi:kind==='reading'?(candidate.kana||candidate.jp):candidate.jp)*30;
+  if(kind==='meaning'){
+    return meaningSimilarity(v.vi,candidate.vi)*4
+      + readingSimilarity(v.kana||v.jp,candidate.kana||candidate.jp)
+      + visualWordScore(v.jp,candidate.jp)*.35 + sameMeaning + history;
+  }
+  if(kind==='reading'){
+    return readingSimilarity(v.kana||v.jp,candidate.kana||candidate.jp)*5
+      + visualWordScore(v.jp,candidate.jp)*.45 + sameMeaning + history;
+  }
+  return meaningSimilarity(v.vi,candidate.vi)*2.8
+    + visualWordScore(v.jp,candidate.jp)*1.3
+    + readingSimilarity(v.kana||v.jp,candidate.kana||candidate.jp)*1.5
+    + sameMeaning + history;
+}
+function vocabHardPeers(l,v,vocabIndex,kind,hard=true){
+  const skill=kind==='meaning'?'vocab-meaning':kind==='reading'?'vocab-reading':'vocab-word';
+  const key=recallKey(['vocab',l.id,vocabIndex,skill]);
+  const peers=l.vocab.map((x,i)=>({...x,_i:i})).filter(x=>x._i!==vocabIndex);
+  if(!hard)return shuffle(peers).slice(0,3);
+  return peers.map(x=>({x,score:vocabPeerScore(l,v,x,kind,key)}))
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,3).map(o=>o.x);
+}
+function vocabQuestionKind(v,index,requested){
+  if(requested!=='smart'){
+    if(requested==='reading' && (!v.kana || v.kana===v.jp))return index%2===0?'meaning':'word';
+    return requested;
+  }
+  const cycle=['meaning','word','reading'];
+  let kind=cycle[index%3];
+  if(kind==='reading' && (!v.kana || v.kana===v.jp))kind=index%2===0?'meaning':'word';
+  return kind;
+}
+function createFullLessonVocabQuestions(l,requested='smart',hard=true,onlyIndices=null){
+  const indices=Array.isArray(onlyIndices)?onlyIndices:[...Array(l.vocab.length).keys()];
+  return shuffle(indices.map((vi,order)=>{
+    const v=l.vocab[vi],kind=vocabQuestionKind(v,order,requested);
+    const peers=vocabHardPeers(l,v,vi,kind,hard);
+    let q,correct,answers,skill,type;
+    if(kind==='meaning'){
+      q=`「${v.jp}」 nghĩa là gì?`;
+      correct=v.vi;
+      answers=shuffle(uniqueArray([correct,...peers.map(x=>x.vi)])).slice(0,4);
+      skill='vocab-meaning';type='Nhật → Việt';
+    }else if(kind==='reading'){
+      q=`Cách đọc đúng của 「${v.jp}」 là?`;
+      correct=v.kana||v.jp;
+      answers=shuffle(uniqueArray([correct,...peers.map(x=>x.kana||x.jp)])).slice(0,4);
+      skill='vocab-reading';type='Cách đọc';
+    }else{
+      q=`Từ tiếng Nhật nào có nghĩa 「${v.vi}」?`;
+      correct=v.jp;
+      answers=shuffle(uniqueArray([correct,...peers.map(x=>x.jp)])).slice(0,4);
+      skill='vocab-word';type='Việt → Nhật';
+    }
+    // Hiếm khi bài có các đáp án trùng nghĩa/cách đọc; bổ sung từ khác cùng bài để luôn có tối đa 4 lựa chọn.
+    if(answers.length<4){
+      const fallback=l.vocab.filter((x,i)=>i!==vi).map(x=>kind==='meaning'?x.vi:kind==='reading'?(x.kana||x.jp):x.jp);
+      answers=shuffle(uniqueArray([correct,...answers,...fallback])).slice(0,4);
+    }
+    return {
+      lesson:l.id,vocabIndex:vi,kind,skill,type,q,correct,answers,
+      target:v.jp,itemLabel:v.jp,
+      detail:`${v.jp} • ${v.kana||v.jp}${v.reading?` • ${v.reading}`:''} • ${v.vi}`
+    };
+  }));
+}
+function startFullLessonVocabQuiz(lessonId,onlyIndices=null){
+  const l=LESSONS[lessonId-1];
+  const requested=document.getElementById('vocab-quiz-kind')?.value || vocabQuizState?.requested || 'smart';
+  const hard=document.getElementById('vocab-hard-toggle')?.checked ?? vocabQuizState?.hard ?? true;
+  const qs=createFullLessonVocabQuestions(l,requested,hard,onlyIndices);
+  vocabQuizState={
+    lessonId,requested,hard,questions:qs,index:0,score:0,answered:false,
+    wrongIndices:[],questionStartedAt:Date.now(),fullRun:!Array.isArray(onlyIndices)
+  };
+  renderFullLessonVocabQuestion();
+}
+function renderFullLessonVocabQuestion(){
+  const s=vocabQuizState,l=LESSONS[s.lessonId-1],box=document.getElementById('vocab-study-content');
+  if(!s||!box)return;
+  if(s.index>=s.questions.length){renderFullLessonVocabResult(box,l);return}
+  const q=s.questions[s.index],v=l.vocab[q.vocabIndex],pct=Math.round(s.index/s.questions.length*100);
+  s.questionStartedAt=Date.now();
+  const previouslyWrong=(()=>{
+    try{
+      const st=getRecallModel()[recallKey(['vocab',l.id,q.vocabIndex,q.skill])];
+      return st?.wrong||0;
+    }catch{return 0}
+  })();
+  box.innerHTML=`<div class="vocab-full-quiz">
+    <div class="vocab-full-top">
+      <div><span class="vocab-full-badge">BÀI ${l.id} • FULL COVERAGE</span><h3>${escapeHtml(q.type)}</h3></div>
+      <div class="vocab-full-counter"><b>${s.index+1}</b><span>/ ${s.questions.length}</span></div>
+    </div>
+    <div class="vocab-full-meta"><span>Đã kiểm tra ${s.index}/${s.questions.length} từ</span><span>${s.hard?'⚠ Bẫy dễ nhầm đang bật':'Bẫy ngẫu nhiên'}</span>${previouslyWrong?`<span class="repeat-trap">↻ Từ này từng sai ${previouslyWrong} lần</span>`:''}</div>
+    <div class="progressbar vocab-full-progress"><span style="width:${pct}%"></span></div>
+    <div class="vocab-full-question">${escapeHtml(q.q)}</div>
+    ${q.kind==='reading'?`<div class="vocab-question-hint">${escapeHtml(v.vi)}</div>`:''}
+    <div class="vocab-full-answers">${q.answers.map((a,i)=>`<button class="vocab-full-answer" data-answer="${escapeHtml(a)}" onclick="answerFullLessonVocab(this,${i})"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(a)}</b></button>`).join('')}</div>
+    <div id="vocab-full-feedback"></div>
+  </div>`;
+}
+function answerFullLessonVocab(btn,i){
+  const s=vocabQuizState;if(!s||s.answered)return;
+  s.answered=true;
+  const q=s.questions[s.index],l=LESSONS[s.lessonId-1],v=l.vocab[q.vocabIndex],selected=q.answers[i],ok=selected===q.correct;
+  document.querySelectorAll('.vocab-full-answer').forEach(b=>{if(b.dataset.answer===q.correct)b.classList.add('correct')});
+  if(ok)s.score++;else{btn.classList.add('wrong');if(!s.wrongIndices.includes(q.vocabIndex))s.wrongIndices.push(q.vocabIndex)}
+  recordRecallEvent({
+    itemKey:recallKey(['vocab',l.id,q.vocabIndex,q.skill]),
+    domain:'vocab',skill:q.skill,lesson:l.id,itemLabel:v.jp,target:v.jp,prompt:q.q,
+    selected,correctAnswer:q.correct,correct:ok,responseMs:Date.now()-(s.questionStartedAt||Date.now()),
+    source:`Trắc nghiệm từ vựng toàn Bài ${l.id}`,answers:q.answers,explanation:q.detail,qType:'vocab-full-lesson',
+    extra:{vocabIndex:q.vocabIndex,kind:q.kind,fullCoverage:s.fullRun}
+  });
+  const trap=q.kind==='meaning'
+    ? 'Đáp án nhiễu được ưu tiên theo nghĩa gần, nhóm nghĩa giống và lịch sử bạn từng nhầm.'
+    : q.kind==='reading'
+      ? 'Đáp án nhiễu ưu tiên cách đọc có âm/độ dài gần và từ có mặt chữ gần.'
+      : 'Đáp án nhiễu ưu tiên từ cùng nhóm nghĩa, cách đọc hoặc mặt chữ gần.';
+  document.getElementById('vocab-full-feedback').innerHTML=`<div class="feedback vocab-full-feedback">
+    <b>${ok?'✓ Chính xác':'✗ Bạn chọn '+escapeHtml(selected)+' • Đúng là '+escapeHtml(q.correct)}</b>
+    <span>${escapeHtml(q.detail)}</span>
+    <small>${trap}${!ok?' Cặp nhầm này đã được ghi vào Recall Lab để ưu tiên ôn lại.':''}</small>
+  </div><div class="vocab-full-next"><button class="primary-btn" onclick="nextFullLessonVocabQuestion()">Câu tiếp theo →</button></div>`;
+}
+function nextFullLessonVocabQuestion(){
+  vocabQuizState.index++;vocabQuizState.answered=false;renderFullLessonVocabQuestion();
+}
+function renderFullLessonVocabResult(box,l){
+  const s=vocabQuizState,pct=s.questions.length?Math.round(s.score/s.questions.length*100):0;
+  if(s.fullRun)markDone(l.id,'vocab');
+  box.innerHTML=`<div class="vocab-full-result">
+    <span class="vocab-full-badge">100% COVERAGE COMPLETE</span>
+    <h2>${s.fullRun?`Đã kiểm tra đủ ${l.vocab.length}/${l.vocab.length} từ Bài ${l.id}`:`Đã luyện lại ${s.questions.length} từ sai`}</h2>
+    <div class="vocab-result-score">${s.score}<small>/${s.questions.length}</small></div>
+    <div class="vocab-result-meter"><span style="width:${pct}%"></span></div>
+    <p><b>${pct}% chính xác.</b> ${pct>=90?'Bộ từ bài này đang khá chắc. Recall Lab vẫn sẽ gọi lại các mục dễ rơi rụng theo lịch.':pct>=70?'Khá ổn, nhưng nên luyện lại ngay các từ sai để củng cố đường recall.':'Nên luyện lại câu sai ngay, sau đó quay về Flashcard cho những mục có Memory Strength thấp.'}</p>
+    <div class="vocab-result-stats">
+      <span><b>${s.questions.length}</b> từ đã kiểm tra</span>
+      <span><b>${s.wrongIndices.length}</b> từ bị nhầm</span>
+      <span><b>${s.hard?'ON':'OFF'}</b> bẫy khó</span>
+    </div>
+    <div class="vocab-result-actions">
+      ${s.wrongIndices.length?`<button class="primary-btn" onclick="retryWrongVocabWords()">Luyện lại ${s.wrongIndices.length} từ sai →</button>`:''}
+      <button class="secondary-btn" onclick="startFullLessonVocabQuiz(${l.id})">Làm lại toàn bộ ${l.vocab.length} từ</button>
+      <button class="ghost-btn" onclick="setVocabStudyMode('list')">Xem danh sách</button>
+    </div>
+  </div>`;
+}
+function retryWrongVocabWords(){
+  if(!vocabQuizState?.wrongIndices?.length)return;
+  const indices=[...vocabQuizState.wrongIndices];
+  startFullLessonVocabQuiz(vocabQuizState.lessonId,indices);
 }
 function renderKanji(box,l){
   const items=lessonKanjiWords(l);
