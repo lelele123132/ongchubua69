@@ -210,6 +210,7 @@ function createKanjiQuestions(lessonIds,count=15){
       pool.push({
         lesson:id,type:'Nhìn mặt chữ • bẫy 1–2 nét',kind:'shape',
         q:`Từ 「${v.kana||v.jp}」 (${v.vi}) được viết Kanji đúng là?`,
+        target:v.jp,itemLabel:v.jp,
         correct:v.jp,
         answers:fillToFour(v.jp,shape,lessonKanjiWords(l).map(x=>x.jp).filter(x=>x.jp!==v.jp)),
         explanation:`${v.jp} • ${v.kana||v.jp}${v.reading?` • ${v.reading}`:''} • ${v.vi}`
@@ -218,6 +219,7 @@ function createKanjiQuestions(lessonIds,count=15){
       pool.push({
         lesson:id,type:'Nghĩa gần • dễ nhầm',kind:'meaning',
         q:`「${v.jp}」 có nghĩa đúng là gì?`,
+        target:v.jp,itemLabel:v.jp,
         correct:v.vi,
         answers:fillToFour(v.vi,meaning,l.vocab.map(x=>x.vi).filter(x=>x.vi!==v.vi)),
         explanation:`${v.jp} • ${v.kana||v.jp}${v.reading?` • ${v.reading}`:''}`
@@ -226,6 +228,7 @@ function createKanjiQuestions(lessonIds,count=15){
       pool.push({
         lesson:id,type:'Cách đọc • âm gần',kind:'reading',
         q:`Cách đọc đúng của 「${v.jp}」 là?`,
+        target:v.jp,itemLabel:v.jp,
         correct:v.kana||v.jp,
         answers:fillToFour(v.kana||v.jp,reading,l.vocab.map(x=>x.kana||x.jp).filter(x=>(x!==(v.kana||v.jp)))),
         explanation:`${v.jp} = ${v.kana||v.jp}${v.reading?` (${v.reading})`:''} • ${v.vi}`
@@ -270,6 +273,7 @@ function goHome(){
     </div>
     <button class="primary-btn n4-home-btn" onclick="openN4Quiz()">Vào N4 Quiz →</button>
   </section>
+  <section class="recall-home-card"><div class="recall-home-mark">R</div><div><span>RECALL MEMORY</span><h2>Ôn theo đúng những gì bạn hay quên</h2><p>Phân tích đáp án sai, tốc độ nhớ, cặp Kanji dễ nhầm và tự lập lịch ôn 10 phút → 1 ngày → 3 ngày → 7 ngày…</p></div><button class="primary-btn" onclick="openRecallLab()">Mở Recall Lab →</button></section>
   <div class="section-title"><div><h2>Chọn bài để học</h2><p>Bấm vào bất kỳ bài nào để bắt đầu.</p></div></div>
   <section class="lesson-grid">${LESSONS.map(l=>{
     const done=lessonProgress(l.id);
@@ -291,6 +295,7 @@ function completeButton(type){ return `<button class="secondary-btn" onclick="ma
 function renderLessonContent(){ const box=document.getElementById('lesson-content'),l=LESSONS[currentLesson-1]; ({flash:renderFlash,vocab:renderVocab,kanji:renderKanji,grammar:renderGrammar,quiz:startLessonQuiz,reading:renderReading})[currentTab](box,l); }
 
 function renderFlash(box,l){
+  flashRecallStartedAt=Date.now();
   const v=l.vocab[cardIndex];
   const pct=Math.round((cardIndex+1)/l.vocab.length*100);
   const known=isFlashKnown(l.id,cardIndex);
@@ -322,9 +327,9 @@ function renderFlash(box,l){
     </div>
     <div class="flash-progress-meta"><span>Tiến độ bộ thẻ</span><b>${pct}%</b></div>
     <div class="progressbar"><span style="width:${pct}%"></span></div>
-    <div class="flash-actions">
+    ${recallRatingButtons('vocab',l.id,cardIndex)}
+    <div class="flash-actions two-actions">
       <button class="secondary-btn flash-nav-btn" onclick="prevCard()">← Trước</button>
-      <button class="memory-btn ${known?'known':''}" onclick="setFlashKnown(${l.id},${cardIndex},${!known})">${known?'✓ Đã nhớ':'☆ Đánh dấu đã nhớ'}</button>
       <button class="primary-btn flash-nav-btn" onclick="nextCard()">Tiếp →</button>
     </div>
     <div class="flash-shortcuts">← → đổi thẻ • Space lật thẻ</div>
@@ -378,6 +383,7 @@ function setKanjiStudyMode(mode){
   kanjiStudyMode=mode; cardIndex=0; kanjiQuizState=null; renderLessonContent();
 }
 function renderKanjiFlash(box,l){
+  flashRecallStartedAt=Date.now();
   const items=lessonKanjiWords(l);
   cardIndex=(cardIndex+items.length)%items.length;
   const v=items[cardIndex], pct=Math.round((cardIndex+1)/items.length*100);
@@ -411,9 +417,9 @@ function renderKanjiFlash(box,l){
     </div>
     <div class="flash-progress-meta"><span>Tiến độ bộ Kanji của bài</span><b>${pct}%</b></div>
     <div class="progressbar"><span style="width:${pct}%"></span></div>
-    <div class="flash-actions">
+    ${recallRatingButtons('kanjiword',l.id,v._vocabIndex)}
+    <div class="flash-actions two-actions">
       <button class="secondary-btn flash-nav-btn" onclick="prevKanjiCard()">← Trước</button>
-      <button class="memory-btn ${known?'known':''}" onclick="setKanjiKnown(${l.id},${v._vocabIndex},${!known})">${known?'✓ Đã nhớ':'☆ Đánh dấu đã nhớ'}</button>
       <button class="primary-btn flash-nav-btn" onclick="nextKanjiCard()">Tiếp →</button>
     </div>
     <div class="flash-shortcuts">← → đổi thẻ • Space lật thẻ</div>
@@ -449,6 +455,7 @@ function renderKanjiQuiz(box){
     return;
   }
   const q=s.questions[s.index];
+  s.questionStartedAt=Date.now();
   box.innerHTML=`<div class="quiz-box kanji-hard-quiz">
     <div class="hard-quiz-header"><span class="hard-badge">⚔ KANJI HARD</span><span>Câu ${s.index+1}/${s.questions.length}</span></div>
     <div class="question-meta">Bài ${q.lesson} • ${escapeHtml(q.type)}</div>
@@ -464,6 +471,8 @@ function answerKanjiQuiz(btn,i){
   const q=s.questions[s.index], selected=q.answers[i];
   document.querySelectorAll('.kanji-hard-answer').forEach(b=>{if(b.dataset.answer===q.correct)b.classList.add('correct')});
   if(selected===q.correct)s.score++; else btn.classList.add('wrong');
+  const skill=q.kind==='shape'?'kanji-shape':q.kind==='meaning'?'kanji-meaning':'kanji-reading';
+  recordRecallEvent({itemKey:recallKey(['kanjiword',q.lesson,q.target||q.correct,q.kind]),domain:'kanji',skill,lesson:q.lesson,itemLabel:q.itemLabel||q.target||q.correct,target:q.target||'',prompt:q.q,selected,correctAnswer:q.correct,correct:selected===q.correct,responseMs:Date.now()-(s.questionStartedAt||Date.now()),source:'Kanji Hard Minna',answers:q.answers,explanation:q.explanation||''});
   const note=q.kind==='shape'
     ? '<small>💡 Bẫy hình dạng được tạo bằng cách đổi một vài nét/chữ gần hình để buộc bạn nhìn kỹ mặt Kanji.</small>'
     : q.kind==='meaning'
@@ -495,12 +504,13 @@ function createQuestions(lessonIds,count=15){
 
     // Từ vựng: 3 đáp án nhiễu chỉ lấy từ chính bài đang hỏi.
     const lessonMeanings=[...new Set(l.vocab.map(x=>x.vi).filter(Boolean))];
-    l.vocab.forEach(v=>{
+    l.vocab.forEach((v,vi)=>{
       const distractors=shuffle(lessonMeanings.filter(m=>m!==v.vi)).slice(0,3);
       pool.push({
         lesson:id,
         type:'Từ vựng',
         q:`「${v.jp}」 nghĩa là gì?`,
+        target:v.jp, vocabIndex:vi, skill:'vocab-meaning', domain:'vocab',
         correct:v.vi,
         answers:shuffle([v.vi,...distractors])
       });
@@ -508,12 +518,13 @@ function createQuestions(lessonIds,count=15){
 
     // Ngữ pháp: các lựa chọn sai cũng chỉ lấy trong phần ngữ pháp của chính bài.
     const lessonGrammarMeanings=[...new Set(l.grammar.map(x=>x.meaning).filter(Boolean))];
-    l.grammar.forEach(g=>{
+    l.grammar.forEach((g,gi)=>{
       const distractors=shuffle(lessonGrammarMeanings.filter(m=>m!==g.meaning)).slice(0,3);
       pool.push({
         lesson:id,
         type:'Ngữ pháp',
         q:`Mẫu 「${g.pattern}」 dùng để diễn đạt ý nào?`,
+        target:g.pattern, grammarIndex:gi, skill:'grammar', domain:'grammar',
         correct:g.meaning,
         answers:shuffle([g.meaning,...distractors])
       });
@@ -525,12 +536,18 @@ function startLessonQuiz(box,l){ quizState={questions:createQuestions([l.id],12)
 function renderQuiz(box){
   if(quizState.index>=quizState.questions.length){ if(quizState.lessonQuiz) markDone(currentLesson,'quiz'); box.innerHTML=`<div class="quiz-box" style="text-align:center"><h2>Hoàn thành 🎉</h2><p style="font-size:30px"><b>${quizState.score}/${quizState.questions.length}</b></p><p>${quizState.score>=quizState.questions.length*.8?'Rất tốt! Hãy chuyển sang đọc hiểu hoặc bài tiếp theo.':'Hãy xem lại flashcard và thử lại nhé.'}</p><button class="primary-btn" onclick="${quizState.lessonQuiz?"renderLessonContent()":"startMixedPractice('quiz')"}">Làm lại</button></div>`; return; }
   const q=quizState.questions[quizState.index];
+  quizState.questionStartedAt=Date.now();
   box.innerHTML=`<div class="quiz-box"><div class="question-meta">Câu ${quizState.index+1}/${quizState.questions.length} • Bài ${q.lesson} • ${q.type}</div><div class="question">${q.q}</div><div class="answers">${q.answers.map((a,i)=>`<button class="answer" data-answer="${escapeHtml(a)}" onclick="answerQuiz(this,${i})">${String.fromCharCode(65+i)}. ${escapeHtml(a)}</button>`).join('')}</div><div id="quiz-feedback"></div></div>`;
 }
 function answerQuiz(btn,i){
   if(quizState.answered)return; quizState.answered=true; const q=quizState.questions[quizState.index],selected=q.answers[i];
   document.querySelectorAll('.answer').forEach(b=>{ if(b.dataset.answer===q.correct)b.classList.add('correct'); });
   if(selected===q.correct)quizState.score++; else btn.classList.add('wrong');
+  recordRecallEvent({
+    itemKey:recallKey(['lesson',q.lesson,q.type,q.vocabIndex??q.grammarIndex??recallHash(q.q)]),domain:q.domain||'vocab',skill:q.skill||(q.type==='Ngữ pháp'?'grammar':'vocab-meaning'),lesson:q.lesson,
+    itemLabel:q.target||q.q,target:q.target||'',prompt:q.q,selected,correctAnswer:q.correct,correct:selected===q.correct,responseMs:Date.now()-(quizState.questionStartedAt||Date.now()),
+    source:quizState.lessonQuiz?'Trắc nghiệm bài':'Luyện tập tổng hợp',answers:q.answers,explanation:q.type==='Ngữ pháp'?q.correct:`${q.target||''} = ${q.correct}`
+  });
   document.getElementById('quiz-feedback').innerHTML=`<div class="feedback">${selected===q.correct?'✓ Chính xác':'✗ Đáp án đúng: '+escapeHtml(q.correct)}</div><div style="text-align:right;margin-top:12px"><button class="primary-btn" onclick="nextQuizQuestion()">Câu tiếp theo →</button></div>`;
 }
 function nextQuizQuestion(){ quizState.index++; quizState.answered=false; renderQuiz(document.getElementById(quizState.container)); }
@@ -538,9 +555,12 @@ function nextQuizQuestion(){ quizState.index++; quizState.answered=false; render
 function renderReadingTokens(tokens){ return tokens.map(t=> typeof t==='string'?escapeHtml(t):`<span class="word" tabindex="0" data-vi="${escapeHtml(t.vi)}" onclick="toggleTip(this)">${escapeHtml(t.jp)}</span>`).join(''); }
 function toggleTip(el){ document.querySelectorAll('.word.show-tip').forEach(x=>{if(x!==el)x.classList.remove('show-tip')}); el.classList.toggle('show-tip'); }
 function renderReading(box,l){
-  box.innerHTML=`<div class="reading-wrap"><div class="section-title"><div><h2>Đọc hiểu ${l.title}</h2><p>Đọc đoạn văn rồi trả lời câu hỏi.</p></div>${completeButton('reading')}</div><div class="reading-note">💡 Rê chuột vào từ có gạch chấm để xem nghĩa tiếng Việt. Trên điện thoại, chạm vào từ để bật/tắt nghĩa.</div><div class="reading-text">${renderReadingTokens(l.reading.tokens)}</div><div class="reading-questions"><h3>Câu hỏi đọc hiểu</h3>${l.reading.questions.map((q,qi)=>`<div class="reading-q"><h4>${qi+1}. ${q.q}</h4>${shuffle(q.answers).map(a=>`<button class="mini-answer" data-correct="${a===q.correct}" onclick="answerReading(this)">${a}</button>`).join('')}<div class="reading-feedback"></div></div>`).join('')}</div></div>`;
+  box.innerHTML=`<div class="reading-wrap"><div class="section-title"><div><h2>Đọc hiểu ${l.title}</h2><p>Đọc đoạn văn rồi trả lời câu hỏi.</p></div>${completeButton('reading')}</div><div class="reading-note">💡 Rê chuột vào từ có gạch chấm để xem nghĩa tiếng Việt. Trên điện thoại, chạm vào từ để bật/tắt nghĩa.</div><div class="reading-text">${renderReadingTokens(l.reading.tokens)}</div><div class="reading-questions"><h3>Câu hỏi đọc hiểu</h3>${l.reading.questions.map((q,qi)=>`<div class="reading-q" data-qindex="${qi}" data-lesson="${l.id}" data-started="${Date.now()}"><h4>${qi+1}. ${q.q}</h4>${shuffle(q.answers).map(a=>`<button class="mini-answer" data-answer="${escapeHtml(a)}" data-correct="${a===q.correct}" onclick="answerReading(this)">${a}</button>`).join('')}<div class="reading-feedback"></div></div>`).join('')}</div></div>`;
 }
-function answerReading(btn){ const wrap=btn.closest('.reading-q'); if(wrap.dataset.done)return; wrap.dataset.done='1'; wrap.querySelectorAll('.mini-answer').forEach(b=>{if(b.dataset.correct==='true')b.classList.add('correct')}); if(btn.dataset.correct!=='true')btn.classList.add('wrong'); wrap.querySelector('.reading-feedback').innerHTML=`<small style="color:var(--muted)">${btn.dataset.correct==='true'?'✓ Đúng':'✗ Xem đáp án được đánh dấu màu xanh.'}</small>`; }
+function answerReading(btn){ const wrap=btn.closest('.reading-q'); if(wrap.dataset.done)return; wrap.dataset.done='1'; wrap.querySelectorAll('.mini-answer').forEach(b=>{if(b.dataset.correct==='true')b.classList.add('correct')}); if(btn.dataset.correct!=='true')btn.classList.add('wrong');
+  const lesson=+(wrap.dataset.lesson||currentLesson),qi=+(wrap.dataset.qindex||0),l=LESSONS[lesson-1],q=l?.reading?.questions?.[qi];
+  if(q)recordRecallEvent({itemKey:recallKey(['reading',lesson,qi]),domain:'reading',skill:'reading-comp',lesson,itemLabel:`Đọc hiểu Bài ${lesson} câu ${qi+1}`,target:q.q,prompt:q.q,selected:btn.dataset.answer||btn.textContent.trim(),correctAnswer:q.correct,correct:btn.dataset.correct==='true',responseMs:Date.now()-+(wrap.dataset.started||Date.now()),source:'Đọc hiểu Minna',answers:q.answers,explanation:q.correct});
+  wrap.querySelector('.reading-feedback').innerHTML=`<small style="color:var(--muted)">${btn.dataset.correct==='true'?'✓ Đúng':'✗ Xem đáp án được đánh dấu màu xanh.'}</small>`; }
 
 function openPractice(){
   setNav('practice');
@@ -572,7 +592,7 @@ function startMixedPractice(mode){
   }
   if(mode==='grammar'){ const items=ids.flatMap(id=>LESSONS[id-1].grammar.map(g=>({...g,lesson:id}))); r.innerHTML+=`<h2>Ngữ pháp đã chọn</h2>${items.map(g=>`<article class="grammar-card"><small>Bài ${g.lesson}</small><h3>${g.pattern}</h3><p>${g.meaning}</p><div class="example">${g.example}<br><small>${g.translation}</small></div></article>`).join('')}`; }
   if(mode==='flash'){ practiceFlashItems=shuffle(ids.flatMap(id=>LESSONS[id-1].vocab.map(v=>({...v,lesson:id}))));practiceFlashIndex=0;renderPracticeFlash(); }
-  if(mode==='reading'){ const lesson=LESSONS[shuffle(ids)[0]-1]; r.innerHTML+=`<div class="reading-wrap"><h2>Đọc hiểu ngẫu nhiên • Bài ${lesson.id}</h2><div class="reading-note">Rê chuột/chạm vào từ có gạch chấm để xem nghĩa Việt.</div><div class="reading-text">${renderReadingTokens(lesson.reading.tokens)}</div><div class="reading-questions">${lesson.reading.questions.map((q,qi)=>`<div class="reading-q"><h4>${qi+1}. ${q.q}</h4>${shuffle(q.answers).map(a=>`<button class="mini-answer" data-correct="${a===q.correct}" onclick="answerReading(this)">${a}</button>`).join('')}<div class="reading-feedback"></div></div>`).join('')}</div><div class="card-controls"><button class="primary-btn" onclick="startMixedPractice('reading')">Đổi bài đọc ↻</button></div></div>`; }
+  if(mode==='reading'){ const lesson=LESSONS[shuffle(ids)[0]-1]; r.innerHTML+=`<div class="reading-wrap"><h2>Đọc hiểu ngẫu nhiên • Bài ${lesson.id}</h2><div class="reading-note">Rê chuột/chạm vào từ có gạch chấm để xem nghĩa Việt.</div><div class="reading-text">${renderReadingTokens(lesson.reading.tokens)}</div><div class="reading-questions">${lesson.reading.questions.map((q,qi)=>`<div class="reading-q" data-qindex="${qi}" data-lesson="${lesson.id}" data-started="${Date.now()}"><h4>${qi+1}. ${q.q}</h4>${shuffle(q.answers).map(a=>`<button class="mini-answer" data-answer="${escapeHtml(a)}" data-correct="${a===q.correct}" onclick="answerReading(this)">${a}</button>`).join('')}<div class="reading-feedback"></div></div>`).join('')}</div><div class="card-controls"><button class="primary-btn" onclick="startMixedPractice('reading')">Đổi bài đọc ↻</button></div></div>`; }
 }
 function renderPracticeFlash(){
   const r=document.getElementById('practice-result'),v=practiceFlashItems[practiceFlashIndex];
@@ -753,6 +773,7 @@ function renderN4Question(){
     ? `GOKAKU • 問題${q.mondai} • câu ${q.number} • PDF trang ${q.page}`
     : `DŨNG MORI • ${q.kind==='reading'?'Cách đọc':q.kind==='writing'?'Viết Kanji':'Nghĩa'}`;
   const pct=Math.round((s.index/s.questions.length)*100);
+  s.questionStartedAt=Date.now();
   area.innerHTML=`<div class="n4-quiz-card">
     <div class="n4-quiz-top"><span>${sourceLabel}</span><b>${s.index+1}/${s.questions.length}</b></div>
     <div class="progressbar n4-progress"><span style="width:${pct}%"></span></div>
@@ -769,6 +790,9 @@ function answerN4Question(btn,i){
   document.querySelectorAll('.n4-answer').forEach((b,idx)=>{if(idx===correct)b.classList.add('correct')});
   if(i===correct)s.score++;else{btn.classList.add('wrong');s.wrong.push(q)}
   const correctText=q.options[correct];
+  const n4skill=q.kind==='writing'?'n4-writing':q.kind==='meaning'?'n4-meaning':'n4-reading';
+  const n4key=s.source==='gokaku'?recallKey(['n4','gokaku',q.id]):recallKey(['n4','dungmori',q.kind,(q.word&&q.word.kanji)||q.target]);
+  recordRecallEvent({itemKey:n4key,domain:'n4',skill:n4skill,itemLabel:(q.word&&q.word.kanji)||q.target||q.id,target:q.target||'',prompt:q.prompt,selected:q.options[i],correctAnswer:correctText,correct:i===correct,responseMs:Date.now()-(s.questionStartedAt||Date.now()),source:s.source==='gokaku'?'Gokaku N4':'Dũng Mori N4',answers:q.options,explanation:q.word?`${q.word.kanji} • ${q.word.reading} • ${q.word.meaning}`:''});
   const word=q.word||n4WordLookup(q);
   let explain=`<b>${i===correct?'✓ Chính xác':'✗ Đáp án đúng: '+escapeHtml(correctText)}</b>`;
   if(word) explain+=`<div class="n4-word-explain"><strong>${escapeHtml(word.kanji)}</strong><span>${escapeHtml(word.reading)}</span><em>${escapeHtml(word.meaning)}</em></div>`;
@@ -859,6 +883,7 @@ function renderKanji218Content(){
   return renderKanji218Flash(box);
 }
 function renderKanji218Flash(box){
+  flashRecallStartedAt=Date.now();
   const items=getKanji218Filtered();
   if(!items.length){box.innerHTML='<div class="empty"><p>Không tìm thấy Kanji phù hợp.</p></div>';return}
   kanji218Index=(kanji218Index+items.length)%items.length; const k=items[kanji218Index], ex=collectKanji218Examples(k), conf=kanji218ConfusableItems(k), known=isKanji218Known(k.kanji);
@@ -874,7 +899,8 @@ function renderKanji218Flash(box){
     <div class="k218-details"><div class="k218-example-block"><h3>Ví dụ cơ bản N5 / N4</h3>${ex.length?ex.map(x=>`<div class="k218-example"><span class="k218-example-level ${x.level==='N5'?'n5':'n4'}">${x.level}</span><strong>${escapeHtml(x.word)}</strong><span>${escapeHtml(x.reading)}</span><em>${escapeHtml(x.meaning)}</em></div>`).join(''):'<p>Chưa có ví dụ trong dữ liệu hiện tại.</p>'}</div>
       <div class="k218-confuse-block"><h3>Dễ nhầm mặt chữ</h3>${conf.length?`<div class="k218-confuse-chips">${conf.map(c=>`<button onclick="jumpKanji218('${c.ch}')"><b>${c.ch}</b><span>${c.item?escapeHtml(c.item.meaning):'chữ gần hình'}</span></button>`).join('')}</div>`:'<p>Không có nhóm bẫy nét nổi bật trong bộ hiện tại.</p>'}</div></div>
     <div class="flash-progress-meta"><span>Tiến độ phạm vi đang lọc</span><b>${pct}%</b></div><div class="progressbar"><span style="width:${pct}%"></span></div>
-    <div class="flash-actions"><button class="secondary-btn" onclick="prevKanji218Card()">← Trước</button><button class="memory-btn ${known?'known':''}" onclick="setKanji218Known('${k.kanji}',${!known})">${known?'✓ Đã nhớ':'☆ Đánh dấu đã nhớ'}</button><button class="primary-btn" onclick="nextKanji218Card()">Tiếp →</button></div>
+    ${recallRatingButtons('kanji218',k.kanji)}
+    <div class="flash-actions two-actions"><button class="secondary-btn" onclick="prevKanji218Card()">← Trước</button><button class="primary-btn" onclick="nextKanji218Card()">Tiếp →</button></div>
     <div class="flash-shortcuts">← → đổi thẻ • Space lật thẻ</div></div>`;
 }
 function prevKanji218Card(){if(kanji218Mode!=='flash')return;const a=getKanji218Filtered();if(!a.length)return;kanji218Index=(kanji218Index-1+a.length)%a.length;renderKanji218Content()}
@@ -944,12 +970,15 @@ function renderKanji218HardQuestion(){
   const area=document.getElementById('k218-hard-area'),s=kanji218QuizState;if(!area||!s)return;
   if(s.index>=s.questions.length)return renderKanji218HardResult(area);
   const q=s.questions[s.index],pct=Math.round(s.index/s.questions.length*100);
+  s.questionStartedAt=Date.now();
   area.innerHTML=`<div class="k218-hard-card"><div class="hard-quiz-header"><span class="hard-badge">⚔ ${q.label}</span><span>Câu ${s.index+1}/${s.questions.length}</span></div><div class="progressbar"><span style="width:${pct}%"></span></div><div class="k218-hard-question">${escapeHtml(q.q)}</div><div class="k218-hard-answers">${q.answers.map((a,i)=>`<button class="k218-hard-answer" data-answer="${escapeHtml(a)}" onclick="answerKanji218Hard(this,${i})"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(a)}</b></button>`).join('')}</div><div id="k218-hard-feedback"></div></div>`;
 }
 function answerKanji218Hard(btn,i){
   const s=kanji218QuizState;if(!s||s.answered)return;s.answered=true;const q=s.questions[s.index],sel=q.answers[i];
   document.querySelectorAll('.k218-hard-answer').forEach(x=>{if(x.dataset.answer===q.correct)x.classList.add('correct')});if(sel===q.correct)s.score++;else{btn.classList.add('wrong');s.wrong.push(q)}
   const k=q.item,ex=collectKanji218Examples(k).slice(0,2);
+  const skill=q.type==='shape'?'kanji-shape':q.type==='meaning'?'kanji-meaning':q.type==='on'?'kanji-on':q.type==='kun'?'kanji-kun':'kanji-reading';
+  recordRecallEvent({itemKey:recallKey(['k218',k.kanji,q.type]),domain:'kanji218',skill,itemLabel:k.kanji,target:k.kanji,prompt:q.q,selected:sel,correctAnswer:q.correct,correct:sel===q.correct,responseMs:Date.now()-(s.questionStartedAt||Date.now()),source:'218 Kanji SUPER HARD',answers:q.answers,explanation:`${k.kanji} • ${k.meaning} • On: ${k.on} • Kun: ${k.kun}`});
   document.getElementById('k218-hard-feedback').innerHTML=`<div class="feedback k218-hard-feedback"><b>${sel===q.correct?'✓ Chính xác':'✗ Đáp án đúng: '+escapeHtml(q.correct)}</b><div class="k218-feedback-kanji"><strong>${k.kanji}</strong><span>${escapeHtml(k.meaning)}</span><small>On: ${escapeHtml(k.on)} • Kun: ${escapeHtml(k.kun)}</small></div>${ex.length?`<div class="k218-feedback-ex">${ex.map(x=>`${escapeHtml(x.word)}（${escapeHtml(x.reading)}）= ${escapeHtml(x.meaning)}`).join(' • ')}</div>`:''}</div><div class="n4-next"><button class="primary-btn" onclick="nextKanji218Hard()">Câu tiếp theo →</button></div>`;
 }
 function nextKanji218Hard(){kanji218QuizState.index++;kanji218QuizState.answered=false;renderKanji218HardQuestion()}

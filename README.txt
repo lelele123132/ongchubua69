@@ -92,3 +92,19 @@ V8 - 218 KANJI TỪ ẢNH 提出漢字一覧
 - Danh sách có tìm kiếm và lọc N5/N4/N3≈.
 - Chế độ Siêu khó gồm: bẫy mặt chữ 1-2 nét, nghĩa cùng nhóm, Onyomi/Kunyomi gần âm, đọc từ ví dụ.
 - Có đánh dấu Kanji đã nhớ và luyện lại riêng câu sai.
+
+V9 - RECALL MEMORY ENGINE / PHÂN TÍCH NGƯỜI HỌC
+--------------------------------------------------
+- Thêm Recall Lab: phân tích chi tiết theo từng kỹ năng, từng mục học và từng lỗi.
+- Ghi lại: đúng/sai, đáp án đã chọn, đáp án đúng, dạng kỹ năng, thời gian trả lời, số lần quên lại (lapse), streak và lịch ôn tiếp theo.
+- Flashcard từ vựng, Kanji từ mới và 218 Kanji có 4 mức tự đánh giá: Quên / Khó / Nhớ / Rất chắc.
+- Trắc nghiệm N5, Kanji Hard, N4 Quiz, 218 Kanji SUPER HARD và đọc hiểu đều đẩy dữ liệu vào cùng một mô hình trí nhớ.
+- Recall Lab có:
+  + Retention ước tính, số mục đến hạn, accuracy 7 ngày, tốc độ recall.
+  + Ma trận kỹ năng: từ vựng, ngữ pháp, đọc hiểu, mặt chữ Kanji, nghĩa, On/Kun, đọc/viết N4...
+  + Bản đồ nhầm lẫn: đáp án sai -> đáp án đúng và số lần lặp.
+  + Recall Queue: ưu tiên mục đến hạn / vừa sai / accuracy thấp / recall chậm / lapse cao.
+  + Chi tiết từng mục: lịch sử trả lời, strength, stage, retention, cặp nhầm và lịch ôn tiếp.
+  + Kế hoạch ôn theo spaced recall: khoảng 10 phút -> 1 ngày -> 3 ngày -> 7 ngày -> 14 -> 30 -> 60 -> 120 ngày; lịch co lại khi sai và giãn ra khi recall chắc.
+- Phiên ôn trong Recall Lab dùng ACTIVE RECALL: không hiện đáp án A/B/C trước. Người học tự gọi đáp án ra trước, sau đó mới lật đáp án và chấm mức nhớ.
+- Dữ liệu phân tích lưu bằng localStorage trên chính trình duyệt/thiết bị; có nút xuất JSON để sao lưu.
