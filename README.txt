@@ -82,3 +82,13 @@ V7 - THÊM TRẮC NGHIỆM N4 TỪ 2 PDF
 Lưu ý:
 - Gokaku là câu hỏi từ PDF người dùng cung cấp.
 - Bộ Dũng Mori là câu hỏi do website sinh từ bảng tổng hợp, không phải câu hỏi nguyên văn.
+
+
+V8 - 218 KANJI TỪ ẢNH 提出漢字一覧
+----------------------------------
+- Thêm 218 Kanji theo đúng thứ tự trong ảnh người dùng cung cấp.
+- Phân loại theo số nhỏ của bảng: 4=N5, 3=N4, 2=N3 tương đương.
+- Flashcard: nghĩa Việt, Onyomi chính, Kunyomi chính, ví dụ ưu tiên dữ liệu N5/N4 đang có.
+- Danh sách có tìm kiếm và lọc N5/N4/N3≈.
+- Chế độ Siêu khó gồm: bẫy mặt chữ 1-2 nét, nghĩa cùng nhóm, Onyomi/Kunyomi gần âm, đọc từ ví dụ.
+- Có đánh dấu Kanji đã nhớ và luyện lại riêng câu sai.

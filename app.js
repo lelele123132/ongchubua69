@@ -7,6 +7,7 @@ let kanjiStudyMode = 'flash', kanjiQuizState = null;
 let practiceFlashItems = [], practiceFlashIndex = 0;
 let practiceKanjiItems = [], practiceKanjiIndex = 0, practiceActiveMode = '';
 let n4QuizState = null;
+let kanji218Mode='flash', kanji218Index=0, kanji218Filter='all', kanji218Query='', kanji218QuizState=null;
 
 const MINNA_SOURCE = {
   label: 'Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2',
@@ -250,6 +251,15 @@ function goHome(){
       <div class="hero-actions"><button class="primary-btn" onclick="openLesson(1)">Bắt đầu bài 1</button><button class="secondary-btn" onclick="openPractice()">Luyện nhiều bài</button></div>
     </div>
     <div class="stats"><div class="stat"><b>25</b><span>Bài học</span></div><div class="stat"><b>6</b><span>Chế độ / bài</span></div><div class="stat"><b>N5</b><span>Trình độ</span></div><div class="stat"><b>✓</b><span>Lưu tiến độ</span></div></div>
+  </section>
+  <section class="k218-home-card">
+    <div class="k218-home-icon">字</div>
+    <div class="k218-home-copy">
+      <span class="k218-eyebrow">提出漢字一覧 • ẢNH BẠN GỬI</span>
+      <h2>218 Kanji N5–N4</h2>
+      <p>Flashcard nghĩa + Onyomi/Kunyomi + ví dụ từ N5/N4, kèm trắc nghiệm siêu khó bẫy nét, âm đọc và nghĩa gần nhau.</p>
+    </div>
+    <button class="primary-btn k218-home-btn" onclick="openKanji218()">Học 218 Kanji →</button>
   </section>
   <section class="n4-home-card">
     <div class="n4-home-icon">N4</div>
@@ -607,14 +617,16 @@ document.addEventListener('keydown',e=>{
   }
   if(e.key==='ArrowLeft'){
     e.preventDefault();
-    if(document.getElementById('practice-result') && practiceActiveMode==='kanji' && practiceKanjiItems.length) { practiceKanjiIndex=(practiceKanjiIndex-1+practiceKanjiItems.length)%practiceKanjiItems.length; renderPracticeKanjiFlash(); }
+    if(document.getElementById('kanji218-root')) { prevKanji218Card(); }
+    else if(document.getElementById('practice-result') && practiceActiveMode==='kanji' && practiceKanjiItems.length) { practiceKanjiIndex=(practiceKanjiIndex-1+practiceKanjiItems.length)%practiceKanjiItems.length; renderPracticeKanjiFlash(); }
     else if(document.getElementById('practice-result') && practiceActiveMode==='flash' && practiceFlashItems.length) { practiceFlashIndex=(practiceFlashIndex-1+practiceFlashItems.length)%practiceFlashItems.length; renderPracticeFlash(); }
     else if(currentTab==='kanji') prevKanjiCard();
     else if(currentTab==='flash') prevCard();
   }
   if(e.key==='ArrowRight'){
     e.preventDefault();
-    if(document.getElementById('practice-result') && practiceActiveMode==='kanji' && practiceKanjiItems.length) { practiceKanjiIndex=(practiceKanjiIndex+1)%practiceKanjiItems.length; renderPracticeKanjiFlash(); }
+    if(document.getElementById('kanji218-root')) { nextKanji218Card(); }
+    else if(document.getElementById('practice-result') && practiceActiveMode==='kanji' && practiceKanjiItems.length) { practiceKanjiIndex=(practiceKanjiIndex+1)%practiceKanjiItems.length; renderPracticeKanjiFlash(); }
     else if(document.getElementById('practice-result') && practiceActiveMode==='flash' && practiceFlashItems.length) { practiceFlashIndex=(practiceFlashIndex+1)%practiceFlashItems.length; renderPracticeFlash(); }
     else if(currentTab==='kanji') nextKanjiCard();
     else if(currentTab==='flash') nextCard();
@@ -778,3 +790,168 @@ function reviewN4Wrong(){
   n4QuizState={source:n4QuizState.source,questions:shuffle(wrong),index:0,score:0,answered:false,wrong:[]};
   renderN4Question();
 }
+
+
+/* ============================
+   V8 — 218 Kanji từ ảnh 提出漢字一覧
+   ============================ */
+const KANJI218_KNOWN_KEY='nihongoKanji218KnownV8';
+function getKanji218Known(){try{return JSON.parse(localStorage.getItem(KANJI218_KNOWN_KEY))||{}}catch{return {}}}
+function isKanji218Known(ch){return !!getKanji218Known()[ch]}
+function setKanji218Known(ch,value){const x=getKanji218Known();if(value)x[ch]=1;else delete x[ch];localStorage.setItem(KANJI218_KNOWN_KEY,JSON.stringify(x));renderKanji218Content()}
+function kanji218GradeLabel(g){return g===4?'N5':g===3?'N4':'N3 tương đương'}
+function primaryReading(s){return String(s||'').split('・')[0].trim()}
+function getKanji218Item(ch){return KANJI218.find(x=>x.kanji===ch)}
+function getKanji218Filtered(){
+  const q=kanji218Query.trim().toLowerCase();
+  return KANJI218.filter(k=>{
+    const levelOk=kanji218Filter==='all'||k.jlpt===kanji218Filter;
+    const searchOk=!q||`${k.kanji} ${k.meaning} ${k.on} ${k.kun} ${k.id}`.toLowerCase().includes(q);
+    return levelOk&&searchOk;
+  });
+}
+function collectKanji218Examples(item){
+  let out=[];
+  const basic=KANJI218_BASIC_EXAMPLES[item.kanji];
+  if(basic) out.push({...basic,source:'Ví dụ cơ bản'});
+  LESSONS.forEach(l=>l.vocab.forEach(v=>{
+    const kana=v.kana||v.jp||'';
+    const clean=v.jp&&v.jp.includes(item.kanji)&&v.jp.length<=14&&!/[～—()（）\[\]]/.test(v.jp)&&!/[～—ー()（）\[\]]/.test(kana);
+    if(clean) out.push({word:v.jp,reading:kana,meaning:v.vi,level:'N5',source:`Minna Bài ${l.id}`});
+  }));
+  DUNGMORI_N4_WORDS.forEach(v=>{
+    if(v.kanji&&v.kanji.includes(item.kanji)&&v.kanji.length<=14) out.push({word:v.kanji,reading:v.reading,meaning:v.meaning,level:'N4',source:'Dũng Mori N4'});
+  });
+  (KANJI218_FALLBACK_EXAMPLES[item.kanji]||[]).forEach(v=>out.push({...v,source:'Ví dụ bổ sung'}));
+  const seen=new Set();out=out.filter(x=>{const key=x.word+'|'+x.reading;if(seen.has(key))return false;seen.add(key);return true});
+  // Luôn giữ ví dụ cơ bản đã soát ở vị trí đầu, sau đó bổ sung N5/N4 từ dữ liệu web.
+  const chosen=[];
+  if(basic){const bx=out.find(x=>x.source==='Ví dụ cơ bản');if(bx)chosen.push(bx)}
+  const n5=out.find(x=>x.level==='N5'&&!chosen.some(y=>y.word===x.word));
+  const n4=out.find(x=>x.level==='N4'&&!chosen.some(y=>y.word===x.word));
+  if(n5)chosen.push(n5); if(n4)chosen.push(n4);
+  out.forEach(x=>{if(chosen.length<4&&!chosen.some(y=>y.word===x.word))chosen.push(x)});
+  return chosen.slice(0,4);
+}
+function kanji218ConfusableItems(item){return (KANJI218_CONFUSABLES[item.kanji]||[]).slice(0,4).map(ch=>({ch,item:getKanji218Item(ch)}))}
+function openKanji218(){
+  setNav('kanji218');kanji218Mode='flash';kanji218Index=0;kanji218Filter='all';kanji218Query='';kanji218QuizState=null;
+  const c5=KANJI218.filter(x=>x.grade===4).length,c4=KANJI218.filter(x=>x.grade===3).length,c3=KANJI218.filter(x=>x.grade===2).length;
+  app.innerHTML=`<div id="kanji218-root">
+    <div class="breadcrumb"><button onclick="goHome()">Trang chủ</button> › 218 Kanji</div>
+    <section class="k218-hero"><div><span class="k218-eyebrow">提出漢字一覧 • DANH SÁCH TRONG ẢNH</span><h1>218 Kanji N5–N4</h1><p>Học mặt chữ → nghĩa → Onyomi/Kunyomi → từ ví dụ cơ bản. Chế độ Siêu khó tập trung vào những chữ rất dễ nhìn nhầm hoặc đọc nhầm.</p></div>
+      <div class="k218-stats"><div><b>218</b><span>Tổng Kanji</span></div><div><b>${c5}</b><span>N5 (số 4)</span></div><div><b>${c4}</b><span>N4 (số 3)</span></div><div><b>${c3}</b><span>N3≈ (số 2)</span></div></div></section>
+    <div class="k218-source-note"><b>Đọc bảng trong ảnh:</b> số nhỏ 4 = N5 hiện tại, 3 = N4 hiện tại, 2 = nhóm tương đương N3 theo chú thích dưới ảnh. Các cách đọc bên dưới là <b>cách đọc chính</b>, không phải toàn bộ cách đọc hiếm.</div>
+    <section class="panel k218-panel"><div class="k218-toolbar">
+      <div class="k218-filters"><button data-kfilter="all" class="active" onclick="setKanji218Filter('all',this)">Tất cả 218</button><button data-kfilter="N5" onclick="setKanji218Filter('N5',this)">N5</button><button data-kfilter="N4" onclick="setKanji218Filter('N4',this)">N4</button><button data-kfilter="N3 tương đương" onclick="setKanji218Filter('N3 tương đương',this)">N3≈</button></div>
+      <input class="k218-search" type="search" placeholder="Tìm Kanji, nghĩa, On/Kun hoặc số thứ tự…" oninput="kanji218Query=this.value;kanji218Index=0;renderKanji218Content()">
+      <div class="k218-modes"><button class="active" data-kmode="flash" onclick="setKanji218Mode('flash',this)">🃏 Flashcard</button><button data-kmode="list" onclick="setKanji218Mode('list',this)">▦ Danh sách</button><button class="hard" data-kmode="hard" onclick="setKanji218Mode('hard',this)">⚔ Siêu khó</button></div>
+    </div><div id="kanji218-content"></div></section>
+  </div>`;
+  renderKanji218Content();
+}
+function setKanji218Filter(v,btn){kanji218Filter=v;kanji218Index=0;document.querySelectorAll('[data-kfilter]').forEach(x=>x.classList.toggle('active',x===btn));renderKanji218Content()}
+function setKanji218Mode(v,btn){kanji218Mode=v;kanji218Index=0;kanji218QuizState=null;document.querySelectorAll('[data-kmode]').forEach(x=>x.classList.toggle('active',x===btn));renderKanji218Content()}
+function renderKanji218Content(){
+  const box=document.getElementById('kanji218-content');if(!box)return;
+  if(kanji218Mode==='list')return renderKanji218List(box);
+  if(kanji218Mode==='hard')return renderKanji218HardSetup(box);
+  return renderKanji218Flash(box);
+}
+function renderKanji218Flash(box){
+  const items=getKanji218Filtered();
+  if(!items.length){box.innerHTML='<div class="empty"><p>Không tìm thấy Kanji phù hợp.</p></div>';return}
+  kanji218Index=(kanji218Index+items.length)%items.length; const k=items[kanji218Index], ex=collectKanji218Examples(k), conf=kanji218ConfusableItems(k), known=isKanji218Known(k.kanji);
+  const pct=Math.round((kanji218Index+1)/items.length*100);
+  box.innerHTML=`<div class="k218-flash-wrap">
+    <div class="flash-heading"><div><span class="flash-kicker">KANJI #${k.id} • ${k.jlpt}</span><h2>Flashcard 218 Kanji</h2></div><div class="flash-counter"><b>${kanji218Index+1}</b><span>/ ${items.length}</span></div></div>
+    <div class="flash-area"><button class="flashcard k218-flashcard" type="button" aria-pressed="false" onclick="this.classList.toggle('flipped');this.setAttribute('aria-pressed',this.classList.contains('flipped'))"><span class="flash-inner">
+      <span class="flash-face flash-front k218-front"><span class="flash-side-label">KANJI → PHÂN TÍCH</span><span class="k218-char">${k.kanji}</span><span class="k218-front-meaning">Bạn nhớ nghĩa và cách đọc không?</span><span class="flip-cue"><span>↻</span> Nhấn / Space để lật</span></span>
+      <span class="flash-face flash-back k218-back"><span class="flash-side-label">NGHĨA • CÁCH ĐỌC • VÍ DỤ</span><span class="k218-back-char">${k.kanji}</span><span class="k218-meaning">${escapeHtml(k.meaning)}</span><span class="k218-level-chip">#${k.id} • ${k.jlpt}</span>
+        <span class="k218-reading-grid"><span><small>ONYOMI</small><b>${escapeHtml(k.on)}</b></span><span><small>KUNYOMI</small><b>${escapeHtml(k.kun)}</b></span></span>
+        <span class="flip-cue"><span>↻</span> Nhấn / Space để quay lại</span></span>
+    </span></button></div>
+    <div class="k218-details"><div class="k218-example-block"><h3>Ví dụ cơ bản N5 / N4</h3>${ex.length?ex.map(x=>`<div class="k218-example"><span class="k218-example-level ${x.level==='N5'?'n5':'n4'}">${x.level}</span><strong>${escapeHtml(x.word)}</strong><span>${escapeHtml(x.reading)}</span><em>${escapeHtml(x.meaning)}</em></div>`).join(''):'<p>Chưa có ví dụ trong dữ liệu hiện tại.</p>'}</div>
+      <div class="k218-confuse-block"><h3>Dễ nhầm mặt chữ</h3>${conf.length?`<div class="k218-confuse-chips">${conf.map(c=>`<button onclick="jumpKanji218('${c.ch}')"><b>${c.ch}</b><span>${c.item?escapeHtml(c.item.meaning):'chữ gần hình'}</span></button>`).join('')}</div>`:'<p>Không có nhóm bẫy nét nổi bật trong bộ hiện tại.</p>'}</div></div>
+    <div class="flash-progress-meta"><span>Tiến độ phạm vi đang lọc</span><b>${pct}%</b></div><div class="progressbar"><span style="width:${pct}%"></span></div>
+    <div class="flash-actions"><button class="secondary-btn" onclick="prevKanji218Card()">← Trước</button><button class="memory-btn ${known?'known':''}" onclick="setKanji218Known('${k.kanji}',${!known})">${known?'✓ Đã nhớ':'☆ Đánh dấu đã nhớ'}</button><button class="primary-btn" onclick="nextKanji218Card()">Tiếp →</button></div>
+    <div class="flash-shortcuts">← → đổi thẻ • Space lật thẻ</div></div>`;
+}
+function prevKanji218Card(){if(kanji218Mode!=='flash')return;const a=getKanji218Filtered();if(!a.length)return;kanji218Index=(kanji218Index-1+a.length)%a.length;renderKanji218Content()}
+function nextKanji218Card(){if(kanji218Mode!=='flash')return;const a=getKanji218Filtered();if(!a.length)return;kanji218Index=(kanji218Index+1)%a.length;renderKanji218Content()}
+function jumpKanji218(ch){kanji218Mode='flash';kanji218Filter='all';kanji218Query='';document.querySelectorAll('[data-kmode]').forEach(x=>x.classList.toggle('active',x.dataset.kmode==='flash'));document.querySelectorAll('[data-kfilter]').forEach(x=>x.classList.toggle('active',x.dataset.kfilter==='all'));const inp=document.querySelector('.k218-search');if(inp)inp.value='';kanji218Index=KANJI218.findIndex(x=>x.kanji===ch);renderKanji218Content()}
+function renderKanji218List(box){
+  const items=getKanji218Filtered();
+  box.innerHTML=`<div class="section-title"><div><h2>Danh sách Kanji</h2><p>${items.length} chữ trong phạm vi hiện tại. Bấm một chữ để mở flashcard.</p></div><div class="k218-known-stat">✓ Đã nhớ ${items.filter(x=>isKanji218Known(x.kanji)).length}/${items.length}</div></div><div class="k218-grid">${items.map(k=>`<button class="k218-mini ${isKanji218Known(k.kanji)?'known':''}" onclick="jumpKanji218('${k.kanji}')"><span>${k.kanji}</span><b>${escapeHtml(k.meaning)}</b><small>#${k.id} • ${k.jlpt}</small><em>${escapeHtml(primaryReading(k.on))}${k.kun!=='—'?` / ${escapeHtml(primaryReading(k.kun))}`:''}</em></button>`).join('')}</div>`;
+}
+function k218MeaningCandidates(item){
+  const group=KANJI218_MEANING_GROUPS.find(g=>g.includes(item.kanji))||[];
+  let arr=group.map(getKanji218Item).filter(x=>x&&x.kanji!==item.kanji);
+  if(arr.length<3)arr=arr.concat(KANJI218.filter(x=>x.kanji!==item.kanji).sort((a,b)=>meaningSimilarity(item.meaning,a.meaning)-meaningSimilarity(item.meaning,b.meaning)).reverse());
+  return uniqueArray(arr.map(x=>x.meaning)).filter(x=>x!==item.meaning);
+}
+function k218ReadingCandidates(item,field){
+  const correct=primaryReading(item[field]);
+  return KANJI218.filter(x=>x.kanji!==item.kanji&&x[field]!=='—').map(x=>primaryReading(x[field])).filter((x,i,a)=>x&&x!==correct&&a.indexOf(x)===i)
+    .sort((a,b)=>{const sa=(a.length===correct.length?4:0)+(a[0]===correct[0]?3:0)-levenshtein(correct,a);const sb=(b.length===correct.length?4:0)+(b[0]===correct[0]?3:0)-levenshtein(correct,b);return sb-sa});
+}
+function k218ShapeCandidates(item){
+  let arr=[...(KANJI218_CONFUSABLES[item.kanji]||[])];
+  const group=KANJI218_MEANING_GROUPS.find(g=>g.includes(item.kanji))||[]; arr.push(...group.filter(x=>x!==item.kanji));
+  arr.push(...KANJI218.filter(x=>x.grade===item.grade&&x.kanji!==item.kanji).map(x=>x.kanji));
+  return uniqueArray(arr).filter(x=>x!==item.kanji);
+}
+function k218ClosestExampleReadings(correct,item){
+  let vals=[];KANJI218.forEach(k=>collectKanji218Examples(k).forEach(e=>{if(e.reading&&e.reading!==correct)vals.push(e.reading)}));
+  vals=uniqueArray(vals);vals.sort((a,b)=>{const sa=(a.length===correct.length?4:0)-levenshtein(correct,a),sb=(b.length===correct.length?4:0)-levenshtein(correct,b);return sb-sa});return vals;
+}
+function createKanji218HardQuestions(count=20,kind='mixed'){
+  const pool=getKanji218Filtered(); if(!pool.length)return [];
+  let qs=[]; const shuffled=shuffle(pool);
+  shuffled.forEach(item=>{
+    let types=kind==='mixed'?shuffle(['shape','meaning','on','kun','example']):[kind];
+    types.forEach(type=>{
+      if(type==='kun'&&item.kun==='—')return;
+      if(type==='on'&&item.on==='—')return;
+      if(type==='shape'){
+        const ex=collectKanji218Examples(item).find(x=>x.word.includes(item.kanji)&&x.word.length>1);
+        const opts=shuffle([item.kanji,...k218ShapeCandidates(item).slice(0,3)]);
+        if(opts.length<4)return;
+        const blank=ex?ex.word.replace(item.kanji,'□'):'□';
+        qs.push({item,type,label:'Bẫy mặt chữ 1–2 nét',q:ex?`Điền Kanji đúng: ${blank}（${ex.reading} • ${ex.meaning}）`:`Chọn Kanji có nghĩa “${item.meaning}”`,correct:item.kanji,answers:opts});
+      }else if(type==='meaning'){
+        const opts=shuffle([item.meaning,...k218MeaningCandidates(item).slice(0,3)]); if(opts.length<4)return;
+        qs.push({item,type,label:'Nghĩa cùng nhóm',q:`${item.kanji} có nghĩa chính nào?`,correct:item.meaning,answers:opts});
+      }else if(type==='on'){
+        const correct=primaryReading(item.on),opts=shuffle([correct,...k218ReadingCandidates(item,'on').slice(0,3)]);if(opts.length<4)return;
+        qs.push({item,type,label:'Onyomi gần âm',q:`Onyomi chính của ${item.kanji} là?`,correct,answers:opts});
+      }else if(type==='kun'){
+        const correct=primaryReading(item.kun),opts=shuffle([correct,...k218ReadingCandidates(item,'kun').slice(0,3)]);if(opts.length<4)return;
+        qs.push({item,type,label:'Kunyomi gần âm',q:`Kunyomi chính của ${item.kanji} là?`,correct,answers:opts});
+      }else if(type==='example'){
+        const ex=collectKanji218Examples(item)[0];if(!ex)return;const opts=shuffle([ex.reading,...k218ClosestExampleReadings(ex.reading,item).slice(0,3)]);if(opts.length<4)return;
+        qs.push({item,type,label:'Đọc từ ví dụ',q:`「${ex.word}」 đọc thế nào?`,correct:ex.reading,answers:opts,example:ex});
+      }
+    });
+  });
+  return shuffle(qs).slice(0,Math.min(count,qs.length));
+}
+function renderKanji218HardSetup(box){
+  box.innerHTML=`<div class="k218-hard-intro"><div><span class="hard-badge">⚔ SUPER HARD</span><h2>Trắc nghiệm Kanji siêu khó</h2><p>Không dùng đáp án ngẫu nhiên đơn giản: hệ thống ưu tiên chữ gần hình, âm đọc gần nhau và nghĩa cùng nhóm để tạo bẫy.</p></div><div class="k218-hard-controls"><label>Dạng<select id="k218-hard-kind"><option value="mixed">Trộn tất cả</option><option value="shape">Bẫy mặt chữ</option><option value="meaning">Nghĩa dễ nhầm</option><option value="on">Onyomi</option><option value="kun">Kunyomi</option><option value="example">Đọc từ ví dụ</option></select></label><label>Số câu<select id="k218-hard-count"><option>10</option><option selected>20</option><option>40</option><option>80</option></select></label><button class="primary-btn" onclick="startKanji218HardQuiz()">Bắt đầu →</button></div></div><div class="k218-trap-preview"><b>Ví dụ bẫy:</b> 日 / 目 / 白 / 田 • 人 / 入 / 八 • 聞 / 間 / 問 • 本 / 木 / 末 / 未 • 持 / 待 / 時 • 駅 / 験</div><div id="k218-hard-area"></div>`;
+}
+function startKanji218HardQuiz(){const count=+(document.getElementById('k218-hard-count')?.value||20),kind=document.getElementById('k218-hard-kind')?.value||'mixed';kanji218QuizState={questions:createKanji218HardQuestions(count,kind),index:0,score:0,answered:false,wrong:[],kind,count};renderKanji218HardQuestion()}
+function renderKanji218HardQuestion(){
+  const area=document.getElementById('k218-hard-area'),s=kanji218QuizState;if(!area||!s)return;
+  if(s.index>=s.questions.length)return renderKanji218HardResult(area);
+  const q=s.questions[s.index],pct=Math.round(s.index/s.questions.length*100);
+  area.innerHTML=`<div class="k218-hard-card"><div class="hard-quiz-header"><span class="hard-badge">⚔ ${q.label}</span><span>Câu ${s.index+1}/${s.questions.length}</span></div><div class="progressbar"><span style="width:${pct}%"></span></div><div class="k218-hard-question">${escapeHtml(q.q)}</div><div class="k218-hard-answers">${q.answers.map((a,i)=>`<button class="k218-hard-answer" data-answer="${escapeHtml(a)}" onclick="answerKanji218Hard(this,${i})"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(a)}</b></button>`).join('')}</div><div id="k218-hard-feedback"></div></div>`;
+}
+function answerKanji218Hard(btn,i){
+  const s=kanji218QuizState;if(!s||s.answered)return;s.answered=true;const q=s.questions[s.index],sel=q.answers[i];
+  document.querySelectorAll('.k218-hard-answer').forEach(x=>{if(x.dataset.answer===q.correct)x.classList.add('correct')});if(sel===q.correct)s.score++;else{btn.classList.add('wrong');s.wrong.push(q)}
+  const k=q.item,ex=collectKanji218Examples(k).slice(0,2);
+  document.getElementById('k218-hard-feedback').innerHTML=`<div class="feedback k218-hard-feedback"><b>${sel===q.correct?'✓ Chính xác':'✗ Đáp án đúng: '+escapeHtml(q.correct)}</b><div class="k218-feedback-kanji"><strong>${k.kanji}</strong><span>${escapeHtml(k.meaning)}</span><small>On: ${escapeHtml(k.on)} • Kun: ${escapeHtml(k.kun)}</small></div>${ex.length?`<div class="k218-feedback-ex">${ex.map(x=>`${escapeHtml(x.word)}（${escapeHtml(x.reading)}）= ${escapeHtml(x.meaning)}`).join(' • ')}</div>`:''}</div><div class="n4-next"><button class="primary-btn" onclick="nextKanji218Hard()">Câu tiếp theo →</button></div>`;
+}
+function nextKanji218Hard(){kanji218QuizState.index++;kanji218QuizState.answered=false;renderKanji218HardQuestion()}
+function renderKanji218HardResult(area){const s=kanji218QuizState,pct=s.questions.length?Math.round(s.score/s.questions.length*100):0;area.innerHTML=`<div class="k218-hard-result"><span class="hard-badge">⚔ SUPER HARD COMPLETE</span><h2>${s.score}/${s.questions.length}</h2><p>${pct>=90?'Rất chắc mặt chữ và cách đọc.':pct>=75?'Khá tốt. Các bẫy nét gần vẫn cần xem lại.':pct>=55?'Đang tiến bộ — nên luyện lại riêng câu sai.':'Hãy quay về flashcard, tập nhóm dễ nhầm rồi thử lại.'}</p><div class="n4-result-actions"><button class="primary-btn" onclick="startKanji218HardQuiz()">Bộ mới ↻</button>${s.wrong.length?`<button class="secondary-btn" onclick="reviewKanji218Wrong()">Luyện lại ${s.wrong.length} câu sai</button>`:''}</div></div>`}
+function reviewKanji218Wrong(){const wrong=[...kanji218QuizState.wrong];kanji218QuizState={...kanji218QuizState,questions:shuffle(wrong),index:0,score:0,answered:false,wrong:[]};renderKanji218HardQuestion()}
