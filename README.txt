@@ -155,3 +155,44 @@ V11 - SOÁT LẠI TOÀN BỘ TỪ VỰNG N5 THEO PDF
   * các câu hội thoại/từ tham khảo bị gán nhầm nghĩa.
 - Flashcard, trắc nghiệm từ vựng toàn bài, Kanji theo từ mới và Recall Memory
   đều đọc trực tiếp từ data.js nên tự động dùng bộ từ V11 đã sửa.
+
+
+V12 - KANJI THEO ĐÚNG HÀNG/BÀI TRONG ẢNH
+-----------------------------------------
+Cấu trúc 218 chữ:
+- #1–10: Nhóm đầu bảng (ô bài trong ảnh để trống)
+- #11–26: 2課
+- #27–42: 4課
+- #43–58: 6課
+- #59–74: 8課
+- #75–90: 10課
+- #91–106: 12課
+- #107–122: 14課
+- #123–138: 16課
+- #139–154: 18課
+- #155–170: 20課
+- #171–186: 22課
+- #187–202: 24課
+- #203–218: Nhóm cuối bảng (ô bài trong ảnh để trống)
+
+TÍNH NĂNG
+- Chọn 1 hoặc nhiều bài/hàng cùng lúc.
+- Flashcard hiển thị nhóm, nghĩa, On/Kun, ví dụ đã học.
+- Tự đối chiếu online số nét + On/Kun với KANJIDIC2 qua KanjiAPI khi có Internet.
+- "Tìm thêm từ online": truy vấn JMdict qua KanjiAPI và chỉ giữ từ có Kanji
+  nằm trong phạm vi đã học tới bài cao nhất đang chọn.
+- Nếu từ online khớp dữ liệu Minna/Dũng Mori thì hiển thị nghĩa Việt cục bộ;
+  nếu chưa có bản dịch Việt đã kiểm chứng, web giữ nghĩa tiếng Anh từ JMdict.
+- Trắc nghiệm theo một hoặc nhiều bài:
+  mặt chữ/nét, nghĩa, Onyomi, Kunyomi, đọc từ, hoặc trộn.
+- "Toàn bộ" kiểm tra mỗi Kanji đã chọn một lần.
+- Ghép chữ khó:
+  hiển thị cách đọc + nghĩa, người học chọn tile Kanji theo đúng thứ tự;
+  tile nhiễu ưu tiên chữ gần nét.
+- Lỗi quiz/ghép chữ tiếp tục được ghi vào Recall Memory Engine.
+
+ĐỐI CHIẾU NGHĨA V12
+- Sửa cách diễn đạt một số nghĩa quá máy móc ở bộ 218:
+  画, 語, 目, 品, 明, 答, 配, 料, 理, 仕, 者, 堂, 用, 図, 写, 真,
+  林, 考, 親, 切, 験, 歳, 留, 散, 浴, 降, 欲.
+- 半: Kunyomi hiển thị "なかば".

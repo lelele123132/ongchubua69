@@ -1,0 +1,29 @@
+V12 KANJI IMAGE / LESSON AUDIT
+=======================================================
+Kanji count: 218
+Exact sequence vs uploaded image: PASS
+JS syntax: PASS
+
+Groups:
+head  #001-010 (10): 一二三四五六七八九十
+L2    #011-026 (16): 人名方本日何大学社員会先生行来車
+L4    #027-042 (16): 百千万円毎時分半国月火水木金土書
+L6    #043-058 (16): 友年今週休前午後校帰見聞読食飲買
+L8    #059-074 (16): 母父物朝昼夜晩町山白赤青黒安高小
+L10   #075-090 (16): 男女上下左右中門間近魚手犬早計外
+L12   #091-106 (16): 兄弟姉妹家族春夏秋冬気天多少元歩
+L14   #107-122 (16): 入出広止雨開海川世界画映花茶語英
+L16   #123-138 (16): 体足口顔耳目立知住思使作品長明肉
+L18   #139-154 (16): 問答心配子売場字漢料理主着新古持
+L20   #155-170 (16): 電話音楽歌度教習貸借送強勉旅室登
+L22   #171-186 (16): 不始言意事仕病院医者堂屋用有店民
+L24   #187-202 (16): 正銀図館道自動建特終駅写真牛林森
+tail  #203-218 (16): 田考親切試験部文歳留議散浴降欲億
+
+V12 behaviour:
+- one/multi group selection
+- quiz within selected scope
+- shape traps prioritize real visually confusable kanji
+- compound builder uses only previously learned kanji up to selected max range
+- online KANJIDIC2 stroke/readings verification through KanjiAPI
+- online JMdict word expansion filtered by learned kanji

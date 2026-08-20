@@ -1,0 +1,23 @@
+THIRD PARTY / ONLINE SOURCES — V12
+
+KanjiAPI
+https://kanjiapi.dev/
+Used only as a live JSON API when the browser has Internet access.
+
+KANJIDIC2 / JMdict
+Electronic Dictionary Research and Development Group (EDRDG)
+https://www.edrdg.org/wiki/index.php/KANJIDIC_Project
+https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project
+Licence:
+https://www.edrdg.org/edrdg/licence.html
+
+Acknowledgement:
+This site uses the JMdict/EDICT and KANJIDIC dictionary files through
+KanjiAPI. These files are the property of the Electronic Dictionary Research
+and Development Group, and are used in conformance with the Group's licence.
+
+Uploaded image:
+提出漢字一覧 — used to preserve the exact sequence and lesson-row grouping
+shown by the user. The first and final row have no printed lesson label in the
+provided image, so V12 intentionally labels them "Nhóm đầu bảng" and
+"Nhóm cuối bảng" instead of inventing lesson numbers.

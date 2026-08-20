@@ -4801,3 +4801,78 @@ const KANJI218_BASIC_EXAMPLES = {
     "level": "N3"
   }
 };
+
+
+/* ==========================================================
+   V12 — Chia 218 Kanji theo đúng các hàng/bài trong ảnh 提出漢字一覧
+   Ghi chú:
+   - Ảnh để trống ô nhãn của hàng 1–10 và hàng 203–218, vì vậy web giữ
+     nguyên cấu trúc đó bằng nhãn "Nhóm đầu bảng" / "Nhóm cuối bảng".
+   - Các hàng ở giữa lần lượt ghi: 2課, 4課, ... 24課.
+   ========================================================== */
+const KANJI218_IMAGE_GROUPS = [
+  {id:'head', label:'Nhóm đầu bảng', imageLabel:'Đầu bảng', start:1, end:10, note:'一〜十'},
+  {id:'L2', label:'Bài 2', imageLabel:'2課', start:11, end:26},
+  {id:'L4', label:'Bài 4', imageLabel:'4課', start:27, end:42},
+  {id:'L6', label:'Bài 6', imageLabel:'6課', start:43, end:58},
+  {id:'L8', label:'Bài 8', imageLabel:'8課', start:59, end:74},
+  {id:'L10', label:'Bài 10', imageLabel:'10課', start:75, end:90},
+  {id:'L12', label:'Bài 12', imageLabel:'12課', start:91, end:106},
+  {id:'L14', label:'Bài 14', imageLabel:'14課', start:107, end:122},
+  {id:'L16', label:'Bài 16', imageLabel:'16課', start:123, end:138},
+  {id:'L18', label:'Bài 18', imageLabel:'18課', start:139, end:154},
+  {id:'L20', label:'Bài 20', imageLabel:'20課', start:155, end:170},
+  {id:'L22', label:'Bài 22', imageLabel:'22課', start:171, end:186},
+  {id:'L24', label:'Bài 24', imageLabel:'24課', start:187, end:202},
+  {id:'tail', label:'Nhóm cuối bảng', imageLabel:'Cuối bảng', start:203, end:218}
+];
+
+const KANJI218_MEANING_PATCHES_V12 = {
+  "半":"một nửa, một nửa chừng",
+  "画":"tranh, hình; nét vẽ",
+  "語":"ngôn ngữ; từ/ngữ; nói, kể",
+  "目":"mắt; mục; thứ tự",
+  "品":"hàng hóa, sản phẩm; phẩm chất",
+  "明":"sáng; rõ ràng",
+  "答":"trả lời; đáp án",
+  "配":"phân phối; sắp xếp; lo lắng",
+  "料":"nguyên liệu; phí",
+  "理":"lý lẽ, lý do; logic",
+  "仕":"làm việc; phục vụ",
+  "者":"người; người làm ~",
+  "堂":"tòa, sảnh; đường",
+  "用":"dùng; công dụng",
+  "図":"hình, sơ đồ; bản đồ",
+  "写":"chép; chụp",
+  "真":"thật, chân thực",
+  "林":"rừng thưa, lùm cây",
+  "考":"suy nghĩ, cân nhắc",
+  "親":"cha mẹ; thân, gần gũi",
+  "切":"cắt; thiết yếu/quan trọng",
+  "験":"thử, kiểm nghiệm; thi",
+  "歳":"tuổi",
+  "留":"ở lại; lưu",
+  "散":"tản, rải; phân tán",
+  "浴":"tắm, đắm mình",
+  "降":"rơi (mưa/tuyết); xuống",
+  "欲":"muốn, ham muốn"
+};
+const KANJI218_READING_PATCHES_V12 = {
+  "半": {kun:"なかば"}
+};
+
+KANJI218.forEach(k=>{
+  const g=KANJI218_IMAGE_GROUPS.find(x=>k.id>=x.start&&k.id<=x.end);
+  k.imageGroup = g ? g.id : 'tail';
+  k.imageGroupLabel = g ? g.label : '';
+  k.imageGroupPrinted = g ? g.imageLabel : '';
+  if(KANJI218_MEANING_PATCHES_V12[k.kanji]) k.meaning=KANJI218_MEANING_PATCHES_V12[k.kanji];
+  if(KANJI218_READING_PATCHES_V12[k.kanji]) Object.assign(k,KANJI218_READING_PATCHES_V12[k.kanji]);
+});
+
+const KANJI218_ONLINE_SOURCE = {
+  api:'https://kanjiapi.dev',
+  kanji:'https://kanjiapi.dev/v1/kanji/',
+  words:'https://kanjiapi.dev/v1/words/',
+  data:'KANJIDIC2 + JMdict / EDRDG'
+};
