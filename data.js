@@ -1,3 +1,6 @@
+// Nihongo Recall Lab V11
+// Từ vựng Bài 1–25 đã được đối chiếu lại với PDF Minna no Nihongo người dùng cung cấp.
+// V11 thay các mảng OCR lỗi bằng dữ liệu đã soát: Nhật/Kana/Nghĩa Việt.
 const LESSONS = [
   {
     "id": 1,
@@ -344,7 +347,8 @@ const LESSONS = [
       31,
       32
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: đã đối chiếu lại với PDF; giữ dữ liệu đã đúng."
   },
   {
     "id": 2,
@@ -396,7 +400,7 @@ const LESSONS = [
         "jp": "辞書",
         "kana": "じしょ",
         "reading": "jisho",
-        "vi": "từ điền"
+        "vi": "từ điển"
       },
       {
         "jp": "雑誌",
@@ -408,7 +412,7 @@ const LESSONS = [
         "jp": "新聞",
         "kana": "しんぶん",
         "reading": "shinbun",
-        "vi": "béo"
+        "vi": "báo"
       },
       {
         "jp": "ノート",
@@ -420,7 +424,7 @@ const LESSONS = [
         "jp": "手帳",
         "kana": "てちょう",
         "reading": "techou",
-        "vi": "số tay"
+        "vi": "sổ tay"
       },
       {
         "jp": "名刺",
@@ -432,7 +436,7 @@ const LESSONS = [
         "jp": "カード",
         "kana": "カード",
         "reading": "kaado",
-        "vi": "thẻ (tín dụng), các, cac"
+        "vi": "thẻ"
       },
       {
         "jp": "鉛筆",
@@ -450,7 +454,13 @@ const LESSONS = [
         "jp": "シャープペンシル",
         "kana": "シャープペンシル",
         "reading": "shaapupenshiru",
-        "vi": "bút chì kim, bút chì bắm"
+        "vi": "bút chì kim, bút chì bấm"
+      },
+      {
+        "jp": "かぎ",
+        "kana": "かぎ",
+        "reading": "kagi",
+        "vi": "chìa khóa"
       },
       {
         "jp": "時計",
@@ -462,13 +472,19 @@ const LESSONS = [
         "jp": "傘",
         "kana": "かさ",
         "reading": "kasa",
-        "vi": "6, dit"
+        "vi": "ô, dù"
       },
       {
         "jp": "かばん",
         "kana": "かばん",
         "reading": "kaban",
-        "vi": "cặp sách, túi sách"
+        "vi": "cặp sách, túi xách"
+      },
+      {
+        "jp": "CD",
+        "kana": "CD",
+        "reading": "shiidii",
+        "vi": "đĩa CD"
       },
       {
         "jp": "テレビ",
@@ -495,7 +511,7 @@ const LESSONS = [
         "vi": "máy vi tính"
       },
       {
-        "jp": "くるま",
+        "jp": "車",
         "kana": "くるま",
         "reading": "kuruma",
         "vi": "ô tô, xe hơi"
@@ -516,7 +532,7 @@ const LESSONS = [
         "jp": "チョコレート",
         "kana": "チョコレート",
         "reading": "chokoreeto",
-        "vi": "sôcôla"
+        "vi": "sô-cô-la"
       },
       {
         "jp": "コーヒー",
@@ -525,76 +541,94 @@ const LESSONS = [
         "vi": "cà phê"
       },
       {
-        "jp": "]土産",
-        "kana": "[お]みやげ[お",
-        "reading": "o miyage o",
-        "vi": "(mua khi đi xa về hoặc mang đi khi thăm nha"
+        "jp": "[お]土産",
+        "kana": "[お]みやげ",
+        "reading": "miyage",
+        "vi": "quà (mua khi đi xa về hoặc mang khi đến thăm ai)"
       },
       {
         "jp": "英語",
         "kana": "えいご",
         "reading": "eigo",
-        "vi": "Anh 2"
+        "vi": "tiếng Anh"
       },
       {
         "jp": "日本語",
         "kana": "にほんご",
         "reading": "nihongo",
-        "vi": "Nhat"
+        "vi": "tiếng Nhật"
       },
       {
-        "jp": "語",
-        "kana": "～ご～",
+        "jp": "～語",
+        "kana": "～ご",
         "reading": "go",
-        "vi": "~"
+        "vi": "tiếng ~"
       },
       {
-        "jp": "なんし",
-        "kana": "なんし",
-        "reading": "nanshi",
-        "vi": "gì"
+        "jp": "何",
+        "kana": "なん",
+        "reading": "nan",
+        "vi": "gì, cái gì"
+      },
+      {
+        "jp": "そう",
+        "kana": "そう",
+        "reading": "sou",
+        "vi": "vậy, thế"
+      },
+      {
+        "jp": "あのう",
+        "kana": "あのう",
+        "reading": "anou",
+        "vi": "à, ờ… (dùng khi ngập ngừng, do dự)"
       },
       {
         "jp": "えっ",
         "kana": "えっ",
         "reading": "e",
-        "vi": "(dùng khi nghe một điều gì không mong"
+        "vi": "Hả?/Ồ? (dùng khi nghe điều bất ngờ hoặc không mong đợi)"
       },
       {
-        "jp": "違います",
-        "kana": "ちがいます",
-        "reading": "chigaimasu",
-        "vi": "chân thành cám ơn, xin cám ơn rất nhiều."
+        "jp": "どうぞ。",
+        "kana": "どうぞ。",
+        "reading": "douzo",
+        "vi": "Xin mời."
+      },
+      {
+        "jp": "[どうも]ありがとう[ございます]。",
+        "kana": "[どうも]ありがとう[ございます]。",
+        "reading": "arigatou",
+        "vi": "[Rất] cảm ơn."
       },
       {
         "jp": "そうですか。",
         "kana": "そうですか。",
         "reading": "soudesuka",
-        "vi": "à."
+        "vi": "Thế à."
       },
       {
-        "jp": "違います",
-        "kana": "ちがいます",
+        "jp": "違います。",
+        "kana": "ちがいます。",
         "reading": "chigaimasu",
-        "vi": "phải, không đúng, sai rồi."
+        "vi": "Không phải, không đúng, sai rồi."
       },
       {
-        "jp": "あかいもわ",
-        "kana": "あかいもわ",
-        "reading": "akaimowa",
-        "vi": "khi nhận ra điều gì) ; 17"
+        "jp": "あ",
+        "kana": "あ",
+        "reading": "a",
+        "vi": "Ôi!/À! (dùng khi chợt nhận ra điều gì)"
       },
       {
         "jp": "これからお世話になります。",
         "kana": "これからおせわになります。",
         "reading": "korekaraosewaninarimasu",
-        "vi": "tôi rất mong được sự giúp đỡ của anh/"
+        "vi": "Từ nay tôi rất mong được anh/chị giúp đỡ."
       },
       {
-        "jp": "こちらこそ[どうぞ]",
-        "kana": "こちらこそ[どうぞ]",
-        "reading": "kochirakoso douzo",
-        "vi": "tôi mới là người mong được sự giúp đỡ của"
+        "jp": "こちらこそ[どうぞ]よろしく[お願いします]。",
+        "kana": "こちらこそ[どうぞ]よろしく[おねがいします]。",
+        "reading": "kochirakosoyoroshiku",
+        "vi": "Chính tôi mới là người mong được anh/chị giúp đỡ; rất mong được làm quen."
       }
     ],
     "kanji": [
@@ -695,7 +729,8 @@ const LESSONS = [
       37,
       38
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 3,
@@ -717,37 +752,37 @@ const LESSONS = [
         "jp": "あそこ",
         "kana": "あそこ",
         "reading": "asoko",
-        "vi": "chỗ kia, đẳng kia, kia (xa cả người nói và người nghe)"
+        "vi": "chỗ kia, đằng kia, kia (xa cả người nói và người nghe)"
       },
       {
         "jp": "どこ",
         "kana": "どこ",
         "reading": "doko",
-        "vi": "ché nao, dau"
+        "vi": "chỗ nào, đâu"
       },
       {
         "jp": "こちら",
         "kana": "こちら",
         "reading": "kochira",
-        "vi": "phía này, đằng này, chỗ này, đây (cách nói lịch sự của ここ )"
+        "vi": "phía này, đằng này, chỗ này, đây (cách nói lịch sự của ここ)"
       },
       {
         "jp": "そちら",
         "kana": "そちら",
         "reading": "sochira",
-        "vi": "phía đó, đằng đó, chỗ đó, đó (cách nói lịch sự của Ex)"
+        "vi": "phía đó, đằng đó, chỗ đó, đó (cách nói lịch sự của そこ)"
       },
       {
         "jp": "あちら",
         "kana": "あちら",
         "reading": "achira",
-        "vi": "phía kia, đằng kia, chỗ kia, kia (cách nói lịch sự của あそこ )"
+        "vi": "phía kia, đằng kia, chỗ kia, kia (cách nói lịch sự của あそこ)"
       },
       {
         "jp": "どちら",
         "kana": "どちら",
         "reading": "dochira",
-        "vi": "phía nào, đằng nào, chỗ nào, đâu (cách nói lịch sự của どこ )"
+        "vi": "phía nào, đằng nào, chỗ nào, đâu (cách nói lịch sự của どこ)"
       },
       {
         "jp": "教室",
@@ -792,9 +827,9 @@ const LESSONS = [
         "vi": "căn phòng"
       },
       {
-        "jp": "(お和手洗い)",
-        "kana": "トイレ(おてあらい)",
-        "reading": "toire otearai",
+        "jp": "トイレ（お手洗い）",
+        "kana": "トイレ（おてあらい）",
+        "reading": "toire",
         "vi": "toa-lét, nhà vệ sinh, phòng vệ sinh"
       },
       {
@@ -807,13 +842,13 @@ const LESSONS = [
         "jp": "エレベーター",
         "kana": "エレベーター",
         "reading": "erebeetaa",
-        "vi": "tháng máy"
+        "vi": "thang máy"
       },
       {
         "jp": "エスカレーター",
         "kana": "エスカレーター",
         "reading": "esukareetaa",
-        "vi": "tháng cuốn"
+        "vi": "thang cuốn"
       },
       {
         "jp": "自動販売機",
@@ -828,10 +863,10 @@ const LESSONS = [
         "vi": "điện thoại"
       },
       {
-        "jp": "［お］国",
-        "kana": "［お］くに",
-        "reading": "o kuni",
-        "vi": "nước (của ban/anh/chị)"
+        "jp": "[お]国",
+        "kana": "[お]くに",
+        "reading": "kuni",
+        "vi": "nước (của bạn/anh/chị)"
       },
       {
         "jp": "会社",
@@ -840,94 +875,160 @@ const LESSONS = [
         "vi": "công ty"
       },
       {
-        "jp": "内",
+        "jp": "うち",
         "kana": "うち",
         "reading": "uchi",
         "vi": "nhà"
       },
       {
+        "jp": "靴",
+        "kana": "くつ",
+        "reading": "kutsu",
+        "vi": "giày"
+      },
+      {
+        "jp": "ネクタイ",
+        "kana": "ネクタイ",
+        "reading": "nekutai",
+        "vi": "cà vạt"
+      },
+      {
+        "jp": "ワイン",
+        "kana": "ワイン",
+        "reading": "wain",
+        "vi": "rượu vang"
+      },
+      {
         "jp": "売り場",
         "kana": "うりば",
         "reading": "uriba",
-        "vi": "bán (trong một bách hóa, v.v.)"
+        "vi": "quầy bán hàng (trong bách hóa, v.v.)"
       },
       {
-        "jp": "ちか地下",
-        "kana": "ちか地下",
+        "jp": "地下",
+        "kana": "ちか",
         "reading": "chika",
-        "vi": "ham, dưới mặt đất 3"
+        "vi": "tầng hầm, dưới mặt đất"
       },
       {
-        "jp": "ーかい(一がい)",
-        "kana": "ーかい(一がい)",
-        "reading": "kai gai",
-        "vi": "thứ — ~—"
+        "jp": "～階",
+        "kana": "～かい（～がい）",
+        "reading": "kai",
+        "vi": "tầng thứ ~"
       },
       {
-        "jp": "なんがいーえん",
-        "kana": "なんがいーえん",
-        "reading": "nangaiien",
-        "vi": "may"
+        "jp": "何階",
+        "kana": "なんがい",
+        "reading": "nangai",
+        "vi": "tầng mấy"
       },
       {
-        "jp": "いくらひゃくせん千",
-        "kana": "いくらひゃくせん千",
-        "reading": "ikurahyakusen",
-        "vi": "nhiêu tiền"
+        "jp": "～円",
+        "kana": "～えん",
+        "reading": "en",
+        "vi": "~ yên"
       },
       {
-        "jp": "まん万",
-        "kana": "まん万",
+        "jp": "いくら",
+        "kana": "いくら",
+        "reading": "ikura",
+        "vi": "bao nhiêu tiền"
+      },
+      {
+        "jp": "百",
+        "kana": "ひゃく",
+        "reading": "hyaku",
+        "vi": "một trăm"
+      },
+      {
+        "jp": "千",
+        "kana": "せん",
+        "reading": "sen",
+        "vi": "một nghìn"
+      },
+      {
+        "jp": "万",
+        "kana": "まん",
         "reading": "man",
-        "vi": "nghìn, vạn"
+        "vi": "mười nghìn, vạn"
       },
       {
         "jp": "すみません。",
-        "kana": "すみません",
+        "kana": "すみません。",
         "reading": "sumimasen",
-        "vi": "lỗi."
+        "vi": "Xin lỗi."
       },
       {
-        "jp": "どうも。かい",
-        "kana": "どうも。かい",
-        "reading": "doumo kai",
-        "vi": "ơn."
+        "jp": "どうも。",
+        "kana": "どうも。",
+        "reading": "doumo",
+        "vi": "Cảm ơn."
       },
       {
         "jp": "いらっしゃいませ。",
         "kana": "いらっしゃいませ。",
         "reading": "irasshaimase",
-        "vi": "chào quý khách, mời quý khách vào. 23"
+        "vi": "Xin chào quý khách, mời quý khách vào."
       },
       {
-        "jp": "[～を]",
-        "kana": "[～を]",
-        "reading": "o",
-        "vi": "tôi xem [~]."
+        "jp": "[～を]見せてください。",
+        "kana": "[～を]みせてください。",
+        "reading": "misetekudasai",
+        "vi": "Cho tôi xem [~]."
       },
       {
         "jp": "じゃ",
         "kana": "じゃ",
         "reading": "ja",
-        "vi": "thì/Vậy thì"
+        "vi": "Thế thì/Vậy thì"
       },
       {
-        "jp": "[～を]ください。イタリア",
-        "kana": "[～を]ください。イタリア",
-        "reading": "o kudasai itaria",
-        "vi": "tôi [~]."
+        "jp": "[～を]ください。",
+        "kana": "[～を]ください。",
+        "reading": "kudasai",
+        "vi": "Cho tôi [~]."
       },
       {
-        "jp": "スイスフランスジャカルタバンコクベルリンしんおおさか",
-        "kana": "スイスフランスジャカルタバンコクベルリンしんおおさか",
-        "reading": "suisufuransujakarutabankokuberurinshinoosaka",
-        "vi": "Sĩ"
+        "jp": "イタリア",
+        "kana": "イタリア",
+        "reading": "itaria",
+        "vi": "Ý"
+      },
+      {
+        "jp": "スイス",
+        "kana": "スイス",
+        "reading": "suisu",
+        "vi": "Thụy Sĩ"
+      },
+      {
+        "jp": "フランス",
+        "kana": "フランス",
+        "reading": "furansu",
+        "vi": "Pháp"
+      },
+      {
+        "jp": "ジャカルタ",
+        "kana": "ジャカルタ",
+        "reading": "jakaruta",
+        "vi": "Jakarta"
+      },
+      {
+        "jp": "バンコク",
+        "kana": "バンコク",
+        "reading": "bankoku",
+        "vi": "Bangkok"
+      },
+      {
+        "jp": "ベルリン",
+        "kana": "ベルリン",
+        "reading": "berurin",
+        "vi": "Berlin"
       },
       {
         "jp": "新大阪",
-        "kana": "新大阪",
-        "reading": "",
-        "vi": "ga ở Osaka"
+        "kana": "しんおおさか",
+        "reading": "shinoosaka",
+        "vi": "tên một ga ở Osaka"
       }
     ],
     "kanji": [
@@ -1023,7 +1124,8 @@ const LESSONS = [
       43,
       44
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 4,
@@ -1033,13 +1135,13 @@ const LESSONS = [
         "jp": "起きます",
         "kana": "おきます",
         "reading": "okimasu",
-        "vi": "đậy, thức dậy"
+        "vi": "dậy, thức dậy"
       },
       {
         "jp": "寝ます",
         "kana": "ねます",
         "reading": "nemasu",
-        "vi": "ngủ, di ngủ"
+        "vi": "ngủ, đi ngủ"
       },
       {
         "jp": "働きます",
@@ -1057,7 +1159,7 @@ const LESSONS = [
         "jp": "勉強します",
         "kana": "べんきょうします",
         "reading": "benkyoushimasu",
-        "vi": "hoc"
+        "vi": "học"
       },
       {
         "jp": "終わります",
@@ -1102,16 +1204,16 @@ const LESSONS = [
         "vi": "bây giờ"
       },
       {
-        "jp": "一時",
-        "kana": "ービじ",
-        "reading": "biji",
-        "vi": "— giờ"
+        "jp": "～時",
+        "kana": "～じ",
+        "reading": "ji",
+        "vi": "~ giờ"
       },
       {
-        "jp": "ーふん(一ぷん)",
-        "kana": "ーふん(一ぷん)",
-        "reading": "fun pun",
-        "vi": "— phút"
+        "jp": "～分",
+        "kana": "～ふん（～ぷん）",
+        "reading": "fun",
+        "vi": "~ phút"
       },
       {
         "jp": "半",
@@ -1123,7 +1225,7 @@ const LESSONS = [
         "jp": "何時",
         "kana": "なんじ",
         "reading": "nanji",
-        "vi": "may giờ"
+        "vi": "mấy giờ"
       },
       {
         "jp": "何分",
@@ -1135,13 +1237,13 @@ const LESSONS = [
         "jp": "午前",
         "kana": "ごぜん",
         "reading": "gozen",
-        "vi": "sáng, trước mười hai giờ trưa"
+        "vi": "buổi sáng, trước 12 giờ trưa (AM)"
       },
       {
         "jp": "午後",
         "kana": "ごご",
         "reading": "gogo",
-        "vi": "chiều, sau mười hai giờ trưa"
+        "vi": "buổi chiều, sau 12 giờ trưa (PM)"
       },
       {
         "jp": "朝",
@@ -1156,9 +1258,9 @@ const LESSONS = [
         "vi": "buổi trưa, trưa"
       },
       {
-        "jp": "ばん(よる)",
-        "kana": "ばん(よる)",
-        "reading": "ban yoru",
+        "jp": "晩（夜）",
+        "kana": "ばん（よる）",
+        "reading": "ban",
         "vi": "buổi tối, tối"
       },
       {
@@ -1207,7 +1309,7 @@ const LESSONS = [
         "jp": "休み",
         "kana": "やすみ",
         "reading": "yasumi",
-        "vi": "nghi, nghỉ phép, ngày nghi"
+        "vi": "nghỉ, nghỉ phép, ngày nghỉ"
       },
       {
         "jp": "昼休み",
@@ -1216,100 +1318,178 @@ const LESSONS = [
         "vi": "nghỉ trưa"
       },
       {
-        "jp": "しけん試験",
-        "kana": "しけん試験",
+        "jp": "試験",
+        "kana": "しけん",
         "reading": "shiken",
-        "vi": "thi, kiểm tra"
+        "vi": "thi, kỳ thi, kiểm tra"
       },
       {
-        "jp": "識",
-        "kana": "かいざ会",
-        "reading": "kaiza",
-        "vi": "họp, hội nghị ( ~ ~ を し ます : tổ chức cuộc"
+        "jp": "会議",
+        "kana": "かいぎ",
+        "reading": "kaigi",
+        "vi": "cuộc họp, hội nghị"
       },
       {
-        "jp": "えいが映画",
-        "kana": "えいが映画",
+        "jp": "映画",
+        "kana": "えいが",
         "reading": "eiga",
-        "vi": "dién anh"
+        "vi": "phim, điện ảnh"
       },
       {
         "jp": "毎朝",
         "kana": "まいあさ",
         "reading": "maiasa",
-        "vi": "sáng, mỗi sáng"
+        "vi": "hàng sáng, mỗi sáng"
       },
       {
         "jp": "毎晩",
         "kana": "まいばん",
         "reading": "maiban",
-        "vi": "tối, mỗi tối"
+        "vi": "hàng tối, mỗi tối"
       },
       {
-        "jp": "日曜日",
-        "kana": "にちようび",
-        "reading": "nichiyoubi",
-        "vi": "nhật"
+        "jp": "毎日",
+        "kana": "まいにち",
+        "reading": "mainichi",
+        "vi": "hàng ngày, mỗi ngày"
       },
       {
         "jp": "月曜日",
         "kana": "げつようび",
         "reading": "getsuyoubi",
-        "vi": "mấy"
+        "vi": "thứ hai"
       },
       {
-        "jp": "大変ですね。かいはんこう番号",
-        "kana": "大変ですね。かいはんこう番号",
-        "reading": "desune kaihankou",
-        "vi": "vất vả quá. (dùng để bày tỏ sự thông"
+        "jp": "火曜日",
+        "kana": "かようび",
+        "reading": "kayoubi",
+        "vi": "thứ ba"
+      },
+      {
+        "jp": "水曜日",
+        "kana": "すいようび",
+        "reading": "suiyoubi",
+        "vi": "thứ tư"
+      },
+      {
+        "jp": "木曜日",
+        "kana": "もくようび",
+        "reading": "mokuyoubi",
+        "vi": "thứ năm"
+      },
+      {
+        "jp": "金曜日",
+        "kana": "きんようび",
+        "reading": "kinyoubi",
+        "vi": "thứ sáu"
+      },
+      {
+        "jp": "土曜日",
+        "kana": "どようび",
+        "reading": "doyoubi",
+        "vi": "thứ bảy"
+      },
+      {
+        "jp": "日曜日",
+        "kana": "にちようび",
+        "reading": "nichiyoubi",
+        "vi": "chủ nhật"
+      },
+      {
+        "jp": "何曜日",
+        "kana": "なんようび",
+        "reading": "nanyoubi",
+        "vi": "thứ mấy"
+      },
+      {
+        "jp": "～から",
+        "kana": "～から",
+        "reading": "kara",
+        "vi": "từ ~"
+      },
+      {
+        "jp": "～まで",
+        "kana": "～まで",
+        "reading": "made",
+        "vi": "đến ~"
+      },
+      {
+        "jp": "～と～",
+        "kana": "～と～",
+        "reading": "to",
+        "vi": "~ và ~ (nối danh từ)"
+      },
+      {
+        "jp": "大変ですね。",
+        "kana": "たいへんですね。",
+        "reading": "taihendesune",
+        "vi": "Anh/Chị vất vả quá nhỉ. (bày tỏ sự thông cảm)"
+      },
+      {
+        "jp": "番号",
+        "kana": "ばんごう",
+        "reading": "bangou",
+        "vi": "số"
       },
       {
         "jp": "何番",
         "kana": "なんばん",
         "reading": "nanban",
-        "vi": "r 2"
-      },
-      {
-        "jp": "何番",
-        "kana": "なんばん",
-        "reading": "nanban",
-        "vi": "nhiêu, số may"
+        "vi": "số bao nhiêu, số mấy"
       },
       {
         "jp": "そちら",
         "kana": "そちら",
         "reading": "sochira",
-        "vi": "phía ông/phía bà"
+        "vi": "ông/bà; phía ông/phía bà"
       },
       {
-        "jp": "ニューヨゴヨーク",
-        "kana": "ニューヨゴヨーク",
-        "reading": "nyuuyogoyooku",
-        "vi": "York"
+        "jp": "ニューヨーク",
+        "kana": "ニューヨーク",
+        "reading": "nyuuyooku",
+        "vi": "New York"
       },
       {
         "jp": "ペキン",
         "kana": "ペキン",
         "reading": "pekin",
-        "vi": "( 北京 )"
+        "vi": "Bắc Kinh"
+      },
+      {
+        "jp": "ロサンゼルス",
+        "kana": "ロサンゼルス",
+        "reading": "rosanzerusu",
+        "vi": "Los Angeles"
       },
       {
         "jp": "ロンドン",
         "kana": "ロンドン",
         "reading": "rondon",
-        "vi": "Đôn"
+        "vi": "Luân Đôn"
       },
       {
         "jp": "あすか",
         "kana": "あすか",
         "reading": "asuka",
-        "vi": "định của một nhà hàng Nhật"
+        "vi": "tên giả định của một nhà hàng Nhật"
       },
       {
-        "jp": "やまと美",
-        "kana": "やまと美",
-        "reading": "yamato",
-        "vi": "my thuat Yamato (tên giả định)"
+        "jp": "アップル銀行",
+        "kana": "アップルぎんこう",
+        "reading": "appuruginkou",
+        "vi": "Ngân hàng Apple (tên giả định)"
+      },
+      {
+        "jp": "みどり図書館",
+        "kana": "みどりとしょかん",
+        "reading": "midoritoshokan",
+        "vi": "Thư viện Midori (tên giả định)"
+      },
+      {
+        "jp": "やまと美術館",
+        "kana": "やまとびじゅつかん",
+        "reading": "yamatobijutsukan",
+        "vi": "Bảo tàng mỹ thuật Yamato (tên giả định)"
       }
     ],
     "kanji": [
@@ -1400,7 +1580,8 @@ const LESSONS = [
       49,
       50
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 5,
@@ -1452,13 +1633,13 @@ const LESSONS = [
         "jp": "船",
         "kana": "ふね",
         "reading": "fune",
-        "vi": "thuyén, tau thay"
+        "vi": "thuyền, tàu thủy"
       },
       {
         "jp": "電車",
         "kana": "でんしゃ",
         "reading": "densha",
-        "vi": "tau dién"
+        "vi": "tàu điện"
       },
       {
         "jp": "地下鉄",
@@ -1470,13 +1651,13 @@ const LESSONS = [
         "jp": "新幹線",
         "kana": "しんかんせん",
         "reading": "shinkansen",
-        "vi": "tàu Shinkansen (tau điện cao tốc của Nhật)"
+        "vi": "tàu Shinkansen (tàu cao tốc của Nhật)"
       },
       {
         "jp": "バス",
         "kana": "バス",
         "reading": "basu",
-        "vi": "xe buyt"
+        "vi": "xe buýt"
       },
       {
         "jp": "タクシー",
@@ -1524,7 +1705,7 @@ const LESSONS = [
         "jp": "家族",
         "kana": "かぞく",
         "reading": "kazoku",
-        "vi": "giả định"
+        "vi": "gia đình"
       },
       {
         "jp": "一人で",
@@ -1542,7 +1723,7 @@ const LESSONS = [
         "jp": "今週",
         "kana": "こんしゅう",
         "reading": "konshuu",
-        "vi": "tuần nay"
+        "vi": "tuần này"
       },
       {
         "jp": "来週",
@@ -1584,25 +1765,25 @@ const LESSONS = [
         "jp": "来年",
         "kana": "らいねん",
         "reading": "rainen",
-        "vi": "sáng nam"
+        "vi": "sang năm"
       },
       {
-        "jp": "ー年",
-        "kana": "ーねん",
+        "jp": "～年",
+        "kana": "～ねん",
         "reading": "nen",
-        "vi": "năm —"
+        "vi": "năm ~"
       },
       {
         "jp": "何年",
         "kana": "なんねん",
         "reading": "nannen",
-        "vi": "may năm"
+        "vi": "mấy năm"
       },
       {
-        "jp": "ーがつ",
-        "kana": "ーがつ",
+        "jp": "～月",
+        "kana": "～がつ",
         "reading": "gatsu",
-        "vi": "tháng —"
+        "vi": "tháng ~"
       },
       {
         "jp": "何月",
@@ -1614,151 +1795,163 @@ const LESSONS = [
         "jp": "一日",
         "kana": "ついたち",
         "reading": "tsuitachi",
-        "vi": "mồng 1"
+        "vi": "ngày mồng 1"
       },
       {
         "jp": "二日",
         "kana": "ふつか",
         "reading": "futsuka",
-        "vi": "mồng 2, 2 ngày"
+        "vi": "ngày mồng 2; 2 ngày"
       },
       {
         "jp": "三日",
         "kana": "みっか",
         "reading": "mikka",
-        "vi": "mồng 3, 3 ngày"
+        "vi": "ngày mồng 3; 3 ngày"
       },
       {
         "jp": "四日",
         "kana": "よっか",
         "reading": "yokka",
-        "vi": "mồng 4, 4 ngày"
+        "vi": "ngày mồng 4; 4 ngày"
       },
       {
         "jp": "五日",
         "kana": "いつか",
         "reading": "itsuka",
-        "vi": "mồng 5, 5 ngày"
+        "vi": "ngày mồng 5; 5 ngày"
       },
       {
         "jp": "六日",
         "kana": "むいか",
         "reading": "muika",
-        "vi": "mồng 6, 6 ngày"
+        "vi": "ngày mồng 6; 6 ngày"
       },
       {
         "jp": "七日",
         "kana": "なのか",
         "reading": "nanoka",
-        "vi": "méng 7, 7 ngay"
+        "vi": "ngày mồng 7; 7 ngày"
       },
       {
         "jp": "八日",
         "kana": "ようか",
         "reading": "youka",
-        "vi": "mồng 8, 8 ngày"
+        "vi": "ngày mồng 8; 8 ngày"
       },
       {
         "jp": "九日",
         "kana": "ここのか",
         "reading": "kokonoka",
-        "vi": "mồng 9, 9 ngày f"
+        "vi": "ngày mồng 9; 9 ngày"
       },
       {
         "jp": "十日",
         "kana": "とおか",
         "reading": "tooka",
-        "vi": "mồng 10, 10 ngày ; 5"
+        "vi": "ngày mồng 10; 10 ngày"
       },
       {
         "jp": "十四日",
         "kana": "じゅうよっか",
         "reading": "juuyokka",
-        "vi": "14, 14 ngày ‘"
+        "vi": "ngày 14; 14 ngày"
       },
       {
         "jp": "二十日",
         "kana": "はつか",
         "reading": "hatsuka",
-        "vi": "20, 20 ngày"
+        "vi": "ngày 20; 20 ngày"
       },
       {
-        "jp": "十四日",
-        "kana": "じゅうよっか",
-        "reading": "juuyokka",
-        "vi": "24, 24 ngay"
+        "jp": "二十四日",
+        "kana": "にじゅうよっか",
+        "reading": "nijuuyokka",
+        "vi": "ngày 24; 24 ngày"
       },
       {
-        "jp": "ーにち",
-        "kana": "ーにち",
+        "jp": "～日",
+        "kana": "～にち",
         "reading": "nichi",
-        "vi": "—, — ngày"
+        "vi": "ngày ~; ~ ngày"
       },
       {
         "jp": "何日",
         "kana": "なんにち",
         "reading": "nannichi",
-        "vi": "mấy, ngày bao nhiêu, mấy ngày, bao nhiêu"
+        "vi": "ngày mấy, ngày bao nhiêu; mấy ngày, bao nhiêu ngày"
       },
       {
         "jp": "いつ",
-        "kana": "いつか",
-        "reading": "itsuka",
-        "vi": "giờ, khi nào"
+        "kana": "いつ",
+        "reading": "itsu",
+        "vi": "bao giờ, khi nào"
       },
       {
         "jp": "誕生日",
         "kana": "たんじょうび",
         "reading": "tanjoubi",
-        "vi": "nhat"
+        "vi": "sinh nhật"
       },
       {
-        "jp": "[どうも]ありがとう",
-        "kana": "[どうも]ありがとう",
-        "reading": "doumo arigatou",
-        "vi": "cám on anh/chị rất nhiều."
+        "jp": "そうですね。",
+        "kana": "そうですね。",
+        "reading": "soudesune",
+        "vi": "Ừ, nhỉ./Để tôi xem."
+      },
+      {
+        "jp": "[どうも]ありがとうございました。",
+        "kana": "[どうも]ありがとうございました。",
+        "reading": "arigatougozaimashita",
+        "vi": "[Rất] cảm ơn anh/chị."
       },
       {
         "jp": "どういたしまして。",
         "kana": "どういたしまして。",
         "reading": "douitashimashite",
-        "vi": "có gì đâu (anh/chị đừng bận tâm)."
+        "vi": "Không có gì đâu."
+      },
+      {
+        "jp": "～番線",
+        "kana": "～ばんせん",
+        "reading": "bansen",
+        "vi": "sân ga số ~"
       },
       {
         "jp": "次の",
         "kana": "つぎの",
         "reading": "tsugino",
-        "vi": "theo"
+        "vi": "tiếp theo"
       },
       {
         "jp": "普通",
         "kana": "ふつう",
         "reading": "futsuu",
-        "vi": "(dừng cả ở các ga lẻ)"
+        "vi": "tàu thường (dừng ở cả các ga lẻ)"
       },
       {
-        "jp": "行",
-        "kana": "行",
-        "reading": "",
-        "vi": "tốc hành"
+        "jp": "急行",
+        "kana": "きゅうこう",
+        "reading": "kyuukou",
+        "vi": "tàu tốc hành"
       },
       {
         "jp": "特急",
         "kana": "とっきゅう",
         "reading": "tokkyuu",
-        "vi": "hành đặc biệt"
+        "vi": "tàu tốc hành đặc biệt"
       },
       {
-        "jp": "しえん",
-        "kana": "しえん",
-        "reading": "shien",
-        "vi": "。"
+        "jp": "甲子園",
+        "kana": "こうしえん",
+        "reading": "koushien",
+        "vi": "tên một khu phố gần Osaka"
       },
       {
-        "jp": "平子",
-        "kana": "平子",
-        "reading": "",
-        "vi": "khu phố ở gần Osaka"
+        "jp": "大阪城",
+        "kana": "おおさかじょう",
+        "reading": "oosakajou",
+        "vi": "Lâu đài Osaka"
       }
     ],
     "kanji": [
@@ -1854,7 +2047,8 @@ const LESSONS = [
       55,
       56
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 6,
@@ -1873,16 +2067,16 @@ const LESSONS = [
         "vi": "uống"
       },
       {
-        "jp": "すいます[たばこをへ有]",
-        "kana": "すいます[たばこをへ有]",
-        "reading": "suimasu tabakoohe",
+        "jp": "吸います[たばこを～]",
+        "kana": "すいます[たばこを～]",
+        "reading": "suimasu",
         "vi": "hút [thuốc lá]"
       },
       {
         "jp": "見ます",
         "kana": "みます",
         "reading": "mimasu",
-        "vi": "nhin, xem"
+        "vi": "nhìn, xem"
       },
       {
         "jp": "聞きます",
@@ -1900,7 +2094,7 @@ const LESSONS = [
         "jp": "書きます",
         "kana": "かきます",
         "reading": "kakimasu",
-        "vi": "viết (か さき ます còn có nghĩa là “vẽ”, và trong"
+        "vi": "viết (cũng có nghĩa là vẽ; khi mang nghĩa vẽ sách dùng Hiragana)"
       },
       {
         "jp": "買います",
@@ -1909,20 +2103,20 @@ const LESSONS = [
         "vi": "mua"
       },
       {
-        "jp": "撮ります",
-        "kana": "とります",
+        "jp": "撮ります[写真を～]",
+        "kana": "とります[しゃしんを～]",
         "reading": "torimasu",
-        "vi": "chụp [anh]"
+        "vi": "chụp [ảnh]"
       },
       {
         "jp": "します",
         "kana": "します",
         "reading": "shimasu",
-        "vi": "lam, chơi"
+        "vi": "làm, chơi"
       },
       {
-        "jp": "会います",
-        "kana": "あいます",
+        "jp": "会います[友達に～]",
+        "kana": "あいます[ともだちに～]",
         "reading": "aimasu",
         "vi": "gặp [bạn]"
       },
@@ -1954,7 +2148,7 @@ const LESSONS = [
         "jp": "パン",
         "kana": "パン",
         "reading": "pan",
-        "vi": "banh mi"
+        "vi": "bánh mì"
       },
       {
         "jp": "卵",
@@ -1963,10 +2157,10 @@ const LESSONS = [
         "vi": "trứng"
       },
       {
-        "jp": "にくさく",
-        "kana": "にくさく",
-        "reading": "nikusaku",
-        "vi": "thit"
+        "jp": "肉",
+        "kana": "にく",
+        "reading": "niku",
+        "vi": "thịt"
       },
       {
         "jp": "魚",
@@ -2002,12 +2196,12 @@ const LESSONS = [
         "jp": "紅茶",
         "kana": "こうちゃ",
         "reading": "koucha",
-        "vi": "tra den"
+        "vi": "trà đen"
       },
       {
-        "jp": "ぎざぎざゅうにゅう(ミルク)",
-        "kana": "ぎざぎざゅうにゅう(ミルク)",
-        "reading": "gizagiza unyuu miruku",
+        "jp": "牛乳（ミルク）",
+        "kana": "ぎゅうにゅう（ミルク）",
+        "reading": "gyuunyuu",
         "vi": "sữa bò (sữa)"
       },
       {
@@ -2023,9 +2217,9 @@ const LESSONS = [
         "vi": "bia"
       },
       {
-        "jp": "［お］酒",
-        "kana": "［お］さけ",
-        "reading": "o sake",
+        "jp": "[お]酒",
+        "kana": "[お]さけ",
+        "reading": "sake",
         "vi": "rượu, rượu gạo Nhật Bản"
       },
       {
@@ -2035,118 +2229,160 @@ const LESSONS = [
         "vi": "thuốc lá"
       },
       {
-        "jp": "レポートしゃしん写真",
-        "kana": "レポートしゃしん写真",
-        "reading": "repootoshashin",
-        "vi": "cáo"
+        "jp": "手紙",
+        "kana": "てがみ",
+        "reading": "tegami",
+        "vi": "thư"
+      },
+      {
+        "jp": "レポート",
+        "kana": "レポート",
+        "reading": "repooto",
+        "vi": "báo cáo"
+      },
+      {
+        "jp": "写真",
+        "kana": "しゃしん",
+        "reading": "shashin",
+        "vi": "ảnh, hình"
       },
       {
         "jp": "ビデオ",
         "kana": "ビデオ",
         "reading": "bideo",
-        "vi": "viđeo, đầu viđeo"
+        "vi": "băng video, đầu video"
       },
       {
-        "jp": "みせ店",
-        "kana": "みせ店",
+        "jp": "店",
+        "kana": "みせ",
         "reading": "mise",
-        "vi": "hàng, tiệm"
+        "vi": "cửa hàng, tiệm"
+      },
+      {
+        "jp": "庭",
+        "kana": "にわ",
+        "reading": "niwa",
+        "vi": "vườn"
+      },
+      {
+        "jp": "宿題",
+        "kana": "しゅくだい",
+        "reading": "shukudai",
+        "vi": "bài tập về nhà"
       },
       {
         "jp": "テニス",
         "kana": "テニス",
         "reading": "tenisu",
-        "vi": "vợt ( ~ を し ます :danh quần vợt) po"
+        "vi": "quần vợt"
       },
       {
         "jp": "サッカー",
         "kana": "サッカー",
         "reading": "sakkaa",
-        "vi": "đá ( ~ # LET : chơi bóng đá) 6"
+        "vi": "bóng đá"
       },
       {
-        "jp": "［お］花見",
-        "kana": "［お］はなみ",
-        "reading": "o hanami",
-        "vi": "ngắm hoa anh dao ( ~ を し ます :ngém ai"
+        "jp": "[お]花見",
+        "kana": "[お]はなみ",
+        "reading": "hanami",
+        "vi": "việc ngắm hoa anh đào"
       },
       {
-        "jp": "なに",
+        "jp": "何",
         "kana": "なに",
         "reading": "nani",
-        "vi": "gi"
+        "vi": "cái gì, gì"
       },
       {
         "jp": "いっしょに",
         "kana": "いっしょに",
         "reading": "isshoni",
-        "vi": "cùng nhau"
+        "vi": "cùng, cùng nhau"
       },
       {
         "jp": "ちょっと",
         "kana": "ちょっと",
         "reading": "chotto",
-        "vi": "chút"
+        "vi": "một chút"
       },
       {
         "jp": "いつも",
         "kana": "いつも",
         "reading": "itsumo",
-        "vi": "luôn, lúc nào cũng"
+        "vi": "luôn luôn, lúc nào cũng"
       },
       {
         "jp": "時々",
         "kana": "ときどき",
         "reading": "tokidoki",
-        "vi": "thoảng"
+        "vi": "thỉnh thoảng"
       },
       {
         "jp": "それから",
         "kana": "それから",
         "reading": "sorekara",
-        "vi": "d6, tiép theo"
+        "vi": "sau đó, tiếp theo"
       },
       {
         "jp": "ええ",
         "kana": "ええ",
         "reading": "ee",
-        "vi": "—"
+        "vi": "vâng, được"
       },
       {
         "jp": "いいですね。",
         "kana": "いいですね。",
         "reading": "iidesune",
-        "vi": "đầy nhỉ./Hay quá."
+        "vi": "Được đấy nhỉ./Hay quá."
       },
       {
-        "jp": "わかりリました。(会話)かいわなん",
-        "kana": "わかりリました。(会話)かいわなん",
-        "reading": "wakaririmashita kaiwanan",
-        "vi": "rồi./Vâng a."
+        "jp": "わかりました。",
+        "kana": "わかりました。",
+        "reading": "wakarimashita",
+        "vi": "Tôi hiểu rồi./Vâng ạ."
       },
       {
         "jp": "何ですか。",
-        "kana": "何ですか。",
-        "reading": "desuka",
-        "vi": "đẩy ạ?/Cái gi vậy?/Vâng có tôi."
+        "kana": "なんですか。",
+        "reading": "nandesuka",
+        "vi": "Có gì đấy ạ?/Cái gì vậy?/Vâng, có tôi."
       },
       {
-        "jp": "じゃ、また[あした]。メキシコ",
-        "kana": "じゃ、また[あした]。メキシコ",
-        "reading": "ja mata ashita mekishiko",
-        "vi": "gặp lại [ngày mai]."
+        "jp": "じゃ、また[あした]。",
+        "kana": "じゃ、また[あした]。",
+        "reading": "jamata",
+        "vi": "Hẹn gặp lại [ngày mai]."
+      },
+      {
+        "jp": "メキシコ",
+        "kana": "メキシコ",
+        "reading": "mekishiko",
+        "vi": "Mexico"
       },
       {
         "jp": "大阪デパート",
-        "kana": "大阪デパート",
-        "reading": "depaato",
-        "vi": "hóa giả định"
+        "kana": "おおさかデパート",
+        "reading": "oosakadepaato",
+        "vi": "tên bách hóa giả định"
       },
       {
-        "jp": "つるやまいにちや",
-        "kana": "つるやまいにちや",
-        "reading": "tsuruyamainichiya",
-        "vi": "hang giả định"
+        "jp": "つるや",
+        "kana": "つるや",
+        "reading": "tsuruya",
+        "vi": "tên nhà hàng giả định"
+      },
+      {
+        "jp": "フランス屋",
+        "kana": "フランスや",
+        "reading": "furansuya",
+        "vi": "tên cửa hàng giả định"
+      },
+      {
+        "jp": "毎日屋",
+        "kana": "まいにちや",
+        "reading": "mainichiya",
+        "vi": "tên siêu thị giả định"
       }
     ],
     "kanji": [
@@ -2247,7 +2483,8 @@ const LESSONS = [
       61,
       62
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 7,
@@ -2293,19 +2530,19 @@ const LESSONS = [
         "jp": "教えます",
         "kana": "おしえます",
         "reading": "oshiemasu",
-        "vi": "day"
+        "vi": "dạy"
       },
       {
         "jp": "習います",
         "kana": "ならいます",
         "reading": "naraimasu",
-        "vi": "hoc, tap"
+        "vi": "học, tập"
       },
       {
-        "jp": "かけます",
-        "kana": "かけます",
+        "jp": "かけます[電話を～]",
+        "kana": "かけます[でんわを～]",
         "reading": "kakemasu",
-        "vi": "goi [điện thoại]"
+        "vi": "gọi [điện thoại]"
       },
       {
         "jp": "手",
@@ -2323,7 +2560,7 @@ const LESSONS = [
         "jp": "スプーン",
         "kana": "スプーン",
         "reading": "supuun",
-        "vi": "thia"
+        "vi": "thìa"
       },
       {
         "jp": "ナイフ",
@@ -2334,8 +2571,8 @@ const LESSONS = [
       {
         "jp": "フォーク",
         "kana": "フォーク",
-        "reading": "fooku",
-        "vi": "dia, nia"
+        "reading": "fuuku",
+        "vi": "dĩa, nĩa"
       },
       {
         "jp": "はさみ",
@@ -2377,7 +2614,7 @@ const LESSONS = [
         "jp": "ホッチキス",
         "kana": "ホッチキス",
         "reading": "hocchikisu",
-        "vi": "cái đập ghim"
+        "vi": "cái dập ghim"
       },
       {
         "jp": "セロテープ",
@@ -2389,13 +2626,13 @@ const LESSONS = [
         "jp": "消しゴム",
         "kana": "けしゴム",
         "reading": "keshigomu",
-        "vi": "cái tay, cục tây"
+        "vi": "cái tẩy, cục tẩy"
       },
       {
         "jp": "紙",
         "kana": "かみ",
         "reading": "kami",
-        "vi": "gidy"
+        "vi": "giấy"
       },
       {
         "jp": "花",
@@ -2443,91 +2680,91 @@ const LESSONS = [
         "jp": "父",
         "kana": "ちち",
         "reading": "chichi",
-        "vi": "khi nói về bố mình)"
+        "vi": "bố (khi nói về bố mình)"
       },
       {
         "jp": "母",
         "kana": "はは",
         "reading": "haha",
-        "vi": "khi nói về mẹ mình)"
+        "vi": "mẹ (khi nói về mẹ mình)"
       },
       {
         "jp": "お父さん",
         "kana": "おとうさん",
         "reading": "otousan",
-        "vi": "khi nói về bố người khác va ding khi"
+        "vi": "bố (người khác; hoặc dùng để gọi bố mình)"
       },
       {
         "jp": "お母さん",
         "kana": "おかあさん",
         "reading": "okaasan",
-        "vi": "(dùng khi nói về mẹ người khác và dùng khi"
+        "vi": "mẹ (người khác; hoặc dùng để gọi mẹ mình)"
       },
       {
-        "jp": "ょだ",
-        "kana": "ょだ",
-        "reading": "da",
-        "vi": "hô với mẹ mình)"
+        "jp": "もう",
+        "kana": "もう",
+        "reading": "mou",
+        "vi": "đã, rồi"
+      },
+      {
+        "jp": "まだ",
+        "kana": "まだ",
+        "reading": "mada",
+        "vi": "chưa"
       },
       {
         "jp": "これから",
         "kana": "これから",
         "reading": "korekara",
-        "vi": "giờ, sau đây"
+        "vi": "từ bây giờ, sau đây"
       },
       {
         "jp": "[～、]すてきですね。",
         "kana": "[～、]すてきですね。",
         "reading": "sutekidesune",
-        "vi": "hay nhi./đẹp nhỉ. 7"
-      },
-      {
-        "jp": "かい",
-        "kana": "かい",
-        "reading": "kai",
-        "vi": "n"
+        "vi": "[~] hay nhỉ./Đẹp nhỉ."
       },
       {
         "jp": "いらっしゃい。",
         "kana": "いらっしゃい。",
         "reading": "irasshai",
-        "vi": "nghênh anh/chị đã đến chơi./"
+        "vi": "Rất hoan nghênh/Chào mừng anh/chị đã đến chơi."
       },
       {
-        "jp": "どうぞお上がりくださいしっれい",
-        "kana": "どうぞお上がりくださいしっれい",
-        "reading": "douzoo garikudasaishirrei",
-        "vi": "anh/chị vào."
+        "jp": "どうぞお上がりください。",
+        "kana": "どうぞおあがりください。",
+        "reading": "douzooagarikudasai",
+        "vi": "Mời anh/chị vào."
       },
       {
         "jp": "失礼します。",
         "kana": "しつれいします。",
         "reading": "shitsureishimasu",
-        "vi": "phép tôi vào./Xin phép ~. (dùng khi bước"
+        "vi": "Xin phép tôi vào./Xin phép ~."
       },
       {
-        "jp": "いかがですか。",
-        "kana": "いかがですか。",
+        "jp": "[～は]いかがですか。",
+        "kana": "[～は]いかがですか。",
         "reading": "ikagadesuka",
-        "vi": "dùng ~ nhé? (diing khi mời ai đó cái gì)"
+        "vi": "Anh/Chị dùng ~ nhé?"
       },
       {
         "jp": "いただきます。",
         "kana": "いただきます。",
         "reading": "itadakimasu",
-        "vi": "anh/chị đùng ~. (cách nói dùng trước khi ăn"
+        "vi": "Mời dùng/Tôi xin phép dùng. (nói trước khi ăn hoặc uống)"
       },
       {
         "jp": "ごちそうさま[でした]。",
         "kana": "ごちそうさま[でした]。",
-        "reading": "gochisousama deshita",
-        "vi": "on anh/chị đã đãi tôi bữa ăn ngon."
+        "reading": "gochisousama",
+        "vi": "Cảm ơn về bữa ăn ngon. (nói sau khi ăn)"
       },
       {
         "jp": "スペイン",
         "kana": "スペイン",
         "reading": "supein",
-        "vi": "Ban Nha"
+        "vi": "Tây Ban Nha"
       }
     ],
     "kanji": [
@@ -2623,7 +2860,8 @@ const LESSONS = [
       67,
       68
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 8,
@@ -2632,61 +2870,61 @@ const LESSONS = [
       {
         "jp": "ハンサム[な]",
         "kana": "ハンサム[な]",
-        "reading": "hansamu na",
+        "reading": "hansamu",
         "vi": "đẹp trai"
       },
       {
-        "jp": "きれい［な］",
-        "kana": "きれい［な］",
-        "reading": "kirei na",
+        "jp": "きれい[な]",
+        "kana": "きれい[な]",
+        "reading": "kirei",
         "vi": "đẹp, sạch"
       },
       {
-        "jp": "静か［な］",
-        "kana": "しずか［な］",
-        "reading": "shizuka na",
+        "jp": "静か[な]",
+        "kana": "しずか[な]",
+        "reading": "shizuka",
         "vi": "yên tĩnh"
       },
       {
-        "jp": "にぎやか［な］",
-        "kana": "にぎやか［な］",
-        "reading": "nigiyaka na",
+        "jp": "にぎやか[な]",
+        "kana": "にぎやか[な]",
+        "reading": "nigiyaka",
         "vi": "náo nhiệt"
       },
       {
-        "jp": "有名［な］",
-        "kana": "ゆうめい［な］",
-        "reading": "yuumei na",
+        "jp": "有名[な]",
+        "kana": "ゆうめい[な]",
+        "reading": "yuumei",
         "vi": "nổi tiếng"
       },
       {
-        "jp": "親切［な］",
-        "kana": "しんせつ［な］",
-        "reading": "shinsetsu na",
+        "jp": "親切[な]",
+        "kana": "しんせつ[な]",
+        "reading": "shinsetsu",
         "vi": "tốt bụng, thân thiện (không dùng khi nói về người trong gia đình mình)"
       },
       {
-        "jp": "元気［な］",
-        "kana": "げんき［な］",
-        "reading": "genki na",
+        "jp": "元気[な]",
+        "kana": "げんき[な]",
+        "reading": "genki",
         "vi": "khỏe, khỏe khoắn"
       },
       {
-        "jp": "暇［な］",
-        "kana": "ひま［な］",
-        "reading": "hima na",
+        "jp": "暇[な]",
+        "kana": "ひま[な]",
+        "reading": "hima",
         "vi": "rảnh rỗi"
       },
       {
-        "jp": "便利［な］",
-        "kana": "べんり［な］",
-        "reading": "benri na",
+        "jp": "便利[な]",
+        "kana": "べんり[な]",
+        "reading": "benri",
         "vi": "tiện lợi"
       },
       {
-        "jp": "すてき［な］",
-        "kana": "すてき［な］",
-        "reading": "suteki na",
+        "jp": "すてき[な]",
+        "kana": "すてき[な]",
+        "reading": "suteki",
         "vi": "đẹp, hay"
       },
       {
@@ -2711,13 +2949,13 @@ const LESSONS = [
         "jp": "古い",
         "kana": "ふるい",
         "reading": "furui",
-        "vi": "cũ (không dùng khi nói về tuổi tác của một người)"
+        "vi": "cũ (không dùng khi nói về tuổi tác của người)"
       },
       {
         "jp": "いい（よい）",
         "kana": "いい（よい）",
-        "reading": "ii yoi",
-        "vi": "tét"
+        "reading": "ii",
+        "vi": "tốt"
       },
       {
         "jp": "悪い",
@@ -2726,10 +2964,10 @@ const LESSONS = [
         "vi": "xấu"
       },
       {
-        "jp": "暑い",
+        "jp": "暑い・熱い",
         "kana": "あつい",
         "reading": "atsui",
-        "vi": "néng"
+        "vi": "nóng"
       },
       {
         "jp": "寒い",
@@ -2741,7 +2979,7 @@ const LESSONS = [
         "jp": "冷たい",
         "kana": "つめたい",
         "reading": "tsumetai",
-        "vi": "lạnh,buốt (dùng cho cảm giác)"
+        "vi": "lạnh, buốt (cảm giác khi chạm)"
       },
       {
         "jp": "難しい",
@@ -2765,7 +3003,7 @@ const LESSONS = [
         "jp": "安い",
         "kana": "やすい",
         "reading": "yasui",
-        "vi": "ré"
+        "vi": "rẻ"
       },
       {
         "jp": "低い",
@@ -2777,7 +3015,7 @@ const LESSONS = [
         "jp": "おもしろい",
         "kana": "おもしろい",
         "reading": "omoshiroi",
-        "vi": "thứ vị, hay"
+        "vi": "thú vị, hay"
       },
       {
         "jp": "おいしい",
@@ -2807,7 +3045,7 @@ const LESSONS = [
         "jp": "黒い",
         "kana": "くろい",
         "reading": "kuroi",
-        "vi": "den"
+        "vi": "đen"
       },
       {
         "jp": "赤い",
@@ -2825,7 +3063,7 @@ const LESSONS = [
         "jp": "桜",
         "kana": "さくら",
         "reading": "sakura",
-        "vi": "anh đào (hoa, cây)"
+        "vi": "hoa/cây anh đào"
       },
       {
         "jp": "山",
@@ -2837,7 +3075,7 @@ const LESSONS = [
         "jp": "町",
         "kana": "まち",
         "reading": "machi",
-        "vi": "thị trấn, thi xã, thành phố"
+        "vi": "thị trấn, thị xã, thành phố"
       },
       {
         "jp": "食べ物",
@@ -2849,139 +3087,145 @@ const LESSONS = [
         "jp": "所",
         "kana": "ところ",
         "reading": "tokoro",
-        "vi": "chỗ"
+        "vi": "nơi, chỗ"
       },
       {
         "jp": "寮",
         "kana": "りょう",
         "reading": "ryou",
-        "vi": "xá"
+        "vi": "kí túc xá"
       },
       {
         "jp": "レストラン",
         "kana": "レストラン",
         "reading": "resutoran",
-        "vi": "hang"
+        "vi": "nhà hàng"
       },
       {
-        "jp": "せいかつ生活",
-        "kana": "せいかつ生活",
+        "jp": "生活",
+        "kana": "せいかつ",
         "reading": "seikatsu",
-        "vi": "sống, sinh hoạt"
+        "vi": "cuộc sống, sinh hoạt"
       },
       {
-        "jp": "［お］仕事",
-        "kana": "［お］しごと",
-        "reading": "o shigoto",
-        "vi": "công việc ( ~ を し ます : làm việc)"
+        "jp": "[お]仕事",
+        "kana": "[お]しごと",
+        "reading": "shigoto",
+        "vi": "việc, công việc"
       },
       {
         "jp": "どう",
         "kana": "どう",
         "reading": "dou",
-        "vi": "nao"
+        "vi": "thế nào"
       },
       {
         "jp": "どんな～",
         "kana": "どんな～",
         "reading": "donna",
-        "vi": "thế nào"
+        "vi": "~ như thế nào"
       },
       {
         "jp": "とても",
         "kana": "とても",
         "reading": "totemo",
-        "vi": "lắm"
+        "vi": "rất, lắm"
       },
       {
         "jp": "あまり",
         "kana": "あまり",
         "reading": "amari",
-        "vi": "~ lắm (dùng với thể phủ định)"
+        "vi": "không ~ lắm (dùng với thể phủ định)"
       },
       {
-        "jp": "そしてげんき",
-        "kana": "そしてげんき",
-        "reading": "soshitegenki",
-        "vi": "nữa (dùng dễ nối hai câu)"
+        "jp": "そして",
+        "kana": "そして",
+        "reading": "soshite",
+        "vi": "và, thêm nữa (nối hai câu)"
+      },
+      {
+        "jp": "～が、～",
+        "kana": "～が、～",
+        "reading": "ga",
+        "vi": "~, nhưng ~"
       },
       {
         "jp": "お元気ですか。",
-        "kana": "お元気ですか。",
-        "reading": "o desuka",
-        "vi": "có khỏe không?"
+        "kana": "おげんきですか。",
+        "reading": "ogenkidesuka",
+        "vi": "Anh/Chị có khỏe không?"
       },
       {
         "jp": "そうですね。",
         "kana": "そうですね。",
         "reading": "soudesune",
-        "vi": "à./Để tôi xem. (cách nói trong lúc suy nghĩ"
+        "vi": "Thế à./Để tôi xem. (nói trong lúc suy nghĩ câu trả lời)"
       },
       {
-        "jp": "酸っぱい",
-        "kana": "すっぱい",
-        "reading": "suppai",
-        "vi": "="
+        "jp": "[～、]もう一杯いかがですか。",
+        "kana": "[～、]もういっぱい いかがですか。",
+        "reading": "mouippai ikagadesuka",
+        "vi": "Anh/Chị dùng thêm một chén/ly [~] nữa nhé?"
       },
       {
-        "jp": "[～、]もう一杯いか",
-        "kana": "[～、]もう一杯いか",
-        "reading": "mou ika",
-        "vi": "dùng thêm một chén/ly[~] nữa nhé?"
+        "jp": "[いいえ、]けっこうです。",
+        "kana": "[いいえ、]けっこうです。",
+        "reading": "kekkoudesu",
+        "vi": "Không, đủ rồi ạ."
       },
       {
-        "jp": "[いいえ、]けっこうです",
-        "kana": "[いいえ、]けっこうです",
-        "reading": "iie kekkoudesu",
-        "vi": "đủ rồi a."
-      },
-      {
-        "jp": "～～です[ね]。",
-        "kana": "～～です[ね]。",
-        "reading": "desu ne",
-        "vi": "rồi nhỉ./Đã ~ rồi, đúng không?"
+        "jp": "もう～です[ね]。",
+        "kana": "もう～です[ね]。",
+        "reading": "moudesu",
+        "vi": "Đã ~ rồi nhỉ./Đã ~ rồi, đúng không?"
       },
       {
         "jp": "そろそろ失礼します。",
-        "kana": "そろそろ失礼します。",
-        "reading": "sorosoro shimasu",
-        "vi": "đến lúc tôi phải xin phép rồi./Đã đến lúc tôi"
+        "kana": "そろそろしつれいします。",
+        "reading": "sorosoroshitsureishimasu",
+        "vi": "Sắp đến lúc tôi phải xin phép về."
       },
       {
         "jp": "いいえ。",
         "kana": "いいえ。",
         "reading": "iie",
-        "vi": "có gi./Khéng sao cả."
+        "vi": "Không có gì./Không sao cả."
       },
       {
-        "jp": "またいらっしゃって",
-        "kana": "またいらっしゃって",
-        "reading": "matairasshatte",
-        "vi": "sau anh/chị lại đến chơi nhé."
+        "jp": "またいらっしゃってください。",
+        "kana": "またいらっしゃってください。",
+        "reading": "matairasshattekudasai",
+        "vi": "Lần sau anh/chị lại đến chơi nhé."
       },
       {
-        "jp": "シャンハイきんかくじな",
-        "kana": "シャンハイきんかくじな",
-        "reading": "shanhaikinkakujina",
-        "vi": "Hải (上 海 )"
+        "jp": "シャンハイ",
+        "kana": "シャンハイ",
+        "reading": "shanhai",
+        "vi": "Thượng Hải"
+      },
+      {
+        "jp": "金閣寺",
+        "kana": "きんかくじ",
+        "reading": "kinkakuji",
+        "vi": "Chùa Kinkaku-ji (Chùa Vàng)"
       },
       {
         "jp": "奈良公園",
-        "kana": "奈良公園",
-        "reading": "",
-        "vi": "viên Nara"
+        "kana": "ならこうえん",
+        "reading": "narakouen",
+        "vi": "Công viên Nara"
       },
       {
-        "jp": "富士山しちにんさむらい",
-        "kana": "富士山しちにんさむらい",
-        "reading": "shichininsamurai",
-        "vi": "Phú Sĩ (ngọn núi cao nhất Nhật Bản)"
+        "jp": "富士山",
+        "kana": "ふじさん",
+        "reading": "fujisan",
+        "vi": "Núi Phú Sĩ"
       },
       {
-        "jp": "[侍",
-        "kana": "[侍",
-        "reading": "",
-        "vi": "võ sĩ Samurai” (tên một bộ phim kính"
+        "jp": "「七人の侍」",
+        "kana": "「しちにんのさむらい」",
+        "reading": "shichininnosamurai",
+        "vi": "“Bảy chàng võ sĩ Samurai” (tên phim của Kurosawa Akira)"
       }
     ],
     "kanji": [
@@ -3072,7 +3316,8 @@ const LESSONS = [
       73,
       74
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 9,
@@ -3091,27 +3336,27 @@ const LESSONS = [
         "vi": "có (sở hữu)"
       },
       {
-        "jp": "好き［な］",
-        "kana": "すき［な］",
-        "reading": "suki na",
+        "jp": "好き[な]",
+        "kana": "すき[な]",
+        "reading": "suki",
         "vi": "thích"
       },
       {
-        "jp": "嫌い［な］",
-        "kana": "きらい［な］",
-        "reading": "kirai na",
-        "vi": "ghết, không thích"
+        "jp": "嫌い[な]",
+        "kana": "きらい[な]",
+        "reading": "kirai",
+        "vi": "ghét, không thích"
       },
       {
-        "jp": "上手［な］",
-        "kana": "じょうず［な］",
-        "reading": "jouzu na",
+        "jp": "上手[な]",
+        "kana": "じょうず[な]",
+        "reading": "jouzu",
         "vi": "giỏi, khéo"
       },
       {
-        "jp": "下手［な］",
-        "kana": "へた［な］",
-        "reading": "heta na",
+        "jp": "下手[な]",
+        "kana": "へた[な]",
+        "reading": "heta",
         "vi": "kém"
       },
       {
@@ -3124,31 +3369,31 @@ const LESSONS = [
         "jp": "料理",
         "kana": "りょうり",
         "reading": "ryouri",
-        "vi": "món ăn, việc nấu ăn ( ~ を L £74 : ndu ăn)"
+        "vi": "món ăn, việc nấu ăn"
       },
       {
         "jp": "スポーツ",
         "kana": "スポーツ",
         "reading": "supootsu",
-        "vi": "thể thao ( ~ を し ます : chơi thể thao)"
+        "vi": "thể thao"
       },
       {
         "jp": "野球",
         "kana": "やきゅう",
         "reading": "yakyuu",
-        "vi": "bóng chày ( ~ # L£ : chơi béng chày)"
+        "vi": "bóng chày"
       },
       {
         "jp": "ダンス",
         "kana": "ダンス",
         "reading": "dansu",
-        "vi": "nhảy, khiêu vũ ( ~ # L #7 : nhay, khiéu vũ)"
+        "vi": "nhảy, khiêu vũ"
       },
       {
-        "jp": "料理",
-        "kana": "りょうり",
-        "reading": "ryouri",
-        "vi": "du lịch, chuyến du lịch ( ~ [を ] し ます : đi du"
+        "jp": "旅行",
+        "kana": "りょこう",
+        "reading": "ryokou",
+        "vi": "du lịch, chuyến du lịch"
       },
       {
         "jp": "音楽",
@@ -3157,22 +3402,28 @@ const LESSONS = [
         "vi": "âm nhạc"
       },
       {
+        "jp": "歌",
+        "kana": "うた",
+        "reading": "uta",
+        "vi": "bài hát"
+      },
+      {
         "jp": "クラシック",
         "kana": "クラシック",
         "reading": "kurashikku",
-        "vi": "nhạc cồ điền"
+        "vi": "nhạc cổ điển"
       },
       {
         "jp": "ジャズ",
         "kana": "ジャズ",
         "reading": "jazu",
-        "vi": "nhac jazz"
+        "vi": "nhạc jazz"
       },
       {
         "jp": "コンサート",
         "kana": "コンサート",
         "reading": "konsaato",
-        "vi": "buéi hoa nhac"
+        "vi": "buổi hòa nhạc"
       },
       {
         "jp": "カラオケ",
@@ -3181,10 +3432,28 @@ const LESSONS = [
         "vi": "karaoke"
       },
       {
+        "jp": "歌舞伎",
+        "kana": "かぶき",
+        "reading": "kabuki",
+        "vi": "Kabuki (một loại ca kịch truyền thống Nhật)"
+      },
+      {
         "jp": "絵",
         "kana": "え",
         "reading": "e",
-        "vi": "tranh, héi hoa"
+        "vi": "tranh, hội họa"
+      },
+      {
+        "jp": "字",
+        "kana": "じ",
+        "reading": "ji",
+        "vi": "chữ"
+      },
+      {
+        "jp": "漢字",
+        "kana": "かんじ",
+        "reading": "kanji",
+        "vi": "chữ Hán, Kanji"
       },
       {
         "jp": "ひらがな",
@@ -3193,15 +3462,15 @@ const LESSONS = [
         "vi": "chữ Hiragana"
       },
       {
-        "jp": "かたかな",
-        "kana": "かたかな",
+        "jp": "カタカナ",
+        "kana": "カタカナ",
         "reading": "katakana",
         "vi": "chữ Katakana"
       },
       {
-        "jp": "ローマ池",
-        "kana": "ローマビじ",
-        "reading": "roomabiji",
+        "jp": "ローマ字",
+        "kana": "ローマじ",
+        "reading": "roomaji",
         "vi": "chữ La Mã"
       },
       {
@@ -3223,112 +3492,148 @@ const LESSONS = [
         "vi": "thời gian"
       },
       {
+        "jp": "用事",
+        "kana": "ようじ",
+        "reading": "youji",
+        "vi": "việc bận, công chuyện"
+      },
+      {
         "jp": "約束",
         "kana": "やくそく",
         "reading": "yakusoku",
-        "vi": "cuộc hẹn, lời hứa ( ~ [を] し ます : hứa, hẹn)"
+        "vi": "cuộc hẹn, lời hứa"
       },
       {
         "jp": "アルバイト",
         "kana": "アルバイト",
         "reading": "arubaito",
-        "vi": "làm thêm ( ~ を し ます : làm thêm)"
+        "vi": "việc làm thêm"
       },
       {
         "jp": "ご主人",
         "kana": "ごしゅじん",
         "reading": "goshujin",
-        "vi": "(ding khi nói về chồng người khác)"
+        "vi": "chồng (khi nói về chồng người khác)"
       },
       {
-        "jp": "夫/主人",
-        "kana": "おっと/しゅじん",
-        "reading": "otto shujin",
-        "vi": "(dùng khi nói về chồng mình)"
+        "jp": "夫／主人",
+        "kana": "おっと／しゅじん",
+        "reading": "ottoshujin",
+        "vi": "chồng (khi nói về chồng mình)"
       },
       {
         "jp": "奥さん",
         "kana": "おくさん",
         "reading": "okusan",
-        "vi": "khi nói về vợ người khác)"
+        "vi": "vợ (khi nói về vợ người khác)"
       },
       {
-        "jp": "こども子ども",
-        "kana": "こども子ども",
-        "reading": "kodomo domo",
-        "vi": "cái"
+        "jp": "妻／家内",
+        "kana": "つま／かない",
+        "reading": "tsumakanai",
+        "vi": "vợ (khi nói về vợ mình)"
+      },
+      {
+        "jp": "子ども",
+        "kana": "こども",
+        "reading": "kodomo",
+        "vi": "con cái, trẻ em"
       },
       {
         "jp": "よく",
         "kana": "よく",
         "reading": "yoku",
-        "vi": "rõ (chỉ mức độ)"
+        "vi": "tốt, rõ (chỉ mức độ)"
       },
       {
-        "jp": "だいたいたくさん",
-        "kana": "だいたいたくさん",
-        "reading": "daitaitakusan",
-        "vi": "dai thé"
+        "jp": "だいたい",
+        "kana": "だいたい",
+        "reading": "daitai",
+        "vi": "đại thể, đại khái"
+      },
+      {
+        "jp": "たくさん",
+        "kana": "たくさん",
+        "reading": "takusan",
+        "vi": "nhiều"
       },
       {
         "jp": "少し",
         "kana": "すこし",
         "reading": "sukoshi",
-        "vi": "ít"
+        "vi": "ít, một ít"
       },
       {
         "jp": "全然",
         "kana": "ぜんぜん",
         "reading": "zenzen",
-        "vi": "toàn ~ không (dùng với thế phủ định)"
+        "vi": "hoàn toàn ~ không (dùng với thể phủ định)"
       },
       {
-        "jp": "はやさくどうして",
-        "kana": "はやさくどうして",
-        "reading": "hayasakudoushite",
-        "vi": "nhanh"
+        "jp": "早く／速く",
+        "kana": "はやく",
+        "reading": "hayaku",
+        "vi": "sớm, nhanh"
+      },
+      {
+        "jp": "～から",
+        "kana": "～から",
+        "reading": "kara",
+        "vi": "vì ~"
+      },
+      {
+        "jp": "どうして",
+        "kana": "どうして",
+        "reading": "doushite",
+        "vi": "tại sao"
       },
       {
         "jp": "貸してください。",
-        "kana": "貸してください。",
-        "reading": "shitekudasai",
-        "vi": "cho tôi mượn (nó)."
+        "kana": "かしてください。",
+        "reading": "kashitekudasai",
+        "vi": "Hãy cho tôi mượn (nó)."
       },
       {
-        "jp": "いいですよ。ざんねん",
-        "kana": "いいですよ。ざんねん",
-        "reading": "iidesuyo zannen",
-        "vi": "chứ./Được ạ."
+        "jp": "いいですよ。",
+        "kana": "いいですよ。",
+        "reading": "iidesuyo",
+        "vi": "Được chứ./Được ạ."
       },
       {
-        "jp": "残念です[が]かい(会話",
-        "kana": "残念です[が]かい(会話",
-        "reading": "desu ga kai",
-        "vi": "lỗi, [nhưng... ]/Đáng tiếc là... 59"
+        "jp": "残念です[が]。",
+        "kana": "ざんねんです[が]。",
+        "reading": "zannendesu",
+        "vi": "Tôi xin lỗi, [nhưng…]/Đáng tiếc là…"
       },
       {
-        "jp": "いっしょにいかがですか",
-        "kana": "いっしょにいかがですか",
+        "jp": "ああ",
+        "kana": "ああ",
+        "reading": "aa",
+        "vi": "À/Ôi"
+      },
+      {
+        "jp": "いっしょにいかがですか。",
+        "kana": "いっしょにいかがですか。",
         "reading": "isshoniikagadesuka",
-        "vi": "cùng ~ với tôi (chứng tôi) không?"
+        "vi": "Anh/Chị cùng ~ với tôi/chúng tôi không?"
       },
       {
-        "jp": "[～は]ちょっと。",
-        "kana": "[～は]ちょっと。",
-        "reading": "ha chotto",
-        "vi": "có lẽ không được rồi. (cách từ chối khéo"
+        "jp": "[～は]ちょっと…。",
+        "kana": "[～は]ちょっと…。",
+        "reading": "chotto",
+        "vi": "[~ thì] có lẽ không được rồi… (cách từ chối khéo)"
       },
       {
-        "jp": "だめですか。こんどビねが",
-        "kana": "だめですか。こんどビねが",
-        "reading": "damedesuka kondobinega",
-        "vi": "được à?"
+        "jp": "だめですか。",
+        "kana": "だめですか。",
+        "reading": "damedesuka",
+        "vi": "Không được à?"
       },
       {
         "jp": "また今度お願いします。",
-        "kana": "また今度お願いします。",
-        "reading": "mata o ishimasu",
-        "vi": "anh/chị lần sau vậy. (cách từ chối khéo một"
+        "kana": "またこんどおねがいします。",
+        "reading": "matakondoonegaishimasu",
+        "vi": "Hẹn anh/chị lần sau vậy."
       }
     ],
     "kanji": [
@@ -3424,7 +3729,8 @@ const LESSONS = [
       79,
       80
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 10,
@@ -3434,18 +3740,18 @@ const LESSONS = [
         "jp": "あります",
         "kana": "あります",
         "reading": "arimasu",
-        "vi": "ở (tồn tại, dùng cho đồ vật)"
+        "vi": "ở, tồn tại (đồ vật)"
       },
       {
         "jp": "います",
         "kana": "います",
         "reading": "imasu",
-        "vi": "ở (tồn tại, dùng cho người và động vật)"
+        "vi": "ở, tồn tại (người và động vật)"
       },
       {
-        "jp": "いろいろ［な］",
-        "kana": "いろいろ［な］",
-        "reading": "iroiro na",
+        "jp": "いろいろ[な]",
+        "kana": "いろいろ[な]",
+        "reading": "iroiro",
         "vi": "nhiều, đa dạng"
       },
       {
@@ -3458,13 +3764,13 @@ const LESSONS = [
         "jp": "女の人",
         "kana": "おんなのひと",
         "reading": "onnanohito",
-        "vi": "người đàn bà"
+        "vi": "người phụ nữ"
       },
       {
         "jp": "男の子",
         "kana": "おとこのこ",
         "reading": "otokonoko",
-        "vi": "cau con trai"
+        "vi": "cậu con trai"
       },
       {
         "jp": "女の子",
@@ -3491,7 +3797,7 @@ const LESSONS = [
         "vi": "gấu trúc"
       },
       {
-        "jp": "ぞう",
+        "jp": "象",
         "kana": "ぞう",
         "reading": "zou",
         "vi": "voi"
@@ -3500,7 +3806,7 @@ const LESSONS = [
         "jp": "木",
         "kana": "き",
         "reading": "ki",
-        "vi": "cay, g6"
+        "vi": "cây, gỗ"
       },
       {
         "jp": "物",
@@ -3515,7 +3821,7 @@ const LESSONS = [
         "vi": "pin"
       },
       {
-        "jp": "はこ",
+        "jp": "箱",
         "kana": "はこ",
         "reading": "hako",
         "vi": "hộp"
@@ -3536,7 +3842,7 @@ const LESSONS = [
         "jp": "テーブル",
         "kana": "テーブル",
         "reading": "teeburu",
-        "vi": "ban"
+        "vi": "bàn"
       },
       {
         "jp": "ベッド",
@@ -3551,6 +3857,18 @@ const LESSONS = [
         "vi": "giá sách, kệ sách"
       },
       {
+        "jp": "ドア",
+        "kana": "ドア",
+        "reading": "doa",
+        "vi": "cửa"
+      },
+      {
+        "jp": "窓",
+        "kana": "まど",
+        "reading": "mado",
+        "vi": "cửa sổ"
+      },
+      {
         "jp": "ポスト",
         "kana": "ポスト",
         "reading": "posuto",
@@ -3561,6 +3879,12 @@ const LESSONS = [
         "kana": "ビル",
         "reading": "biru",
         "vi": "tòa nhà"
+      },
+      {
+        "jp": "ATM",
+        "kana": "ATM",
+        "reading": "eitiemu",
+        "vi": "máy rút tiền tự động, ATM"
       },
       {
         "jp": "コンビニ",
@@ -3578,10 +3902,10 @@ const LESSONS = [
         "jp": "喫茶店",
         "kana": "きっさてん",
         "reading": "kissaten",
-        "vi": "quán giải khát, quán cà-phê"
+        "vi": "quán giải khát, quán cà phê"
       },
       {
-        "jp": "～や",
+        "jp": "～屋",
         "kana": "～や",
         "reading": "ya",
         "vi": "hiệu ~, cửa hàng ~"
@@ -3590,73 +3914,121 @@ const LESSONS = [
         "jp": "乗り場",
         "kana": "のりば",
         "reading": "noriba",
-        "vi": "điểm đón tắc-xi, tau, v.v."
+        "vi": "điểm đón/lên tắc-xi, tàu, v.v."
       },
       {
         "jp": "県",
         "kana": "けん",
         "reading": "ken",
-        "vi": "tinh"
+        "vi": "tỉnh"
+      },
+      {
+        "jp": "上",
+        "kana": "うえ",
+        "reading": "ue",
+        "vi": "trên"
+      },
+      {
+        "jp": "下",
+        "kana": "した",
+        "reading": "shita",
+        "vi": "dưới"
+      },
+      {
+        "jp": "前",
+        "kana": "まえ",
+        "reading": "mae",
+        "vi": "trước"
+      },
+      {
+        "jp": "後ろ",
+        "kana": "うしろ",
+        "reading": "ushiro",
+        "vi": "sau"
       },
       {
         "jp": "右",
         "kana": "みぎ",
         "reading": "migi",
-        "vi": "phải"
+        "vi": "(bên) phải"
       },
       {
-        "jp": "なか中そと外となり隣ちかくさく近く",
-        "kana": "なか中そと外となり隣ちかくさく近く",
-        "reading": "naka soto tonari chikakusaku ku",
-        "vi": "giữa"
+        "jp": "左",
+        "kana": "ひだり",
+        "reading": "hidari",
+        "vi": "(bên) trái"
+      },
+      {
+        "jp": "中",
+        "kana": "なか",
+        "reading": "naka",
+        "vi": "trong, giữa"
+      },
+      {
+        "jp": "外",
+        "kana": "そと",
+        "reading": "soto",
+        "vi": "ngoài"
+      },
+      {
+        "jp": "隣",
+        "kana": "となり",
+        "reading": "tonari",
+        "vi": "bên cạnh"
+      },
+      {
+        "jp": "近く",
+        "kana": "ちかく",
+        "reading": "chikaku",
+        "vi": "gần"
       },
       {
         "jp": "間",
         "kana": "あいだ",
         "reading": "aida",
-        "vi": "ở giữa"
+        "vi": "giữa, ở giữa"
       },
       {
-        "jp": "～～[など]かい",
-        "kana": "～～[など]かい",
-        "reading": "nado kai",
-        "vi": "~, [v.v.]"
+        "jp": "～や～[など]",
+        "kana": "～や～[など]",
+        "reading": "ya",
+        "vi": "~ và ~, [v.v.]"
       },
       {
         "jp": "[どうも]すみません。",
         "kana": "[どうも]すみません。",
-        "reading": "doumo sumimasen",
-        "vi": "ơn."
+        "reading": "sumimasen",
+        "vi": "Cảm ơn."
       },
       {
         "jp": "ナンプラー",
         "kana": "ナンプラー",
         "reading": "nanpuraa",
-        "vi": "nước mắm"
+        "vi": "nam pla, nước mắm"
       },
       {
-        "jp": "コーナーした",
-        "kana": "コーナーした",
-        "reading": "koonaashita",
-        "vi": "khu vực"
+        "jp": "コーナー",
+        "kana": "コーナー",
+        "reading": "koonaa",
+        "vi": "góc, khu vực"
       },
       {
         "jp": "いちばん下",
-        "kana": "いちばん下",
-        "reading": "ichiban",
-        "vi": "cùng"
+        "kana": "いちばんした",
+        "reading": "ichibanshita",
+        "vi": "ở dưới cùng"
       },
       {
         "jp": "東京ディズニーランド",
-        "kana": "東京ディズニーランド",
-        "reading": "dizuniirando",
-        "vi": "viên Tokyo Disneyland"
+        "kana": "とうきょうディズニーランド",
+        "reading": "toukyoudezuniirando",
+        "vi": "Công viên Tokyo Disneyland"
       },
       {
         "jp": "アジアストア",
         "kana": "アジアストア",
         "reading": "ajiasutoa",
-        "vi": "thị giả định"
+        "vi": "tên siêu thị giả định"
       }
     ],
     "kanji": [
@@ -3757,35 +4129,42 @@ const LESSONS = [
       85,
       86
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 11,
     "theme": "Số lượng & tần suất",
     "vocab": [
       {
-        "jp": "います[こどもがへ][子どもがへ]",
-        "kana": "います[こどもがへ][子どもがへ]",
-        "reading": "imasu kodomogahe domogahe",
-        "vi": "\"có [con]"
+        "jp": "います[子どもが～]",
+        "kana": "います[こどもが～]",
+        "reading": "imasu",
+        "vi": "có [con]"
       },
       {
-        "jp": "います[にほんにへ][理本にへ]",
-        "kana": "います[にほんにへ][理本にへ]",
-        "reading": "imasu nihonnihe nihe",
+        "jp": "います[日本に～]",
+        "kana": "います[にほんに～]",
+        "reading": "imasu",
         "vi": "ở [Nhật]"
       },
       {
         "jp": "かかります",
         "kana": "かかります",
         "reading": "kakarimasu",
-        "vi": "mắt, tồn (thời gian, tiền bạc)"
+        "vi": "mất, tốn (thời gian, tiền bạc)"
       },
       {
-        "jp": "休みます",
-        "kana": "やすみます",
+        "jp": "休みます[会社を～]",
+        "kana": "やすみます[かいしゃを～]",
         "reading": "yasumimasu",
         "vi": "nghỉ [làm việc]"
+      },
+      {
+        "jp": "一つ",
+        "kana": "ひとつ",
+        "reading": "hitotsu",
+        "vi": "một cái"
       },
       {
         "jp": "二つ",
@@ -3833,7 +4212,7 @@ const LESSONS = [
         "jp": "九つ",
         "kana": "ここのつ",
         "reading": "kokonotsu",
-        "vi": "chin cái"
+        "vi": "chín cái"
       },
       {
         "jp": "十",
@@ -3848,34 +4227,40 @@ const LESSONS = [
         "vi": "mấy cái, bao nhiêu cái"
       },
       {
+        "jp": "一人",
+        "kana": "ひとり",
+        "reading": "hitori",
+        "vi": "một người"
+      },
+      {
         "jp": "二人",
         "kana": "ふたり",
         "reading": "futari",
         "vi": "hai người"
       },
       {
-        "jp": "ー人",
-        "kana": "ーにん",
+        "jp": "～人",
+        "kana": "～にん",
         "reading": "nin",
-        "vi": "— người"
+        "vi": "~ người"
       },
       {
-        "jp": "ー台",
-        "kana": "ーだい",
+        "jp": "～台",
+        "kana": "～だい",
         "reading": "dai",
-        "vi": "— cái, chiếc (dùng dễ dễm máy móc, xe cộ, v.v.)"
+        "vi": "~ cái, chiếc (đếm máy móc, xe cộ, v.v.)"
       },
       {
-        "jp": "ー枚",
-        "kana": "ーまい",
+        "jp": "～枚",
+        "kana": "～まい",
         "reading": "mai",
-        "vi": "— tờ, tắm (ding đề đếm những vật mỏng như tờ giấy, con tem, v.v.)"
+        "vi": "~ tờ, tấm (đếm vật mỏng)"
       },
       {
-        "jp": "ー回",
-        "kana": "ーかい",
+        "jp": "～回",
+        "kana": "～かい",
         "reading": "kai",
-        "vi": "— lần"
+        "vi": "~ lần"
       },
       {
         "jp": "りんご",
@@ -3893,12 +4278,12 @@ const LESSONS = [
         "jp": "サンドイッチ",
         "kana": "サンドイッチ",
         "reading": "sandoicchi",
-        "vi": "bánh san-uých"
+        "vi": "bánh sandwich"
       },
       {
         "jp": "カレー[ライス]",
         "kana": "カレー[ライス]",
-        "reading": "karee raisu",
+        "reading": "karee",
         "vi": "món [cơm] cà-ri"
       },
       {
@@ -3917,18 +4302,18 @@ const LESSONS = [
         "jp": "はがき",
         "kana": "はがき",
         "reading": "hagaki",
-        "vi": "buu thiép"
+        "vi": "bưu thiếp"
       },
       {
         "jp": "封筒",
         "kana": "ふうとう",
         "reading": "fuutou",
-        "vi": "phong bi"
+        "vi": "phong bì"
       },
       {
         "jp": "両親",
-        "kana": "りょうしｎ",
-        "reading": "ryoushi",
+        "kana": "りょうしん",
+        "reading": "ryoushin",
         "vi": "bố mẹ"
       },
       {
@@ -3938,7 +4323,7 @@ const LESSONS = [
         "vi": "anh chị em"
       },
       {
-        "jp": "あに",
+        "jp": "兄",
         "kana": "あに",
         "reading": "ani",
         "vi": "anh trai (mình)"
@@ -3947,139 +4332,175 @@ const LESSONS = [
         "jp": "お兄さん",
         "kana": "おにいさん",
         "reading": "oniisan",
-        "vi": "trai (của người khác)"
+        "vi": "anh trai (của người khác)"
       },
       {
-        "jp": "あね姉",
-        "kana": "あね姉",
+        "jp": "姉",
+        "kana": "あね",
         "reading": "ane",
-        "vi": "gái (minh)"
+        "vi": "chị gái (mình)"
       },
       {
         "jp": "お姉さん",
         "kana": "おねえさん",
         "reading": "oneesan",
-        "vi": "gái (của người khác)"
+        "vi": "chị gái (của người khác)"
       },
       {
         "jp": "弟",
         "kana": "おとうと",
         "reading": "otouto",
-        "vi": "trai (minh)"
+        "vi": "em trai (mình)"
       },
       {
         "jp": "弟さん",
         "kana": "おとうとさん",
         "reading": "otoutosan",
-        "vi": "trai (của người khác)"
+        "vi": "em trai (của người khác)"
       },
       {
         "jp": "妹",
         "kana": "いもうと",
         "reading": "imouto",
-        "vi": "gái (minh)"
+        "vi": "em gái (mình)"
       },
       {
         "jp": "妹さん",
         "kana": "いもうとさん",
         "reading": "imoutosan",
-        "vi": "(của người khác)"
+        "vi": "em gái (của người khác)"
       },
       {
         "jp": "外国",
         "kana": "がいこく",
         "reading": "gaikoku",
-        "vi": "ngoài"
+        "vi": "nước ngoài"
       },
       {
-        "jp": "生",
-        "kana": "りゅうがくせい留学",
+        "jp": "留学生",
+        "kana": "りゅうがくせい",
         "reading": "ryuugakusei",
-        "vi": "học sinh, sinh viên người nước ngoài"
+        "vi": "lưu học sinh, sinh viên người nước ngoài"
       },
       {
-        "jp": "クグラスーねんー年",
-        "kana": "クグラスーねんー年",
-        "reading": "kugurasuunen",
-        "vi": "học"
+        "jp": "クラス",
+        "kana": "クラス",
+        "reading": "kurasu",
+        "vi": "lớp học"
+      },
+      {
+        "jp": "～時間",
+        "kana": "～じかん",
+        "reading": "jikan",
+        "vi": "~ tiếng/giờ"
+      },
+      {
+        "jp": "～週間",
+        "kana": "～しゅうかん",
+        "reading": "shuukan",
+        "vi": "~ tuần"
+      },
+      {
+        "jp": "～か月",
+        "kana": "～かげつ",
+        "reading": "kagetsu",
+        "vi": "~ tháng"
+      },
+      {
+        "jp": "～年",
+        "kana": "～ねん",
+        "reading": "nen",
+        "vi": "~ năm"
       },
       {
         "jp": "～ぐらい",
-        "kana": "ーぐらい",
+        "kana": "～ぐらい",
         "reading": "gurai",
-        "vi": "~"
+        "vi": "khoảng ~"
       },
       {
         "jp": "どのくらい",
         "kana": "どのくらい",
         "reading": "donokurai",
-        "vi": "lau"
+        "vi": "bao lâu"
+      },
+      {
+        "jp": "全部で",
+        "kana": "ぜんぶで",
+        "reading": "zenbude",
+        "vi": "tổng cộng"
       },
       {
         "jp": "みんな",
         "kana": "みんな",
         "reading": "minna",
-        "vi": "cộng"
+        "vi": "tất cả, mọi người"
       },
       {
         "jp": "～だけ",
         "kana": "～だけ",
         "reading": "dake",
-        "vi": "~ 1"
+        "vi": "chỉ ~"
       },
       {
-        "jp": "かしこまりました。かいてんき",
-        "kana": "かしこまりました。かいてんき",
-        "reading": "kashikomarimashita kaitenki",
-        "vi": "đã rõ rồi a (thưa 6ng/ba). 1 1"
+        "jp": "かしこまりました。",
+        "kana": "かしこまりました。",
+        "reading": "kashikomarimashita",
+        "vi": "Tôi đã rõ rồi ạ (thưa ông/bà)."
       },
       {
-        "jp": "いい[お]天気ですね。で",
-        "kana": "いい[お]天気ですね。で",
-        "reading": "ii o desune de",
-        "vi": "đẹp nhỉ."
+        "jp": "いい[お]天気ですね。",
+        "kana": "いい[お]てんきですね。",
+        "reading": "iitenkidesune",
+        "vi": "Trời đẹp nhỉ."
       },
       {
         "jp": "お出かけですか。",
-        "kana": "お出かけですか。",
-        "reading": "o kakedesuka",
-        "vi": "đi ra ngoài đấy a?"
+        "kana": "おでかけですか。",
+        "reading": "odekakedesuka",
+        "vi": "Anh/Chị đi ra ngoài đấy à?"
       },
       {
         "jp": "ちょっと～まで。",
         "kana": "ちょっと～まで。",
-        "reading": "chotto made",
-        "vi": "đi ~ một chút."
+        "reading": "chottomade",
+        "vi": "Tôi đi ~ một chút."
       },
       {
         "jp": "行ってらっしゃい。",
-        "kana": "行ってらっしゃい。",
-        "reading": "tterasshai",
-        "vi": "đi nhé. (nguyên nghĩa: Anh/Chị đi rồi"
+        "kana": "いってらっしゃい。",
+        "reading": "itterasshai",
+        "vi": "Anh/Chị đi nhé. (đi rồi về nhé)"
       },
       {
-        "jp": "行ってさます。ふなびん",
-        "kana": "行ってさます。ふなびん",
-        "reading": "ttesamasu funabin",
-        "vi": "đi đây. (nguyên nghĩa: Tôi đi rồi sẽ về.)"
+        "jp": "行ってきます。",
+        "kana": "いってきます。",
+        "reading": "ittekimasu",
+        "vi": "Tôi đi đây. (tôi đi rồi sẽ về)"
       },
       {
-        "jp": "航空便",
-        "kana": "こうくうびん",
+        "jp": "船便",
+        "kana": "ふなびん",
+        "reading": "funabin",
+        "vi": "(gửi) bằng đường biển"
+      },
+      {
+        "jp": "航空便（エアメール）",
+        "kana": "こうくうびん（エアメール）",
         "reading": "koukuubin",
-        "vi": "bằng đường biển"
+        "vi": "(gửi) bằng đường hàng không"
       },
       {
-        "jp": "航空便(エアメール)ねが",
-        "kana": "航空便(エアメール)ねが",
-        "reading": "eameeru nega",
-        "vi": "bằng đường hàng không"
+        "jp": "お願いします。",
+        "kana": "おねがいします。",
+        "reading": "onegaishimasu",
+        "vi": "Nhờ anh/chị./Làm ơn."
       },
       {
-        "jp": "お願いします。オーストラリア",
-        "kana": "お願いします。オーストラリア",
-        "reading": "o ishimasu oosutoraria",
-        "vi": "anh/chị."
+        "jp": "オーストラリア",
+        "kana": "オーストラリア",
+        "reading": "oosutoraria",
+        "vi": "Úc"
       }
     ],
     "kanji": [
@@ -4170,16 +4591,17 @@ const LESSONS = [
       91,
       92
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 12,
     "theme": "Quá khứ & so sánh",
     "vocab": [
       {
-        "jp": "簡単［な］",
-        "kana": "かんたん［な］",
-        "reading": "kantan na",
+        "jp": "簡単[な]",
+        "kana": "かんたん[な]",
+        "reading": "kantan",
         "vi": "đơn giản, dễ"
       },
       {
@@ -4207,14 +4629,14 @@ const LESSONS = [
         "vi": "chậm, muộn"
       },
       {
-        "jp": "多い",
-        "kana": "おおい",
+        "jp": "多い[人が～]",
+        "kana": "おおい[ひとが～]",
         "reading": "ooi",
         "vi": "nhiều [người]"
       },
       {
-        "jp": "少ない",
-        "kana": "すくない",
+        "jp": "少ない[人が～]",
+        "kana": "すくない[ひとが～]",
         "reading": "sukunai",
         "vi": "ít [người]"
       },
@@ -4222,7 +4644,7 @@ const LESSONS = [
         "jp": "暖かい",
         "kana": "あたたかい",
         "reading": "atatakai",
-        "vi": "Ẩm"
+        "vi": "ấm"
       },
       {
         "jp": "涼しい",
@@ -4234,7 +4656,7 @@ const LESSONS = [
         "jp": "甘い",
         "kana": "あまい",
         "reading": "amai",
-        "vi": "ngot"
+        "vi": "ngọt"
       },
       {
         "jp": "辛い",
@@ -4252,12 +4674,12 @@ const LESSONS = [
         "jp": "軽い",
         "kana": "かるい",
         "reading": "karui",
-        "vi": "nhe"
+        "vi": "nhẹ"
       },
       {
-        "jp": "いい［コーヒーが～］",
-        "kana": "いい［コーヒーが～］",
-        "reading": "ii [koohii ga ~]",
+        "jp": "いい[コーヒーが～]",
+        "kana": "いい[コーヒーが～]",
+        "reading": "ii",
         "vi": "thích, chọn, dùng [cà phê]"
       },
       {
@@ -4273,10 +4695,16 @@ const LESSONS = [
         "vi": "mùa xuân"
       },
       {
+        "jp": "夏",
+        "kana": "なつ",
+        "reading": "natsu",
+        "vi": "mùa hè"
+      },
+      {
         "jp": "秋",
         "kana": "あき",
         "reading": "aki",
-        "vi": "mua thu"
+        "vi": "mùa thu"
       },
       {
         "jp": "冬",
@@ -4291,7 +4719,7 @@ const LESSONS = [
         "vi": "thời tiết"
       },
       {
-        "jp": "あめ",
+        "jp": "雨",
         "kana": "あめ",
         "reading": "ame",
         "vi": "mưa"
@@ -4300,7 +4728,13 @@ const LESSONS = [
         "jp": "雪",
         "kana": "ゆき",
         "reading": "yuki",
-        "vi": "tuyét"
+        "vi": "tuyết"
+      },
+      {
+        "jp": "曇り",
+        "kana": "くもり",
+        "reading": "kumori",
+        "vi": "có mây, trời nhiều mây"
       },
       {
         "jp": "ホテル",
@@ -4312,139 +4746,175 @@ const LESSONS = [
         "jp": "空港",
         "kana": "くうこう",
         "reading": "kuukou",
-        "vi": "san bay"
+        "vi": "sân bay"
       },
       {
         "jp": "海",
         "kana": "うみ",
         "reading": "umi",
-        "vi": "bién, dai dương"
+        "vi": "biển, đại dương"
       },
       {
         "jp": "世界",
         "kana": "せかい",
         "reading": "sekai",
-        "vi": "thể giới"
+        "vi": "thế giới"
       },
       {
         "jp": "パーティー",
         "kana": "パーティー",
-        "reading": "paatii",
-        "vi": "tiệc(~ # し ます : tổ chức tiệc, mở tiệc)"
+        "reading": "paatee",
+        "vi": "tiệc"
       },
       {
-        "jp": "[お]まっリ",
-        "kana": "[お]まっリ",
-        "reading": "o marri",
+        "jp": "[お]祭り",
+        "kana": "[お]まつり",
+        "reading": "matsuri",
         "vi": "lễ hội"
       },
       {
-        "jp": "焼き",
-        "kana": "すきやさすき",
-        "reading": "sukiyasasuki",
-        "vi": "(món lầu thịt bò, rau)"
+        "jp": "すき焼き",
+        "kana": "すきやき",
+        "reading": "sukiyaki",
+        "vi": "Sukiyaki (lẩu thịt bò, rau)"
       },
       {
-        "jp": "さしみ刺身",
-        "kana": "さしみ刺身",
+        "jp": "刺身",
+        "kana": "さしみ",
         "reading": "sashimi",
-        "vi": "(món goi cá sông)"
+        "vi": "Sashimi (gỏi/cá sống)"
       },
       {
         "jp": "[お]すし",
         "kana": "[お]すし",
-        "reading": "o sushi",
-        "vi": "(món cơm trộn giấm có cá tươi ở trên)"
+        "reading": "sushi",
+        "vi": "Sushi (cơm giấm với cá tươi, v.v.)"
       },
       {
         "jp": "てんぷら",
         "kana": "てんぷら",
         "reading": "tenpura",
-        "vi": "(món hải sản và rau chiên tẩm bột)"
+        "vi": "Tempura (hải sản, rau chiên tẩm bột)"
       },
       {
-        "jp": "ぶたにく",
+        "jp": "豚肉",
         "kana": "ぶたにく",
         "reading": "butaniku",
-        "vi": "heo, thit lon"
+        "vi": "thịt heo, thịt lợn"
       },
       {
-        "jp": "ぎゅうにくさくレモン",
-        "kana": "ぎゅうにくさくレモン",
-        "reading": "gyuunikusakuremon",
-        "vi": "bd"
+        "jp": "鶏肉",
+        "kana": "とりにく",
+        "reading": "toriniku",
+        "vi": "thịt gà"
+      },
+      {
+        "jp": "牛肉",
+        "kana": "ぎゅうにく",
+        "reading": "gyuuniku",
+        "vi": "thịt bò"
+      },
+      {
+        "jp": "レモン",
+        "kana": "レモン",
+        "reading": "remon",
+        "vi": "chanh"
       },
       {
         "jp": "生け花",
         "kana": "いけばな",
         "reading": "ikebana",
-        "vi": "thuật cắm hoa ( ~ ~ を し ます :cém hoa)"
+        "vi": "nghệ thuật cắm hoa"
       },
       {
         "jp": "紅葉",
         "kana": "もみじ",
         "reading": "momiji",
-        "vi": "đỏ, lá đỏ"
+        "vi": "cây lá đỏ, lá đỏ"
       },
       {
-        "jp": "どちらどちらもいちばん",
-        "kana": "どちらどちらもいちばん",
-        "reading": "dochiradochiramoichiban",
-        "vi": "(trong hai cái)"
+        "jp": "どちら",
+        "kana": "どちら",
+        "reading": "dochira",
+        "vi": "cái nào (trong hai cái)"
+      },
+      {
+        "jp": "どちらも",
+        "kana": "どちらも",
+        "reading": "dochiramo",
+        "vi": "cả hai"
+      },
+      {
+        "jp": "いちばん",
+        "kana": "いちばん",
+        "reading": "ichiban",
+        "vi": "nhất"
       },
       {
         "jp": "ずっと",
         "kana": "ずっと",
         "reading": "zutto",
-        "vi": "han, suốt"
+        "vi": "(hơn) hẳn, suốt"
       },
       {
-        "jp": "はじめて初めかいわ",
-        "kana": "はじめて初めかいわ",
-        "reading": "hajimete mekaiwa",
-        "vi": "tiên"
+        "jp": "初めて",
+        "kana": "はじめて",
+        "reading": "hajimete",
+        "vi": "lần đầu tiên"
       },
       {
-        "jp": "ただいま",
-        "kana": "ただいま",
+        "jp": "ただいま。",
+        "kana": "ただいま。",
         "reading": "tadaima",
-        "vi": "về đây. (dùng đề nói khi về đến nhà) 7."
+        "vi": "Tôi đã về đây. (nói khi về đến nhà)"
       },
       {
-        "jp": "お帰りなさい",
-        "kana": "おかえになさい",
-        "reading": "okaeninasai",
-        "vi": "đã về đầy a. (dùng dễ nói với ai đó mới"
+        "jp": "お帰りなさい。",
+        "kana": "おかえりなさい。",
+        "reading": "okaerinasai",
+        "vi": "Anh/Chị đã về đấy à./Mừng anh/chị về."
       },
       {
-        "jp": "っか",
-        "kana": "っか",
-        "reading": "kka",
-        "vi": "Nam"
+        "jp": "わあ、すごい人ですね。",
+        "kana": "わあ、すごいひとですね。",
+        "reading": "waasugoihitodesune",
+        "vi": "Ôi, đông người quá nhỉ!"
       },
       {
-        "jp": "疲れました",
-        "kana": "つかれました",
+        "jp": "疲れました。",
+        "kana": "つかれました。",
         "reading": "tsukaremashita",
-        "vi": "rồi. 412"
+        "vi": "Tôi mệt rồi."
       },
       {
-        "jp": "祭",
-        "kana": "祭",
-        "reading": "",
-        "vi": "Gi-ôn (lễ hội nổi tiếng nhất ở Kyoto)"
+        "jp": "祇園祭",
+        "kana": "ぎおんまつり",
+        "reading": "gionmatsuri",
+        "vi": "Lễ hội Gion (lễ hội nổi tiếng ở Kyoto)"
       },
       {
-        "jp": "ホンコンシンガポール",
-        "kana": "ホンコンシンガポール",
-        "reading": "honkonshingapooru",
-        "vi": "Kông ( 香港 )"
+        "jp": "ホンコン",
+        "kana": "ホンコン",
+        "reading": "honkon",
+        "vi": "Hồng Kông"
+      },
+      {
+        "jp": "シンガポール",
+        "kana": "シンガポール",
+        "reading": "shingapooru",
+        "vi": "Singapore"
+      },
+      {
+        "jp": "ABCストア",
+        "kana": "ABCストア",
+        "reading": "sutoa",
+        "vi": "tên siêu thị giả định"
       },
       {
         "jp": "ジャパン",
         "kana": "ジャパン",
         "reading": "japan",
-        "vi": "thị giả định"
+        "vi": "tên siêu thị giả định"
       }
     ],
     "kanji": [
@@ -4535,7 +5005,8 @@ const LESSONS = [
       97,
       98
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 13,
@@ -4563,7 +5034,7 @@ const LESSONS = [
         "jp": "疲れます",
         "kana": "つかれます",
         "reading": "tsukaremasu",
-        "vi": "mệt (khi nói trạng thái đã mệt rồi thì dùng つか れ ま し た )"
+        "vi": "mệt"
       },
       {
         "jp": "結婚します",
@@ -4581,18 +5052,18 @@ const LESSONS = [
         "jp": "食事します",
         "kana": "しょくじします",
         "reading": "shokujishimasu",
-        "vi": "ăn cơm, đùng bữa"
+        "vi": "ăn cơm, dùng bữa"
       },
       {
-        "jp": "散歩します",
-        "kana": "さんぽします",
+        "jp": "散歩します[公園を～]",
+        "kana": "さんぽします[こうえんを～]",
         "reading": "sanposhimasu",
         "vi": "đi dạo [ở công viên]"
       },
       {
-        "jp": "大変［な］",
-        "kana": "たいへん［な］",
-        "reading": "taihen na",
+        "jp": "大変[な]",
+        "kana": "たいへん[な]",
+        "reading": "taihen",
         "vi": "vất vả, khó khăn, khổ"
       },
       {
@@ -4611,37 +5082,37 @@ const LESSONS = [
         "jp": "狭い",
         "kana": "せまい",
         "reading": "semai",
-        "vi": "chat, hep"
+        "vi": "chật, hẹp"
       },
       {
         "jp": "プール",
         "kana": "プール",
         "reading": "puuru",
-        "vi": "bé bơi"
+        "vi": "bể bơi"
       },
       {
         "jp": "川",
-        "kana": "",
-        "reading": "",
+        "kana": "かわ",
+        "reading": "kawa",
         "vi": "sông"
       },
       {
         "jp": "美術",
         "kana": "びじゅつ",
         "reading": "bijutsu",
-        "vi": "my thuat"
+        "vi": "mỹ thuật"
       },
       {
         "jp": "釣り",
         "kana": "つり",
         "reading": "tsuri",
-        "vi": "việc câu cá ( ~ # し ます :cauc め の"
+        "vi": "việc câu cá"
       },
       {
         "jp": "スキー",
         "kana": "スキー",
         "reading": "sukii",
-        "vi": "việc trượt tuyét ( # し ます : trượt tuyết)"
+        "vi": "việc trượt tuyết"
       },
       {
         "jp": "週末",
@@ -4652,8 +5123,14 @@ const LESSONS = [
       {
         "jp": "[お]正月",
         "kana": "[お]しょうがつ",
-        "reading": "o shougatsu",
-        "vi": "Tét"
+        "reading": "shougatsu",
+        "vi": "Tết"
+      },
+      {
+        "jp": "～ごろ",
+        "kana": "～ごろ",
+        "reading": "goro",
+        "vi": "khoảng ~ (dùng cho thời gian)"
       },
       {
         "jp": "何か",
@@ -4668,70 +5145,70 @@ const LESSONS = [
         "vi": "đâu đó, chỗ nào đó"
       },
       {
-        "jp": "のどがかわきました。",
-        "kana": "のどがかわきました。",
-        "reading": "nodogakawakimashita",
-        "vi": "(khi nói trạng thái đang khát thì ding"
+        "jp": "のどがかわきます",
+        "kana": "のどがかわきます",
+        "reading": "nodogakawakimasu",
+        "vi": "khát (trạng thái: のどがかわきました)"
       },
       {
-        "jp": "おなかがすきました。",
-        "kana": "おなかがすきました。",
-        "reading": "onakagasukimashita",
-        "vi": "(khi nói trạng thái đang đói thì dùng"
+        "jp": "おなかがすきます",
+        "kana": "おなかがすきます",
+        "reading": "onakagasukimasu",
+        "vi": "đói (trạng thái: おなかがすきました)"
       },
       {
-        "jp": "そうしましょう。かい",
-        "kana": "そうしましょう。かい",
-        "reading": "soushimashou kai",
-        "vi": "trí./Hãy làm vậy đi. (nói khi đồng ý với đề"
+        "jp": "そうしましょう。",
+        "kana": "そうしましょう。",
+        "reading": "soushimashou",
+        "vi": "Nhất trí./Hãy làm vậy đi."
       },
       {
-        "jp": "ご注文は?ていしょさく",
-        "kana": "ご注文は?ていしょさく",
-        "reading": "go ha teishosaku",
-        "vi": "dùng món gi ạ?"
+        "jp": "ご注文は？",
+        "kana": "ごちゅうもんは？",
+        "reading": "gochuumonha",
+        "vi": "Anh/Chị dùng món gì ạ?"
       },
       {
-        "jp": "定",
-        "kana": "定",
-        "reading": "",
-        "vi": "suất, cơm phần"
+        "jp": "定食",
+        "kana": "ていしょく",
+        "reading": "teishoku",
+        "vi": "cơm suất, cơm phần"
       },
       {
-        "jp": "消防署",
-        "kana": "しょうぼしょ",
-        "reading": "shoubosho",
-        "vi": "cơm với thịt bò ở trên"
+        "jp": "牛どん",
+        "kana": "ぎゅうどん",
+        "reading": "gyuudon",
+        "vi": "món cơm với thịt bò ở trên"
       },
       {
-        "jp": "[少を]お待ちくだ",
-        "kana": "[少を]お待ちくだ",
-        "reading": "o o chikuda",
-        "vi": "vui lòng đợi [một chút]."
+        "jp": "[少々]お待ちください。",
+        "kana": "[しょうしょう]おまちください。",
+        "reading": "omachikudasai",
+        "vi": "Xin anh/chị vui lòng đợi [một chút]."
       },
       {
-        "jp": "～ございます。",
-        "kana": "～ございます。",
-        "reading": "gozaimasu",
-        "vi": "nói lịch sự của で す )"
+        "jp": "～でございます。",
+        "kana": "～でございます。",
+        "reading": "degozaimasu",
+        "vi": "cách nói lịch sự của です"
       },
       {
         "jp": "別々に",
         "kana": "べつべつに",
         "reading": "betsubetsuni",
-        "vi": "riêng ra"
+        "vi": "riêng, riêng ra"
       },
       {
         "jp": "アキックス",
         "kana": "アキックス",
         "reading": "akikkusu",
-        "vi": "ty giả định"
+        "vi": "tên công ty giả định"
       },
       {
         "jp": "おはようテレビ",
         "kana": "おはようテレビ",
         "reading": "ohayouterebi",
-        "vi": "trình truyền hình giả định"
+        "vi": "tên chương trình truyền hình giả định"
       }
     ],
     "kanji": [
@@ -4827,7 +5304,8 @@ const LESSONS = [
       103,
       104
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 14,
@@ -4855,13 +5333,13 @@ const LESSONS = [
         "jp": "閉めます",
         "kana": "しめます",
         "reading": "shimemasu",
-        "vi": "đóng (cửa, cửa số)"
+        "vi": "đóng (cửa, cửa sổ)"
       },
       {
         "jp": "急ぎます",
         "kana": "いそぎます",
         "reading": "isogimasu",
-        "vi": "véi, gap"
+        "vi": "vội, gấp"
       },
       {
         "jp": "待ちます",
@@ -4873,7 +5351,7 @@ const LESSONS = [
         "jp": "持ちます",
         "kana": "もちます",
         "reading": "mochimasu",
-        "vi": "mang, cam"
+        "vi": "mang, cầm"
       },
       {
         "jp": "取ります",
@@ -4891,7 +5369,7 @@ const LESSONS = [
         "jp": "呼びます",
         "kana": "よびます",
         "reading": "yobimasu",
-        "vi": "goi"
+        "vi": "gọi"
       },
       {
         "jp": "話します",
@@ -4901,56 +5379,56 @@ const LESSONS = [
       },
       {
         "jp": "使います",
-        "kana": "]",
-        "reading": "",
+        "kana": "つかいます",
+        "reading": "tsukaimasu",
         "vi": "dùng, sử dụng"
       },
       {
-        "jp": "閉めます",
-        "kana": "しめます",
-        "reading": "shimemasu",
+        "jp": "止めます",
+        "kana": "とめます",
+        "reading": "tomemasu",
         "vi": "dừng, đỗ"
       },
       {
         "jp": "見せます",
         "kana": "みせます",
         "reading": "misemasu",
-        "vi": "cho xem, trinh"
+        "vi": "cho xem, trình"
       },
       {
-        "jp": "教えます",
-        "kana": "おしえます",
+        "jp": "教えます[住所を～]",
+        "kana": "おしえます[じゅうしょを～]",
         "reading": "oshiemasu",
         "vi": "nói, cho biết [địa chỉ]"
       },
       {
-        "jp": "取ります",
-        "kana": "とります",
-        "reading": "torimasu",
+        "jp": "座ります",
+        "kana": "すわります",
+        "reading": "suwarimasu",
         "vi": "ngồi"
       },
       {
-        "jp": "待ちます",
-        "kana": "まちます",
-        "reading": "machimasu",
+        "jp": "立ちます",
+        "kana": "たちます",
+        "reading": "tachimasu",
         "vi": "đứng"
       },
       {
-        "jp": "取ります",
-        "kana": "とります",
-        "reading": "torimasu",
+        "jp": "入ります[喫茶店に～]",
+        "kana": "はいります[きっさてんに～]",
+        "reading": "hairimasu",
         "vi": "vào [quán giải khát]"
       },
       {
-        "jp": "出ます",
-        "kana": "でます[きっさてんをへ～～][～～]",
-        "reading": "demasu kissatenohe",
+        "jp": "出ます[喫茶店を～]",
+        "kana": "でます[きっさてんを～]",
+        "reading": "demasu",
         "vi": "ra, ra khỏi [quán giải khát]"
       },
       {
-        "jp": "ふります[あめが～～][雨が～]",
-        "kana": "ふります[あめが～～][雨が～]",
-        "reading": "furimasu amega ga",
+        "jp": "降ります[雨が～]",
+        "kana": "ふります[あめが～]",
+        "reading": "furimasu",
         "vi": "mưa"
       },
       {
@@ -4975,7 +5453,7 @@ const LESSONS = [
         "jp": "パスポート",
         "kana": "パスポート",
         "reading": "pasupooto",
-        "vi": "hé chiéu"
+        "vi": "hộ chiếu"
       },
       {
         "jp": "名前",
@@ -4985,9 +5463,9 @@ const LESSONS = [
       },
       {
         "jp": "住所",
-        "kana": "じゅうしゃ",
-        "reading": "juusha",
-        "vi": "dia chi"
+        "kana": "じゅうしょ",
+        "reading": "juusho",
+        "vi": "địa chỉ"
       },
       {
         "jp": "地図",
@@ -5008,94 +5486,106 @@ const LESSONS = [
         "vi": "đường"
       },
       {
-        "jp": "もんだい問題",
-        "kana": "もんだい問題",
+        "jp": "問題",
+        "kana": "もんだい",
         "reading": "mondai",
-        "vi": "hỏi, vẫn đề"
+        "vi": "câu hỏi, vấn đề"
       },
       {
-        "jp": "こたえ答え",
-        "kana": "こたえ答え",
-        "reading": "kotae e",
-        "vi": "trả lời"
+        "jp": "答え",
+        "kana": "こたえ",
+        "reading": "kotae",
+        "vi": "câu trả lời"
       },
       {
         "jp": "読み方",
         "kana": "よみかた",
         "reading": "yomikata",
-        "vi": "đọc"
+        "vi": "cách đọc"
+      },
+      {
+        "jp": "～方",
+        "kana": "～かた",
+        "reading": "kata",
+        "vi": "cách ~"
       },
       {
         "jp": "まっすぐ",
         "kana": "まっすぐ",
         "reading": "massugu",
-        "vi": "~"
+        "vi": "thẳng"
       },
       {
         "jp": "ゆっくり",
         "kana": "ゆっくり",
         "reading": "yukkuri",
-        "vi": "thong thả, thoải mái"
+        "vi": "chậm, thong thả, thoải mái"
       },
       {
-        "jp": "すぐまたあとで",
-        "kana": "すぐまたあとで",
-        "reading": "sugumataatode",
-        "vi": "lập tức"
+        "jp": "すぐ",
+        "kana": "すぐ",
+        "reading": "sugu",
+        "vi": "ngay, lập tức"
+      },
+      {
+        "jp": "また",
+        "kana": "また",
+        "reading": "mata",
+        "vi": "lại"
+      },
+      {
+        "jp": "あとで",
+        "kana": "あとで",
+        "reading": "atode",
+        "vi": "sau"
       },
       {
         "jp": "もう少し",
         "kana": "もうすこし",
         "reading": "mousukoshi",
-        "vi": "một chút nữa"
+        "vi": "thêm một chút nữa"
       },
       {
-        "jp": "もう～んしゅう",
-        "kana": "もう～んしゅう",
-        "reading": "mou nshuu",
-        "vi": "~"
+        "jp": "もう～",
+        "kana": "もう～",
+        "reading": "mou",
+        "vi": "thêm ~"
       },
       {
         "jp": "さあ",
         "kana": "さあ",
         "reading": "saa",
-        "vi": "(dùng dễ thúc giục hoặc khuyến khích"
+        "vi": "thôi/nào (dùng để thúc giục hoặc khuyến khích)"
       },
       {
-        "jp": "あれ?かいわ",
-        "kana": "あれ?かいわ",
-        "reading": "are kaiwa",
-        "vi": "cảm than khi phát hiện hoặc thấy cái gi"
+        "jp": "あれ？",
+        "kana": "あれ？",
+        "reading": "are",
+        "vi": "Ồ? (khi phát hiện điều lạ hoặc bất ngờ)"
       },
       {
-        "jp": "るみぎま",
-        "kana": "るみぎま",
-        "reading": "rumigima",
-        "vi": "x"
-      },
-      {
-        "jp": "曲がってねが",
-        "kana": "曲がってねが",
-        "reading": "gattenega",
-        "vi": "hãy rẽ phải 6 chỗ đèn tín hiệu. ーー"
+        "jp": "信号を右へ曲がってください。",
+        "kana": "しんごうをみぎへまがってください。",
+        "reading": "shingouomigihemagattekudasai",
+        "vi": "Anh/Chị hãy rẽ phải ở chỗ đèn tín hiệu."
       },
       {
         "jp": "これでお願いします。",
-        "kana": "これでお願いします。",
-        "reading": "koredeo ishimasu",
-        "vi": "anh tiền này."
+        "kana": "これでおねがいします。",
+        "reading": "koredeonegaishimasu",
+        "vi": "Gửi anh/chị tiền này."
       },
       {
         "jp": "お釣り",
         "kana": "おつり",
         "reading": "otsuri",
-        "vi": "thừa, tiền thối lại"
+        "vi": "tiền thừa, tiền thối lại"
       },
       {
         "jp": "みどり町",
-        "kana": "みどり町",
-        "reading": "midori",
-        "vi": "phố giả định"
+        "kana": "みどりちょう",
+        "reading": "midorichou",
+        "vi": "tên thành phố giả định"
       }
     ],
     "kanji": [
@@ -5181,7 +5671,8 @@ const LESSONS = [
       109,
       110
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 15,
@@ -5192,6 +5683,12 @@ const LESSONS = [
         "kana": "おきます",
         "reading": "okimasu",
         "vi": "đặt, để"
+      },
+      {
+        "jp": "作ります",
+        "kana": "つくります",
+        "reading": "tsukurimasu",
+        "vi": "làm, chế tạo, sản xuất"
       },
       {
         "jp": "売ります",
@@ -5213,8 +5710,8 @@ const LESSONS = [
       },
       {
         "jp": "研究します",
-        "kana": "けんきょうします",
-        "reading": "kenkyoushimasu",
+        "kana": "けんきゅうします",
+        "reading": "kenkyuushimasu",
         "vi": "nghiên cứu"
       },
       {
@@ -5227,24 +5724,24 @@ const LESSONS = [
         "jp": "カタログ",
         "kana": "カタログ",
         "reading": "katarogu",
-        "vi": "ca-ta-16"
+        "vi": "ca-ta-lô, danh mục"
       },
       {
         "jp": "時刻表",
         "kana": "じこくひょう",
         "reading": "jikokuhyou",
-        "vi": "bang giờ chạy tàu"
+        "vi": "bảng giờ chạy tàu"
       },
       {
         "jp": "服",
         "kana": "ふく",
         "reading": "fuku",
-        "vi": "quan áo"
+        "vi": "quần áo"
       },
       {
         "jp": "製品",
-        "kana": "せいひｎ",
-        "reading": "seihi",
+        "kana": "せいひん",
+        "reading": "seihin",
         "vi": "sản phẩm"
       },
       {
@@ -5254,22 +5751,22 @@ const LESSONS = [
         "vi": "phần mềm"
       },
       {
-        "jp": "でんしじしょ",
+        "jp": "電子辞書",
         "kana": "でんしじしょ",
         "reading": "denshijisho",
-        "vi": "kim từ điển"
+        "vi": "kim từ điển, từ điển điện tử"
       },
       {
         "jp": "経済",
         "kana": "けいざい",
         "reading": "keizai",
-        "vi": "kính té"
+        "vi": "kinh tế"
       },
       {
         "jp": "市役所",
         "kana": "しやくしょ",
         "reading": "shiyakusho",
-        "vi": "toa thi chinh"
+        "vi": "tòa thị chính"
       },
       {
         "jp": "高校",
@@ -5281,7 +5778,7 @@ const LESSONS = [
         "jp": "歯医者",
         "kana": "はいしゃ",
         "reading": "haisha",
-        "vi": "nha si"
+        "vi": "nha sĩ"
       },
       {
         "jp": "独身",
@@ -5296,28 +5793,34 @@ const LESSONS = [
         "vi": "xin lỗi"
       },
       {
-        "jp": "皆さんかい",
-        "kana": "皆さんかい",
-        "reading": "sankai",
-        "vi": "chị, các ông bà, các bạn, quý vị"
+        "jp": "皆さん",
+        "kana": "みなさん",
+        "reading": "minasan",
+        "vi": "các anh chị, các ông bà, các bạn, quý vị"
       },
       {
         "jp": "思い出します",
         "kana": "おもいだします",
         "reading": "omoidashimasu",
-        "vi": "lại, hồi tưởng lại"
+        "vi": "nhớ lại, hồi tưởng lại"
       },
       {
-        "jp": "いらっしゃいますにっぱんばし",
-        "kana": "いらっしゃいますにっぱんばし",
-        "reading": "irasshaimasunippanbashi",
-        "vi": "ngữ của =F)"
+        "jp": "いらっしゃいます",
+        "kana": "いらっしゃいます",
+        "reading": "irasshaimasu",
+        "vi": "kính ngữ của います"
+      },
+      {
+        "jp": "日本橋",
+        "kana": "にっぽんばし",
+        "reading": "nipponbashi",
+        "vi": "tên khu phố mua sắm ở Osaka"
       },
       {
         "jp": "みんなのインタビュー",
         "kana": "みんなのインタビュー",
         "reading": "minnanointabyuu",
-        "vi": "trình truyền hình giả định"
+        "vi": "tên chương trình truyền hình giả định"
       }
     ],
     "kanji": [
@@ -5403,21 +5906,22 @@ const LESSONS = [
       115,
       116
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 16,
     "theme": "Nối hành động & trình tự",
     "vocab": [
       {
-        "jp": "乗ります",
-        "kana": "のります",
+        "jp": "乗ります[電車に～]",
+        "kana": "のります[でんしゃに～]",
         "reading": "norimasu",
         "vi": "đi, lên [tàu]"
       },
       {
-        "jp": "降ります",
-        "kana": "おります",
+        "jp": "降ります[電車を～]",
+        "kana": "おります[でんしゃを～]",
         "reading": "orimasu",
         "vi": "xuống [tàu]"
       },
@@ -5428,8 +5932,8 @@ const LESSONS = [
         "vi": "chuyển, đổi (tàu)"
       },
       {
-        "jp": "浴びます",
-        "kana": "あびます",
+        "jp": "浴びます[シャワーを～]",
+        "kana": "あびます[シャワーを～]",
         "reading": "abimasu",
         "vi": "tắm [vòi hoa sen]"
       },
@@ -5443,49 +5947,55 @@ const LESSONS = [
         "jp": "出します",
         "kana": "だします",
         "reading": "dashimasu",
-        "vi": "lầy ra, đưa ra, gửi"
+        "vi": "lấy ra, đưa ra, gửi"
       },
       {
-        "jp": "下ろします",
-        "kana": "おろします[おかねをへへ][お人金を～]",
-        "reading": "oroshimasu okaneohehe o o",
+        "jp": "下ろします[お金を～]",
+        "kana": "おろします[おかねを～]",
+        "reading": "oroshimasu",
         "vi": "rút [tiền]"
       },
       {
-        "jp": "入ります",
-        "kana": "はいります",
+        "jp": "入ります[大学に～]",
+        "kana": "はいります[だいがくに～]",
         "reading": "hairimasu",
-        "vi": "vao [đại học]"
+        "vi": "vào [đại học]"
       },
       {
-        "jp": "出ます",
-        "kana": "でます",
+        "jp": "出ます[大学を～]",
+        "kana": "でます[だいがくを～]",
         "reading": "demasu",
         "vi": "ra, tốt nghiệp [đại học]"
       },
       {
-        "jp": "飲みます",
-        "kana": "",
-        "reading": "",
-        "vi": "uéng (bia, rượu)"
+        "jp": "押します",
+        "kana": "おします",
+        "reading": "oshimasu",
+        "vi": "bấm, ấn"
       },
       {
-        "jp": "やめます",
-        "kana": "やめます",
-        "reading": "yamemasu",
-        "vi": "bat đầu"
+        "jp": "飲みます",
+        "kana": "のみます",
+        "reading": "nomimasu",
+        "vi": "uống (bia, rượu)"
+      },
+      {
+        "jp": "始めます",
+        "kana": "はじめます",
+        "reading": "hajimemasu",
+        "vi": "bắt đầu"
       },
       {
         "jp": "見学します",
-        "kana": "けんがくします本",
+        "kana": "けんがくします",
         "reading": "kengakushimasu",
-        "vi": "tham quan kién tap"
+        "vi": "tham quan kiến tập"
       },
       {
         "jp": "電話します",
-        "kana": "",
-        "reading": "",
-        "vi": "goi điện thoại"
+        "kana": "でんわします",
+        "reading": "denwashimasu",
+        "vi": "gọi điện thoại"
       },
       {
         "jp": "若い",
@@ -5497,19 +6007,19 @@ const LESSONS = [
         "jp": "長い",
         "kana": "ながい",
         "reading": "nagai",
-        "vi": "đài"
+        "vi": "dài"
       },
       {
         "jp": "短い",
         "kana": "みじかい",
         "reading": "mijikai",
-        "vi": "ngan"
+        "vi": "ngắn"
       },
       {
         "jp": "明るい",
         "kana": "あかるい",
         "reading": "akarui",
-        "vi": "sang"
+        "vi": "sáng"
       },
       {
         "jp": "暗い",
@@ -5521,13 +6031,13 @@ const LESSONS = [
         "jp": "体",
         "kana": "からだ",
         "reading": "karada",
-        "vi": "người, cơ thé"
+        "vi": "người, cơ thể"
       },
       {
         "jp": "頭",
         "kana": "あたま",
         "reading": "atama",
-        "vi": "dau"
+        "vi": "đầu"
       },
       {
         "jp": "髪",
@@ -5542,22 +6052,28 @@ const LESSONS = [
         "vi": "mặt"
       },
       {
+        "jp": "目",
+        "kana": "め",
+        "reading": "me",
+        "vi": "mắt"
+      },
+      {
         "jp": "耳",
         "kana": "みみ",
         "reading": "mimi",
         "vi": "tai"
       },
       {
-        "jp": "はか",
-        "kana": "はか",
-        "reading": "haka",
+        "jp": "鼻",
+        "kana": "はな",
+        "reading": "hana",
         "vi": "mũi"
       },
       {
         "jp": "口",
         "kana": "くち",
         "reading": "kuchi",
-        "vi": "miéng"
+        "vi": "miệng"
       },
       {
         "jp": "歯",
@@ -5569,7 +6085,7 @@ const LESSONS = [
         "jp": "おなか",
         "kana": "おなか",
         "reading": "onaka",
-        "vi": "bung"
+        "vi": "bụng"
       },
       {
         "jp": "足",
@@ -5578,7 +6094,7 @@ const LESSONS = [
         "vi": "chân"
       },
       {
-        "jp": "せ",
+        "jp": "背",
         "kana": "せ",
         "reading": "se",
         "vi": "chiều cao (cơ thể)"
@@ -5587,121 +6103,163 @@ const LESSONS = [
         "jp": "サービス",
         "kana": "サービス",
         "reading": "saabisu",
-        "vi": "vu"
+        "vi": "dịch vụ"
       },
       {
-        "jp": "ジョギンダグ",
-        "kana": "ジョギンダグ",
-        "reading": "jogindagu",
-        "vi": "chạy bộ ( ~ # LET : chạy bộ)"
+        "jp": "ジョギング",
+        "kana": "ジョギング",
+        "reading": "jogingu",
+        "vi": "việc chạy bộ"
       },
       {
         "jp": "シャワー",
         "kana": "シャワー",
         "reading": "shawaa",
-        "vi": "hoa sen"
+        "vi": "vòi hoa sen"
       },
       {
-        "jp": "みどり[お]てら[]",
-        "kana": "みどり[お]てら[]",
-        "reading": "midori o tera",
-        "vi": "xanh lá cây, cây xanh"
+        "jp": "緑",
+        "kana": "みどり",
+        "reading": "midori",
+        "vi": "màu xanh lá cây, cây xanh"
       },
       {
-        "jp": "じんじゃ神社ーばん一番",
-        "kana": "じんじゃ神社ーばん一番",
-        "reading": "jinja ban",
-        "vi": "thờ đạo Thần"
+        "jp": "[お]寺",
+        "kana": "[お]てら",
+        "reading": "tera",
+        "vi": "chùa"
+      },
+      {
+        "jp": "神社",
+        "kana": "じんじゃ",
+        "reading": "jinja",
+        "vi": "đền thờ đạo Thần"
+      },
+      {
+        "jp": "～番",
+        "kana": "～ばん",
+        "reading": "ban",
+        "vi": "số ~"
       },
       {
         "jp": "どうやって",
         "kana": "どうやって",
         "reading": "douyatte",
-        "vi": "thể nao ~"
+        "vi": "làm thế nào ~"
       },
       {
         "jp": "どの～",
         "kana": "どの～",
         "reading": "dono",
-        "vi": "(dùng đối với trường hợp từ ba thứ trở lên)"
+        "vi": "~ nào (trong ba thứ trở lên)"
       },
       {
         "jp": "どれ",
         "kana": "どれ",
         "reading": "dore",
-        "vi": "nào (dùng trong trường hợp ba cái hoặc"
+        "vi": "cái nào (trong ba cái hoặc nhiều hơn)"
       },
       {
-        "jp": "すごいですねれね。",
-        "kana": "すごいですねれね。",
-        "reading": "sugoidesunerene",
-        "vi": "là tuyệt vời!/Kinh quá nhỉ!"
+        "jp": "すごいですね。",
+        "kana": "すごいですね。",
+        "reading": "sugoidesune",
+        "vi": "Thật là tuyệt vời!/Kinh quá nhỉ!"
       },
       {
-        "jp": "[いいえ、]まだまだですかいひだ",
-        "kana": "[いいえ、]まだまだですかいひだ",
-        "reading": "iie madamadadesukaihida",
-        "vi": "tôi còn phải cố gắng nhiều lắm. (cách"
+        "jp": "[いいえ、]まだまだです。",
+        "kana": "[いいえ、]まだまだです。",
+        "reading": "madamadadesu",
+        "vi": "[Không,] tôi còn phải cố gắng nhiều lắm."
       },
       {
         "jp": "お引き出しですか。",
         "kana": "おひきだしですか。",
         "reading": "ohikidashidesuka",
-        "vi": "rút tiền a? 101"
+        "vi": "Anh/Chị rút tiền ạ?"
       },
       {
         "jp": "まず",
         "kana": "まず",
         "reading": "mazu",
-        "vi": "hết, đầu tiền"
+        "vi": "trước hết, đầu tiên"
       },
       {
         "jp": "次に",
         "kana": "つぎに",
         "reading": "tsugini",
-        "vi": "theo, sau d6"
+        "vi": "tiếp theo, sau đó"
       },
       {
         "jp": "キャッシュカード",
         "kana": "キャッシュカード",
         "reading": "kyasshukaado",
-        "vi": "tian mặt, thẻ ATM"
+        "vi": "thẻ rút tiền mặt, thẻ ATM"
       },
       {
-        "jp": "暗所番号",
-        "kana": "おんしょうばんごう",
-        "reading": "onshoubangou",
-        "vi": "' ."
+        "jp": "暗証番号",
+        "kana": "あんしょうばんごう",
+        "reading": "anshoubangou",
+        "vi": "mã số bí mật, mật khẩu"
       },
       {
-        "jp": "金額かくにん",
-        "kana": "金額かくにん",
+        "jp": "金額",
+        "kana": "きんがく",
+        "reading": "kingaku",
+        "vi": "số tiền, khoản tiền"
+      },
+      {
+        "jp": "確認",
+        "kana": "かくにん",
         "reading": "kakunin",
-        "vi": "khoản tiền"
+        "vi": "sự xác nhận, sự kiểm tra lại"
       },
       {
-        "jp": "確認ボタン",
-        "kana": "確認ボタン",
+        "jp": "ボタン",
+        "kana": "ボタン",
         "reading": "botan",
-        "vi": "nhận, sự kiểm tra lại ( ~ し ます : xác"
+        "vi": "nút"
+      },
+      {
+        "jp": "JR",
+        "kana": "JR",
+        "reading": "jeiaaru",
+        "vi": "Công ty Đường sắt Nhật Bản"
+      },
+      {
+        "jp": "雪祭り",
+        "kana": "ゆきまつり",
+        "reading": "yukimatsuri",
+        "vi": "Lễ hội tuyết"
       },
       {
         "jp": "バンドン",
         "kana": "バンドン",
         "reading": "bandon",
-        "vi": "(ở In-đô-nê-xi-a)"
+        "vi": "Bandung (ở Indonesia)"
       },
       {
         "jp": "フランケン",
         "kana": "フランケン",
         "reading": "furanken",
-        "vi": "(ở Đức)"
+        "vi": "Franken (ở Đức)"
       },
       {
-        "jp": "ベラクルスだいがくま",
-        "kana": "ベラクルスだいがくま",
-        "reading": "berakurusudaigakuma",
-        "vi": "(ở Mexico)"
+        "jp": "ベラクルス",
+        "kana": "ベラクルス",
+        "reading": "berakurusu",
+        "vi": "Veracruz (ở Mexico)"
+      },
+      {
+        "jp": "梅田",
+        "kana": "うめだ",
+        "reading": "umeda",
+        "vi": "tên một quận ở Osaka"
+      },
+      {
+        "jp": "大学前",
+        "kana": "だいがくまえ",
+        "reading": "daigakumae",
+        "vi": "tên điểm dừng xe buýt giả định"
       }
     ],
     "kanji": [
@@ -5792,7 +6350,8 @@ const LESSONS = [
       121,
       122
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 17,
@@ -5871,27 +6430,27 @@ const LESSONS = [
         "vi": "đi công tác"
       },
       {
-        "jp": "飲みます［薬を～］",
-        "kana": "のみます［くすりを～］",
-        "reading": "nomimasu kusurio",
+        "jp": "飲みます[薬を～]",
+        "kana": "のみます[くすりを～]",
+        "reading": "nomimasu",
         "vi": "uống [thuốc]"
       },
       {
-        "jp": "入ります［おふろに～］",
-        "kana": "はいります［おふろに～］",
-        "reading": "hairimasu ofuroni",
+        "jp": "入ります[おふろに～]",
+        "kana": "はいります[おふろに～]",
+        "reading": "hairimasu",
         "vi": "tắm bồn"
       },
       {
-        "jp": "大切［な］",
-        "kana": "たいせつ［な］",
-        "reading": "taisetsu na",
+        "jp": "大切[な]",
+        "kana": "たいせつ[な]",
+        "reading": "taisetsu",
         "vi": "quan trọng, quý giá"
       },
       {
-        "jp": "大丈夫［な］",
-        "kana": "だいじょうぶ［な］",
-        "reading": "daijoubu na",
+        "jp": "大丈夫[な]",
+        "kana": "だいじょうぶ[な]",
+        "reading": "daijoubu",
         "vi": "không sao, không có vấn đề gì"
       },
       {
@@ -5907,9 +6466,9 @@ const LESSONS = [
         "vi": "cấm hút thuốc"
       },
       {
-        "jp": "［健康］保険証",
-        "kana": "［けんこう］ほけんしょう",
-        "reading": "kenkou hokenshou",
+        "jp": "[健康]保険証",
+        "kana": "[けんこう]ほけんしょう",
+        "reading": "hokenshou",
         "vi": "thẻ bảo hiểm [y tế]"
       },
       {
@@ -5931,9 +6490,9 @@ const LESSONS = [
         "vi": "thuốc"
       },
       {
-        "jp": "［お］ふろ",
-        "kana": "［お］ふろ",
-        "reading": "o furo",
+        "jp": "[お]ふろ",
+        "kana": "[お]ふろ",
+        "reading": "furo",
         "vi": "bồn tắm"
       },
       {
@@ -5949,22 +6508,22 @@ const LESSONS = [
         "vi": "quần áo lót"
       },
       {
-        "jp": "２、３日",
+        "jp": "2、3日",
         "kana": "に、さんにち",
-        "reading": "ni sannichi",
-        "vi": "2, 3 ngày / vài ngày"
+        "reading": "nisannichi",
+        "vi": "2, 3 ngày; vài ngày"
       },
       {
-        "jp": "２、３～",
+        "jp": "2、3～",
         "kana": "に、さん～",
-        "reading": "ni san",
-        "vi": "2, 3 ~ / vài ~"
+        "reading": "nisan",
+        "vi": "2, 3 ~; vài ~ (hậu tố đếm)"
       },
       {
         "jp": "～までに",
         "kana": "～までに",
         "reading": "madeni",
-        "vi": "trước ~, cho đến trước ~ (chỉ giới hạn thời gian)"
+        "vi": "trước ~, cho đến trước ~ (giới hạn thời gian)"
       },
       {
         "jp": "ですから",
@@ -5976,7 +6535,7 @@ const LESSONS = [
         "jp": "どうしましたか。",
         "kana": "どうしましたか。",
         "reading": "doushimashitaka",
-        "vi": "Có vấn đề gì? / Anh/Chị bị làm sao?"
+        "vi": "Có vấn đề gì?/Anh/Chị bị làm sao?"
       },
       {
         "jp": "のど",
@@ -5985,9 +6544,9 @@ const LESSONS = [
         "vi": "họng"
       },
       {
-        "jp": "［～が］痛いです。",
-        "kana": "［～が］いたいです。",
-        "reading": "ga itaidesu",
+        "jp": "[～が]痛いです。",
+        "kana": "[～が]いたいです。",
+        "reading": "itaidesu",
         "vi": "Tôi bị đau [~]."
       },
       {
@@ -6097,7 +6656,8 @@ const LESSONS = [
       127,
       128
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 18,
@@ -6119,7 +6679,7 @@ const LESSONS = [
         "jp": "弾きます",
         "kana": "ひきます",
         "reading": "hikimasu",
-        "vi": "chơi (nhạc cụ, pianô, v.v.)"
+        "vi": "chơi (nhạc cụ, piano, v.v.)"
       },
       {
         "jp": "歌います",
@@ -6143,7 +6703,7 @@ const LESSONS = [
         "jp": "換えます",
         "kana": "かえます",
         "reading": "kaemasu",
-        "vi": "đồi, trao đồi"
+        "vi": "đổi, trao đổi"
       },
       {
         "jp": "運転します",
@@ -6161,13 +6721,13 @@ const LESSONS = [
         "jp": "ピアノ",
         "kana": "ピアノ",
         "reading": "piano",
-        "vi": "đàn pianô"
+        "vi": "đàn piano"
       },
       {
-        "jp": "ーメートル",
-        "kana": "ーメートル",
+        "jp": "～メートル",
+        "kana": "～メートル",
         "reading": "meetoru",
-        "vi": "— mết"
+        "vi": "~ mét"
       },
       {
         "jp": "現金",
@@ -6188,10 +6748,10 @@ const LESSONS = [
         "vi": "nhật ký"
       },
       {
-        "jp": "［お］祈り",
-        "kana": "［お］いのり",
-        "reading": "o inori",
-        "vi": "việc cầu nguyện ( ( ~ を し ます :caunguyén)"
+        "jp": "[お]祈り",
+        "kana": "[お]いのり",
+        "reading": "inori",
+        "vi": "việc cầu nguyện"
       },
       {
         "jp": "課長",
@@ -6209,12 +6769,12 @@ const LESSONS = [
         "jp": "社長",
         "kana": "しゃちょう",
         "reading": "shachou",
-        "vi": "giam dễc"
+        "vi": "giám đốc"
       },
       {
-        "jp": "とうぶつ",
-        "kana": "とうぶつ",
-        "reading": "toubutsu",
+        "jp": "動物",
+        "kana": "どうぶつ",
+        "reading": "doubutsu",
         "vi": "động vật"
       },
       {
@@ -6227,43 +6787,61 @@ const LESSONS = [
         "jp": "インターネット",
         "kana": "インターネット",
         "reading": "intaanetto",
-        "vi": "In-to-nét, Internet"
+        "vi": "Internet"
       },
       {
-        "jp": "に",
-        "kana": "に",
-        "reading": "ni",
-        "vi": "biệt là"
+        "jp": "特に",
+        "kana": "とくに",
+        "reading": "tokuni",
+        "vi": "đặc biệt là"
       },
       {
         "jp": "へえ",
         "kana": "へえ",
         "reading": "hee",
-        "vi": "A! (dùng dễ biểu thị sự ngạc nhiên)"
+        "vi": "Thế á! (biểu thị sự ngạc nhiên)"
       },
       {
-        "jp": "それはおもしろいですね",
-        "kana": "それはおもしろいですね",
+        "jp": "それはおもしろいですね。",
+        "kana": "それはおもしろいですね。",
         "reading": "sorehaomoshiroidesune",
-        "vi": "đầy/Cái đầy) hay thật nhỉ."
+        "vi": "(Điều đó/Cái đó) hay thật nhỉ."
       },
       {
         "jp": "なかなか",
         "kana": "なかなか",
         "reading": "nakanaka",
-        "vi": "mà, mãi mà (dùng với thể phủ định)"
+        "vi": "khó mà, mãi mà (dùng với thể phủ định)"
       },
       {
         "jp": "ほんとうですか。",
         "kana": "ほんとうですか。",
         "reading": "hontoudesuka",
-        "vi": "không a?"
+        "vi": "Thật không ạ?"
       },
       {
         "jp": "ぜひ",
         "kana": "ぜひ",
         "reading": "zehi",
-        "vi": "định"
+        "vi": "nhất định"
+      },
+      {
+        "jp": "故郷",
+        "kana": "ふるさと",
+        "reading": "furusato",
+        "vi": "Furusato; quê hương (cũng là tên một bài hát)"
+      },
+      {
+        "jp": "ビートルズ",
+        "kana": "ビートルズ",
+        "reading": "biitoruzu",
+        "vi": "Beatles (ban nhạc nổi tiếng của Anh)"
+      },
+      {
+        "jp": "秋葉原",
+        "kana": "あきはばら",
+        "reading": "akihabara",
+        "vi": "Akihabara, một quận ở Tokyo"
       }
     ],
     "kanji": [
@@ -6354,7 +6932,8 @@ const LESSONS = [
       133,
       134
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 19,
@@ -6367,8 +6946,8 @@ const LESSONS = [
         "vi": "leo (núi), lên"
       },
       {
-        "jp": "泊まります",
-        "kana": "とまります",
+        "jp": "泊まります[ホテルに～]",
+        "kana": "とまります[ホテルに～]",
         "reading": "tomarimasu",
         "vi": "trọ [ở khách sạn]"
       },
@@ -6382,7 +6961,7 @@ const LESSONS = [
         "jp": "洗濯します",
         "kana": "せんたくします",
         "reading": "sentakushimasu",
-        "vi": "giặt (áo quần)"
+        "vi": "giặt (quần áo)"
       },
       {
         "jp": "なります",
@@ -6400,7 +6979,7 @@ const LESSONS = [
         "jp": "強い",
         "kana": "つよい",
         "reading": "tsuyoi",
-        "vi": "manh"
+        "vi": "mạnh"
       },
       {
         "jp": "弱い",
@@ -6409,40 +6988,40 @@ const LESSONS = [
         "vi": "yếu"
       },
       {
-        "jp": "練習します",
-        "kana": "れんしゅうします",
-        "reading": "renshuushimasu",
-        "vi": "sự luyện tập ( ~ [を] し ます : luyện tập)"
+        "jp": "練習",
+        "kana": "れんしゅう",
+        "reading": "renshuu",
+        "vi": "sự luyện tập"
       },
       {
         "jp": "ゴルフ",
         "kana": "ゴルフ",
         "reading": "gorufu",
-        "vi": "gon( ~ を し ます : chơi gôn)"
+        "vi": "gôn"
       },
       {
         "jp": "相撲",
         "kana": "すもう",
         "reading": "sumou",
-        "vi": "môn vật Sumo ( ~ を し ます : đấu vật Sumo)"
+        "vi": "môn vật Sumo"
       },
       {
         "jp": "お茶",
         "kana": "おちゃ",
         "reading": "ocha",
-        "vi": "tra dao"
+        "vi": "trà đạo"
       },
       {
         "jp": "日",
         "kana": "ひ",
         "reading": "hi",
-        "vi": "ngay"
+        "vi": "ngày"
       },
       {
         "jp": "調子",
         "kana": "ちょうし",
         "reading": "choushi",
-        "vi": "tinh trang, trang thai"
+        "vi": "tình trạng, trạng thái"
       },
       {
         "jp": "一度",
@@ -6460,7 +7039,7 @@ const LESSONS = [
         "jp": "だんだん",
         "kana": "だんだん",
         "reading": "dandan",
-        "vi": "dan dan"
+        "vi": "dần dần"
       },
       {
         "jp": "もうすぐ",
@@ -6472,7 +7051,7 @@ const LESSONS = [
         "jp": "おかげさまで",
         "kana": "おかげさまで",
         "reading": "okagesamade",
-        "vi": "Cám on anh/chị, nhờ anh/chị mà ~. (đùng để bày tỏ sự cám ơn khi nhận được sự giúp đỡ của ai đó)"
+        "vi": "Cảm ơn anh/chị; nhờ anh/chị mà ~."
       },
       {
         "jp": "でも",
@@ -6481,28 +7060,40 @@ const LESSONS = [
         "vi": "nhưng"
       },
       {
+        "jp": "乾杯",
+        "kana": "かんぱい",
+        "reading": "kanpai",
+        "vi": "Cạn chén!/Nâng cốc!"
+      },
+      {
         "jp": "ダイエット",
         "kana": "ダイエット",
         "reading": "daietto",
-        "vi": "ăn kiêng, chế độ giảm can( ~ を LET:"
+        "vi": "việc ăn kiêng, chế độ giảm cân"
       },
       {
-        "jp": "無理[な]からだ",
-        "kana": "無理[な]からだ",
-        "reading": "na karada",
-        "vi": "thể, quá sức"
+        "jp": "無理[な]",
+        "kana": "むり[な]",
+        "reading": "muri",
+        "vi": "không thể, quá sức"
       },
       {
         "jp": "体にいい",
-        "kana": "体にいい",
-        "reading": "niii",
-        "vi": "sức khỏe"
+        "kana": "からだにいい",
+        "reading": "karadaniii",
+        "vi": "tốt cho sức khỏe"
       },
       {
-        "jp": "東京スカイツリーかっしかほくさい",
-        "kana": "東京スカイツリーかっしかほくさい",
-        "reading": "sukaitsuriikasshikahokusai",
-        "vi": "Sky Tree (tháp truyền hình có đài ngắm"
+        "jp": "東京スカイツリー",
+        "kana": "とうきょうスカイツリー",
+        "reading": "toukyousukaitsurii",
+        "vi": "Tokyo Sky Tree"
+      },
+      {
+        "jp": "葛飾北斎",
+        "kana": "かつしかほくさい",
+        "reading": "katsushikahokusai",
+        "vi": "Katsushika Hokusai, họa sĩ nổi tiếng thời Edo"
       }
     ],
     "kanji": [
@@ -6593,15 +7184,16 @@ const LESSONS = [
       139,
       140
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 20,
     "theme": "Thể thường & hội thoại thân mật",
     "vocab": [
       {
-        "jp": "要ります",
-        "kana": "いります",
+        "jp": "要ります[ビザが～]",
+        "kana": "いります[ビザが～]",
         "reading": "irimasu",
         "vi": "cần [thị thực/visa]"
       },
@@ -6613,39 +7205,39 @@ const LESSONS = [
       },
       {
         "jp": "修理します",
-        "kana": "しゅりします",
-        "reading": "shurishimasu",
+        "kana": "しゅうりします",
+        "reading": "shuurishimasu",
         "vi": "sửa chữa, tu sửa"
       },
       {
         "jp": "僕",
         "kana": "ぼく",
         "reading": "boku",
-        "vi": "tôi, tớ (cách xưng thân mật của わた し được dùng bởi nam giới)"
+        "vi": "tôi, tớ (cách xưng thân mật của nam giới)"
       },
       {
         "jp": "君",
         "kana": "きみ",
         "reading": "kimi",
-        "vi": "cậu, bạn (cách nới thân mật của あな た được đùng cho người ngang hàng hoặc ít tuổi hơn)"
+        "vi": "cậu, bạn (cách nói thân mật với người ngang hàng hoặc ít tuổi hơn)"
       },
       {
         "jp": "～君",
         "kana": "～くん",
         "reading": "kun",
-        "vi": "anh ~, cậu ~ (cách nói thân mật của ~ さ ん được dùng cho người ngang hàng hoặc ít tuổi hơn; thường được dùng sau tên bé trai)"
+        "vi": "anh ~, cậu ~ (cách gọi thân mật, thường dùng sau tên bé trai/nam giới trẻ)"
       },
       {
         "jp": "うん",
         "kana": "うん",
         "reading": "un",
-        "vi": "ừ (cách nói thân mật cua は い )"
+        "vi": "ừ (thân mật của はい)"
       },
       {
         "jp": "ううん",
         "kana": "ううん",
         "reading": "uun",
-        "vi": "không (cách nói thân mật của \\ いいえ )"
+        "vi": "không (thân mật của いいえ)"
       },
       {
         "jp": "ことば",
@@ -6657,7 +7249,7 @@ const LESSONS = [
         "jp": "着物",
         "kana": "きもの",
         "reading": "kimono",
-        "vi": "kimono (trang phục truyền thống của Nhật Bản)"
+        "vi": "kimono (trang phục truyền thống Nhật Bản)"
       },
       {
         "jp": "ビザ",
@@ -6675,31 +7267,31 @@ const LESSONS = [
         "jp": "終わり",
         "kana": "おわり",
         "reading": "owari",
-        "vi": "két thtic, hét phim"
+        "vi": "kết thúc, hết phim"
       },
       {
         "jp": "こっち",
         "kana": "こっち",
         "reading": "kocchi",
-        "vi": "phía này, chỗ này (cách nói thân mật của こち ら )"
+        "vi": "phía này, chỗ này (thân mật của こちら)"
       },
       {
         "jp": "そっち",
         "kana": "そっち",
         "reading": "socchi",
-        "vi": "phía đó, chỗ đó (cách nói thân mật của そちら )"
+        "vi": "phía đó, chỗ đó (thân mật của そちら)"
       },
       {
         "jp": "あっち",
         "kana": "あっち",
         "reading": "acchi",
-        "vi": "phía kia, chỗ kia (cách nói thân mật của あちら )"
+        "vi": "phía kia, chỗ kia (thân mật của あちら)"
       },
       {
         "jp": "どっち",
         "kana": "どっち",
         "reading": "docchi",
-        "vi": "cái nào (giữa hai cái), phía nào, đâu (cách nói thân mật của どちら )"
+        "vi": "cái nào (giữa hai cái), phía nào, đâu (thân mật của どちら)"
       },
       {
         "jp": "みんなで",
@@ -6711,25 +7303,25 @@ const LESSONS = [
         "jp": "～けど",
         "kana": "～けど",
         "reading": "kedo",
-        "vi": "~, nhưng (cách nói thân mật của が )"
+        "vi": "~, nhưng (cách nói thân mật của が)"
       },
       {
-        "jp": "おなかがいっぱい",
-        "kana": "おなかがいっぱい",
-        "reading": "onakagaippai",
+        "jp": "おなかがいっぱいです",
+        "kana": "おなかがいっぱいです",
+        "reading": "onakagaippaidesu",
         "vi": "(Tôi) no rồi"
       },
       {
         "jp": "よかったら",
         "kana": "よかったら",
         "reading": "yokattara",
-        "vi": "anh/chị thích thi"
+        "vi": "nếu anh/chị thích thì"
       },
       {
         "jp": "いろいろ",
         "kana": "いろいろ",
         "reading": "iroiro",
-        "vi": "thứ"
+        "vi": "nhiều thứ"
       }
     ],
     "kanji": [
@@ -6816,7 +7408,8 @@ const LESSONS = [
       145,
       146
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 21,
@@ -6847,9 +7440,9 @@ const LESSONS = [
         "vi": "thua"
       },
       {
-        "jp": "あります[おまっつりがへ～][お祭りが～]",
-        "kana": "あります[おまっつりがへ～][お祭りが～]",
-        "reading": "arimasu omattsurigahe o riga",
+        "jp": "あります[お祭りが～]",
+        "kana": "あります[おまつりが～]",
+        "reading": "arimasu",
         "vi": "[lễ hội] được tổ chức, diễn ra"
       },
       {
@@ -6862,13 +7455,13 @@ const LESSONS = [
         "jp": "動きます",
         "kana": "うごきます",
         "reading": "ugokimasu",
-        "vi": "chuyền động, chạy"
+        "vi": "chuyển động, chạy"
       },
       {
-        "jp": "やめます[かいしゃをへ～][会社を～]",
-        "kana": "やめます[かいしゃをへ～][会社を～]",
-        "reading": "yamemasu kaishaohe o",
-        "vi": "bỏ, thôi [việc công ty]"
+        "jp": "やめます[会社を～]",
+        "kana": "やめます[かいしゃを～]",
+        "reading": "yamemasu",
+        "vi": "bỏ, thôi [việc/công ty]"
       },
       {
         "jp": "気をつけます",
@@ -6878,42 +7471,42 @@ const LESSONS = [
       },
       {
         "jp": "留学します",
-        "kana": ")",
-        "reading": "",
-        "vi": "du hoc"
+        "kana": "りゅうがくします",
+        "reading": "ryuugakushimasu",
+        "vi": "du học"
       },
       {
-        "jp": "むだ［な］",
-        "kana": "むだ［な］",
-        "reading": "muda na",
+        "jp": "むだ[な]",
+        "kana": "むだ[な]",
+        "reading": "muda",
         "vi": "lãng phí, vô ích"
       },
       {
-        "jp": "不便［な］",
-        "kana": "ふべん［な］",
-        "reading": "fuben na",
+        "jp": "不便[な]",
+        "kana": "ふべん[な]",
+        "reading": "fuben",
         "vi": "bất tiện"
       },
       {
         "jp": "すごい",
         "kana": "すごい",
         "reading": "sugoi",
-        "vi": "ghê quá, giỏi quá (dùng dễ bày tỏ sự ngạc nhiên hoặc than phục)"
+        "vi": "ghê quá, giỏi quá (bày tỏ sự ngạc nhiên/thán phục)"
       },
       {
-        "jp": "ほんとうに",
-        "kana": "ほんとうに",
-        "reading": "hontouni",
+        "jp": "ほんとう",
+        "kana": "ほんとう",
+        "reading": "hontou",
         "vi": "sự thật"
       },
       {
         "jp": "うそ",
         "kana": "うそ",
         "reading": "uso",
-        "vi": "sự giả dối, giả đối"
+        "vi": "sự giả dối, lời nói dối"
       },
       {
-        "jp": "じどうしゃ",
+        "jp": "自動車",
         "kana": "じどうしゃ",
         "reading": "jidousha",
         "vi": "ô tô, xe hơi"
@@ -6932,183 +7525,201 @@ const LESSONS = [
       },
       {
         "jp": "放送",
-        "kana": "はほうそう",
-        "reading": "hahousou",
-        "vi": "phét, phét thanh"
+        "kana": "ほうそう",
+        "reading": "housou",
+        "vi": "phát sóng, phát thanh"
       },
       {
-        "jp": "ニュェュース",
-        "kana": "ニュェュース",
-        "reading": "nyue su",
+        "jp": "ニュース",
+        "kana": "ニュース",
+        "reading": "nyuusu",
         "vi": "tin tức, bản tin"
       },
       {
         "jp": "アニメ",
         "kana": "アニメ",
         "reading": "anime",
-        "vi": "phim hoat hinh (Nhat Ban)"
+        "vi": "phim hoạt hình Nhật Bản"
       },
       {
-        "jp": "マンガが",
-        "kana": "マンガが",
-        "reading": "mangaga",
-        "vi": "truyén tranh"
+        "jp": "マンガ",
+        "kana": "マンガ",
+        "reading": "manga",
+        "vi": "truyện tranh"
       },
       {
         "jp": "デザイン",
         "kana": "デザイン",
         "reading": "dezain",
-        "vi": "thiét ké"
+        "vi": "thiết kế"
       },
       {
-        "jp": "ゆめ",
+        "jp": "夢",
         "kana": "ゆめ",
         "reading": "yume",
         "vi": "giấc mơ"
       },
       {
-        "jp": "てんさい",
+        "jp": "天才",
         "kana": "てんさい",
         "reading": "tensai",
-        "vi": "thién tai"
+        "vi": "thiên tài"
       },
       {
         "jp": "試合",
         "kana": "しあい",
         "reading": "shiai",
-        "vi": "trận đầu ( ~ & し ます :c6 trận đấu)"
+        "vi": "trận đấu"
       },
       {
-        "jp": "ちさきゅう地球",
-        "kana": "ちさきゅう地球",
-        "reading": "chisakyuu",
-        "vi": "đất"
+        "jp": "意見",
+        "kana": "いけん",
+        "reading": "iken",
+        "vi": "ý kiến"
+      },
+      {
+        "jp": "話",
+        "kana": "はなし",
+        "reading": "hanashi",
+        "vi": "câu chuyện, bài nói chuyện"
+      },
+      {
+        "jp": "地球",
+        "kana": "ちきゅう",
+        "reading": "chikyuu",
+        "vi": "Trái Đất"
       },
       {
         "jp": "月",
-        "kana": "月",
-        "reading": "",
-        "vi": "trăng, trăng"
+        "kana": "つき",
+        "reading": "tsuki",
+        "vi": "Mặt Trăng, trăng"
       },
       {
         "jp": "最近",
         "kana": "さいきん",
         "reading": "saikin",
-        "vi": "day"
+        "vi": "gần đây"
       },
       {
         "jp": "たぶん",
         "kana": "たぶん",
         "reading": "tabun",
-        "vi": "có thể"
+        "vi": "chắc, có thể"
       },
       {
         "jp": "きっと",
         "kana": "きっと",
         "reading": "kitto",
-        "vi": "chắn, nhất định"
+        "vi": "chắc chắn, nhất định"
       },
       {
         "jp": "ほんとうに",
         "kana": "ほんとうに",
         "reading": "hontouni",
-        "vi": "sự"
+        "vi": "thật sự"
       },
       {
-        "jp": "そんなに～について～かいわひさ",
-        "kana": "そんなに～について～かいわひさ",
-        "reading": "sonnani nitsuite kaiwahisa",
-        "vi": "~ lắm"
+        "jp": "そんなに",
+        "kana": "そんなに",
+        "reading": "sonnani",
+        "vi": "(không) ~ lắm"
+      },
+      {
+        "jp": "～について",
+        "kana": "～について",
+        "reading": "nitsuite",
+        "vi": "về ~"
       },
       {
         "jp": "久しぶりですね。",
-        "kana": "久しぶりですね。",
-        "reading": "shiburidesune",
-        "vi": "không gặp anh/chị. 2"
+        "kana": "ひさしぶりですね。",
+        "reading": "hisashiburidesune",
+        "vi": "Đã lâu không gặp anh/chị."
       },
       {
-        "jp": "～飲みませんか。",
-        "kana": "～飲みませんか。",
-        "reading": "mimasenka",
-        "vi": "uồng ~ nhé?"
+        "jp": "～でも飲みませんか。",
+        "kana": "～でものみませんか。",
+        "reading": "demonomimasenka",
+        "vi": "Anh/Chị uống ~ (hay gì đó) nhé?"
       },
       {
         "jp": "もちろん",
         "kana": "もちろん",
         "reading": "mochiron",
-        "vi": "di nhiên"
+        "vi": "tất nhiên, dĩ nhiên"
       },
       {
-        "jp": "もう帰らないと。かえ",
-        "kana": "もう帰らないと。かえ",
-        "reading": "mou ranaito kae",
-        "vi": "phải về bây giờ không thi...."
+        "jp": "もう帰らないと…。",
+        "kana": "もうかえらないと…。",
+        "reading": "moukaeranaito",
+        "vi": "Tôi phải về bây giờ, không thì…"
       },
       {
         "jp": "アインシュタイン",
         "kana": "アインシュタイン",
         "reading": "ainshutain",
-        "vi": "Einstein (1879-1955)"
+        "vi": "Albert Einstein"
       },
       {
         "jp": "ガガーリン",
         "kana": "ガガーリン",
         "reading": "gagaarin",
-        "vi": "Alekseyevich Gagarin (1934-1968)"
+        "vi": "Yuri Alekseyevich Gagarin"
       },
       {
-        "jp": "ガリレオぼくし",
-        "kana": "ガリレオぼくし",
-        "reading": "garireobokushi",
-        "vi": "Galilei (1564-1642)"
+        "jp": "ガリレオ",
+        "kana": "ガリレオ",
+        "reading": "garireo",
+        "vi": "Galileo Galilei"
       },
       {
         "jp": "キング牧師",
-        "kana": "キング牧師",
-        "reading": "kingu",
-        "vi": "sư Martin Luther King, Jr. (1929-1968)"
+        "kana": "キングぼくし",
+        "reading": "kingubokushi",
+        "vi": "Mục sư Martin Luther King Jr."
       },
       {
-        "jp": "フランクリンひめ",
-        "kana": "フランクリンひめ",
-        "reading": "furankurinhime",
-        "vi": "Franklin (1706-1790)"
+        "jp": "フランクリン",
+        "kana": "フランクリン",
+        "reading": "furankurin",
+        "vi": "Benjamin Franklin"
       },
       {
         "jp": "かぐや姫",
-        "kana": "かぐや姫",
-        "reading": "kaguya",
-        "vi": "chúa Kaguya (nữ anh hùng trong truyện cổ"
+        "kana": "かぐやひめ",
+        "reading": "kaguyahime",
+        "vi": "Công chúa Kaguya"
       },
       {
-        "jp": "てんじんまっリよしのやま",
-        "kana": "てんじんまっリよしのやま",
-        "reading": "tenjinmarriyoshinoyama",
-        "vi": "x"
+        "jp": "天神祭",
+        "kana": "てんじんまつり",
+        "reading": "tenjinmatsuri",
+        "vi": "Lễ hội Tenjin ở Osaka"
       },
       {
         "jp": "吉野山",
-        "kana": "吉野山",
-        "reading": "",
-        "vi": "(một ngọn núi ở tỉnh Nara)"
+        "kana": "よしのやま",
+        "reading": "yoshinoyama",
+        "vi": "Núi Yoshino ở tỉnh Nara"
       },
       {
         "jp": "カンガルー",
         "kana": "カンガルー",
         "reading": "kangaruu",
-        "vi": "căng-gu-ru"
+        "vi": "con căng-gu-ru"
       },
       {
         "jp": "キャプテン・クック",
         "kana": "キャプテン・クック",
         "reading": "kyaputen kukku",
-        "vi": "trưởng Cook (James Cook 1728-1779)"
+        "vi": "Thuyền trưởng Cook"
       },
       {
         "jp": "ヨーネン",
         "kana": "ヨーネン",
         "reading": "yoonen",
-        "vi": "ty giả định"
+        "vi": "tên công ty giả định"
       }
     ],
     "kanji": [
@@ -7204,7 +7815,8 @@ const LESSONS = [
       151,
       152
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 22,
@@ -7217,16 +7829,28 @@ const LESSONS = [
         "vi": "mặc (áo sơ mi, v.v.)"
       },
       {
+        "jp": "はきます",
+        "kana": "はきます",
+        "reading": "hakimasu",
+        "vi": "đi, mặc (giày, quần âu, v.v.)"
+      },
+      {
         "jp": "かぶります",
         "kana": "かぶります",
         "reading": "kaburimasu",
         "vi": "đội (mũ, v.v.)"
       },
       {
-        "jp": "かけます[めがねをへ有][～]",
-        "kana": "かけます[めがねをへ有][～]",
-        "reading": "kakemasu meganeohe",
+        "jp": "かけます[めがねを～]",
+        "kana": "かけます[めがねを～]",
+        "reading": "kakemasu",
         "vi": "đeo [kính]"
+      },
+      {
+        "jp": "します[ネクタイを～]",
+        "kana": "します[ネクタイを～]",
+        "reading": "shimasu",
+        "vi": "đeo [cà vạt]"
       },
       {
         "jp": "生まれます",
@@ -7256,7 +7880,7 @@ const LESSONS = [
         "jp": "スーツ",
         "kana": "スーツ",
         "reading": "suutsu",
-        "vi": "com-1é, vét"
+        "vi": "com-lê, vét"
       },
       {
         "jp": "帽子",
@@ -7268,7 +7892,7 @@ const LESSONS = [
         "jp": "眼鏡",
         "kana": "めがね",
         "reading": "megane",
-        "vi": "kính ."
+        "vi": "kính"
       },
       {
         "jp": "ケーキ",
@@ -7278,15 +7902,15 @@ const LESSONS = [
       },
       {
         "jp": "[お]弁当",
-        "kana": "[]",
-        "reading": "",
+        "kana": "[お]べんとう",
+        "reading": "bentou",
         "vi": "cơm hộp"
       },
       {
         "jp": "ロボット",
         "kana": "ロボット",
         "reading": "robotto",
-        "vi": "rô bốt"
+        "vi": "rô-bốt"
       },
       {
         "jp": "ユーモア",
@@ -7296,8 +7920,8 @@ const LESSONS = [
       },
       {
         "jp": "都合",
-        "kana": "",
-        "reading": "",
+        "kana": "つごう",
+        "reading": "tsugou",
         "vi": "(sự) thích hợp"
       },
       {
@@ -7307,46 +7931,82 @@ const LESSONS = [
         "vi": "thường, hay"
       },
       {
-        "jp": "おめでとうございます",
-        "kana": "おめでとうございます",
-        "reading": "omedetougozaimasu",
-        "vi": "mừng. (dùng để nói trong dịp sinh nhật, lễ | 22"
+        "jp": "えーと",
+        "kana": "えーと",
+        "reading": "eeto",
+        "vi": "ừm, à…"
       },
       {
-        "jp": "しですか。",
-        "kana": "しですか。",
-        "reading": "shidesuka",
-        "vi": "tìm ~ à?"
+        "jp": "おめでとう[ございます]。",
+        "kana": "おめでとう[ございます]。",
+        "reading": "omedetou",
+        "vi": "Chúc mừng."
+      },
+      {
+        "jp": "お探しですか。",
+        "kana": "おさがしですか。",
+        "reading": "osagashidesuka",
+        "vi": "Anh/Chị tìm ~ à?"
       },
       {
         "jp": "では",
         "kana": "では",
         "reading": "deha",
-        "vi": "(nhé)"
+        "vi": "Thế/Vậy (nhé)"
       },
       {
         "jp": "こちら",
         "kana": "こちら",
         "reading": "kochira",
-        "vi": "cái này (cách nói lịch sự của これ )"
+        "vi": "đây, cái này (cách nói lịch sự của これ)"
+      },
+      {
+        "jp": "家賃",
+        "kana": "やちん",
+        "reading": "yachin",
+        "vi": "tiền thuê nhà"
       },
       {
         "jp": "ダイニングキッチン",
         "kana": "ダイニングキッチン",
         "reading": "dainingukicchin",
-        "vi": "kèm phòng ăn"
+        "vi": "bếp kèm phòng ăn"
       },
       {
-        "jp": "し入れパリ",
-        "kana": "し入れパリ",
-        "reading": "shi repari",
-        "vi": "để chăn gối, đệm trong một căn phòng kiểu"
+        "jp": "和室",
+        "kana": "わしつ",
+        "reading": "washitsu",
+        "vi": "phòng kiểu Nhật"
+      },
+      {
+        "jp": "押し入れ",
+        "kana": "おしいれ",
+        "reading": "oshiire",
+        "vi": "chỗ để chăn gối, đệm trong phòng kiểu Nhật"
+      },
+      {
+        "jp": "布団",
+        "kana": "ふとん",
+        "reading": "futon",
+        "vi": "chăn, đệm kiểu Nhật"
+      },
+      {
+        "jp": "パリ",
+        "kana": "パリ",
+        "reading": "pari",
+        "vi": "Paris"
+      },
+      {
+        "jp": "万里の長城",
+        "kana": "ばんりのちょうじょう",
+        "reading": "banrinochoujou",
+        "vi": "Vạn Lý Trường Thành"
       },
       {
         "jp": "みんなのアンケート",
         "kana": "みんなのアンケート",
         "reading": "minnanoankeeto",
-        "vi": "đề của bảng điều tra giả định"
+        "vi": "tiêu đề của bảng điều tra giả định"
       }
     ],
     "kanji": [
@@ -7437,15 +8097,16 @@ const LESSONS = [
       157,
       158
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 23,
     "theme": "Khi... & điều kiện tự nhiên",
     "vocab": [
       {
-        "jp": "聞きます",
-        "kana": "ききます",
+        "jp": "聞きます[先生に～]",
+        "kana": "ききます[せんせいに～]",
         "reading": "kikimasu",
         "vi": "hỏi [giáo viên]"
       },
@@ -7468,16 +8129,16 @@ const LESSONS = [
         "vi": "đổi"
       },
       {
-        "jp": "触ります",
-        "kana": "さわります",
+        "jp": "触ります[ドアに～]",
+        "kana": "さわります[ドアに～]",
         "reading": "sawarimasu",
         "vi": "sờ, chạm vào [cửa]"
       },
       {
-        "jp": "出ます",
-        "kana": "でます",
+        "jp": "出ます[お釣りが～]",
+        "kana": "でます[おつりが～]",
         "reading": "demasu",
-        "vi": "[tiền thừa] ra, chạy ra"
+        "vi": "[tiền thừa] ra"
       },
       {
         "jp": "歩きます",
@@ -7486,34 +8147,46 @@ const LESSONS = [
         "vi": "đi bộ"
       },
       {
-        "jp": "渡ります",
-        "kana": "わたります",
+        "jp": "渡ります[橋を～]",
+        "kana": "わたります[はしを～]",
         "reading": "watarimasu",
         "vi": "qua, đi qua [cầu]"
       },
       {
-        "jp": "曲がります",
-        "kana": "まがります",
+        "jp": "曲がります[右へ～]",
+        "kana": "まがります[みぎへ～]",
         "reading": "magarimasu",
-        "vi": "rẽ, queo [phải]"
+        "vi": "rẽ, quẹo [phải]"
       },
       {
-        "jp": "さびしい",
+        "jp": "寂しい",
         "kana": "さびしい",
         "reading": "sabishii",
         "vi": "buồn, cô đơn"
       },
       {
         "jp": "[お]湯",
-        "kana": "[]",
-        "reading": "",
+        "kana": "[お]ゆ",
+        "reading": "yu",
         "vi": "nước nóng"
       },
       {
-        "jp": "ーーサイズ",
-        "kana": "ーーサイズ",
+        "jp": "音",
+        "kana": "おと",
+        "reading": "oto",
+        "vi": "âm thanh"
+      },
+      {
+        "jp": "サイズ",
+        "kana": "サイズ",
         "reading": "saizu",
         "vi": "cỡ, kích cỡ"
+      },
+      {
+        "jp": "故障",
+        "kana": "こしょう",
+        "reading": "koshou",
+        "vi": "(sự) hỏng, hỏng hóc"
       },
       {
         "jp": "道",
@@ -7537,7 +8210,7 @@ const LESSONS = [
         "jp": "角",
         "kana": "かど",
         "reading": "kado",
-        "vi": "g6c"
+        "vi": "góc"
       },
       {
         "jp": "橋",
@@ -7547,51 +8220,57 @@ const LESSONS = [
       },
       {
         "jp": "駐車場",
-        "kana": "きゅうしゃじょう",
-        "reading": "kyuushajou",
+        "kana": "ちゅうしゃじょう",
+        "reading": "chuushajou",
         "vi": "bãi đỗ xe"
       },
       {
         "jp": "建物",
         "kana": "たてもの",
         "reading": "tatemono",
-        "vi": "toa nha"
+        "vi": "tòa nhà"
       },
       {
-        "jp": "なんかいも",
+        "jp": "何回も",
         "kana": "なんかいも",
         "reading": "nankaimo",
         "vi": "nhiều lần"
       },
       {
-        "jp": "ー目",
-        "kana": "ーめ",
+        "jp": "～目",
+        "kana": "～め",
         "reading": "me",
-        "vi": "thứ — , số — (biểu thị thứ tự)"
+        "vi": "thứ ~, số ~ (biểu thị thứ tự)"
       },
       {
-        "jp": "ヒ",
-        "kana": "ヒ",
-        "reading": "hi",
-        "vi": "—"
+        "jp": "聖徳太子",
+        "kana": "しょうとくたいし",
+        "reading": "shoutokutaishi",
+        "vi": "Thái tử Shōtoku"
       },
       {
-        "jp": "法族",
-        "kana": "法族",
-        "reading": "",
-        "vi": "Horyuji, một ngôi chùa ở Nara do Hoàng tử"
+        "jp": "法隆寺",
+        "kana": "ほうりゅうじ",
+        "reading": "houryuuji",
+        "vi": "Chùa Hōryūji ở Nara"
       },
       {
-        "jp": "げんきちゃ",
+        "jp": "元気茶",
         "kana": "げんきちゃ",
         "reading": "genkicha",
-        "vi": "xây vào đầu thế kỷ thứ 7 Ni"
+        "vi": "tên trà giả định"
       },
       {
-        "jp": "元気茶はんだえき",
-        "kana": "元気茶はんだえき",
-        "reading": "handaeki",
-        "vi": "giả định"
+        "jp": "本田駅",
+        "kana": "ほんだえき",
+        "reading": "hondaeki",
+        "vi": "tên ga giả định"
+      },
+      {
+        "jp": "図書館前",
+        "kana": "としょかんまえ",
+        "reading": "toshokanmae",
+        "vi": "tên điểm dừng xe buýt giả định"
       }
     ],
     "kanji": [
@@ -7677,7 +8356,8 @@ const LESSONS = [
       163,
       164
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 24,
@@ -7702,16 +8382,16 @@ const LESSONS = [
         "vi": "dẫn (một ai đó) đi"
       },
       {
-        "jp": "連れて",
-        "kana": "つれて",
-        "reading": "tsurete",
+        "jp": "連れて来ます",
+        "kana": "つれてきます",
+        "reading": "tsuretekimasu",
         "vi": "dẫn (một ai đó) đến"
       },
       {
-        "jp": "送ります",
-        "kana": "おくります",
+        "jp": "送ります[人を～]",
+        "kana": "おくります[ひとを～]",
         "reading": "okurimasu",
-        "vi": "tién [mét ai d6]"
+        "vi": "tiễn [một ai đó]"
       },
       {
         "jp": "紹介します",
@@ -7732,34 +8412,34 @@ const LESSONS = [
         "vi": "giải thích, trình bày"
       },
       {
-        "jp": "おじいさん<br>おじいちゃん",
-        "kana": "おじいさん<br>おじいちゃん",
-        "reading": "ojiisan ojiichan",
+        "jp": "おじいさん／おじいちゃん",
+        "kana": "おじいさん／おじいちゃん",
+        "reading": "ojiisanojiichan",
         "vi": "ông nội, ông ngoại, ông (cụ/lão)"
       },
       {
-        "jp": "おばあさん<br>おばあちゃん",
-        "kana": "おばあさん<br>おばあちゃん",
-        "reading": "obaasan obaachan",
-        "vi": "bà nội, bà ngoại, ba (cu/lao)"
+        "jp": "おばあさん／おばあちゃん",
+        "kana": "おばあさん／おばあちゃん",
+        "reading": "obaasanobaachan",
+        "vi": "bà nội, bà ngoại, bà (cụ/lão)"
       },
       {
         "jp": "準備",
         "kana": "じゅんび",
         "reading": "junbi",
-        "vi": "sự chuan bị ( ~[ を ] し ます : chuẩn bị)"
+        "vi": "sự chuẩn bị"
       },
       {
-        "jp": "絢っ越し",
+        "jp": "引っ越し",
         "kana": "ひっこし",
         "reading": "hikkoshi",
-        "vi": "sự chuy&n nhà ( ~[ を ] し ます : chuyền nhà)"
+        "vi": "sự chuyển nhà"
       },
       {
-        "jp": "[お]かし",
+        "jp": "[お]菓子",
         "kana": "[お]かし",
-        "reading": "o kashi",
-        "vi": "banh keo"
+        "reading": "kashi",
+        "vi": "bánh kẹo"
       },
       {
         "jp": "ホームステイ",
@@ -7783,13 +8463,13 @@ const LESSONS = [
         "jp": "ほかに",
         "kana": "ほかに",
         "reading": "hokani",
-        "vi": "ra, bén canh d6"
+        "vi": "ngoài ra, bên cạnh đó"
       },
       {
-        "jp": "日",
-        "kana": "日",
-        "reading": "",
-        "vi": "của Mẹ — 149"
+        "jp": "母の日",
+        "kana": "ははのひ",
+        "reading": "hahanohi",
+        "vi": "Ngày của Mẹ"
       }
     ],
     "kanji": [
@@ -7880,7 +8560,8 @@ const LESSONS = [
       169,
       170
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   },
   {
     "id": 25,
@@ -7899,9 +8580,9 @@ const LESSONS = [
         "vi": "đến"
       },
       {
-        "jp": "取ります［年を～］",
-        "kana": "とります［としを～］",
-        "reading": "torimasu toshio",
+        "jp": "取ります[年を～]",
+        "kana": "とります[としを～]",
+        "reading": "torimasu",
         "vi": "có, thêm [tuổi]"
       },
       {
@@ -7929,10 +8610,10 @@ const LESSONS = [
         "vi": "một trăm triệu"
       },
       {
-        "jp": "もし［～たら］",
-        "kana": "もし［～たら］",
-        "reading": "moshi tara",
-        "vi": "nếu"
+        "jp": "もし[～たら]",
+        "kana": "もし[～たら]",
+        "reading": "moshi",
+        "vi": "nếu [~]"
       },
       {
         "jp": "意味",
@@ -7944,19 +8625,19 @@ const LESSONS = [
         "jp": "もしもし",
         "kana": "もしもし",
         "reading": "moshimoshi",
-        "vi": "a-lô"
+        "vi": "A-lô"
       },
       {
         "jp": "転勤",
         "kana": "てんきん",
         "reading": "tenkin",
-        "vi": "việc chuyển địa điểm làm việc / chuyển công tác"
+        "vi": "việc chuyển địa điểm làm việc, chuyển công tác"
       },
       {
         "jp": "こと",
         "kana": "こと",
         "reading": "koto",
-        "vi": "việc, chuyện"
+        "vi": "việc, chuyện (～のこと: việc/chuyện về ~)"
       },
       {
         "jp": "暇",
@@ -7965,10 +8646,10 @@ const LESSONS = [
         "vi": "thời gian rảnh"
       },
       {
-        "jp": "［いろいろ］お世話になりました。",
-        "kana": "［いろいろ］おせわになりました。",
-        "reading": "iroiro osewaninarimashita",
-        "vi": "Cảm ơn anh/chị đã giúp đỡ tôi (nhiều)."
+        "jp": "[いろいろ]お世話になりました。",
+        "kana": "[いろいろ]おせわになりました。",
+        "reading": "osewaninarimashita",
+        "vi": "Cảm ơn anh/chị đã giúp đỡ tôi [nhiều]."
       },
       {
         "jp": "頑張ります",
@@ -8072,6 +8753,7 @@ const LESSONS = [
       175,
       176
     ],
-    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)"
+    "vocabSource": "Minna no Nihongo Sơ cấp I – Bản dịch và Giải thích Ngữ pháp – Tiếng Việt, ấn bản 2 (PDF người dùng cung cấp)",
+    "vocabAudit": "V11: soát lại theo mục I. Từ vựng trong PDF Minna no Nihongo người dùng cung cấp; sửa lỗi OCR ghép dòng/cột."
   }
 ];

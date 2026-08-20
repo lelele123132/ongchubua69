@@ -1,0 +1,44 @@
+NIHONGO RECALL LAB V11 - VOCABULARY AUDIT
+======================================================
+Tổng mục trước V11: 944
+Tổng mục sau V11:   1053
+
+Số mục theo bài (cũ -> mới):
+Bài 01:  42 ->  42
+Bài 02:  41 ->  46
+Bài 03:  38 ->  49
+Bài 04:  47 ->  60
+Bài 05:  59 ->  61
+Bài 06:  48 ->  55
+Bài 07:  46 ->  46
+Bài 08:  59 ->  60
+Bài 09:  42 ->  52
+Bài 10:  38 ->  49
+Bài 11:  53 ->  61
+Bài 12:  45 ->  53
+Bài 13:  32 ->  33
+Bài 14:  44 ->  46
+Bài 15:  22 ->  24
+Bài 16:  49 ->  58
+Bài 17:  35 ->  35
+Bài 18:  27 ->  30
+Bài 19:  24 ->  26
+Bài 20:  22 ->  22
+Bài 21:  48 ->  51
+Bài 22:  23 ->  31
+Bài 23:  25 ->  28
+Bài 24:  18 ->  18
+Bài 25:  17 ->  17
+
+Pattern lỗi OCR nghiêm trọng còn sót: KHÔNG
+Mục trống jp/vi: 0
+Dòng trùng tuyệt đối trong cùng bài: 0
+
+Một số lỗi V10 đã được sửa:
+新聞: 'béo' -> 'báo'
+家族: 'giả định' -> 'gia đình'
+旅行: tách khỏi 料理 và dịch 'du lịch, chuyến du lịch'
+牛どん: khôi phục 'món cơm với thịt bò ở trên'
+止めます: 'dừng, đỗ'; 座ります: 'ngồi'; 立ちます: 'đứng'
+始めます: 'bắt đầu' (không còn nhầm thành やめます)
+暗証番号: 'mã số bí mật, mật khẩu'

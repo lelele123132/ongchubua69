@@ -376,7 +376,7 @@ function setVocabStudyMode(mode){
 }
 function renderVocabList(box,l){
   box.innerHTML=`<div class="section-title"><div><h3>Danh sách từ vựng</h3><p>${l.vocab.length} mục từ/biểu đạt được đưa vào bộ học.</p></div>${completeButton('vocab')}</div>
-  ${vocabSourceNote(l)}
+  ${vocabSourceNote(l)}${l.vocabAudit?`<div class="vocab-audit-badge">✓ V11 • ĐÃ SOÁT PDF • ${escapeHtml(l.vocabAudit)}</div>`:''}
   <div class="vocab-wrap"><div class="vocab-toolbar"><input class="vocab-search" type="search" placeholder="Tìm Kanji, Kana, romaji hoặc nghĩa Việt…" oninput="filterVocab(this)" aria-label="Tìm từ vựng"></div>
   <div class="vocab-table"><div class="vocab-head"><b>Kanji / từ Nhật</b><b>Kana</b><b>Romaji</b><b>Nghĩa Việt</b></div>${l.vocab.map(v=>vocabRow(v)).join('')}</div></div>`;
 }

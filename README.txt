@@ -140,3 +140,18 @@ V10 - TRẮC NGHIỆM TỪ VỰNG TOÀN BÀI
   thời gian phản hồi;
   số lần sai/lapse.
   Vì vậy cặp từ từng nhầm sẽ được ưu tiên làm bẫy trong những lần sau.
+
+
+V11 - SOÁT LẠI TOÀN BỘ TỪ VỰNG N5 THEO PDF
+--------------------------------------------
+- Phát hiện dữ liệu V3-V10 bị lỗi OCR ghép dòng/cột ở nhiều bài.
+- Bài 1 được đối chiếu và giữ dữ liệu đã đúng.
+- Bài 2–25 được dựng lại mảng từ vựng theo mục "I. Từ vựng" của PDF người dùng cung cấp.
+- Sửa đồng thời:
+  * từ Nhật/Kanji bị dính nhiều mục thành một;
+  * kana bị OCR sai;
+  * nghĩa Việt bị lệch sang dòng khác;
+  * những mục bị mất do OCR;
+  * các câu hội thoại/từ tham khảo bị gán nhầm nghĩa.
+- Flashcard, trắc nghiệm từ vựng toàn bài, Kanji theo từ mới và Recall Memory
+  đều đọc trực tiếp từ data.js nên tự động dùng bộ từ V11 đã sửa.
