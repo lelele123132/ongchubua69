@@ -233,3 +233,16 @@ V14 - NIGHT MODE
 - Dark theme áp dụng cho:
   trang chủ, bài học, Flashcard, Từ vựng Quiz, Recall Lab,
   N4 Quiz, Kanji theo bài, trắc nghiệm Kanji, ghép chữ và các form.
+
+
+V15 - BÀI TẬP NGỮ PHÁP ĐA DẠNG
+--------------------------------
+- Bài 1–25 đều có Lý thuyết / Bài tập ngữ pháp.
+- Tổng ngân hàng hiện tại khoảng 654 câu sinh từ dữ liệu ngữ pháp hiện có.
+- Mỗi bài khoảng 21–27 câu.
+- 9 dạng: Mẫu->nghĩa, Nghĩa->mẫu, Nhận dạng câu, Nhật->Việt,
+  Việt->Nhật, Điền trợ từ, Bẫy trợ từ, Hoàn thành cấu trúc, Sắp xếp câu.
+- Cơ bản / Nâng cao / Trộn tất cả.
+- 12 / 24 / toàn bộ.
+- Luyện riêng từng mẫu và luyện lại riêng câu sai.
+- Kết quả được ghi vào Recall Memory theo từng loại lỗi ngữ pháp.
