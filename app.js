@@ -8,6 +8,7 @@ let kanjiStudyMode = 'flash', kanjiQuizState = null;
 let practiceFlashItems = [], practiceFlashIndex = 0;
 let practiceKanjiItems = [], practiceKanjiIndex = 0, practiceActiveMode = '';
 let n4QuizState = null;
+let vocabLessonHubState = null;
 let kanji218Mode='flash', kanji218Index=0, kanji218Query='', kanji218QuizState=null, kanji218BuildState=null;
 let kanji218SelectedGroups = KANJI218_IMAGE_GROUPS.map(g=>g.id);
 
@@ -786,6 +787,7 @@ function openPractice(){
   <div class="practice-options">${LESSONS.map(l=>`<span class="lesson-check"><input type="checkbox" id="p${l.id}" value="${l.id}"><label for="p${l.id}">Bài ${l.id}</label></span>`).join('')}</div>
   <hr class="divider"><h3>2. Chọn dạng luyện tập</h3><div class="mode-grid">
     <button class="mode-card" onclick="startMixedPractice('quiz')"><h3>✓ Trắc nghiệm</h3><p>Trộn từ vựng và ngữ pháp của các bài đã chọn.</p></button>
+    <button class="mode-card vocabquiz-mode-card" onclick="openVocabQuizHubFromPractice()"><h3>🎯 Từ vựng theo bài</h3><p>Kiểm tra đủ toàn bộ từ của từng bài, bẫy nghĩa/âm/mặt chữ dễ nhầm.</p></button>
     <button class="mode-card" onclick="startMixedPractice('flash')"><h3>🃏 Flashcard</h3><p>Ôn từ vựng nhiều bài liên tục.</p></button>
     <button class="mode-card" onclick="startMixedPractice('vocab')"><h3>📘 Từ vựng</h3><p>Danh sách từ của toàn bộ phạm vi.</p></button>
     <button class="mode-card" onclick="startMixedPractice('kanji')"><h3>字 Kanji Flashcard</h3><p>Ôn các từ mới có Kanji của những bài đã chọn.</p></button>
@@ -1033,6 +1035,221 @@ function reviewN4Wrong(){
 }
 
 
+
+
+/* ==========================================================
+   V13 — TRẮC NGHIỆM TỪ VỰNG THEO BÀI
+   - Chọn 1 / nhiều / tất cả bài.
+   - Mặc định kiểm tra 100% từ của từng bài.
+   - Đáp án sai ưu tiên cùng bài, nghĩa gần, âm gần, mặt chữ gần
+     và cặp từng nhầm trong Recall Memory.
+   ========================================================== */
+function openVocabQuizHubFromPractice(){
+  const ids=selectedLessons();
+  openVocabQuizHub(ids.length?ids:null);
+}
+function openVocabQuizHub(preselected=null){
+  setNav('vocabquiz');
+  vocabLessonHubState=null;
+  const initial=new Set(preselected&&preselected.length?preselected:[1]);
+  app.innerHTML=`<div class="breadcrumb"><button onclick="goHome()">Trang chủ</button> › Trắc nghiệm từ vựng theo bài</div>
+  <section class="vq-hero">
+    <div>
+      <span class="vq-eyebrow">VOCABULARY • FULL RECALL</span>
+      <h1>Trắc nghiệm từ vựng theo bài</h1>
+      <p>Chọn một hoặc nhiều bài. Chế độ mặc định kiểm tra <b>đủ 100% từ</b> của từng bài; đáp án nhiễu ưu tiên các từ dễ nhầm trong chính bài đó.</p>
+    </div>
+    <div class="vq-hero-stat"><b>${LESSONS.reduce((s,l)=>s+l.vocab.length,0)}</b><span>mục từ Bài 1–25</span></div>
+  </section>
+  <section class="panel vq-panel">
+    <div class="vq-step-head"><div><b>1. Chọn bài</b><span>Có thể chọn nhiều bài hoặc tất cả.</span></div>
+      <div class="vq-quick"><button onclick="vqSelectAll(true)">Tất cả 25</button><button onclick="vqSelectRange(1,5)">Bài 1–5</button><button onclick="vqSelectRange(1,10)">Bài 1–10</button><button onclick="vqSelectAll(false)">Bỏ chọn</button></div></div>
+    <div class="vq-lessons">${LESSONS.map(l=>`<label class="vq-lesson"><input type="checkbox" value="${l.id}" ${initial.has(l.id)?'checked':''} onchange="updateVocabQuizSummary()"><span><b>Bài ${l.id}</b><small>${l.vocab.length} từ</small></span></label>`).join('')}</div>
+    <div id="vq-selection-summary"></div>
+
+    <hr class="divider">
+    <div class="vq-settings">
+      <label><b>Phạm vi câu hỏi</b>
+        <select id="vq-coverage" onchange="updateVocabQuizSummary()">
+          <option value="full" selected>100% từ của các bài đã chọn</option>
+          <option value="wrong">Chỉ các từ từng làm sai</option>
+          <option value="20">Luyện nhanh 20 câu</option>
+          <option value="50">Luyện nhanh 50 câu</option>
+        </select>
+      </label>
+      <label><b>Kiểu câu hỏi</b>
+        <select id="vq-kind">
+          <option value="smart" selected>Trộn thông minh 3 dạng</option>
+          <option value="meaning">Nhật → nghĩa Việt</option>
+          <option value="word">Nghĩa Việt → từ Nhật</option>
+          <option value="reading">Kanji/từ Nhật → cách đọc</option>
+        </select>
+      </label>
+      <label class="vq-toggle"><input id="vq-hard" type="checkbox" checked><span><b>Bẫy dễ nhầm</b><small>Cùng bài + nghĩa/âm/mặt chữ gần + lịch sử từng nhầm</small></span></label>
+      <button class="primary-btn vq-start" onclick="startVocabQuizHub()">Bắt đầu →</button>
+    </div>
+    <div class="vq-rule-note"><b>Quy tắc đáp án:</b> câu thuộc Bài X thì các đáp án sai ưu tiên lấy từ <b>Bài X</b>, kể cả khi bạn đang luyện nhiều bài. Recall Lab sẽ tăng trọng số cho đáp án mà bạn từng chọn nhầm trước đó.</div>
+    <div id="vq-area"></div>
+  </section>`;
+  updateVocabQuizSummary();
+}
+function vqCheckedLessonIds(){
+  return [...document.querySelectorAll('.vq-lesson input:checked')].map(x=>+x.value);
+}
+function vqSelectAll(on){
+  document.querySelectorAll('.vq-lesson input').forEach(x=>x.checked=on);
+  updateVocabQuizSummary();
+}
+function vqSelectRange(a,b){
+  document.querySelectorAll('.vq-lesson input').forEach(x=>x.checked=+x.value>=a&&+x.value<=b);
+  updateVocabQuizSummary();
+}
+function vqWrongIndicesForLesson(l){
+  const model=getRecallModel();
+  const bad=new Set();
+  l.vocab.forEach((v,i)=>{
+    ['vocab-meaning','vocab-reading','vocab-word'].forEach(skill=>{
+      const st=model[recallKey(['vocab',l.id,i,skill])];
+      if(st && (st.wrong>0 || st.lapses>0 || (st.memoryStrength??100)<55)) bad.add(i);
+    });
+  });
+  return [...bad];
+}
+function updateVocabQuizSummary(){
+  const box=document.getElementById('vq-selection-summary');if(!box)return;
+  const ids=vqCheckedLessonIds(),coverage=document.getElementById('vq-coverage')?.value||'full';
+  const total=ids.reduce((s,id)=>s+LESSONS[id-1].vocab.length,0);
+  const wrong=ids.reduce((s,id)=>s+vqWrongIndicesForLesson(LESSONS[id-1]).length,0);
+  const count=coverage==='full'?total:coverage==='wrong'?wrong:Math.min(+coverage,total);
+  box.innerHTML=`<div class="vq-summary">
+    <span><b>${ids.length}</b><small>bài đã chọn</small></span>
+    <span><b>${total}</b><small>từ trong phạm vi</small></span>
+    <span><b>${count}</b><small>câu dự kiến</small></span>
+    <span><b>${wrong}</b><small>từ Recall đang yếu/sai</small></span>
+  </div>`;
+}
+function createVocabHubQuestions(ids,coverage,requested,hard){
+  let all=[];
+  ids.forEach(id=>{
+    const l=LESSONS[id-1];
+    let indices=null;
+    if(coverage==='wrong')indices=vqWrongIndicesForLesson(l);
+    const qs=createFullLessonVocabQuestions(l,requested,hard,indices);
+    all.push(...qs);
+  });
+  all=shuffle(all);
+  if(coverage==='20'||coverage==='50'){
+    const max=Math.min(+coverage,all.length);
+    // Đảm bảo mỗi bài đã chọn có cơ hội xuất hiện trước khi lấp đầy bằng câu ngẫu nhiên.
+    const picked=[],used=new Set();
+    ids.forEach(id=>{
+      const q=all.find((x,idx)=>x.lesson===id&&!used.has(idx));
+      if(q&&picked.length<max){const idx=all.indexOf(q);used.add(idx);picked.push(q)}
+    });
+    all.forEach((q,idx)=>{if(picked.length<max&&!used.has(idx)){used.add(idx);picked.push(q)}});
+    all=shuffle(picked);
+  }
+  return all;
+}
+function startVocabQuizHub(){
+  const ids=vqCheckedLessonIds(),area=document.getElementById('vq-area');
+  if(!ids.length){area.innerHTML='<div class="vq-error">Hãy chọn ít nhất 1 bài.</div>';return}
+  const coverage=document.getElementById('vq-coverage').value;
+  const requested=document.getElementById('vq-kind').value;
+  const hard=document.getElementById('vq-hard').checked;
+  const questions=createVocabHubQuestions(ids,coverage,requested,hard);
+  if(!questions.length){
+    area.innerHTML=`<div class="vq-empty"><h3>Chưa có từ cần luyện ở phạm vi này</h3><p>${coverage==='wrong'?'Recall Lab chưa ghi nhận từ sai/yếu trong các bài đã chọn. Hãy chọn “100% từ” để kiểm tra trước.':'Không tạo được câu hỏi.'}</p></div>`;return
+  }
+  vocabLessonHubState={
+    lessonIds:[...ids],coverage,requested,hard,questions,index:0,score:0,answered:false,
+    wrong:[],wrongKeys:new Set(),questionStartedAt:Date.now()
+  };
+  renderVocabQuizHubQuestion();
+}
+function renderVocabQuizHubQuestion(){
+  const s=vocabLessonHubState,area=document.getElementById('vq-area');if(!s||!area)return;
+  if(s.index>=s.questions.length){renderVocabQuizHubResult();return}
+  const q=s.questions[s.index],l=LESSONS[q.lesson-1],v=l.vocab[q.vocabIndex];
+  const pct=Math.round(s.index/s.questions.length*100);
+  s.questionStartedAt=Date.now();
+  const state=(()=>{
+    try{return getRecallModel()[recallKey(['vocab',q.lesson,q.vocabIndex,q.skill])]||null}catch{return null}
+  })();
+  area.innerHTML=`<div class="vq-question-card">
+    <div class="vq-qtop"><div><span class="vq-badge">BÀI ${q.lesson}</span><b>${escapeHtml(q.type)}</b></div><span>${s.index+1}/${s.questions.length}</span></div>
+    <div class="progressbar vq-progress"><span style="width:${pct}%"></span></div>
+    <div class="vq-memory-flags">
+      ${state?.wrong?`<span class="danger">↻ Đã sai ${state.wrong} lần</span>`:''}
+      ${state?.lapses?`<span class="danger">Lapse ${state.lapses}</span>`:''}
+      ${state?.memoryStrength!=null?`<span>Memory ${Math.round(state.memoryStrength)}/100</span>`:''}
+      <span>${s.hard?'⚠ Bẫy dễ nhầm ON':'Bẫy ngẫu nhiên'}</span>
+    </div>
+    <div class="vq-question">${escapeHtml(q.q)}</div>
+    ${q.kind==='reading'?`<div class="vq-hint">Nghĩa: ${escapeHtml(v.vi)}</div>`:''}
+    <div class="vq-answers">${q.answers.map((a,i)=>`<button class="vq-answer" data-answer="${escapeHtml(a)}" onclick="answerVocabQuizHub(this,${i})"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(a)}</b></button>`).join('')}</div>
+    <div id="vq-feedback"></div>
+  </div>`;
+}
+function answerVocabQuizHub(btn,i){
+  const s=vocabLessonHubState;if(!s||s.answered)return;s.answered=true;
+  const q=s.questions[s.index],l=LESSONS[q.lesson-1],v=l.vocab[q.vocabIndex],selected=q.answers[i],ok=selected===q.correct;
+  document.querySelectorAll('.vq-answer').forEach(x=>{if(x.dataset.answer===q.correct)x.classList.add('correct')});
+  if(ok)s.score++;else{
+    btn.classList.add('wrong');
+    s.wrong.push(q);
+    s.wrongKeys.add(`${q.lesson}:${q.vocabIndex}`);
+  }
+  recordRecallEvent({
+    itemKey:recallKey(['vocab',q.lesson,q.vocabIndex,q.skill]),
+    domain:'vocab',skill:q.skill,lesson:q.lesson,itemLabel:v.jp,target:v.jp,prompt:q.q,
+    selected,correctAnswer:q.correct,correct:ok,responseMs:Date.now()-(s.questionStartedAt||Date.now()),
+    source:`V13 • Từ vựng theo bài ${q.lesson}`,answers:q.answers,explanation:q.detail,qType:'vocab-by-lesson',
+    extra:{vocabIndex:q.vocabIndex,kind:q.kind,coverage:s.coverage,multiLesson:s.lessonIds.length>1}
+  });
+  document.getElementById('vq-feedback').innerHTML=`<div class="feedback vq-feedback">
+    <b>${ok?'✓ Chính xác':'✗ '+escapeHtml(selected)+' → '+escapeHtml(q.correct)}</b>
+    <div class="vq-word-line"><strong>${escapeHtml(v.jp)}</strong><span>${escapeHtml(v.kana||v.jp)}</span><em>${escapeHtml(v.reading||'')}</em></div>
+    <p>${escapeHtml(v.vi)}</p>
+    <small>${ok?'Recall này đã được ghi lại.':`Cặp “${escapeHtml(selected)} → ${escapeHtml(q.correct)}” đã được thêm vào bản đồ nhầm lẫn để tăng khả năng xuất hiện lại.`}</small>
+  </div><div class="vq-next"><button class="primary-btn" onclick="nextVocabQuizHub()">Câu tiếp theo →</button></div>`;
+}
+function nextVocabQuizHub(){
+  vocabLessonHubState.index++;vocabLessonHubState.answered=false;renderVocabQuizHubQuestion();
+}
+function renderVocabQuizHubResult(){
+  const s=vocabLessonHubState,area=document.getElementById('vq-area'),pct=Math.round(s.score/s.questions.length*100);
+  const perLesson=s.lessonIds.map(id=>{
+    const qs=s.questions.filter(q=>q.lesson===id);
+    const wrong=s.wrong.filter(q=>q.lesson===id);
+    return {id,total:qs.length,wrong:wrong.length,correct:qs.length-wrong.length};
+  }).filter(x=>x.total);
+  area.innerHTML=`<div class="vq-result">
+    <span class="vq-eyebrow">VOCAB QUIZ COMPLETE</span>
+    <h2>${s.score}/${s.questions.length}</h2>
+    <p><b>${pct}% chính xác</b> • ${s.wrongKeys.size} từ bị nhầm. ${pct>=90?'Khá chắc; Recall Lab sẽ tiếp tục giãn lịch ôn những từ ổn định.':pct>=70?'Nên luyện lại riêng từ sai ngay để củng cố recall.':'Nên luyện lại từ sai và quay lại flashcard các mục có Memory Strength thấp.'}</p>
+    <div class="vq-result-lessons">${perLesson.map(x=>`<div><b>Bài ${x.id}</b><span>${x.correct}/${x.total}</span><small>${x.wrong} sai</small></div>`).join('')}</div>
+    <div class="vq-result-actions">
+      ${s.wrong.length?`<button class="primary-btn" onclick="reviewVocabHubWrong()">Luyện lại ${s.wrongKeys.size} từ sai →</button>`:''}
+      <button class="secondary-btn" onclick="restartVocabQuizHub()">Làm bộ mới ↻</button>
+      <button class="ghost-btn" onclick="openRecallLab()">Mở Recall Lab</button>
+    </div>
+  </div>`;
+}
+function reviewVocabHubWrong(){
+  const s=vocabLessonHubState;
+  const seen=new Set(),qs=s.wrong.filter(q=>{
+    const k=`${q.lesson}:${q.vocabIndex}`;if(seen.has(k))return false;seen.add(k);return true;
+  });
+  vocabLessonHubState={...s,questions:shuffle(qs),index:0,score:0,answered:false,wrong:[],wrongKeys:new Set(),questionStartedAt:Date.now()};
+  renderVocabQuizHubQuestion();
+}
+function restartVocabQuizHub(){
+  const s=vocabLessonHubState;
+  const qs=createVocabHubQuestions(s.lessonIds,s.coverage,s.requested,s.hard);
+  vocabLessonHubState={...s,questions:qs,index:0,score:0,answered:false,wrong:[],wrongKeys:new Set(),questionStartedAt:Date.now()};
+  renderVocabQuizHubQuestion();
+}
 
 /* ==========================================================
    V12 — 218 Kanji theo bài trong ảnh + Quiz + Ghép chữ

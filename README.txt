@@ -196,3 +196,28 @@ TÍNH NĂNG
   画, 語, 目, 品, 明, 答, 配, 料, 理, 仕, 者, 堂, 用, 図, 写, 真,
   林, 考, 親, 切, 験, 歳, 留, 散, 浴, 降, 欲.
 - 半: Kunyomi hiển thị "なかば".
+
+
+V13 - TRẮC NGHIỆM TỪ VỰNG THEO BÀI
+------------------------------------
+- Có menu riêng "Từ vựng Quiz".
+- Chọn 1 bài, nhiều bài, Bài 1–5, Bài 1–10 hoặc tất cả 25 bài.
+- Chế độ mặc định: kiểm tra 100% từ của từng bài đã chọn.
+- Có thêm:
+  * chỉ luyện những từ Recall Lab đang đánh dấu sai/yếu;
+  * luyện nhanh 20 câu;
+  * luyện nhanh 50 câu.
+- Kiểu câu:
+  * Nhật -> nghĩa Việt;
+  * nghĩa Việt -> từ Nhật;
+  * Kanji/từ Nhật -> cách đọc;
+  * trộn thông minh cả 3.
+- Đáp án sai luôn ưu tiên từ cùng bài với câu hỏi.
+- Khi bật "Bẫy dễ nhầm", hệ thống dùng:
+  * nghĩa gần / cùng nhóm nghĩa;
+  * cách đọc gần;
+  * mặt chữ gần;
+  * đáp án mà người học từng chọn nhầm trước đó.
+- Khi luyện nhiều bài, câu của Bài X vẫn lấy bẫy từ Bài X.
+- Kết quả hiển thị điểm riêng từng bài và cho luyện lại riêng các từ sai.
+- Tất cả câu trả lời tiếp tục ghi vào Recall Memory Engine.

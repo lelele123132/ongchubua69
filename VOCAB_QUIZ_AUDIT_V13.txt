@@ -1,0 +1,21 @@
+V13 VOCAB QUIZ AUDIT
+=====================
+Feature: Trắc nghiệm từ vựng theo bài
+
+Scope:
+- 25 lesson selectors
+- one / multiple / all lessons
+- full coverage = every vocabulary item in every selected lesson
+- wrong/weak recall mode
+- quick 20 / 50 question mode
+
+Distractor policy:
+- createFullLessonVocabQuestions() is called lesson-by-lesson
+- therefore distractors are ranked from the SAME lesson
+- hard ranking uses meaning similarity, reading similarity, visual similarity
+  and previous Recall Memory confusions
+
+Recall:
+- records selected answer, correct answer, response time, skill, lesson,
+  vocabulary index and multi-lesson context
+- wrong items can be drilled again immediately
