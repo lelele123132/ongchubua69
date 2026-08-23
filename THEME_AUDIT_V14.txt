@@ -1,0 +1,10 @@
+V14 NIGHT MODE AUDIT
+======================
+Theme key: nihongoThemeV14
+Modes: light / dark
+Fallback: prefers-color-scheme
+Persistent: yes (localStorage)
+Pre-render theme boot: yes
+Mobile toggle: yes
+JS syntax: checked
+Vercel-ready root: checked

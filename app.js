@@ -1708,3 +1708,50 @@ function reviewKanji218BuildWrong(){
   kanji218BuildState={questions:shuffle(wrong).map(q=>({...q,tiles:k218BuildTiles(q.word,s.hardness)})),index:0,score:0,wrong:[],selected:[],answered:false,hardness:s.hardness,startedAt:Date.now()};
   renderKanji218BuildQuestion();
 }
+
+
+/* ==========================================================
+   V14 — NIGHT MODE
+   ========================================================== */
+const SITE_THEME_KEY='nihongoThemeV14';
+
+function getSiteTheme(){
+  try{
+    const saved=localStorage.getItem(SITE_THEME_KEY);
+    if(saved==='dark'||saved==='light')return saved;
+  }catch{}
+  return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+}
+function applySiteTheme(theme,save=false){
+  document.documentElement.setAttribute('data-theme',theme);
+  if(save){
+    try{localStorage.setItem(SITE_THEME_KEY,theme)}catch{}
+  }
+  const btn=document.getElementById('theme-toggle');
+  if(btn){
+    const dark=theme==='dark';
+    const icon=btn.querySelector('.theme-icon');
+    const label=btn.querySelector('.theme-label');
+    if(icon)icon.textContent=dark?'☀️':'🌙';
+    if(label)label.textContent=dark?'Sáng':'Tối';
+    btn.setAttribute('aria-label',dark?'Chuyển sang chế độ sáng':'Chuyển sang chế độ tối');
+    btn.title=dark?'Light Mode':'Night Mode';
+  }
+}
+function toggleSiteTheme(){
+  const next=getSiteTheme()==='dark'?'light':'dark';
+  applySiteTheme(next,true);
+}
+function initSiteTheme(){
+  applySiteTheme(getSiteTheme(),false);
+  if(window.matchMedia){
+    const mq=window.matchMedia('(prefers-color-scheme: dark)');
+    const handler=e=>{
+      let saved=null;try{saved=localStorage.getItem(SITE_THEME_KEY)}catch{}
+      if(!saved)applySiteTheme(e.matches?'dark':'light',false);
+    };
+    if(mq.addEventListener)mq.addEventListener('change',handler);
+    else if(mq.addListener)mq.addListener(handler);
+  }
+}
+document.addEventListener('DOMContentLoaded',initSiteTheme);

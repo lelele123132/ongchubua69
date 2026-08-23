@@ -221,3 +221,15 @@ V13 - TRẮC NGHIỆM TỪ VỰNG THEO BÀI
 - Khi luyện nhiều bài, câu của Bài X vẫn lấy bẫy từ Bài X.
 - Kết quả hiển thị điểm riêng từng bài và cho luyện lại riêng các từ sai.
 - Tất cả câu trả lời tiếp tục ghi vào Recall Memory Engine.
+
+
+V14 - NIGHT MODE
+----------------
+- Thêm nút Night Mode trực tiếp trên thanh điều hướng.
+- Chuyển Sáng / Tối tức thời.
+- Lưu lựa chọn bằng localStorage với key nihongoThemeV14.
+- Nếu người dùng chưa từng chọn, web tự theo prefers-color-scheme của hệ điều hành.
+- Có script trong <head> để áp theme trước khi render, giảm hiện tượng chớp nền trắng.
+- Dark theme áp dụng cho:
+  trang chủ, bài học, Flashcard, Từ vựng Quiz, Recall Lab,
+  N4 Quiz, Kanji theo bài, trắc nghiệm Kanji, ghép chữ và các form.
