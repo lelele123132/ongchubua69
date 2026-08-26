@@ -1,0 +1,10 @@
+V17 KANA-FIRST AUDIT
+======================
+Mode: Học từ mới • Kana
+Kanji shown during mode: NO
+Katakana loanwords: preserved
+Phases: Learn -> Active Recall -> Check
+Batch: 5 / 8 / 10 / 15
+Default: 10
+Recall skills: kana-recall / kana-meaning / kana-form
+Storage: nihongoKanaNewV17

@@ -612,3 +612,88 @@ html[data-theme="dark"] .grammar-practice-settings,html[data-theme="dark"] .gram
 html[data-theme="dark"] .grammar-answer:hover{background:#1d1a31;border-color:#6f68cc}html[data-theme="dark"] .grammar-answer.correct{background:#13271d;border-color:#3a7955;color:#94dfb1}html[data-theme="dark"] .grammar-answer.wrong{background:#31191e;border-color:#91414a;color:#ff9ba4}
 html[data-theme="dark"] .grammar-order-slots{background:#10141b}html[data-theme="dark"] .grammar-order-slots span{border-color:#3c4350;color:#8993a3}html[data-theme="dark"] .grammar-order-slots span.filled{background:#282348;border-color:#766ee1;color:#e3e0ff}html[data-theme="dark"] .practice-grammar-launch{background:#171620;border-color:#302e42}
 @media(max-width:720px){.grammar-mode-head{align-items:flex-start;flex-direction:column}.grammar-mode-switch{width:100%}.grammar-mode-switch button{flex:1}.grammar-practice-hero{grid-template-columns:1fr}.grammar-practice-count{width:88px;height:88px}.grammar-practice-settings{align-items:stretch;flex-direction:column}.grammar-practice-settings label,.grammar-practice-settings select{width:100%}.grammar-answers{grid-template-columns:1fr}.grammar-answer{min-height:58px}.practice-grammar-launch{align-items:flex-start;flex-direction:column}.practice-grammar-buttons{justify-content:flex-start}}
+
+
+/* ===== V16 — N4 added + Performance ===== */
+.n4-source-grid-v16{grid-template-columns:repeat(3,minmax(0,1fr))}
+.n4-source-tag.purple{background:#f0eaff;color:#7447a8}
+.n4-added-card.active{border-color:#a77acb;background:#fbf7ff}
+.n4-added-study{margin:13px 0;padding:13px;border:1px solid var(--line);border-radius:15px;background:#faf9fc}
+.n4-added-kanji-row{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.n4-added-kanji-row button{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:11px;padding:8px 4px;cursor:pointer;display:grid;gap:2px}
+.n4-added-kanji-row button:hover{border-color:#9871bd}.n4-added-kanji-row b{font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:25px}.n4-added-kanji-row span{font-size:8px;color:var(--muted)}
+.n4-added-detail{margin-top:9px;min-height:66px;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.n4-added-big{font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:42px;color:#7550a1}.n4-added-detail>div{display:grid;gap:2px}.n4-added-detail>div>b{font-size:14px}.n4-added-detail>div>span{font-size:11px;color:#596274}.n4-added-detail small{font-size:9px;color:#8b92a0}.n4-added-detail em{font-style:normal;font-size:9px;color:#6a7180}
+.n4-added-example{margin-top:7px;padding:8px 10px;border-radius:9px;background:#f5f1fa;font-size:12px}.n4-added-example small{display:block;color:#767e8d}
+.fast-vocab-wrap{contain:content}.fast-vocab-count{padding:6px 9px;border-radius:999px;background:#eef0f5;color:#697181;font-size:9px;font-weight:850}
+.fast-vocab-toolbar{display:flex;gap:8px;align-items:center}.fast-vocab-toolbar .vocab-search{flex:1}.fast-vocab-toolbar select{border:1px solid var(--line);border-radius:10px;padding:9px;background:var(--card);color:var(--muted)}
+.fast-vocab-pages{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin-top:13px}.fast-vocab-pages span{font-size:10px;color:var(--muted)}.fast-vocab-pages button:disabled{opacity:.35;cursor:default}
+html[data-theme="dark"] .n4-added-study{background:#11151c;border-color:#2b323e}
+html[data-theme="dark"] .n4-added-card.active{background:#211a29;border-color:#765291}
+html[data-theme="dark"] .n4-added-example{background:#211b28}
+html[data-theme="dark"] .fast-vocab-count{background:#222731;color:#adb5c4}
+@media(max-width:850px){.n4-source-grid-v16{grid-template-columns:1fr}.n4-added-kanji-row{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:500px){.n4-added-kanji-row{grid-template-columns:repeat(2,1fr)}.fast-vocab-toolbar{align-items:stretch;flex-direction:column}.fast-vocab-toolbar select{width:100%}}
+
+
+/* ===== V17 — Kana-first New Vocabulary ===== */
+.v17-vocab-switch .active.kana{background:#eaf8f1!important;border-color:#9ed2b3!important;color:#27774d!important}
+.v17-note{border-color:#cde4d7;background:#f4fbf7;color:#3e6c54}
+.kana-new-hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:20px;border:1px solid #cfe4d8;border-radius:19px;background:linear-gradient(135deg,#fff,#f5fbf7)}
+.kana-new-kicker{font-size:8px;font-weight:950;letter-spacing:.12em;color:#2f8a59}
+.kana-new-hero h3{font-size:23px;margin:5px 0}
+.kana-new-hero p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
+.kana-new-stats{display:grid;grid-template-columns:repeat(3,80px);gap:6px}
+.kana-new-stats span{display:grid;text-align:center;padding:10px 5px;border-radius:12px;background:#fff;border:1px solid #d9e9df}
+.kana-new-stats b{font-size:20px;color:#277b4d}.kana-new-stats small{font-size:8px;color:#89938d}
+.kana-new-plan{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:13px 0;padding:10px}
+.kana-new-plan>div{display:flex;align-items:center;gap:8px}.kana-new-plan>div>b{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#2f8a59;color:#fff;font-size:11px}
+.kana-new-plan>div>span{display:grid}.kana-new-plan strong{font-size:10px}.kana-new-plan small{font-size:8px;color:var(--muted)}.kana-new-plan>i{font-style:normal;color:#aab2ad}
+.kana-new-settings{display:flex;align-items:end;gap:10px;flex-wrap:wrap;padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--card)}
+.kana-new-settings>label{display:grid;gap:5px;color:var(--muted);font-size:9px}
+.kana-new-settings select{min-width:175px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--card);color:var(--text);font:inherit}
+.kana-audio-toggle{display:grid!important;grid-template-columns:auto 1fr!important;align-items:center!important;gap:8px!important;padding:7px 10px;border:1px solid var(--line);border-radius:11px}
+.kana-audio-toggle input{width:18px;height:18px}.kana-audio-toggle span{display:grid}.kana-audio-toggle small{font-size:8px}
+.kana-no-kanji-rule{margin:10px 0 16px;padding:9px 11px;border-radius:11px;background:#fff8e9;border:1px solid #ebd7a9;color:#7b632d;font-size:9px}
+.kana-study-card{max-width:720px;margin:16px auto 0;padding:23px;border:1px solid var(--line);border-radius:22px;background:var(--card);text-align:center}
+.kana-session-top{display:flex;justify-content:space-between;align-items:center;text-align:left;color:#89909e;font-size:9px}
+.kana-session-top>div{display:grid;gap:2px}.kana-session-top>div>span{font-size:7px;color:#2d8a58;font-weight:950;letter-spacing:.1em}.kana-session-top>div>b{color:var(--text);font-size:11px}.kana-session-top>strong{font-size:11px}
+.kana-progress{max-width:none;margin:9px 0 25px}
+.kana-big{font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:clamp(44px,9vw,72px);font-weight:900;line-height:1.25;letter-spacing:.025em;margin:9px 0;color:var(--text)}
+.kana-meaning{font-size:22px;font-weight:850;color:#2d7a4f;margin:10px 0}.kana-romaji{font-size:11px;color:#959ca8;margin-top:4px}
+.kana-learn-actions{display:flex;justify-content:center;gap:8px;margin-top:21px}.kana-phase-hint{font-size:9px;color:#979eaa;margin-top:12px}
+.kana-recall-label,.kana-check-dir{font-size:9px;color:#87908f;font-weight:850;letter-spacing:.04em}
+.kana-reveal-btn{margin-top:21px;border:1px solid #b7d8c5;background:#edf9f2;color:#28774d;border-radius:12px;padding:12px 17px;font:inherit;font-weight:850;cursor:pointer}
+.kana-revealed{margin-top:18px;padding:15px;border-radius:15px;background:#f5faf7;display:grid;gap:9px}
+.kana-revealed>b{font-size:22px}.kana-revealed>span{font-size:9px;color:#818b85}.kana-revealed>div{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kana-check-meaning{font-size:clamp(24px,5vw,36px);font-weight:900;line-height:1.4;margin:19px 0}
+.kana-check-answers{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.kana-check-answers button{display:flex;align-items:center;gap:10px;min-height:63px;text-align:left;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--text);padding:11px 13px;font:inherit;cursor:pointer}
+.kana-check-answers button:hover{border-color:#84bd9c;background:#f8fdfa}
+.kana-check-answers button>span{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:#f0f2f5;font-size:9px;font-weight:900}
+.kana-check-answers button>b{font-size:17px;line-height:1.4}
+.kana-check-answers button.correct{background:#eaf8f0;border-color:#70bd8e}
+.kana-check-answers button.wrong{background:#fff0f1;border-color:#e18b95}
+.kana-next{text-align:right;margin-top:9px}
+.kana-result{max-width:660px;margin:16px auto;text-align:center;padding:28px;border:1px solid #cfe1d7;border-radius:21px;background:linear-gradient(145deg,#fff,#f5fbf7)}
+.kana-result>span{font-size:8px;font-weight:950;color:#2d8a58;letter-spacing:.12em}
+.kana-result h2{font-size:56px;margin:8px 0;color:#2d8052}.kana-result p{color:var(--muted);line-height:1.6}
+.kana-result-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.kana-no-kanji-confirm{margin-top:12px;font-size:9px;color:#6b8d79}
+html[data-theme="dark"] .v17-note{background:#13231b;border-color:#31513e;color:#a7c8b4}
+html[data-theme="dark"] .kana-new-hero{background:linear-gradient(145deg,#151c18,#11161a);border-color:#2f4939}
+html[data-theme="dark"] .kana-new-stats span{background:#171d1a;border-color:#30443a}
+html[data-theme="dark"] .kana-no-kanji-rule{background:#211d13;border-color:#4a402a;color:#cdbd91}
+html[data-theme="dark"] .kana-study-card{background:#141821;border-color:#2b323e}
+html[data-theme="dark"] .kana-meaning{color:#79d59e}
+html[data-theme="dark"] .kana-reveal-btn{background:#16271d;border-color:#3a634b;color:#91d5aa}
+html[data-theme="dark"] .kana-revealed{background:#111b16}
+html[data-theme="dark"] .kana-check-answers button{background:#141821;border-color:#2b323e}
+html[data-theme="dark"] .kana-check-answers button:hover{background:#17231c;border-color:#4f8967}
+html[data-theme="dark"] .kana-check-answers button.correct{background:#13271d;border-color:#3a7955;color:#94dfb1}
+html[data-theme="dark"] .kana-check-answers button.wrong{background:#31191e;border-color:#91414a;color:#ff9ba4}
+html[data-theme="dark"] .kana-result{background:linear-gradient(145deg,#151b18,#101519);border-color:#2f4939}
+@media(max-width:720px){
+  .kana-new-hero{grid-template-columns:1fr}.kana-new-stats{grid-template-columns:repeat(3,1fr)}
+  .kana-new-settings{align-items:stretch;flex-direction:column}.kana-new-settings>label,.kana-new-settings select{width:100%}
+  .kana-check-answers{grid-template-columns:1fr}.kana-revealed>div{grid-template-columns:1fr 1fr}
+}

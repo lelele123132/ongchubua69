@@ -1,0 +1,13 @@
+V16 PERFORMANCE / N4 AUDIT
+==========================
+N4 added set:
+貸す / 借りる / 送る / 強い / 勉強する / 旅行する / 教室 / 登る
+
+Performance changes:
+1. Recall model cache for vocab distractor generation.
+2. Weak-vocab count cache for lesson checkbox summaries.
+3. Virtual/paged vocabulary list: 80 rows rendered per page.
+4. Search filters full data but renders only active page.
+
+Expected heavy case:
+25 lessons / ~1053 vocab entries -> only max 80 table rows in DOM at once.

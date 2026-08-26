@@ -246,3 +246,47 @@ V15 - BÀI TẬP NGỮ PHÁP ĐA DẠNG
 - 12 / 24 / toàn bộ.
 - Luyện riêng từng mẫu và luyện lại riêng câu sai.
 - Kết quả được ghi vào Recall Memory theo từng loại lỗi ngữ pháp.
+
+
+V16 - N4 KANJI BỔ SUNG + TỐI ƯU LAG
+------------------------------------
+N4:
+- Thêm nguồn riêng "8 Kanji vừa học":
+  貸・借・送・強・勉・旅・室・登
+- Từ/ví dụ:
+  貸す かす = cho mượn
+  借りる かりる = mượn
+  送る おくる = gửi
+  強い つよい = mạnh
+  勉強する べんきょうする = học
+  旅行する りょこうする = đi du lịch
+  教室 きょうしつ = lớp/phòng học
+  登る のぼる = leo
+- Có thẻ xem On/Kun + ví dụ và quiz đọc/nghĩa/viết.
+
+Tối ưu:
+- Cache Recall model trong lúc sinh bộ câu hỏi từ vựng lớn.
+- Không còn JSON.parse localStorage lặp lại cho từng đáp án nhiễu.
+- Tóm tắt "từ Recall yếu/sai" được cache, không quét 25 bài mỗi lần tick.
+- Luyện tập tổng hợp -> Từ vựng dùng phân trang 80 dòng.
+  Khi chọn toàn bộ 25 bài, browser không còn phải dựng hơn 1000 dòng DOM cùng lúc.
+- Tìm kiếm vẫn hoạt động trên toàn bộ dữ liệu rồi chỉ render trang hiện tại.
+
+
+V17 - HỌC TỪ MỚI KANA-FIRST / KHÔNG KANJI
+-------------------------------------------
+- Tab Từ vựng có thêm chế độ mặc định: "🌱 Học từ mới • Kana".
+- Trong mode này KHÔNG hiển thị Kanji.
+- Từ có Kanji chỉ hiển thị cách đọc Kana.
+  Ví dụ 学生 -> がくせい.
+- Từ vay mượn vẫn giữ Katakana chuẩn:
+  コーヒー, テレビ, コンピューター...
+- Học theo 3 pha:
+  1. Nhìn: Kana + nghĩa Việt.
+  2. Active Recall: chỉ Kana, tự nhớ nghĩa rồi mới mở đáp án.
+  3. Kiểm tra 2 chiều: Kana -> nghĩa và nghĩa -> Kana.
+- 5 / 8 / 10 / 15 từ mỗi phiên, mặc định 10.
+- Có TTS tiếng Nhật nếu trình duyệt hỗ trợ.
+- Theo dõi trạng thái new / learning / mastered cho từng từ.
+- Recall Memory ghi kana-recall / kana-meaning / kana-form.
+- Giữ nguyên toàn bộ V16: N4, Kanji, Grammar Practice, Night Mode, tối ưu lag.
