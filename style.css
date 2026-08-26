@@ -697,3 +697,9 @@ html[data-theme="dark"] .kana-result{background:linear-gradient(145deg,#151b18,#
   .kana-new-settings{align-items:stretch;flex-direction:column}.kana-new-settings>label,.kana-new-settings select{width:100%}
   .kana-check-answers{grid-template-columns:1fr}.kana-revealed>div{grid-template-columns:1fr 1fr}
 }
+
+/* ===== V18 Kana integrated ===== */
+#v18-kana-force-btn{background:#eaf8f1!important;border-color:#93cca9!important;color:#24794c!important}
+.v18-kana-home-card{margin:0 0 20px;border-color:#b9ddc7!important;background:linear-gradient(135deg,#f7fff9,#edf9f1)!important}
+.v18-kana-home-card h3{margin:4px 0 5px}
+html[data-theme="dark"] .v18-kana-home-card{background:linear-gradient(135deg,#132019,#17281e)!important;border-color:#315541!important}

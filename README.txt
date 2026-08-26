@@ -290,3 +290,13 @@ V17 - HỌC TỪ MỚI KANA-FIRST / KHÔNG KANJI
 - Theo dõi trạng thái new / learning / mastered cho từng từ.
 - Recall Memory ghi kana-recall / kana-meaning / kana-form.
 - Giữ nguyên toàn bộ V16: N4, Kanji, Grammar Practice, Night Mode, tối ưu lag.
+
+
+V18 - FIX KANA MODE KHÔNG HIỆN
+-------------------------------
+- Chế độ Kana-first đã được nhúng trực tiếp vào app.js.
+- index.html không còn phụ thuộc vào v17kana.js để mode hoạt động.
+- Khi mở tab Từ vựng, mặc định vào "🌱 Học từ mới • Kana".
+- Có fallback tự chèn nút Kana nếu renderer cũ xuất hiện.
+- Thêm card Kana-first ở Trang chủ để người dùng biết tính năng tồn tại.
+- Giữ nguyên V16/V17 data, Recall, Grammar, N4, Night Mode.
