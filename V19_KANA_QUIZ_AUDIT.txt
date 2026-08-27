@@ -1,0 +1,6 @@
+V19 KANA-ONLY VOCAB QUIZ
+Per-lesson: Kana <-> Vietnamese
+Multi-lesson: Kana <-> Vietnamese
+Kanji prompt/answer/feedback: NO
+Katakana: preserved
+Recall: enabled

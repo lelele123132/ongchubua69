@@ -703,3 +703,10 @@ html[data-theme="dark"] .kana-result{background:linear-gradient(145deg,#151b18,#
 .v18-kana-home-card{margin:0 0 20px;border-color:#b9ddc7!important;background:linear-gradient(135deg,#f7fff9,#edf9f1)!important}
 .v18-kana-home-card h3{margin:4px 0 5px}
 html[data-theme="dark"] .v18-kana-home-card{background:linear-gradient(135deg,#132019,#17281e)!important;border-color:#315541!important}
+
+/* ===== V19 — Vocab Quiz Kana-only ===== */
+.v19-kana-badge{background:#eaf8f1!important;color:#26794d!important;border-color:#a6d5b9!important}
+.v19-kana-quiz-intro{border-color:#c9e3d4;background:linear-gradient(135deg,#fff,#f4fbf7)}
+.v19-no-kanji-note{margin-top:10px;padding:9px 11px;border:1px solid #d7e7dd;border-radius:11px;background:#f6fbf8;color:#537461;font-size:9px}
+html[data-theme="dark"] .v19-kana-quiz-intro{background:linear-gradient(145deg,#151c18,#11161a);border-color:#2f4939}
+html[data-theme="dark"] .v19-no-kanji-note{background:#132019;border-color:#31513e;color:#a9c4b3}

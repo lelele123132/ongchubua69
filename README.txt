@@ -300,3 +300,9 @@ V18 - FIX KANA MODE KHÔNG HIỆN
 - Có fallback tự chèn nút Kana nếu renderer cũ xuất hiện.
 - Thêm card Kana-first ở Trang chủ để người dùng biết tính năng tồn tại.
 - Giữ nguyên V16/V17 data, Recall, Grammar, N4, Night Mode.
+
+V19 - TRẮC NGHIỆM TỪ VỰNG KANA-ONLY
+- Trắc nghiệm toàn bài: Kana <-> nghĩa Việt.
+- Không hỏi Kanji, không reveal Kanji sau khi trả lời.
+- Quiz nhiều bài cũng Kana-only.
+- Katakana chuẩn vẫn giữ nguyên.
