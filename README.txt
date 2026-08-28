@@ -361,3 +361,18 @@ Theo yêu cầu, phần thể て được rút gọn:
 - Vẫn chọn được phạm vi:
   bài hiện tại / Bài 14 -> hiện tại / toàn bộ 14–25.
 - Recall Memory vẫn ghi các động từ làm sai.
+
+
+V22 - て-FORM: ĐÁP ÁN CÙNG MỘT ĐỘNG TỪ
+---------------------------------------
+Câu hỏi:
+のみます → ?
+
+Đáp án:
+A. のみて
+B. のんで
+C. のみって
+D. のみいて
+
+Tất cả đáp án đều được sinh từ chính động từ đang hỏi.
+Không lấy て-form của động từ khác làm đáp án nhiễu.

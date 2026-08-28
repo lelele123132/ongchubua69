@@ -796,3 +796,19 @@ html[data-theme="dark"] .tf-simple-example{background:#151b20;border-color:#2d41
   .tf-simple-hero{grid-template-columns:1fr}
   .tf-simple-example{width:100%;box-sizing:border-box}
 }
+
+
+/* ===== V22 — Same verb Te-form ===== */
+.tf-sameverb-note{
+  margin-top:10px;
+  padding:8px 10px;
+  border-radius:10px;
+  background:#f4f7fa;
+  color:#7a8490;
+  font-size:8px;
+  text-align:center;
+}
+html[data-theme="dark"] .tf-sameverb-note{
+  background:#181d24;
+  color:#9ba4b1;
+}
