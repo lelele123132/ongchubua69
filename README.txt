@@ -345,3 +345,19 @@ Các trường hợp dễ nhầm đã xử lý:
 
 Recall Memory:
 te-form-produce / te-form-choice / te-form-reverse / te-form-rule
+
+
+V21 - SIMPLE て-FORM QUIZ
+-------------------------
+Theo yêu cầu, phần thể て được rút gọn:
+- Chỉ hiện động từ dạng ます.
+- Có 4 đáp án.
+- Chọn て-form đúng.
+- Bấm đáp án -> hiện đúng/sai -> câu tiếp theo.
+- Bỏ hoàn toàn:
+  gõ đáp án,
+  て -> ます,
+  chọn quy tắc.
+- Vẫn chọn được phạm vi:
+  bài hiện tại / Bài 14 -> hiện tại / toàn bộ 14–25.
+- Recall Memory vẫn ghi các động từ làm sai.

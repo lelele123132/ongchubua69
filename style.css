@@ -774,3 +774,25 @@ html[data-theme="dark"] .tf-answers button.wrong{background:#31191e;border-color
   .tf-answers{grid-template-columns:1fr}.tf-input-wrap{flex-direction:column}.tf-input-wrap button{width:100%}
 }
 @media(max-width:460px){.tf-rule-grid{grid-template-columns:1fr}.tf-group-result{grid-template-columns:1fr}}
+
+
+/* ===== V21 — Simple Te-form Quiz ===== */
+.tf-simple-hero{grid-template-columns:1fr auto}
+.tf-simple-example{min-width:180px;display:grid;gap:4px;text-align:center;padding:14px 18px;border:1px solid #cde3e7;border-radius:14px;background:#fff}
+.tf-simple-example small{font-size:8px;color:#8b949d}
+.tf-simple-example b{font-size:24px}
+.tf-simple-example span{font-size:16px;font-weight:900;color:#177d90}
+.tf-simple-settings{justify-content:center}
+.tf-simple-card{max-width:700px}
+.tf-simple-prompt{display:grid;justify-items:center;gap:5px;margin:13px 0 20px}
+.tf-simple-prompt small{font-size:11px;color:#8a929d}
+.tf-simple-prompt strong{font-size:clamp(38px,7vw,58px);line-height:1.25}
+.tf-simple-prompt>span{font-size:22px;color:#a4abb4}
+.tf-simple-prompt>b{font-size:11px;color:#6d7680}
+.tf-simple-answers button>b{font-size:clamp(20px,3vw,28px)}
+.tf-simple-feedback .tf-answer-line{justify-content:center;margin-top:4px}
+html[data-theme="dark"] .tf-simple-example{background:#151b20;border-color:#2d4146}
+@media(max-width:650px){
+  .tf-simple-hero{grid-template-columns:1fr}
+  .tf-simple-example{width:100%;box-sizing:border-box}
+}
