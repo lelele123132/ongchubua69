@@ -306,3 +306,42 @@ V19 - TRẮC NGHIỆM TỪ VỰNG KANA-ONLY
 - Không hỏi Kanji, không reveal Kanji sau khi trả lời.
 - Quiz nhiều bài cũng Kana-only.
 - Katakana chuẩn vẫn giữ nguyên.
+
+
+V20 - BÀI TẬP CHIA THỂ て TỪ BÀI 14
+------------------------------------
+Trong tab Ngữ pháp của Bài 14–25 có thêm:
+て Chia thể て
+
+Phạm vi:
+- Chỉ bài hiện tại
+- Bài 14 -> bài hiện tại
+- Toàn bộ Bài 14–25
+
+Dạng bài:
+1. Gõ て-form từ ます-form
+2. Chọn て-form đúng
+3. て-form -> chọn lại ます-form
+4. Chọn quy tắc biến đổi
+5. Trộn cả 4 dạng
+
+Quy tắc được luyện:
+- い・ち・り + ます -> って
+- み・び・に + ます -> んで
+- き + ます -> いて
+- ぎ + ます -> いで
+- し + ます -> して
+- Nhóm II: bỏ ます + て
+- します -> して
+- 来ます -> 来て
+- 行きます -> 行って (ngoại lệ)
+
+Các trường hợp dễ nhầm đã xử lý:
+- 降ります（おります）-> おりて
+- 降ります（ふります）-> ふって
+- 着ます（きます）-> きて
+- 要ります（いります）-> いって
+- 足ります（たります）-> たりて
+
+Recall Memory:
+te-form-produce / te-form-choice / te-form-reverse / te-form-rule

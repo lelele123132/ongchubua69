@@ -710,3 +710,67 @@ html[data-theme="dark"] .v18-kana-home-card{background:linear-gradient(135deg,#1
 .v19-no-kanji-note{margin-top:10px;padding:9px 11px;border:1px solid #d7e7dd;border-radius:11px;background:#f6fbf8;color:#537461;font-size:9px}
 html[data-theme="dark"] .v19-kana-quiz-intro{background:linear-gradient(145deg,#151c18,#11161a);border-color:#2f4939}
 html[data-theme="dark"] .v19-no-kanji-note{background:#132019;border-color:#31513e;color:#a9c4b3}
+
+
+/* ===== V20 — Te-form Practice ===== */
+.grammar-mode-switch button.active.te{background:#e9f8fb;border-color:#91cbd6;color:#167487}
+.tf-hero{display:grid;grid-template-columns:1fr minmax(250px,330px);gap:18px;align-items:center;padding:19px;border:1px solid #cce2e7;border-radius:18px;background:linear-gradient(135deg,#fff,#f3fbfc)}
+.tf-kicker{font-size:8px;font-weight:950;letter-spacing:.12em;color:#188399}
+.tf-hero h3{margin:5px 0;font-size:23px}
+.tf-hero p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
+.tf-rule-mini{display:grid;grid-template-columns:auto 1fr;gap:5px 9px;padding:11px;border-radius:13px;background:#fff;border:1px solid #d8e9ec}
+.tf-rule-mini b{font-size:9px;color:#297a89}.tf-rule-mini span{font-size:9px;color:#68747e}
+.tf-special-note{margin:10px 0;padding:10px 12px;border:1px solid #ead9aa;border-radius:11px;background:#fff9e9;color:#765f2d;font-size:10px}
+.tf-settings{display:flex;align-items:end;gap:9px;flex-wrap:wrap;padding:13px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.tf-settings label{display:grid;gap:4px;color:var(--muted);font-size:9px}
+.tf-settings select{min-width:190px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font:inherit}
+.tf-count-info{margin:8px 0;color:#7c8491;font-size:9px}.tf-count-info b{color:#188399}
+.tf-rule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0 17px}
+.tf-rule-grid>div{display:grid;gap:2px;padding:10px;border:1px solid var(--line);border-radius:11px;background:var(--card)}
+.tf-rule-grid b{font-size:10px}.tf-rule-grid span{font-size:14px;font-weight:900;color:#197b8e}.tf-rule-grid small{font-size:8px;color:#9198a4;line-height:1.4}
+.tf-question-card{max-width:800px;margin:15px auto 0;padding:21px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.tf-qtop{display:flex;justify-content:space-between;align-items:center;color:#89909c;font-size:9px}
+.tf-qtop>div{display:flex;gap:7px;align-items:center}
+.tf-qtop>div>span{padding:4px 7px;border-radius:999px;background:#e9f8fb;color:#177b8d;font-size:8px;font-weight:950}
+.tf-qtop b{color:var(--text)}
+.tf-progress{max-width:none;margin:9px 0 16px}
+.tf-meaning-hint{font-size:10px;color:#87909a;margin-bottom:5px}
+.tf-question{font-size:clamp(25px,4vw,36px);font-weight:900;line-height:1.45;margin:8px 0 18px}
+.tf-input-wrap{display:flex;gap:8px;max-width:520px;margin:0 auto}
+.tf-input-wrap input{flex:1;min-width:0;border:2px solid #c9d8dc;border-radius:12px;padding:13px 15px;font:inherit;font-size:21px;font-weight:800;background:var(--card);color:var(--text)}
+.tf-input-wrap input:focus{outline:none;border-color:#56aebb}
+.tf-input-wrap input.correct{border-color:#63b681;background:#edf9f1}
+.tf-input-wrap input.wrong{border-color:#d87882;background:#fff1f2}
+.tf-input-help{font-size:8px;color:#9ba1ab;margin-top:7px;text-align:center}
+.tf-answers{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tf-answers button{display:flex;align-items:center;gap:10px;min-height:64px;padding:11px 13px;text-align:left;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:inherit;cursor:pointer}
+.tf-answers button:hover{border-color:#68b5c2;background:#f8fdfe}
+.tf-answers button>span{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:#eff2f4;font-size:9px;font-weight:900}
+.tf-answers button>b{font-size:14px;line-height:1.4}
+.tf-answers button.correct{background:#eaf8f0;border-color:#6fbc8d}
+.tf-answers button.wrong{background:#fff0f1;border-color:#df8993}
+.tf-feedback{display:grid;gap:4px;margin-top:12px}
+.tf-answer-line{display:flex;gap:9px;align-items:center}.tf-answer-line strong{font-size:20px;color:#167c8e}
+.tf-feedback p{margin:0;color:#606977}.tf-feedback small{color:#8c949f}.tf-next{text-align:right;margin-top:9px}
+.tf-result{max-width:680px;margin:15px auto;text-align:center;padding:27px;border:1px solid #cde2e6;border-radius:20px;background:linear-gradient(145deg,#fff,#f4fbfc)}
+.tf-result>span{font-size:8px;font-weight:950;letter-spacing:.12em;color:#188399}
+.tf-result h2{font-size:55px;margin:7px 0;color:#177d90}.tf-result p{color:var(--muted);line-height:1.6}
+.tf-group-result{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}
+.tf-group-result>div{display:grid;padding:9px;border:1px solid var(--line);border-radius:11px;background:var(--card)}
+.tf-group-result>div.has-wrong{border-color:#e2b7bd}.tf-group-result b{font-size:9px}.tf-group-result strong{font-size:20px}.tf-group-result small{font-size:8px;color:#999faa}
+.tf-result-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+html[data-theme="dark"] .tf-hero,html[data-theme="dark"] .tf-result{background:linear-gradient(145deg,#121b1d,#11161a);border-color:#2d494e}
+html[data-theme="dark"] .tf-rule-mini{background:#151b20;border-color:#2d4146}
+html[data-theme="dark"] .tf-special-note{background:#211d13;border-color:#4a402a;color:#cdbd91}
+html[data-theme="dark"] .tf-rule-grid>div,html[data-theme="dark"] .tf-question-card{background:#141821;border-color:#2b323e}
+html[data-theme="dark"] .tf-input-wrap input{background:#10141b;border-color:#35404a}
+html[data-theme="dark"] .tf-answers button{background:#141821;border-color:#2b323e}
+html[data-theme="dark"] .tf-answers button:hover{background:#142226;border-color:#477d86}
+html[data-theme="dark"] .tf-answers button.correct{background:#13271d;border-color:#3a7955;color:#94dfb1}
+html[data-theme="dark"] .tf-answers button.wrong{background:#31191e;border-color:#91414a;color:#ff9ba4}
+@media(max-width:760px){
+  .tf-hero{grid-template-columns:1fr}.tf-rule-grid{grid-template-columns:1fr 1fr}
+  .tf-settings{align-items:stretch;flex-direction:column}.tf-settings label,.tf-settings select{width:100%}
+  .tf-answers{grid-template-columns:1fr}.tf-input-wrap{flex-direction:column}.tf-input-wrap button{width:100%}
+}
+@media(max-width:460px){.tf-rule-grid{grid-template-columns:1fr}.tf-group-result{grid-template-columns:1fr}}

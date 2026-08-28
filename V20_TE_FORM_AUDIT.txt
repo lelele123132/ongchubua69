@@ -1,0 +1,27 @@
+V20 TE-FORM AUDIT
+=======================================================
+Động từ lấy trực tiếp từ vocab hiện tại, Bài 14–25.
+
+Bài 14: 21 mục động từ
+Bài 15: 8 mục động từ
+Bài 16: 14 mục động từ
+Bài 17: 14 mục động từ
+Bài 18: 9 mục động từ
+Bài 19: 5 mục động từ
+Bài 20: 3 mục động từ
+Bài 21: 10 mục động từ
+Bài 22: 6 mục động từ
+Bài 23: 9 mục động từ
+Bài 24: 8 mục động từ
+Bài 25: 5 mục động từ
+
+Tổng mục động từ theo bài: 112
+
+Cases explicitly checked:
+行きます -> いって
+来ます / compound 来ます -> きて
+おります -> おりて
+ふります -> ふって
+着ます（きます）-> きて
+要ります（いります）-> いって
+足ります（たります）-> たりて
