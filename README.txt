@@ -443,3 +443,30 @@ Recall Memory:
 - flash-vi-jp cho N5
 - n4m-flash-vi-jp cho N4 Minna
 được ghi riêng với chiều Nhật -> Việt.
+
+
+V26 - FIX GIAO DIỆN 50 BÀI + FLASH VIỆT -> NHẬT
+-------------------------------------------------
+Sửa vấn đề V25 khó nhìn thấy tính năng mới:
+
+TRANG CHỦ:
+- N5 Bài 1–25 vẫn giữ nguyên.
+- N4 Bài 26–50 được hiển thị trực tiếp ngay trên Trang chủ.
+- Người dùng nhìn thấy đủ hệ thống Bài 1–50 mà không cần vào menu N4 riêng.
+
+FLASH VIỆT -> NHẬT:
+- Có nút menu riêng: 🇻🇳 Flash Việt→Nhật
+- Chọn bất kỳ Bài 1–50.
+- Có thể chọn nhiều bài.
+- Quick select: 1–5 / 1–10 / N5 1–25 / N4 26–50 / tất cả 1–50.
+- Mặt trước chỉ có nghĩa tiếng Việt.
+- Lật thẻ mới hiện Kana tiếng Nhật.
+- Kanji và Romaji chỉ hiện phụ sau khi lật.
+- Quên / Nhớ.
+- Ôn lại thẻ quên.
+- Random bộ mới.
+- Recall Memory tích hợp.
+
+FLASHCARD TỪNG BÀI:
+- Mặc định chuyển sang Việt -> Nhật cho cả N5 và N4.
+- Vẫn có thể đổi Nhật -> Việt hoặc Trộn bằng nút ở flashcard.

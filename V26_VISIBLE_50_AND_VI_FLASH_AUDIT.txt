@@ -1,0 +1,25 @@
+V26 UI AUDIT
+==============
+Home:
+- N5 lessons 1-25: preserved
+- N4 lessons 26-50: injected visibly on home
+- Total visible learning range: 1-50
+
+Dedicated nav:
+- 🇻🇳 Flash Việt→Nhật
+
+Vietnamese -> Japanese Flash Hub:
+- Lesson selector: 1-50
+- N5 selector: 1-25
+- N4 selector: 26-50
+- Multi-select: yes
+- Random: yes
+- Front: Vietnamese only
+- Back: Kana + optional Kanji/Romaji
+- Forgot/Remember: yes
+- Retry forgotten: yes
+- Recall logging: yes
+
+Per-lesson flash:
+- Default direction N5: VI -> JP
+- Default direction N4: VI -> JP

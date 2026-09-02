@@ -977,3 +977,236 @@ html[data-theme="dark"] .v25-flash-direction button.active.mixed{
     grid-column:1/-1;
   }
 }
+
+
+/* ===== V26 — Visible 50 Lessons + Việt -> Nhật Hub ===== */
+.v26-vi-flash-home{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:16px;
+  align-items:center;
+  margin:0 0 18px;
+  padding:18px;
+  border:1px solid #ebc8c4;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff8f7,#fff);
+}
+.v26-home-icon{font-size:34px}
+.v26-home-copy>span,.v26-section-kicker{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.12em;
+  color:#a34d47;
+}
+.v26-home-copy h2{margin:4px 0;font-size:20px}
+.v26-home-copy p{margin:0;color:var(--muted);font-size:10px;line-height:1.55}
+
+.v26-home-n4-section{
+  margin:26px 0 8px;
+  padding-top:20px;
+  border-top:2px solid var(--line);
+}
+.v26-n4-title{align-items:flex-end}
+.v26-section-actions{display:flex;gap:7px;flex-wrap:wrap}
+.v26-level-chip{
+  position:absolute;
+  top:9px;
+  right:10px;
+  font-size:7px;
+  font-weight:950;
+  color:#5964a8;
+  background:#eef0ff;
+  border-radius:999px;
+  padding:3px 6px;
+}
+.v26-home-lesson{position:relative}
+
+.v26-flash-hero{
+  display:grid;
+  grid-template-columns:1fr minmax(220px,300px);
+  gap:18px;
+  align-items:center;
+  padding:22px;
+  border:1px solid #ebc9c5;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fff8f7,#fff);
+}
+.v26-flash-hero h1{margin:5px 0;font-size:28px}
+.v26-flash-hero p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
+.v26-flash-demo{
+  display:grid;
+  justify-items:center;
+  gap:4px;
+  padding:14px;
+  border:1px solid #efdad7;
+  border-radius:14px;
+  background:#fff;
+}
+.v26-flash-demo small{font-size:8px;color:#999}
+.v26-flash-demo>b{font-size:18px}
+.v26-flash-demo>span{font-size:9px;color:#aaa}
+.v26-flash-demo>strong{font-size:25px;color:#5662a4}
+
+.v26-flash-setup{margin-top:14px}
+.v26-quick-ranges{display:flex;gap:5px;flex-wrap:wrap}
+.v26-lesson-groups{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.v26-lesson-group{
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--card);
+}
+.v26-lesson-group h3{margin:0 0 9px;font-size:13px}
+.v26-lesson-selector{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:5px;
+}
+.v26-lesson-selector label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  padding:7px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  cursor:pointer;
+}
+.v26-lesson-selector label>span{display:grid;min-width:0}
+.v26-lesson-selector b{font-size:9px}
+.v26-lesson-selector small{font-size:7px;color:#999}
+.v26-flash-summary{margin:8px 0;font-size:10px;color:var(--muted)}
+.v26-options{
+  display:flex;
+  gap:10px;
+  align-items:end;
+  flex-wrap:wrap;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--card);
+}
+.v26-options label{display:grid;gap:4px;font-size:9px;color:var(--muted)}
+.v26-options select{
+  min-width:190px;
+  padding:9px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--card);
+  color:var(--text);
+}
+
+.v26-study-session{max-width:720px;margin:18px auto 0}
+.v26-study-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:9px;
+  color:var(--muted);
+}
+.v26-study-top>div{display:flex;gap:7px;align-items:center}
+.v26-study-top span{
+  padding:4px 7px;
+  border-radius:999px;
+  background:#fff0ef;
+  color:#a44f49;
+  font-weight:900;
+}
+.v26-study-top b{color:var(--text)}
+.v26-study-progress{max-width:none;margin:9px 0 14px}
+.v26-vi-card{
+  width:100%;
+  min-height:340px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  padding:28px;
+  border:1px solid #ead9d7;
+  border-radius:22px;
+  background:linear-gradient(145deg,#fff,#fff9f8);
+  color:var(--text);
+  cursor:pointer;
+}
+.v26-vi-card>small{
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#a55a54;
+}
+.v26-vi-card>strong{
+  max-width:92%;
+  font-size:clamp(30px,6vw,48px);
+  line-height:1.35;
+  text-align:center;
+}
+.v26-vi-card>span{font-size:9px;color:#9da3ad}
+#v26-jp-answer{
+  display:grid;
+  justify-items:center;
+  gap:5px;
+  margin-top:7px;
+}
+#v26-jp-answer>b{
+  font-size:clamp(38px,8vw,62px);
+  line-height:1.25;
+  color:#5360a2;
+}
+#v26-jp-answer>strong{
+  font-size:clamp(19px,4vw,28px);
+  color:var(--muted);
+}
+#v26-jp-answer>small{font-size:10px;color:#999}
+.v26-rate-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  max-width:400px;
+  margin:12px auto;
+}
+.v26-flash-result{
+  max-width:650px;
+  margin:18px auto;
+  padding:28px;
+  text-align:center;
+  border:1px solid #e5d3d0;
+  border-radius:20px;
+  background:linear-gradient(145deg,#fff9f8,#fff);
+}
+.v26-flash-result>span{font-size:8px;font-weight:950;letter-spacing:.1em;color:#a64f48}
+.v26-flash-result h2{font-size:54px;margin:7px 0;color:#a34f49}
+.v26-flash-result p{color:var(--muted)}
+.v26-flash-result>div{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+
+html[data-theme="dark"] .v26-vi-flash-home,
+html[data-theme="dark"] .v26-flash-hero,
+html[data-theme="dark"] .v26-flash-result{
+  background:linear-gradient(145deg,#241718,#15181d);
+  border-color:#553436;
+}
+html[data-theme="dark"] .v26-flash-demo,
+html[data-theme="dark"] .v26-vi-card{
+  background:#171a21;
+  border-color:#443235;
+}
+html[data-theme="dark"] .v26-lesson-group,
+html[data-theme="dark"] .v26-options{
+  background:#141821;
+  border-color:#2b323e;
+}
+
+@media(max-width:900px){
+  .v26-lesson-groups{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .v26-vi-flash-home{grid-template-columns:auto 1fr}
+  .v26-vi-flash-home>button{grid-column:1/-1}
+  .v26-flash-hero{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .v26-lesson-selector{grid-template-columns:repeat(3,1fr)}
+  .v26-options{flex-direction:column;align-items:stretch}
+  .v26-options label,.v26-options select{width:100%}
+  .v26-vi-card{min-height:290px}
+}
