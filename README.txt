@@ -470,3 +470,48 @@ FLASH VIỆT -> NHẬT:
 FLASHCARD TỪNG BÀI:
 - Mặc định chuyển sang Việt -> Nhật cho cả N5 và N4.
 - Vẫn có thể đổi Nhật -> Việt hoặc Trộn bằng nút ở flashcard.
+
+
+V27 - FLASHCARD RANDOM CHO KANJI THEO BÀI
+------------------------------------------
+Trong menu "Kanji theo bài" có thêm:
+🎲 Flashcard Random
+
+Cách dùng:
+- Chọn một hoặc nhiều bài/nhóm Kanji như cũ.
+- Chuyển sang "Flashcard Random".
+- Chọn 10 / 20 / 50 / tất cả.
+- Có tùy chọn ưu tiên chữ chưa nhớ.
+- Mỗi lượt xáo ngẫu nhiên, không lặp chữ trong cùng lượt.
+
+Flashcard:
+- Mặt trước: Kanji.
+- Lật thẻ: nghĩa + Onyomi + Kunyomi + tối đa 3 ví dụ.
+- Đánh giá Quên / Nhớ.
+- Chữ Nhớ được đánh dấu vào trạng thái "đã nhớ" của module 218 Kanji.
+- Chữ Quên được bỏ trạng thái nhớ.
+
+Kết quả:
+- Ôn lại riêng các chữ quên.
+- Random bộ mới.
+- Xáo lại bộ hiện tại.
+- Recall Memory ghi riêng skill "kanji218-random-flash".
+
+
+V28 - FLASH VIỆT -> NHẬT TRONG LUYỆN TẬP + KANJI FLASH GỌN
+------------------------------------------------------------
+Luyện tập:
+- Thêm mode card: 🇻🇳 Flash Việt → Nhật.
+- Dùng trực tiếp các bài N5 đang được tick trong Luyện tập.
+- Mặt trước: chỉ nghĩa Việt.
+- Lật: Kana tiếng Nhật + Kanji/Romaji phụ.
+- Quên / Nhớ.
+- Ôn lại thẻ quên.
+- Xáo lại bộ.
+- Có card riêng để mở Flash Việt → Nhật đầy đủ Bài 1–50.
+
+Kanji theo bài:
+- Flashcard thường đã bỏ toàn bộ phần ví dụ/từ ghép/tìm từ online/dễ nhầm nét.
+- Mặt thẻ chỉ còn Kanji -> Nghĩa + Onyomi + Kunyomi.
+- Flashcard Random cũng bỏ ví dụ.
+- Danh sách / Quiz / Ghép chữ khó vẫn giữ nguyên.

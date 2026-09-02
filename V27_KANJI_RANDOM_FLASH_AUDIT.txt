@@ -1,0 +1,25 @@
+V27 KANJI RANDOM FLASHCARD AUDIT
+=================================
+Module: Kanji theo bài / 218 Kanji
+
+New mode:
+- 🎲 Flashcard Random
+
+Scope:
+- uses currently selected KANJI218_IMAGE_GROUPS
+- 10 / 20 / 50 / all
+- optional prioritize unremembered
+
+Session:
+- shuffled without replacement
+- front: Kanji
+- back: Vietnamese meaning + On + Kun + examples
+- Forgot / Remember
+- retry forgotten
+- reshuffle current set
+- generate new random set
+
+Integration:
+- known-state: KANJI218_KNOWN_KEY
+- Recall skill: kanji218-random-flash
+- existing Flash/List/Quiz/Build modes preserved

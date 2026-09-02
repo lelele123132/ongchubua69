@@ -1,0 +1,23 @@
+V28 AUDIT
+==========
+Practice:
+- VI -> JP mode card: YES
+- Uses selected N5 lessons: YES
+- Front Vietnamese only: YES
+- Back Kana + optional Kanji/Romaji: YES
+- Forgot/Remember: YES
+- Retry forgotten: YES
+- Link to full lessons 1-50 VI -> JP hub: YES
+
+Kanji normal flash:
+- Kanji front: YES
+- Meaning + On + Kun back: YES
+- Local examples: REMOVED
+- Confusable panel: REMOVED
+- Online-word panel: REMOVED
+
+Kanji random flash:
+- Meaning + On + Kun: YES
+- Examples: REMOVED
+
+Other Kanji modes: unchanged.
