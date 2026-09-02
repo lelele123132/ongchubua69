@@ -376,3 +376,17 @@ D. のみいて
 
 Tất cả đáp án đều được sinh từ chính động từ đang hỏi.
 Không lấy て-form của động từ khác làm đáp án nhiễu.
+
+
+V23 - RANDOM VOCAB FLASHCARDS
+-----------------------------
+- Chọn 1 hoặc nhiều bài.
+- Quick select 1–5 / 1–10 / 11–20 / tất cả.
+- Random từ của các bài đã chọn.
+- Kana -> nghĩa / nghĩa -> Kana / mixed.
+- 10 / 20 / 50 / tất cả thẻ.
+- Không dùng Kanji.
+- Bấm thẻ để lật.
+- Chọn Quên / Nhớ.
+- Có ôn lại thẻ quên và xáo lại bộ.
+- Recall Memory tích hợp.
