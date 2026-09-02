@@ -842,3 +842,138 @@ html[data-theme="dark"] .vf-hero-badge,html[data-theme="dark"] .vf-card{backgrou
 html[data-theme="dark"] .vf-lesson,html[data-theme="dark"] .vf-options{background:#141821;border-color:#2b323e}
 @media(max-width:800px){.vf-lessons{grid-template-columns:repeat(3,1fr)}.vf-hero{grid-template-columns:1fr}.vf-hero-badge{width:100%;box-sizing:border-box}}
 @media(max-width:560px){.vf-lessons{grid-template-columns:repeat(2,1fr)}.vf-options{align-items:stretch;flex-direction:column}.vf-options label,.vf-options select{width:100%}.vf-card{min-height:280px}}
+
+/* ===== V24 — Minna no Nihongo II N4 Vocabulary ===== */
+.n4m-home-card{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin:16px 0;padding:18px 20px;border:1px solid #c9dfd8;border-radius:20px;background:linear-gradient(135deg,#f8fffc,#eff9f5)}
+.n4m-home-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:17px;background:#dff3ea;color:#28755b;font-size:28px;font-weight:950}
+.n4m-home-copy h2{margin:3px 0 5px}.n4m-home-copy p{margin:0;color:var(--muted);font-size:10px;line-height:1.6}.n4m-eyebrow{font-size:8px;font-weight:950;letter-spacing:.11em;color:#2f8164}
+.n4m-hero{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:24px;border:1px solid #c9dfd8;border-radius:22px;background:linear-gradient(135deg,#fff,#f0faf6)}
+.n4m-hero h1{font-size:31px;margin:5px 0}.n4m-hero p{margin:0;color:var(--muted);font-size:11px;line-height:1.65;max-width:760px}.n4m-hero-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.n4m-stats{display:grid;grid-template-columns:repeat(3,96px);gap:7px}.n4m-stats>div{display:grid;text-align:center;padding:12px 7px;border-radius:14px;background:#fff;border:1px solid #d9e9e2}.n4m-stats b{font-size:23px;color:#28785d}.n4m-stats span{font-size:8px;color:#8a958f}
+.n4m-source-note{margin:10px 0 16px;padding:10px 12px;border-radius:12px;border:1px solid #dce5e1;background:#fafcfb;color:#66746e;font-size:9px;line-height:1.55}.n4m-source-note b{color:#2d7259}
+.n4m-grid .lesson-card{min-height:145px}.n4m-lesson-card .lesson-no{background:#e4f4ed;color:#267459}.n4m-lesson-head{border-color:#cee2da;background:linear-gradient(135deg,#fff,#f5fbf8)}
+.n4m-flash-toolbar{display:flex;justify-content:space-between;align-items:center;gap:9px;margin:6px 0 10px;font-size:9px;color:var(--muted)}
+.n4m-flashcard .flash-front .flash-kana{font-size:clamp(42px,8vw,66px)}.n4m-memory-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-width:700px;margin:12px auto}
+.n4m-mode-switch button.active.kana{background:#e9f8f1!important;border-color:#a5d5ba!important;color:#277950!important}.n4m-kana-hero{margin-top:5px}.n4m-kana-badge{display:inline-flex;align-items:center;padding:4px 7px;border-radius:999px;background:#e8f8f0;color:#287b54;font-size:8px;font-weight:950;letter-spacing:.08em}.n4m-quiz-intro{border-color:#cce3d7;background:linear-gradient(135deg,#fff,#f4fbf7)}
+.n4m-full-quiz{margin-top:12px}.n4m-result{max-width:680px;margin:18px auto;text-align:center;padding:28px;border:1px solid #cde2da;border-radius:20px;background:linear-gradient(145deg,#fff,#f4fbf8)}.n4m-result>span{font-size:8px;font-weight:950;letter-spacing:.12em;color:#2e8062}.n4m-result h2{font-size:55px;margin:7px 0;color:#27795c}.n4m-result p{color:var(--muted)}.n4m-result-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+.n4m-tool-hero{padding:21px;border:1px solid #d2e2dc;border-radius:20px;background:linear-gradient(135deg,#fff,#f4faf7)}.n4m-tool-hero h1{margin:4px 0}.n4m-tool-hero p{margin:0;color:var(--muted);font-size:10px}.n4m-selector{margin-top:12px}.n4m-quick{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.n4m-lesson-select{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.n4m-lesson-select label{display:flex;align-items:center;gap:8px;padding:8px 9px;border:1px solid var(--line);border-radius:11px;background:var(--card);cursor:pointer}.n4m-lesson-select input{width:16px;height:16px}.n4m-lesson-select span{display:grid}.n4m-lesson-select b{font-size:10px}.n4m-lesson-select small{font-size:8px;color:#929aa3}.n4m-selection-summary{margin:9px 0;color:var(--muted);font-size:9px}.n4m-selection-summary b{color:var(--text)}
+.n4m-tool-options{display:flex;align-items:end;gap:9px;flex-wrap:wrap;padding:12px;border:1px solid var(--line);border-radius:13px;background:var(--card)}.n4m-tool-options label{display:grid;gap:4px;font-size:9px;color:var(--muted)}.n4m-tool-options select{min-width:180px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}.n4m-multi-card,.n4m-random-session{max-width:760px;margin:16px auto}
+html[data-theme="dark"] .n4m-home-card,html[data-theme="dark"] .n4m-hero,html[data-theme="dark"] .n4m-tool-hero,html[data-theme="dark"] .n4m-result{background:linear-gradient(145deg,#121b17,#11161a);border-color:#2e493d}
+html[data-theme="dark"] .n4m-home-icon{background:#183326;color:#84d5ac}html[data-theme="dark"] .n4m-stats>div{background:#151b18;border-color:#30483e}html[data-theme="dark"] .n4m-source-note{background:#141a17;border-color:#2c3d35;color:#9caaa3}html[data-theme="dark"] .n4m-lesson-head{background:linear-gradient(145deg,#151b18,#101519);border-color:#2e493d}
+@media(max-width:900px){.n4m-lesson-select{grid-template-columns:repeat(4,1fr)}.n4m-home-card{grid-template-columns:auto 1fr}.n4m-home-card>button{grid-column:1/-1;width:100%}}
+@media(max-width:720px){.n4m-hero{grid-template-columns:1fr}.n4m-stats{grid-template-columns:repeat(3,1fr)}.n4m-lesson-select{grid-template-columns:repeat(3,1fr)}.n4m-memory-row{grid-template-columns:1fr 1fr}.n4m-tool-options{align-items:stretch;flex-direction:column}.n4m-tool-options label,.n4m-tool-options select{width:100%}}
+@media(max-width:480px){.n4m-lesson-select{grid-template-columns:repeat(2,1fr)}.n4m-home-card{grid-template-columns:1fr}.n4m-home-icon{width:50px;height:50px}.n4m-stats{grid-template-columns:1fr 1fr 1fr}.n4m-flash-toolbar{align-items:stretch;flex-direction:column}.n4m-flash-toolbar button{width:100%}}
+
+
+/* ===== V25 — Việt → Nhật Flashcards ===== */
+.v25-flash-direction{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  flex-wrap:wrap;
+  margin:10px 0 13px;
+  padding:8px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--card);
+}
+.v25-flash-direction>span{
+  font-size:9px;
+  font-weight:850;
+  color:var(--muted);
+  margin-right:3px;
+}
+.v25-flash-direction button{
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--muted);
+  border-radius:999px;
+  padding:7px 10px;
+  font:inherit;
+  font-size:9px;
+  font-weight:850;
+  cursor:pointer;
+}
+.v25-flash-direction button.active{
+  background:#eef2ff;
+  border-color:#adb8e7;
+  color:#4f5aa1;
+}
+.v25-flash-direction button.active.vi{
+  background:#fff1f0;
+  border-color:#e9b6b2;
+  color:#a74843;
+}
+.v25-flash-direction button.active.mixed{
+  background:#f1f6f3;
+  border-color:#b8d3c1;
+  color:#47765a;
+}
+.v25-vi-front{
+  max-width:88%;
+  font-size:clamp(29px,6vw,48px);
+  line-height:1.35;
+  font-weight:900;
+  text-align:center;
+}
+.v25-recall-cue{
+  margin-top:5px;
+  font-size:10px;
+  color:var(--muted);
+}
+.v25-vi-label{
+  background:#fff0ef!important;
+  color:#a64a44!important;
+}
+.v25-jp-answer-label{
+  background:#eef2ff!important;
+  color:#535ea2!important;
+}
+.v25-jp-answer{
+  font-family:"Yu Gothic","Noto Sans JP",sans-serif;
+  font-size:clamp(40px,8vw,66px);
+  font-weight:900;
+  line-height:1.25;
+  text-align:center;
+}
+.v25-jp-kanji{
+  font-family:"Yu Gothic","Noto Sans JP",sans-serif;
+  font-size:clamp(20px,4vw,30px);
+  font-weight:800;
+  color:var(--muted);
+}
+.v25-back-meaning{
+  margin-top:3px;
+  font-size:12px;
+  color:var(--muted);
+}
+html[data-theme="dark"] .v25-flash-direction button.active{
+  background:#222943;
+  border-color:#47547c;
+  color:#b7c0f0;
+}
+html[data-theme="dark"] .v25-flash-direction button.active.vi{
+  background:#361d20;
+  border-color:#75434a;
+  color:#f0aaa8;
+}
+html[data-theme="dark"] .v25-flash-direction button.active.mixed{
+  background:#192820;
+  border-color:#385743;
+  color:#abd0b7;
+}
+@media(max-width:520px){
+  .v25-flash-direction{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .v25-flash-direction>span{
+    grid-column:1/-1;
+    text-align:center;
+  }
+  .v25-flash-direction button:last-child{
+    grid-column:1/-1;
+  }
+}

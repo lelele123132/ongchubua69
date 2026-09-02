@@ -1,0 +1,26 @@
+V25 VIETNAMESE -> JAPANESE FLASHCARD AUDIT
+============================================
+N5 per lesson:
+- JP -> VI: yes
+- VI -> JP: yes
+- Mixed: yes
+
+N4 Minna per lesson:
+- JP/Kana -> VI: yes
+- VI -> JP: yes
+- Mixed: yes
+
+Random multi-lesson:
+- N5 VI -> JP: yes, selected by default on open
+- N4 VI -> JP: yes, selected by default on open
+
+VI -> JP front:
+- Vietnamese meaning only
+Answer:
+- Kana large
+- Kanji secondary if present
+- Romaji secondary
+
+Recall skills:
+- flash-vi-jp
+- n4m-flash-vi-jp

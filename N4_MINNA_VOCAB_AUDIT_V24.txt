@@ -1,0 +1,45 @@
+V24 — MINNA NO NIHONGO II / N4 VOCAB AUDIT
+==============================================================
+
+Phạm vi: Bài 26–50 (25 bài)
+Tổng số mục từ / biểu đạt: 1010
+
+Nguồn chính:
+- DUNGMORI _ Tổng hợp N4 - bản đầy đủ (260717).pdf do người dùng cung cấp.
+- Đối chiếu lesson structure/vocabulary coverage với public Minna no Nihongo II indexes.
+
+Lưu ý:
+- Đây là track từ vựng theo Minna no Nihongo Shokyu II, không phải danh sách JLPT N4 chính thức.
+- Kana-first/quiz không bắt người học Kanji; danh sách tra cứu vẫn giữ Kanji.
+
+QA dữ liệu:
+- Empty jp/kana/meaning: 0
+- Exact duplicate within lesson: 0
+- Kana field containing Kanji: 0
+
+Số mục từng bài:
+- Bài 26: 42
+- Bài 27: 42
+- Bài 28: 51
+- Bài 29: 39
+- Bài 30: 40
+- Bài 31: 34
+- Bài 32: 55
+- Bài 33: 48
+- Bài 34: 45
+- Bài 35: 37
+- Bài 36: 37
+- Bài 37: 54
+- Bài 38: 46
+- Bài 39: 40
+- Bài 40: 47
+- Bài 41: 56
+- Bài 42: 45
+- Bài 43: 24
+- Bài 44: 36
+- Bài 45: 29
+- Bài 46: 37
+- Bài 47: 34
+- Bài 48: 26
+- Bài 49: 32
+- Bài 50: 34

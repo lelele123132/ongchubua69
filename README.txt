@@ -390,3 +390,56 @@ V23 - RANDOM VOCAB FLASHCARDS
 - Chọn Quên / Nhớ.
 - Có ôn lại thẻ quên và xáo lại bộ.
 - Recall Memory tích hợp.
+
+
+V24 - MINNA NO NIHONGO II / N4 VOCAB BÀI 26–50
+------------------------------------------------
+Đã thêm track N4 Minna no Nihongo II riêng, song song với N5:
+
+- 25 bài: Bài 26–50
+- 1010 mục từ / biểu đạt
+- Flashcard từng bài, có xáo random
+- Học từ mới Kana-first
+- Danh sách Kanji / Kana / Romaji / nghĩa Việt
+- Trắc nghiệm toàn bài Kana <-> nghĩa Việt
+- Quiz chọn nhiều bài
+- Flashcard random chọn nhiều bài
+- Quên / Nhớ + ôn lại thẻ quên
+- Recall Memory tích hợp
+- Night Mode giữ nguyên
+- N5 Bài 1–25 và các module cũ giữ nguyên
+
+Nguồn:
+- PDF Dungmori N4 do người dùng cung cấp là nguồn nghĩa Việt chính.
+- Cấu trúc Bài 26–50 được đối chiếu với các danh mục Minna no Nihongo II công khai.
+
+Lưu ý:
+- Đây là từ vựng theo giáo trình Minna no Nihongo II, không phải danh sách JLPT N4 chính thức do JLPT công bố.
+
+
+V25 - FLASHCARD TIẾNG VIỆT -> NHỚ TIẾNG NHẬT
+---------------------------------------------
+Áp dụng cho cả:
+- N5 Minna Bài 1–25
+- N4 Minna Bài 26–50
+
+Flashcard từng bài có 3 chiều:
+1. Nhật -> Việt
+2. Việt -> Nhật
+3. Trộn hai chiều
+
+Mode Việt -> Nhật:
+- Mặt trước chỉ hiện nghĩa tiếng Việt.
+- Người học tự recall từ/cụm từ tiếng Nhật.
+- Lật thẻ mới hiện Kana tiếng Nhật.
+- Kanji (nếu có) chỉ hiện phụ ở mặt đáp án.
+- Romaji vẫn hiển thị phụ.
+
+Flashcard random nhiều bài:
+- N5 và N4 đều có lựa chọn Việt -> Nhật.
+- Khi mở, V25 ưu tiên sẵn chiều Việt -> Nhật.
+
+Recall Memory:
+- flash-vi-jp cho N5
+- n4m-flash-vi-jp cho N4 Minna
+được ghi riêng với chiều Nhật -> Việt.
