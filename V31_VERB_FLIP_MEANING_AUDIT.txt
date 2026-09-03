@@ -1,0 +1,16 @@
+V31 VERB FLASHCARD
+===================
+Front:
+- masu form only
+- Vietnamese meaning hidden
+
+After flip:
+- Vietnamese meaning shown
+- selected conjugated form shown
+
+Modes:
+- masu -> te
+- masu -> dictionary/plain
+
+Recall:
+- meaning included in logging

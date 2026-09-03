@@ -572,3 +572,17 @@ Nguồn nghĩa:
 
 Số động từ: 136
 Không có nghĩa trống còn lại: True
+
+
+V31 - ĐỘNG TỪ: LẬT THẺ MỚI HIỆN NGHĨA
+---------------------------------------
+Mặt trước:
+- Chỉ hiện ます-form.
+- Không hiện nghĩa.
+- Người học tự nhớ nghĩa + cách chia.
+
+Sau khi bấm/lật:
+- Hiện nghĩa tiếng Việt.
+- Hiện て-form hoặc 辞書形 theo mode đã chọn.
+
+Recall vẫn lưu cả nghĩa và dạng chia.

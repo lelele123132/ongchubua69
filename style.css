@@ -1897,3 +1897,51 @@ html[data-theme="dark"] .v30-verb-meaning b,
 html[data-theme="dark"] .v30-answer-meaning{
   color:#b8c5c9!important;
 }
+
+
+/* ===== V31 — Verb meaning only after flip ===== */
+.v31-verb-card #v29-verb-answer{
+  width:min(520px,94%);
+  display:grid;
+  gap:10px;
+  margin-top:8px;
+}
+.v31-meaning-answer,
+.v31-form-answer{
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--card);
+}
+.v31-meaning-answer>small,
+.v31-form-answer>small{
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#8d969d;
+}
+.v31-meaning-answer>strong{
+  font-size:clamp(16px,3vw,22px);
+  color:#53616b;
+  text-align:center;
+}
+.v31-form-answer>b{
+  font-size:clamp(38px,8vw,60px);
+  color:#277e7d;
+  line-height:1.2;
+}
+.v31-answer-meta{
+  font-size:8px!important;
+  color:#90999f!important;
+}
+html[data-theme="dark"] .v31-meaning-answer,
+html[data-theme="dark"] .v31-form-answer{
+  background:#141a1f;
+  border-color:#30403f;
+}
+html[data-theme="dark"] .v31-meaning-answer>strong{
+  color:#bdc8cc;
+}
