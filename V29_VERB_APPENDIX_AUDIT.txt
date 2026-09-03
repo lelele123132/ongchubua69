@@ -1,0 +1,27 @@
+V29 VERB APPENDIX AUDIT
+========================
+Source: user's N5 grammar PDF
+Section: V. Biến đổi động từ
+Source PDF pages used: 191, 193, 195, 197, 199, 201
+
+Unique flash entries: 136
+Group I: 73
+Group II: 38
+Group III: 25
+
+Fields:
+- masu
+- te
+- dictionary
+- group
+- sourcePage
+
+Modes:
+- masu -> te
+- masu -> dictionary/plain
+
+Special ambiguous kana:
+- 着ます（きます）: きて / きる
+- 来ます（きます）: きて / くる
+
+Duplicate usage rows with identical conjugations were collapsed only for flashcard usability.

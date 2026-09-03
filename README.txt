@@ -515,3 +515,36 @@ Kanji theo bài:
 - Mặt thẻ chỉ còn Kanji -> Nghĩa + Onyomi + Kunyomi.
 - Flashcard Random cũng bỏ ví dụ.
 - Danh sách / Quiz / Ghép chữ khó vẫn giữ nguyên.
+
+
+V29 - ĐỘNG TỪ CUỐI SÁCH • RANDOM FLASHCARD
+-------------------------------------------
+Nguồn dữ liệu:
+- N5 - Sách Giải thích Ngữ pháp (1).pdf
+- Mục V. Biến đổi động từ
+- PDF pp. 191, 193, 195, 197, 199, 201
+- Tương ứng các bảng Nhóm I / II / III với cột:
+  ます-form / て-form / thể nguyên dạng
+
+Tổng sau khi gộp các dòng trùng cách chia: 136 động từ.
+
+Trong Luyện tập có card:
+動 Động từ cuối sách
+
+Flashcard:
+- Random.
+- Mặt trước: ます-form.
+- Chọn 1 trong 2:
+  1) ます -> て-form
+  2) ます -> Thể thường / nguyên dạng（辞書形）
+- Chọn Nhóm I / II / III / tất cả.
+- Chọn 10 / 20 / 50 / tất cả.
+- Quên / Nhớ.
+- Ôn lại từ quên.
+- Random bộ mới.
+- Xáo lại bộ hiện tại.
+- Recall Memory tích hợp.
+
+Disambiguation:
+- 着ます（きます）-> きて / きる
+- 来ます（きます）-> きて / くる

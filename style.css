@@ -1624,3 +1624,236 @@ html[data-theme="dark"] .v28-pv-card{
 @media(max-width:560px){
   .v28-pv-card{min-height:290px}
 }
+
+
+/* ===== V29 — Verb Appendix Random Flash ===== */
+.v29-verb-practice-card{
+  border-color:#bad9d8!important;
+  background:linear-gradient(145deg,#f6fffe,#fff)!important;
+}
+.v29-verb-practice-card h3{color:#247d7c}
+.v29-verb-practice-card small{
+  display:block;
+  margin-top:5px;
+  font-size:7px;
+  color:#8e989f;
+}
+
+.v29-verb-hero{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:22px;
+  border:1px solid #c9dfde;
+  border-radius:20px;
+  background:linear-gradient(135deg,#f7fffe,#fff);
+}
+.v29-verb-kicker{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.12em;
+  color:#277e7d;
+}
+.v29-verb-hero h1{margin:5px 0;font-size:29px}
+.v29-verb-hero p{
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.65;
+}
+.v29-verb-stats{
+  min-width:160px;
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  padding:14px 17px;
+  border:1px solid #d5e5e4;
+  border-radius:14px;
+  background:var(--card);
+}
+.v29-verb-stats>div{display:grid;text-align:center}
+.v29-verb-stats b{font-size:33px;color:#277e7d}
+.v29-verb-stats span{font-size:9px;font-weight:850}
+.v29-verb-stats small{font-size:7px;color:#989fa7}
+
+.v29-source-note{
+  margin:10px 0;
+  padding:9px 11px;
+  border:1px solid #d5e3e2;
+  border-radius:10px;
+  background:#f7fbfb;
+  color:#728080;
+  font-size:8px;
+}
+.v29-source-note b{color:#277e7d}
+
+.v29-verb-options{
+  display:flex;
+  gap:10px;
+  align-items:end;
+  flex-wrap:wrap;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--card);
+}
+.v29-verb-options label{
+  display:grid;
+  gap:4px;
+  font-size:9px;
+  color:var(--muted);
+}
+.v29-verb-options select{
+  min-width:210px;
+  padding:9px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--card);
+  color:var(--text);
+}
+.v29-verb-special{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin:9px 0 0;
+}
+.v29-verb-special span{
+  padding:6px 8px;
+  border-radius:999px;
+  background:#f3f7f7;
+  color:#667575;
+  font-size:8px;
+}
+
+.v29-verb-session{
+  max-width:720px;
+  margin:18px auto 0;
+}
+.v29-verb-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--muted);
+  font-size:9px;
+}
+.v29-verb-top>div{display:flex;align-items:center;gap:7px}
+.v29-verb-top span{
+  padding:4px 7px;
+  border-radius:999px;
+  background:#e8f6f5;
+  color:#267c7b;
+  font-weight:900;
+}
+.v29-verb-top b{color:var(--text)}
+.v29-verb-progress{max-width:none;margin:9px 0 14px}
+
+.v29-verb-card{
+  width:100%;
+  min-height:340px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:28px;
+  border:1px solid #cfe0df;
+  border-radius:22px;
+  background:linear-gradient(145deg,#fff,#f8fdfd);
+  color:var(--text);
+  cursor:pointer;
+}
+.v29-verb-card>small{
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#388987;
+}
+.v29-verb-card>strong{
+  text-align:center;
+  font-size:clamp(38px,8vw,64px);
+  line-height:1.3;
+}
+.v29-verb-card>em{
+  font-style:normal;
+  font-size:16px;
+  color:var(--muted);
+}
+.v29-verb-card>span{font-size:9px;color:#9aa2aa}
+
+#v29-verb-answer{
+  display:grid;
+  justify-items:center;
+  gap:5px;
+  margin-top:8px;
+}
+#v29-verb-answer>b{
+  font-size:clamp(40px,8vw,64px);
+  line-height:1.25;
+  color:#277e7d;
+}
+#v29-verb-answer>small{
+  font-size:9px;
+  color:#899397;
+}
+
+.v29-verb-rate-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  max-width:400px;
+  margin:12px auto;
+}
+.v29-verb-bottom{text-align:center;margin-top:7px}
+
+.v29-verb-result{
+  max-width:620px;
+  margin:18px auto;
+  padding:28px;
+  text-align:center;
+  border:1px solid #cfe0df;
+  border-radius:20px;
+  background:linear-gradient(145deg,#f8fdfd,#fff);
+}
+.v29-verb-result>span{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.1em;
+  color:#277e7d;
+}
+.v29-verb-result h2{
+  margin:8px 0;
+  font-size:54px;
+  color:#277e7d;
+}
+.v29-verb-result p{color:var(--muted)}
+.v29-verb-result>div{
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+html[data-theme="dark"] .v29-verb-practice-card,
+html[data-theme="dark"] .v29-verb-hero,
+html[data-theme="dark"] .v29-verb-result{
+  background:linear-gradient(145deg,#142322,#13181c)!important;
+  border-color:#31504f!important;
+}
+html[data-theme="dark"] .v29-source-note,
+html[data-theme="dark"] .v29-verb-card{
+  background:#151b20;
+  border-color:#304544;
+}
+html[data-theme="dark"] .v29-verb-special span{
+  background:#192222;
+  color:#aabdbc;
+}
+
+@media(max-width:700px){
+  .v29-verb-hero{grid-template-columns:1fr}
+  .v29-verb-stats{width:100%;box-sizing:border-box}
+  .v29-verb-options{flex-direction:column;align-items:stretch}
+  .v29-verb-options label,.v29-verb-options select{width:100%}
+  .v29-verb-card{min-height:290px}
+}
