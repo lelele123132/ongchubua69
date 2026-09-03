@@ -548,3 +548,27 @@ Flashcard:
 Disambiguation:
 - 着ます（きます）-> きて / きる
 - 来ます（きます）-> きて / くる
+
+
+V30 - ĐỘNG TỪ CUỐI SÁCH CÓ NGHĨA TIẾNG VIỆT
+---------------------------------------------
+Flashcard động từ giờ hiển thị:
+- ます-form
+- Nghĩa tiếng Việt
+- Khi lật: て-form hoặc 辞書形 tùy mode đã chọn
+- Nghĩa vẫn được giữ ở mặt đáp án
+
+Ví dụ:
+のみます
+uống
+
+-> て-form: のんで
+hoặc
+-> 辞書形: のむ
+
+Nguồn nghĩa:
+- Ưu tiên khớp với bộ từ vựng N5 đã audit từ PDF Minna.
+- Các homophone như 着ます / 来ます được tách nghĩa riêng.
+
+Số động từ: 136
+Không có nghĩa trống còn lại: True

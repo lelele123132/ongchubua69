@@ -1857,3 +1857,43 @@ html[data-theme="dark"] .v29-verb-special span{
   .v29-verb-options label,.v29-verb-options select{width:100%}
   .v29-verb-card{min-height:290px}
 }
+
+
+/* ===== V30 — Verb meanings ===== */
+.v30-verb-card .v30-verb-meaning{
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  margin:2px 0 4px;
+  padding:9px 16px;
+  min-width:min(420px,90%);
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--card);
+}
+.v30-verb-meaning small{
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#8f989f;
+}
+.v30-verb-meaning b{
+  font-size:clamp(16px,3vw,22px);
+  color:#53616b;
+  text-align:center;
+}
+.v30-answer-meaning{
+  display:block;
+  margin-top:3px;
+  font-size:12px!important;
+  font-weight:750;
+  color:#66757b!important;
+}
+html[data-theme="dark"] .v30-verb-meaning{
+  background:#141a1f;
+  border-color:#30403f;
+}
+html[data-theme="dark"] .v30-verb-meaning b,
+html[data-theme="dark"] .v30-answer-meaning{
+  color:#b8c5c9!important;
+}

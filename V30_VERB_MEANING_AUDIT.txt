@@ -1,0 +1,18 @@
+V30 VERB MEANING AUDIT
+=======================
+Verb entries: 136
+Meaning field added: 136
+Missing meaning after mapping: 0
+
+Meaning source priority:
+1. Existing audited N5 vocabulary data in data.js
+2. Homophone-specific overrides
+3. Conservative appendix vocabulary fallback
+
+Flash front:
+- masu
+- Vietnamese meaning
+
+Flash back:
+- selected conjugated form
+- Vietnamese meaning
