@@ -586,3 +586,50 @@ Sau khi bấm/lật:
 - Hiện て-form hoặc 辞書形 theo mode đã chọn.
 
 Recall vẫn lưu cả nghĩa và dạng chia.
+
+
+V32 - ない-FORM -> ĐOÁN NGHĨA
+------------------------------
+Trong "Động từ cuối sách" có thêm mode:
+ない-form -> Đoán động từ + nghĩa
+
+Ví dụ:
+Mặt trước: のまない
+Lật thẻ:
+- ます-form: のみます
+- nghĩa: uống
+- 辞書形: のむ
+- ない-form: のまない
+
+Hai mode cũ vẫn giữ:
+- ます -> て
+- ます -> 辞書形
+
+
+V33 - NHIỀU BÀI TẬP ĐIỀN TRỢ TỪ
+---------------------------------
+Trong Luyện tập có thêm:
+助 Điền trợ từ
+
+Ngân hàng: 271 câu.
+
+Nguồn câu:
+- Ví dụ ngữ pháp Bài 1–25 đang có trong data.js.
+- Đoạn đọc hiểu Bài 1–25 đang có trong data.js.
+- Mỗi câu khuyết đúng 1 trợ từ.
+
+Trợ từ luyện:
+は / が / を / に / で / へ / と / の / も /
+から / まで / より / だけ / しか và một số tổ hợp.
+
+Tính năng:
+- Theo các bài N5 đang chọn trong Luyện tập.
+- Hoặc tất cả Bài 1–25.
+- 20 / 50 / 100 / tất cả câu.
+- Có tùy chọn chỉ lấy câu ngữ pháp.
+- 4 đáp án mỗi câu.
+- Sau khi chọn hiện câu hoàn chỉnh + giải thích ngắn.
+- Làm lại riêng câu sai.
+- Random bộ mới.
+- Cuối lượt thống kê trợ từ sai nhiều.
+- Recall Memory tích hợp.

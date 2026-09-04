@@ -1,0 +1,31 @@
+V33 PARTICLE CLOZE AUDIT
+=======================================================
+Total questions: 271
+Source: existing N5 grammar examples + reading text in data.js
+
+Per lesson:
+Bài 1: 5
+Bài 2: 11
+Bài 3: 8
+Bài 4: 8
+Bài 5: 10
+Bài 6: 11
+Bài 7: 13
+Bài 8: 12
+Bài 9: 11
+Bài 10: 16
+Bài 11: 8
+Bài 12: 16
+Bài 13: 9
+Bài 14: 12
+Bài 15: 15
+Bài 16: 14
+Bài 17: 8
+Bài 18: 13
+Bài 19: 9
+Bài 20: 4
+Bài 21: 11
+Bài 22: 12
+Bài 23: 14
+Bài 24: 11
+Bài 25: 10

@@ -1,7 +1,4 @@
-/* V30 — Verb appendix with Vietnamese meanings.
-   Conjugation rows: user's Minna N5 appendix.
-   Meanings: matched against the audited N5 vocabulary data, with conservative homophone overrides.
-*/
+/* V32 — Verb appendix with Vietnamese meanings + ない-form. */
 const V29_VERB_APPENDIX = [
   {
     "group": 1,
@@ -10,7 +7,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あう",
     "display": "あいます",
     "sourcePage": 191,
-    "meaning": "gặp"
+    "meaning": "gặp",
+    "nai": "あわない"
   },
   {
     "group": 1,
@@ -19,7 +17,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あそぶ",
     "display": "あそびます",
     "sourcePage": 191,
-    "meaning": "chơi"
+    "meaning": "chơi",
+    "nai": "あそばない"
   },
   {
     "group": 1,
@@ -28,7 +27,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あらう",
     "display": "あらいます",
     "sourcePage": 191,
-    "meaning": "rửa"
+    "meaning": "rửa",
+    "nai": "あらわない"
   },
   {
     "group": 1,
@@ -37,7 +37,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ある",
     "display": "あります",
     "sourcePage": 191,
-    "meaning": "có, ở (đồ vật/sự vật)"
+    "meaning": "có, ở (đồ vật/sự vật)",
+    "nai": "ない"
   },
   {
     "group": 1,
@@ -46,7 +47,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あるく",
     "display": "あるきます",
     "sourcePage": 191,
-    "meaning": "đi bộ"
+    "meaning": "đi bộ",
+    "nai": "あるかない"
   },
   {
     "group": 1,
@@ -55,7 +57,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いう",
     "display": "いいます",
     "sourcePage": 191,
-    "meaning": "nói"
+    "meaning": "nói",
+    "nai": "いわない"
   },
   {
     "group": 1,
@@ -64,7 +67,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いく",
     "display": "いきます",
     "sourcePage": 191,
-    "meaning": "đi"
+    "meaning": "đi",
+    "nai": "いかない"
   },
   {
     "group": 1,
@@ -73,7 +77,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いそぐ",
     "display": "いそぎます",
     "sourcePage": 191,
-    "meaning": "vội, gấp"
+    "meaning": "vội, gấp",
+    "nai": "いそがない"
   },
   {
     "group": 1,
@@ -82,7 +87,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いる",
     "display": "いります",
     "sourcePage": 191,
-    "meaning": "cần"
+    "meaning": "cần",
+    "nai": "いらない"
   },
   {
     "group": 1,
@@ -91,7 +97,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "うごく",
     "display": "うごきます",
     "sourcePage": 191,
-    "meaning": "chuyển động, chạy"
+    "meaning": "chuyển động, chạy",
+    "nai": "うごかない"
   },
   {
     "group": 1,
@@ -100,7 +107,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "うたう",
     "display": "うたいます",
     "sourcePage": 191,
-    "meaning": "hát"
+    "meaning": "hát",
+    "nai": "うたわない"
   },
   {
     "group": 1,
@@ -109,7 +117,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "うる",
     "display": "うります",
     "sourcePage": 191,
-    "meaning": "bán"
+    "meaning": "bán",
+    "nai": "うらない"
   },
   {
     "group": 1,
@@ -118,7 +127,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おく",
     "display": "おきます",
     "sourcePage": 191,
-    "meaning": "đặt, để"
+    "meaning": "đặt, để",
+    "nai": "おかない"
   },
   {
     "group": 1,
@@ -127,7 +137,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おくる",
     "display": "おくります",
     "sourcePage": 191,
-    "meaning": "gửi"
+    "meaning": "gửi",
+    "nai": "おくらない"
   },
   {
     "group": 1,
@@ -136,7 +147,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おす",
     "display": "おします",
     "sourcePage": 191,
-    "meaning": "bấm, ấn"
+    "meaning": "bấm, ấn",
+    "nai": "おさない"
   },
   {
     "group": 1,
@@ -145,7 +157,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おもいだす",
     "display": "おもいだします",
     "sourcePage": 191,
-    "meaning": "nhớ lại, hồi tưởng lại"
+    "meaning": "nhớ lại, hồi tưởng lại",
+    "nai": "おもいださない"
   },
   {
     "group": 1,
@@ -154,7 +167,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おもう",
     "display": "おもいます",
     "sourcePage": 191,
-    "meaning": "nghĩ"
+    "meaning": "nghĩ",
+    "nai": "おもわない"
   },
   {
     "group": 1,
@@ -163,7 +177,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "およぐ",
     "display": "およぎます",
     "sourcePage": 191,
-    "meaning": "bơi"
+    "meaning": "bơi",
+    "nai": "およがない"
   },
   {
     "group": 1,
@@ -172,7 +187,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おろす",
     "display": "おろします",
     "sourcePage": 191,
-    "meaning": "rút (tiền), lấy xuống"
+    "meaning": "rút (tiền), lấy xuống",
+    "nai": "おろさない"
   },
   {
     "group": 1,
@@ -181,7 +197,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おわる",
     "display": "おわります",
     "sourcePage": 191,
-    "meaning": "hết, kết thúc, xong"
+    "meaning": "hết, kết thúc, xong",
+    "nai": "おわらない"
   },
   {
     "group": 1,
@@ -190,7 +207,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かう",
     "display": "かいます",
     "sourcePage": 191,
-    "meaning": "mua"
+    "meaning": "mua",
+    "nai": "かわない"
   },
   {
     "group": 1,
@@ -199,7 +217,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かえす",
     "display": "かえします",
     "sourcePage": 191,
-    "meaning": "trả lại"
+    "meaning": "trả lại",
+    "nai": "かえさない"
   },
   {
     "group": 1,
@@ -208,7 +227,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かえる",
     "display": "かえります",
     "sourcePage": 191,
-    "meaning": "về"
+    "meaning": "về",
+    "nai": "かえらない"
   },
   {
     "group": 1,
@@ -217,7 +237,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かかる",
     "display": "かかります",
     "sourcePage": 191,
-    "meaning": "mất, tốn (thời gian, tiền bạc)"
+    "meaning": "mất, tốn (thời gian, tiền bạc)",
+    "nai": "かからない"
   },
   {
     "group": 1,
@@ -226,7 +247,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かく",
     "display": "かきます",
     "sourcePage": 191,
-    "meaning": "viết (cũng có nghĩa là vẽ; khi mang nghĩa vẽ sách dùng Hiragana)"
+    "meaning": "viết (cũng có nghĩa là vẽ; khi mang nghĩa vẽ sách dùng Hiragana)",
+    "nai": "かかない"
   },
   {
     "group": 1,
@@ -235,7 +257,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かす",
     "display": "かします",
     "sourcePage": 191,
-    "meaning": "cho mượn, cho vay"
+    "meaning": "cho mượn, cho vay",
+    "nai": "かさない"
   },
   {
     "group": 1,
@@ -244,7 +267,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かつ",
     "display": "かちます",
     "sourcePage": 191,
-    "meaning": "thắng"
+    "meaning": "thắng",
+    "nai": "かたない"
   },
   {
     "group": 1,
@@ -253,7 +277,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かぶる",
     "display": "かぶります",
     "sourcePage": 191,
-    "meaning": "đội (mũ, v.v.)"
+    "meaning": "đội (mũ, v.v.)",
+    "nai": "かぶらない"
   },
   {
     "group": 1,
@@ -262,7 +287,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "がんばる",
     "display": "がんばります",
     "sourcePage": 191,
-    "meaning": "cố, cố gắng"
+    "meaning": "cố, cố gắng",
+    "nai": "がんばらない"
   },
   {
     "group": 1,
@@ -271,7 +297,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "きく",
     "display": "ききます",
     "sourcePage": 193,
-    "meaning": "nghe"
+    "meaning": "nghe",
+    "nai": "きかない"
   },
   {
     "group": 1,
@@ -280,7 +307,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "きる",
     "display": "きります",
     "sourcePage": 193,
-    "meaning": "cắt"
+    "meaning": "cắt",
+    "nai": "きらない"
   },
   {
     "group": 1,
@@ -289,7 +317,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "けす",
     "display": "けします",
     "sourcePage": 193,
-    "meaning": "tắt"
+    "meaning": "tắt",
+    "nai": "けさない"
   },
   {
     "group": 1,
@@ -298,7 +327,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "さわる",
     "display": "さわります",
     "sourcePage": 193,
-    "meaning": "sờ, chạm"
+    "meaning": "sờ, chạm",
+    "nai": "さわらない"
   },
   {
     "group": 1,
@@ -307,7 +337,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しる",
     "display": "しります",
     "sourcePage": 193,
-    "meaning": "biết"
+    "meaning": "biết",
+    "nai": "しらない"
   },
   {
     "group": 1,
@@ -316,7 +347,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "すう",
     "display": "すいます",
     "sourcePage": 193,
-    "meaning": "hút"
+    "meaning": "hút",
+    "nai": "すわない"
   },
   {
     "group": 1,
@@ -325,7 +357,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "すむ",
     "display": "すみます",
     "sourcePage": 193,
-    "meaning": "sống, ở"
+    "meaning": "sống, ở",
+    "nai": "すまない"
   },
   {
     "group": 1,
@@ -334,7 +367,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "すわる",
     "display": "すわります",
     "sourcePage": 193,
-    "meaning": "ngồi"
+    "meaning": "ngồi",
+    "nai": "すわらない"
   },
   {
     "group": 1,
@@ -343,7 +377,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "だす",
     "display": "だします",
     "sourcePage": 193,
-    "meaning": "lấy ra, đưa ra, gửi"
+    "meaning": "lấy ra, đưa ra, gửi",
+    "nai": "ださない"
   },
   {
     "group": 1,
@@ -352,7 +387,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "たつ",
     "display": "たちます",
     "sourcePage": 193,
-    "meaning": "đứng"
+    "meaning": "đứng",
+    "nai": "たたない"
   },
   {
     "group": 1,
@@ -361,7 +397,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つかう",
     "display": "つかいます",
     "sourcePage": 193,
-    "meaning": "dùng, sử dụng"
+    "meaning": "dùng, sử dụng",
+    "nai": "つかわない"
   },
   {
     "group": 1,
@@ -370,7 +407,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つく",
     "display": "つきます",
     "sourcePage": 193,
-    "meaning": "đến"
+    "meaning": "đến",
+    "nai": "つかない"
   },
   {
     "group": 1,
@@ -379,7 +417,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つくる",
     "display": "つくります",
     "sourcePage": 193,
-    "meaning": "làm, chế tạo, sản xuất"
+    "meaning": "làm, chế tạo, sản xuất",
+    "nai": "つくらない"
   },
   {
     "group": 1,
@@ -388,7 +427,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つれていく",
     "display": "つれていきます",
     "sourcePage": 193,
-    "meaning": "dẫn (một ai đó) đi"
+    "meaning": "dẫn (một ai đó) đi",
+    "nai": "つれていかない"
   },
   {
     "group": 1,
@@ -397,7 +437,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "てつだう",
     "display": "てつだいます",
     "sourcePage": 193,
-    "meaning": "giúp (làm việc gì)"
+    "meaning": "giúp (làm việc gì)",
+    "nai": "てつだわない"
   },
   {
     "group": 1,
@@ -406,7 +447,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "とまる",
     "display": "とまります",
     "sourcePage": 193,
-    "meaning": "dừng, đỗ"
+    "meaning": "dừng, đỗ",
+    "nai": "とまらない"
   },
   {
     "group": 1,
@@ -415,7 +457,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "とる",
     "display": "とります",
     "sourcePage": 193,
-    "meaning": "lấy, chuyển"
+    "meaning": "lấy, chuyển",
+    "nai": "とらない"
   },
   {
     "group": 1,
@@ -424,7 +467,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "なおす",
     "display": "なおします",
     "sourcePage": 193,
-    "meaning": "chữa, sửa"
+    "meaning": "chữa, sửa",
+    "nai": "なおさない"
   },
   {
     "group": 1,
@@ -433,7 +477,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "なくす",
     "display": "なくします",
     "sourcePage": 193,
-    "meaning": "làm mất, đánh mất"
+    "meaning": "làm mất, đánh mất",
+    "nai": "なくさない"
   },
   {
     "group": 1,
@@ -442,7 +487,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ならう",
     "display": "ならいます",
     "sourcePage": 193,
-    "meaning": "học, tập"
+    "meaning": "học, tập",
+    "nai": "ならわない"
   },
   {
     "group": 1,
@@ -451,7 +497,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "なる",
     "display": "なります",
     "sourcePage": 193,
-    "meaning": "trở thành, trở nên"
+    "meaning": "trở thành, trở nên",
+    "nai": "ならない"
   },
   {
     "group": 1,
@@ -460,7 +507,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ぬぐ",
     "display": "ぬぎます",
     "sourcePage": 193,
-    "meaning": "cởi (quần áo, giày, v.v.)"
+    "meaning": "cởi (quần áo, giày, v.v.)",
+    "nai": "ぬがない"
   },
   {
     "group": 1,
@@ -469,7 +517,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "のぼる",
     "display": "のぼります",
     "sourcePage": 193,
-    "meaning": "leo (núi), lên"
+    "meaning": "leo (núi), lên",
+    "nai": "のぼらない"
   },
   {
     "group": 1,
@@ -478,7 +527,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "のむ",
     "display": "のみます",
     "sourcePage": 193,
-    "meaning": "uống"
+    "meaning": "uống",
+    "nai": "のまない"
   },
   {
     "group": 1,
@@ -487,7 +537,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "のる",
     "display": "のります",
     "sourcePage": 193,
-    "meaning": "lên, đi (phương tiện)"
+    "meaning": "lên, đi (phương tiện)",
+    "nai": "のらない"
   },
   {
     "group": 1,
@@ -496,7 +547,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はいる",
     "display": "はいります",
     "sourcePage": 193,
-    "meaning": "vào"
+    "meaning": "vào",
+    "nai": "はいらない"
   },
   {
     "group": 1,
@@ -505,7 +557,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はく",
     "display": "はきます",
     "sourcePage": 193,
-    "meaning": "đi, mặc (giày, quần âu, v.v.)"
+    "meaning": "đi, mặc (giày, quần âu, v.v.)",
+    "nai": "はかない"
   },
   {
     "group": 1,
@@ -514,7 +567,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はたらく",
     "display": "はたらきます",
     "sourcePage": 195,
-    "meaning": "làm việc"
+    "meaning": "làm việc",
+    "nai": "はたらかない"
   },
   {
     "group": 1,
@@ -523,7 +577,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はなす",
     "display": "はなします",
     "sourcePage": 195,
-    "meaning": "nói, nói chuyện"
+    "meaning": "nói, nói chuyện",
+    "nai": "はなさない"
   },
   {
     "group": 1,
@@ -532,7 +587,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はらう",
     "display": "はらいます",
     "sourcePage": 195,
-    "meaning": "trả tiền"
+    "meaning": "trả tiền",
+    "nai": "はらわない"
   },
   {
     "group": 1,
@@ -541,7 +597,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ひく",
     "display": "ひきます",
     "sourcePage": 195,
-    "meaning": "kéo"
+    "meaning": "kéo",
+    "nai": "ひかない"
   },
   {
     "group": 1,
@@ -550,7 +607,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ふる",
     "display": "ふります",
     "sourcePage": 195,
-    "meaning": "mưa"
+    "meaning": "mưa",
+    "nai": "ふらない"
   },
   {
     "group": 1,
@@ -559,7 +617,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "まがる",
     "display": "まがります",
     "sourcePage": 195,
-    "meaning": "rẽ"
+    "meaning": "rẽ",
+    "nai": "まがらない"
   },
   {
     "group": 1,
@@ -568,7 +627,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "まつ",
     "display": "まちます",
     "sourcePage": 195,
-    "meaning": "đợi, chờ"
+    "meaning": "đợi, chờ",
+    "nai": "またない"
   },
   {
     "group": 1,
@@ -577,7 +637,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "まわす",
     "display": "まわします",
     "sourcePage": 195,
-    "meaning": "vặn"
+    "meaning": "vặn",
+    "nai": "まわさない"
   },
   {
     "group": 1,
@@ -586,7 +647,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "もつ",
     "display": "もちます",
     "sourcePage": 195,
-    "meaning": "mang, cầm"
+    "meaning": "mang, cầm",
+    "nai": "もたない"
   },
   {
     "group": 1,
@@ -595,7 +657,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "もっていく",
     "display": "もっていきます",
     "sourcePage": 195,
-    "meaning": "mang đi, mang theo"
+    "meaning": "mang đi, mang theo",
+    "nai": "もっていかない"
   },
   {
     "group": 1,
@@ -604,7 +667,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "もらう",
     "display": "もらいます",
     "sourcePage": 195,
-    "meaning": "nhận"
+    "meaning": "nhận",
+    "nai": "もらわない"
   },
   {
     "group": 1,
@@ -613,7 +677,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "やくにたつ",
     "display": "やくにたちます",
     "sourcePage": 195,
-    "meaning": "hữu ích, giúp ích"
+    "meaning": "hữu ích, giúp ích",
+    "nai": "やくにたたない"
   },
   {
     "group": 1,
@@ -622,7 +687,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "やすむ",
     "display": "やすみます",
     "sourcePage": 195,
-    "meaning": "nghỉ, nghỉ ngơi"
+    "meaning": "nghỉ, nghỉ ngơi",
+    "nai": "やすまない"
   },
   {
     "group": 1,
@@ -631,7 +697,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "よぶ",
     "display": "よびます",
     "sourcePage": 195,
-    "meaning": "gọi"
+    "meaning": "gọi",
+    "nai": "よばない"
   },
   {
     "group": 1,
@@ -640,7 +707,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "よむ",
     "display": "よみます",
     "sourcePage": 195,
-    "meaning": "đọc"
+    "meaning": "đọc",
+    "nai": "よまない"
   },
   {
     "group": 1,
@@ -649,7 +717,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "わかる",
     "display": "わかります",
     "sourcePage": 195,
-    "meaning": "hiểu"
+    "meaning": "hiểu",
+    "nai": "わからない"
   },
   {
     "group": 1,
@@ -658,7 +727,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "わたる",
     "display": "わたります",
     "sourcePage": 195,
-    "meaning": "băng qua"
+    "meaning": "băng qua",
+    "nai": "わたらない"
   },
   {
     "group": 2,
@@ -667,7 +737,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あける",
     "display": "あけます",
     "sourcePage": 197,
-    "meaning": "mở"
+    "meaning": "mở",
+    "nai": "あけない"
   },
   {
     "group": 2,
@@ -676,7 +747,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あげる",
     "display": "あげます",
     "sourcePage": 197,
-    "meaning": "cho, tặng"
+    "meaning": "cho, tặng",
+    "nai": "あげない"
   },
   {
     "group": 2,
@@ -685,7 +757,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あつめる",
     "display": "あつめます",
     "sourcePage": 197,
-    "meaning": "sưu tầm, thu thập, tập hợp"
+    "meaning": "sưu tầm, thu thập, tập hợp",
+    "nai": "あつめない"
   },
   {
     "group": 2,
@@ -694,7 +767,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あびる",
     "display": "あびます",
     "sourcePage": 197,
-    "meaning": "tắm"
+    "meaning": "tắm",
+    "nai": "あびない"
   },
   {
     "group": 2,
@@ -703,7 +777,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いる",
     "display": "います",
     "sourcePage": 197,
-    "meaning": "có, ở (người/động vật)"
+    "meaning": "có, ở (người/động vật)",
+    "nai": "いない"
   },
   {
     "group": 2,
@@ -712,7 +787,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "いれる",
     "display": "いれます",
     "sourcePage": 197,
-    "meaning": "cho vào, bỏ vào"
+    "meaning": "cho vào, bỏ vào",
+    "nai": "いれない"
   },
   {
     "group": 2,
@@ -721,7 +797,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "うまれる",
     "display": "うまれます",
     "sourcePage": 197,
-    "meaning": "sinh ra"
+    "meaning": "sinh ra",
+    "nai": "うまれない"
   },
   {
     "group": 2,
@@ -730,7 +807,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おきる",
     "display": "おきます",
     "sourcePage": 197,
-    "meaning": "thức dậy"
+    "meaning": "thức dậy",
+    "nai": "おきない"
   },
   {
     "group": 2,
@@ -739,7 +817,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おしえる",
     "display": "おしえます",
     "sourcePage": 197,
-    "meaning": "dạy"
+    "meaning": "dạy",
+    "nai": "おしえない"
   },
   {
     "group": 2,
@@ -748,7 +827,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おぼえる",
     "display": "おぼえます",
     "sourcePage": 197,
-    "meaning": "nhớ"
+    "meaning": "nhớ",
+    "nai": "おぼえない"
   },
   {
     "group": 2,
@@ -757,7 +837,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "おりる",
     "display": "おります",
     "sourcePage": 197,
-    "meaning": "xuống (tàu, xe)"
+    "meaning": "xuống (tàu, xe)",
+    "nai": "おりない"
   },
   {
     "group": 2,
@@ -766,7 +847,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かえる",
     "display": "かえます",
     "sourcePage": 197,
-    "meaning": "đổi"
+    "meaning": "đổi",
+    "nai": "かえない"
   },
   {
     "group": 2,
@@ -775,7 +857,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かける",
     "display": "かけます",
     "sourcePage": 197,
-    "meaning": "gọi (điện thoại), đeo"
+    "meaning": "gọi (điện thoại), đeo",
+    "nai": "かけない"
   },
   {
     "group": 2,
@@ -784,7 +867,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かりる",
     "display": "かります",
     "sourcePage": 197,
-    "meaning": "mượn, vay"
+    "meaning": "mượn, vay",
+    "nai": "かりない"
   },
   {
     "group": 2,
@@ -793,7 +877,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かんがえる",
     "display": "かんがえます",
     "sourcePage": 197,
-    "meaning": "nghĩ, suy nghĩ"
+    "meaning": "nghĩ, suy nghĩ",
+    "nai": "かんがえない"
   },
   {
     "group": 2,
@@ -802,7 +887,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "きる",
     "display": "着ます（きます）",
     "sourcePage": 197,
-    "meaning": "mặc (áo sơ mi, v.v.)"
+    "meaning": "mặc (áo sơ mi, v.v.)",
+    "nai": "きない"
   },
   {
     "group": 2,
@@ -811,7 +897,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "きをつける",
     "display": "きをつけます",
     "sourcePage": 197,
-    "meaning": "chú ý, bảo trọng"
+    "meaning": "chú ý, bảo trọng",
+    "nai": "きをつけない"
   },
   {
     "group": 2,
@@ -820,7 +907,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "くれる",
     "display": "くれます",
     "sourcePage": 197,
-    "meaning": "cho, tặng (tôi)"
+    "meaning": "cho, tặng (tôi)",
+    "nai": "くれない"
   },
   {
     "group": 2,
@@ -829,7 +917,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しめる",
     "display": "しめます",
     "sourcePage": 197,
-    "meaning": "đóng (cửa, cửa sổ)"
+    "meaning": "đóng (cửa, cửa sổ)",
+    "nai": "しめない"
   },
   {
     "group": 2,
@@ -838,7 +927,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しらべる",
     "display": "しらべます",
     "sourcePage": 197,
-    "meaning": "tìm hiểu, kiểm tra, điều tra"
+    "meaning": "tìm hiểu, kiểm tra, điều tra",
+    "nai": "しらべない"
   },
   {
     "group": 2,
@@ -847,7 +937,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "すてる",
     "display": "すてます",
     "sourcePage": 197,
-    "meaning": "vứt, bỏ, bỏ đi"
+    "meaning": "vứt, bỏ, bỏ đi",
+    "nai": "すてない"
   },
   {
     "group": 2,
@@ -856,7 +947,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "たべる",
     "display": "たべます",
     "sourcePage": 197,
-    "meaning": "ăn"
+    "meaning": "ăn",
+    "nai": "たべない"
   },
   {
     "group": 2,
@@ -865,7 +957,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "たりる",
     "display": "たります",
     "sourcePage": 197,
-    "meaning": "đủ"
+    "meaning": "đủ",
+    "nai": "たりない"
   },
   {
     "group": 2,
@@ -874,7 +967,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つかれる",
     "display": "つかれます",
     "sourcePage": 197,
-    "meaning": "mệt"
+    "meaning": "mệt",
+    "nai": "つかれない"
   },
   {
     "group": 2,
@@ -883,7 +977,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つける",
     "display": "つけます",
     "sourcePage": 197,
-    "meaning": "bật"
+    "meaning": "bật",
+    "nai": "つけない"
   },
   {
     "group": 2,
@@ -892,7 +987,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "でかける",
     "display": "でかけます",
     "sourcePage": 197,
-    "meaning": "ra ngoài"
+    "meaning": "ra ngoài",
+    "nai": "でかけない"
   },
   {
     "group": 2,
@@ -901,7 +997,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "できる",
     "display": "できます",
     "sourcePage": 197,
-    "meaning": "có thể, làm được"
+    "meaning": "có thể, làm được",
+    "nai": "できない"
   },
   {
     "group": 2,
@@ -910,7 +1007,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "でる",
     "display": "でます",
     "sourcePage": 197,
-    "meaning": "ra"
+    "meaning": "ra",
+    "nai": "でない"
   },
   {
     "group": 2,
@@ -919,7 +1017,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "とめる",
     "display": "とめます",
     "sourcePage": 199,
-    "meaning": "dừng, đỗ"
+    "meaning": "dừng, đỗ",
+    "nai": "とめない"
   },
   {
     "group": 2,
@@ -928,7 +1027,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ねる",
     "display": "ねます",
     "sourcePage": 199,
-    "meaning": "ngủ, đi ngủ"
+    "meaning": "ngủ, đi ngủ",
+    "nai": "ねない"
   },
   {
     "group": 2,
@@ -937,7 +1037,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "のりかえる",
     "display": "のりかえます",
     "sourcePage": 199,
-    "meaning": "chuyển, đổi (tàu)"
+    "meaning": "chuyển, đổi (tàu)",
+    "nai": "のりかえない"
   },
   {
     "group": 2,
@@ -946,7 +1047,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "はじめる",
     "display": "はじめます",
     "sourcePage": 199,
-    "meaning": "bắt đầu"
+    "meaning": "bắt đầu",
+    "nai": "はじめない"
   },
   {
     "group": 2,
@@ -955,7 +1057,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "まける",
     "display": "まけます",
     "sourcePage": 199,
-    "meaning": "thua"
+    "meaning": "thua",
+    "nai": "まけない"
   },
   {
     "group": 2,
@@ -964,7 +1067,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "みせる",
     "display": "みせます",
     "sourcePage": 199,
-    "meaning": "cho xem, trình"
+    "meaning": "cho xem, trình",
+    "nai": "みせない"
   },
   {
     "group": 2,
@@ -973,7 +1077,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "みる",
     "display": "みます",
     "sourcePage": 199,
-    "meaning": "nhìn, xem"
+    "meaning": "nhìn, xem",
+    "nai": "みない"
   },
   {
     "group": 2,
@@ -982,7 +1087,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "むかえる",
     "display": "むかえます",
     "sourcePage": 199,
-    "meaning": "đón"
+    "meaning": "đón",
+    "nai": "むかえない"
   },
   {
     "group": 2,
@@ -991,7 +1097,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "やめる",
     "display": "やめます",
     "sourcePage": 199,
-    "meaning": "nghỉ, bỏ"
+    "meaning": "nghỉ, bỏ",
+    "nai": "やめない"
   },
   {
     "group": 2,
@@ -1000,7 +1107,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "わすれる",
     "display": "わすれます",
     "sourcePage": 199,
-    "meaning": "quên"
+    "meaning": "quên",
+    "nai": "わすれない"
   },
   {
     "group": 3,
@@ -1009,7 +1117,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "あんないする",
     "display": "あんないします",
     "sourcePage": 201,
-    "meaning": "hướng dẫn, giới thiệu, dẫn đường"
+    "meaning": "hướng dẫn, giới thiệu, dẫn đường",
+    "nai": "あんないしない"
   },
   {
     "group": 3,
@@ -1018,7 +1127,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "うんてんする",
     "display": "うんてんします",
     "sourcePage": 201,
-    "meaning": "lái"
+    "meaning": "lái",
+    "nai": "うんてんしない"
   },
   {
     "group": 3,
@@ -1027,7 +1137,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "かいものする",
     "display": "かいものします",
     "sourcePage": 201,
-    "meaning": "mua sắm, mua hàng"
+    "meaning": "mua sắm, mua hàng",
+    "nai": "かいものしない"
   },
   {
     "group": 3,
@@ -1036,7 +1147,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "くる",
     "display": "来ます（きます）",
     "sourcePage": 201,
-    "meaning": "đến"
+    "meaning": "đến",
+    "nai": "こない"
   },
   {
     "group": 3,
@@ -1045,7 +1157,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "けっこんする",
     "display": "けっこんします",
     "sourcePage": 201,
-    "meaning": "kết hôn, lập gia đình, cưới"
+    "meaning": "kết hôn, lập gia đình, cưới",
+    "nai": "けっこんしない"
   },
   {
     "group": 3,
@@ -1054,7 +1167,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "けんがくする",
     "display": "けんがくします",
     "sourcePage": 201,
-    "meaning": "tham quan kiến tập"
+    "meaning": "tham quan kiến tập",
+    "nai": "けんがくしない"
   },
   {
     "group": 3,
@@ -1063,7 +1177,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "けんきゅうする",
     "display": "けんきゅうします",
     "sourcePage": 201,
-    "meaning": "nghiên cứu"
+    "meaning": "nghiên cứu",
+    "nai": "けんきゅうしない"
   },
   {
     "group": 3,
@@ -1072,7 +1187,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "コピーする",
     "display": "コピーします",
     "sourcePage": 201,
-    "meaning": "copy, phô-tô"
+    "meaning": "copy, phô-tô",
+    "nai": "コピーしない"
   },
   {
     "group": 3,
@@ -1081,7 +1197,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "さんぽする",
     "display": "さんぽします",
     "sourcePage": 201,
-    "meaning": "đi dạo"
+    "meaning": "đi dạo",
+    "nai": "さんぽしない"
   },
   {
     "group": 3,
@@ -1090,7 +1207,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "ざんぎょうする",
     "display": "ざんぎょうします",
     "sourcePage": 201,
-    "meaning": "làm thêm giờ"
+    "meaning": "làm thêm giờ",
+    "nai": "ざんぎょうしない"
   },
   {
     "group": 3,
@@ -1099,7 +1217,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "する",
     "display": "します",
     "sourcePage": 201,
-    "meaning": "làm, chơi"
+    "meaning": "làm, chơi",
+    "nai": "しない"
   },
   {
     "group": 3,
@@ -1108,7 +1227,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しゅうりする",
     "display": "しゅうりします",
     "sourcePage": 201,
-    "meaning": "sửa chữa, tu sửa"
+    "meaning": "sửa chữa, tu sửa",
+    "nai": "しゅうりしない"
   },
   {
     "group": 3,
@@ -1117,7 +1237,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しゅっちょうする",
     "display": "しゅっちょうします",
     "sourcePage": 201,
-    "meaning": "đi công tác"
+    "meaning": "đi công tác",
+    "nai": "しゅっちょうしない"
   },
   {
     "group": 3,
@@ -1126,7 +1247,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しょうかいする",
     "display": "しょうかいします",
     "sourcePage": 201,
-    "meaning": "giới thiệu"
+    "meaning": "giới thiệu",
+    "nai": "しょうかいしない"
   },
   {
     "group": 3,
@@ -1135,7 +1257,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しょくじする",
     "display": "しょくじします",
     "sourcePage": 201,
-    "meaning": "ăn cơm, dùng bữa"
+    "meaning": "ăn cơm, dùng bữa",
+    "nai": "しょくじしない"
   },
   {
     "group": 3,
@@ -1144,7 +1267,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "しんぱいする",
     "display": "しんぱいします",
     "sourcePage": 201,
-    "meaning": "lo lắng"
+    "meaning": "lo lắng",
+    "nai": "しんぱいしない"
   },
   {
     "group": 3,
@@ -1153,7 +1277,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "せつめいする",
     "display": "せつめいします",
     "sourcePage": 201,
-    "meaning": "giải thích, trình bày"
+    "meaning": "giải thích, trình bày",
+    "nai": "せつめいしない"
   },
   {
     "group": 3,
@@ -1162,7 +1287,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "せんたくする",
     "display": "せんたくします",
     "sourcePage": 201,
-    "meaning": "giặt (quần áo)"
+    "meaning": "giặt (quần áo)",
+    "nai": "せんたくしない"
   },
   {
     "group": 3,
@@ -1171,7 +1297,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "そうじする",
     "display": "そうじします",
     "sourcePage": 201,
-    "meaning": "dọn vệ sinh (căn phòng)"
+    "meaning": "dọn vệ sinh (căn phòng)",
+    "nai": "そうじしない"
   },
   {
     "group": 3,
@@ -1180,7 +1307,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "つれてくる",
     "display": "つれてきます",
     "sourcePage": 201,
-    "meaning": "dẫn (một ai đó) đến"
+    "meaning": "dẫn (một ai đó) đến",
+    "nai": "つれてこない"
   },
   {
     "group": 3,
@@ -1189,7 +1317,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "でんわする",
     "display": "でんわします",
     "sourcePage": 201,
-    "meaning": "gọi điện thoại"
+    "meaning": "gọi điện thoại",
+    "nai": "でんわしない"
   },
   {
     "group": 3,
@@ -1198,7 +1327,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "べんきょうする",
     "display": "べんきょうします",
     "sourcePage": 201,
-    "meaning": "học"
+    "meaning": "học",
+    "nai": "べんきょうしない"
   },
   {
     "group": 3,
@@ -1207,7 +1337,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "もってくる",
     "display": "もってきます",
     "sourcePage": 201,
-    "meaning": "mang đến"
+    "meaning": "mang đến",
+    "nai": "もってこない"
   },
   {
     "group": 3,
@@ -1216,7 +1347,8 @@ const V29_VERB_APPENDIX = [
     "dictionary": "よやくする",
     "display": "よやくします",
     "sourcePage": 201,
-    "meaning": "đặt chỗ, đặt trước"
+    "meaning": "đặt chỗ, đặt trước",
+    "nai": "よやくしない"
   },
   {
     "group": 3,
@@ -1225,6 +1357,7 @@ const V29_VERB_APPENDIX = [
     "dictionary": "りゅうがくする",
     "display": "りゅうがくします",
     "sourcePage": 201,
-    "meaning": "du học"
+    "meaning": "du học",
+    "nai": "りゅうがくしない"
   }
 ];

@@ -1,0 +1,14 @@
+V32 NAI FORM AUDIT
+===================
+Verb entries: 136
+All entries have nai form: True
+
+Special cases:
+ある -> ない
+する -> しない
+くる -> こない
+いく -> いかない
+きる (着る) -> きない
+
+New mode:
+ない-form -> guess masu/base verb + Vietnamese meaning

@@ -1945,3 +1945,299 @@ html[data-theme="dark"] .v31-form-answer{
 html[data-theme="dark"] .v31-meaning-answer>strong{
   color:#bdc8cc;
 }
+
+
+/* ===== V32 — ない-form recognition flash ===== */
+.v32-nai-card>strong{font-size:clamp(42px,9vw,68px)}
+.v32-masu-answer>em{
+  font-style:normal;
+  margin-top:3px;
+  font-size:12px;
+  color:var(--muted);
+}
+.v32-base-info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.v32-base-info>span{
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--card);
+}
+.v32-base-info small{font-size:7px;color:#929aa1;font-weight:900}
+.v32-base-info b{font-size:17px;color:#53616b}
+html[data-theme="dark"] .v32-base-info>span{
+  background:#141a1f;
+  border-color:#30403f;
+}
+html[data-theme="dark"] .v32-base-info b{color:#bdc8cc}
+@media(max-width:520px){.v32-base-info{grid-template-columns:1fr}}
+
+
+/* ===== V33 — Particle Cloze Practice ===== */
+.v33-particle-card{
+  border-color:#d8c8ec!important;
+  background:linear-gradient(145deg,#fbf8ff,#fff)!important;
+}
+.v33-particle-card h3{color:#6d53a1}
+.v33-particle-card small{
+  display:block;
+  margin-top:5px;
+  font-size:7px;
+  color:#9299a5;
+}
+
+.v33-particle-hero{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:21px;
+  border:1px solid #ddd3ef;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fbf9ff,#fff);
+}
+.v33-kicker{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.12em;
+  color:#7056a5;
+}
+.v33-particle-hero h1{margin:5px 0;font-size:29px}
+.v33-particle-hero p{
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6;
+}
+.v33-stat{
+  min-width:155px;
+  display:grid;
+  justify-items:center;
+  gap:2px;
+  padding:13px 16px;
+  border:1px solid #e1daef;
+  border-radius:14px;
+  background:var(--card);
+}
+.v33-stat>b{font-size:32px;color:#6e55a3}
+.v33-stat>span{font-size:9px;font-weight:850}
+.v33-stat>small{font-size:7px;color:#999}
+
+.v33-particle-setup{margin-top:13px}
+.v33-particle-options{
+  display:flex;
+  align-items:end;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--card);
+}
+.v33-particle-options label{
+  display:grid;
+  gap:4px;
+  font-size:9px;
+  color:var(--muted);
+}
+.v33-particle-options select{
+  min-width:220px;
+  padding:9px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--card);
+  color:var(--text);
+}
+.v33-check{
+  display:flex!important;
+  align-items:center;
+  gap:8px!important;
+  padding:7px 9px;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+.v33-check input{width:16px;height:16px}
+.v33-check span{display:grid}
+.v33-check b{font-size:9px;color:var(--text)}
+.v33-check small{font-size:7px}
+.v33-count-info{
+  margin:8px 0;
+  font-size:9px;
+  color:var(--muted);
+}
+.v33-count-info b{color:#6e55a3}
+
+.v33-question-card{
+  max-width:820px;
+  margin:18px auto 0;
+  padding:21px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card);
+}
+.v33-qtop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:9px;
+  color:var(--muted);
+}
+.v33-qtop>div{display:flex;align-items:center;gap:7px}
+.v33-qtop span{
+  padding:4px 7px;
+  border-radius:999px;
+  background:#f0eaff;
+  color:#6c51a4;
+  font-weight:900;
+}
+.v33-qtop b{color:var(--text)}
+.v33-progress{max-width:none;margin:9px 0 15px}
+.v33-pattern{
+  display:inline-block;
+  margin-bottom:7px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#f6f3fb;
+  color:#74688b;
+  font-size:8px;
+}
+.v33-question{
+  margin:8px 0;
+  font-size:clamp(22px,4vw,32px);
+  font-weight:900;
+  line-height:1.6;
+}
+.v33-translation{
+  margin-bottom:14px;
+  color:#7e8791;
+  font-size:10px;
+}
+.v33-answers{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.v33-answers button{
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:11px 13px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--card);
+  color:var(--text);
+  font:inherit;
+  cursor:pointer;
+}
+.v33-answers button:hover{
+  border-color:#9b89c8;
+  background:#fbf9ff;
+}
+.v33-answers button>span{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background:#f0edf7;
+  font-size:9px;
+  font-weight:900;
+}
+.v33-answers button>b{
+  font-size:22px;
+}
+.v33-answers button.correct{
+  background:#eaf8f0;
+  border-color:#6fbc8d;
+}
+.v33-answers button.wrong{
+  background:#fff0f1;
+  border-color:#df8993;
+}
+.v33-feedback{margin-top:12px}
+.v33-full-sentence{
+  margin:5px 0;
+  font-size:17px;
+  font-weight:850;
+}
+.v33-feedback p{
+  margin:4px 0;
+  font-size:10px;
+}
+.v33-feedback small{color:#7f8790}
+.v33-next{text-align:right;margin-top:9px}
+
+.v33-result{
+  max-width:650px;
+  margin:18px auto;
+  padding:28px;
+  text-align:center;
+  border:1px solid #ddd3ef;
+  border-radius:20px;
+  background:linear-gradient(145deg,#fbf9ff,#fff);
+}
+.v33-result>span{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.1em;
+  color:#6e55a3;
+}
+.v33-result h2{
+  margin:8px 0;
+  font-size:54px;
+  color:#6e55a3;
+}
+.v33-result p{color:var(--muted)}
+.v33-weak{
+  display:flex;
+  justify-content:center;
+  gap:5px;
+  flex-wrap:wrap;
+  margin:12px 0;
+}
+.v33-weak>b{width:100%;font-size:9px}
+.v33-weak span{
+  padding:5px 8px;
+  border-radius:999px;
+  background:#f3eff9;
+  font-size:9px;
+}
+.v33-result-actions{
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+html[data-theme="dark"] .v33-particle-card,
+html[data-theme="dark"] .v33-particle-hero,
+html[data-theme="dark"] .v33-result{
+  background:linear-gradient(145deg,#1c1725,#14171d)!important;
+  border-color:#47385d!important;
+}
+html[data-theme="dark"] .v33-pattern,
+html[data-theme="dark"] .v33-weak span{
+  background:#211a2e;
+  color:#c1b3df;
+}
+html[data-theme="dark"] .v33-answers button:hover{
+  background:#211b2a;
+  border-color:#68548b;
+}
+
+@media(max-width:700px){
+  .v33-particle-hero{grid-template-columns:1fr}
+  .v33-stat{width:100%;box-sizing:border-box}
+  .v33-particle-options{flex-direction:column;align-items:stretch}
+  .v33-particle-options label,.v33-particle-options select{width:100%}
+}
+@media(max-width:520px){
+  .v33-answers{grid-template-columns:1fr}
+}
