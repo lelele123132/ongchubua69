@@ -1,0 +1,2 @@
+Verb entries: 136
+All have ta: True

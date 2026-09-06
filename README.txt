@@ -633,3 +633,25 @@ Tính năng:
 - Random bộ mới.
 - Cuối lượt thống kê trợ từ sai nhiều.
 - Recall Memory tích hợp.
+
+
+V34 - THÊM た-FORM + THỂ NGUYÊN DẠNG
+-------------------------------------
+Trong Động từ cuối sách có 4 mode:
+1. ます -> て-form
+2. ます -> た-form
+3. ます -> Thể nguyên dạng（辞書形）
+4. ない-form -> đoán động từ + nghĩa
+
+Nghĩa tiếng Việt vẫn chỉ hiện sau khi lật.
+
+
+V35 - FLASHCARD RANDOM NHẬT -> VIỆT • CHỌN BÀI 1-50
+-----------------------------------------------------
+- Có card riêng trong Luyện tập.
+- Chọn bất kỳ Bài 1–50, nhiều bài cùng lúc.
+- 10 / 20 / 50 / 100 / tất cả.
+- Mặt trước: Kana tiếng Nhật, không hiện nghĩa/kanji.
+- Lật: nghĩa Việt + Kanji phụ nếu có.
+- Quên/Nhớ, ôn lại thẻ quên, random bộ mới.
+- Recall skill: flash-jp-vi.

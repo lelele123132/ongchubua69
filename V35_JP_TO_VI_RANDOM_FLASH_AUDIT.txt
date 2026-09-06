@@ -1,0 +1,10 @@
+V35 JP -> VI RANDOM FLASH AUDIT
+================================
+Scope: lessons 1-50
+Front: Kana only
+Back: Vietnamese meaning + optional Kanji
+Counts: 10 / 20 / 50 / 100 / all
+Multi-lesson: yes
+Forgot/Remember: yes
+Retry forgotten: yes
+Recall: flash-jp-vi
