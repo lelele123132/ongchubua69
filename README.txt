@@ -655,3 +655,12 @@ V35 - FLASHCARD RANDOM NHẬT -> VIỆT • CHỌN BÀI 1-50
 - Lật: nghĩa Việt + Kanji phụ nếu có.
 - Quên/Nhớ, ôn lại thẻ quên, random bộ mới.
 - Recall skill: flash-jp-vi.
+
+
+V36 - FLASH て / ない / た -> ĐOÁN NGHĨA
+-----------------------------------------
+- Trộn ngẫu nhiên て / ない / た hoặc chọn riêng.
+- Mặt trước chỉ hiện dạng đã chia.
+- Lật mới hiện nghĩa + ます + 辞書形 + て + ない + た.
+- 10 / 20 / 50 / tất cả.
+- Quên / Nhớ, ôn lại thẻ quên, random bộ mới.

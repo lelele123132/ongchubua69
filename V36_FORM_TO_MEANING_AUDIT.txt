@@ -1,0 +1,2 @@
+Verbs: 136
+All have te/nai/ta/dictionary/meaning: True
